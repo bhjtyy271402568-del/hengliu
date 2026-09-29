@@ -1,0 +1,522 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" width="3440" height="1720">
+<rect width="100%" height="100%" fill="white"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<line x1="196" y1="60" x2="221" y2="60" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="700" y1="310" x2="700" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="733" y1="320" x2="700" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="689" y1="320" x2="700" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="195" x2="483" y2="235" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="443" y1="195" x2="483" y2="195" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="443" y1="195" x2="443" y2="205" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="602" y1="195" x2="483" y2="195" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="602" y1="195" x2="602" y2="206" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="195" x2="483" y2="181" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="602" y1="255" x2="565" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="602" y1="255" x2="602" y2="246" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="565" y1="270.0000000000002" x2="565" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="516" y1="255" x2="565" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="516" y1="255" x2="516" y2="265" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="430" y1="255" x2="443" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="443" y1="255" x2="463" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="443" y1="255" x2="443" y2="245" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="378" y1="265" x2="378" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="378" y1="255" x2="378" y2="235" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="389.99999999999994" y1="255" x2="378" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="378" y1="185" x2="378" y2="195" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="115" x2="310" y2="155" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="115" x2="279" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="279" y1="115" x2="279" y2="125" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="279" y1="125" x2="278" y2="125" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="279" y1="105" x2="279" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="279" y1="105" x2="278" y2="105" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="278" y1="115" x2="279" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="115" x2="343" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="343" y1="115" x2="343" y2="160" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="115" x2="343" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="115" x2="700" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="700" y1="115" x2="700" y2="165" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="700" y1="109" x2="700" y2="115" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="278" y1="245" x2="278" y2="135" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="245" x2="278" y2="245" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="245" x2="310" y2="195" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="245" x2="343" y2="245" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="343" y1="245" x2="343" y2="200" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="245" x2="310" y2="264" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="190" x2="223" y2="265" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="700" y1="195" x2="700" y2="270" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="163" y1="115" x2="163" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="163" y1="120" x2="163" y2="240" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="163" y1="120" x2="193" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="120" x2="193" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="120" x2="223" y2="160" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="120" x2="228" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="193" y1="120" x2="193.158024691358" y2="216.7382716049383" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="193" y1="320" x2="163" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="163" y1="250" x2="163" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="320" x2="193" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="320" x2="223" y2="305" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="223" y1="320" x2="310" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="310" y1="304" x2="310" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="378" y1="320" x2="310" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="378" y1="320" x2="378" y2="305" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="320" x2="378" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="320" x2="483" y2="275" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="516" y1="320" x2="483" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="516" y1="320" x2="516" y2="305" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="516" y1="320" x2="565" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="565" y1="320" x2="565" y2="310.0000000000002" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="565" y1="320" x2="585" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="585" y1="320" x2="585" y2="360" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="73" y1="120" x2="88" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="73" y1="120" x2="73" y2="110" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="58" y1="120" x2="73" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="88" y1="120" x2="88" y2="210" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="58" y1="210" x2="58" y2="120" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="58" y1="240" x2="58" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="58" y1="320" x2="73" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="73" y1="325" x2="73" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="88" y1="320" x2="73" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="88" y1="240" x2="88" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="736" y1="112" x2="801" y2="112" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="801" y1="112" x2="866" y2="112" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="736" y1="197" x2="736" y2="112" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="801" y1="197" x2="801" y2="112" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="866" y1="317" x2="801" y2="317" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="801" y1="317" x2="736" y2="317" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="736" y1="237" x2="736" y2="317" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="801" y1="237" x2="801" y2="317" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="321" y1="60" x2="336" y2="60" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="281" y1="60" x2="261" y2="60" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="483" y1="115" x2="483" y2="141" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="689" y1="360" x2="689" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="689" y1="320" x2="632" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="585" y1="360" x2="649" y2="360" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="592" y1="320" x2="585" y2="320" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="193" y1="320" x2="193.158024691358" y2="266.7382716049383" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="602" y1="300" x2="602" y2="295" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="602" y1="255" x2="613" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="659" y1="340" x2="659" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+<line x1="659" y1="255" x2="653" y2="255" stroke="#1677ff" stroke-width="1.2"/>
+</g>
+<line x1="163" y1="320" x2="163" y2="325" stroke="#d4380d" stroke-width="1.4"/>
+<text x="164" y="319" font-size="5" fill="#a8071a">1</text>
+<circle cx="163" cy="320" r="1.5" fill="#222"/>
+<text x="166" y="317" font-size="7" font-family="Arial,sans-serif" fill="#111">VCC_BAT</text>
+<line x1="73" y1="325" x2="73" y2="330" stroke="#d4380d" stroke-width="1.4"/>
+<text x="74" y="324" font-size="5" fill="#a8071a">1</text>
+<circle cx="73" cy="325" r="1.5" fill="#222"/>
+<text x="76" y="322" font-size="7" font-family="Arial,sans-serif" fill="#111">VCC_BAT</text>
+<line x1="700" y1="320" x2="700" y2="325" stroke="#d4380d" stroke-width="1.4"/>
+<text x="701" y="319" font-size="5" fill="#a8071a">1</text>
+<circle cx="700" cy="320" r="1.5" fill="#222"/>
+<text x="703" y="317" font-size="7" font-family="Arial,sans-serif" fill="#111">DCBUS</text>
+<line x1="196" y1="60" x2="191" y2="60" stroke="#d4380d" stroke-width="1.4"/>
+<text x="197" y="59" font-size="5" fill="#a8071a">1</text>
+<circle cx="196" cy="60" r="1.5" fill="#222"/>
+<text x="199" y="57" font-size="7" font-family="Arial,sans-serif" fill="#111">DCBUS</text>
+<polygon points="153.00000000000003,250 123.00000000000003,250 123.00000000000003,280 153.00000000000003,280" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="163.00000000000003" y1="240" x2="153.00000000000003" y2="240" stroke="#d4380d" stroke-width="1.4"/>
+<text x="164.00000000000003" y="239" font-size="5" fill="#a8071a">1</text>
+<line x1="163.00000000000003" y1="250" x2="153.00000000000003" y2="250" stroke="#d4380d" stroke-width="1.4"/>
+<text x="164.00000000000003" y="249" font-size="5" fill="#a8071a">2</text>
+<line x1="128.00000000000003" y1="270" x2="128.00000000000003" y2="260" stroke="#d4380d" stroke-width="1.4"/>
+<text x="129.00000000000003" y="269" font-size="5" fill="#a8071a">3</text>
+<line x1="128.00000000000003" y1="220" x2="128.00000000000003" y2="230" stroke="#d4380d" stroke-width="1.4"/>
+<text x="129.00000000000003" y="219" font-size="5" fill="#a8071a">4</text>
+<circle cx="143.00000000000003" cy="255" r="1.5" fill="#222"/>
+<text x="146.00000000000003" y="252" font-size="7" font-family="Arial,sans-serif" fill="#111">CN2</text>
+<line x1="163" y1="115" x2="163" y2="105" stroke="#d4380d" stroke-width="1.4"/>
+<text x="164" y="114" font-size="5" fill="#a8071a">1</text>
+<circle cx="163" cy="115" r="1.5" fill="#222"/>
+<text x="166" y="112" font-size="7" font-family="Arial,sans-serif" fill="#111">GND_BAT</text>
+<line x1="73" y1="110" x2="73" y2="100" stroke="#d4380d" stroke-width="1.4"/>
+<text x="74" y="109" font-size="5" fill="#a8071a">1</text>
+<circle cx="73" cy="110" r="1.5" fill="#222"/>
+<text x="76" y="107" font-size="7" font-family="Arial,sans-serif" fill="#111">GND_BAT</text>
+<line x1="378" y1="185" x2="378" y2="175" stroke="#d4380d" stroke-width="1.4"/>
+<text x="379" y="184" font-size="5" fill="#a8071a">1</text>
+<circle cx="378" cy="185" r="1.5" fill="#222"/>
+<text x="381" y="182" font-size="7" font-family="Arial,sans-serif" fill="#111">GND_BAT</text>
+<polygon points="49.5,219.5 49.5,230.5 66.5,230.5 66.5,219.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="58" y1="210" x2="58" y2="220" stroke="#d4380d" stroke-width="1.4"/>
+<text x="59" y="209" font-size="5" fill="#a8071a">1</text>
+<line x1="58" y1="240" x2="58" y2="230" stroke="#d4380d" stroke-width="1.4"/>
+<text x="59" y="239" font-size="5" fill="#a8071a">2</text>
+<circle cx="58" cy="225" r="1.5" fill="#222"/>
+<text x="61" y="222" font-size="7" font-family="Arial,sans-serif" fill="#111">C3 ={Value}</text>
+<polygon points="79.5,219.5 79.5,230.5 96.5,230.5 96.5,219.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="88" y1="210" x2="88" y2="220" stroke="#d4380d" stroke-width="1.4"/>
+<text x="89" y="209" font-size="5" fill="#a8071a">1</text>
+<line x1="88" y1="240" x2="88" y2="230" stroke="#d4380d" stroke-width="1.4"/>
+<text x="89" y="239" font-size="5" fill="#a8071a">2</text>
+<circle cx="88" cy="225" r="1.5" fill="#222"/>
+<text x="91" y="222" font-size="7" font-family="Arial,sans-serif" fill="#111">C4 ={Value}</text>
+<polygon points="857.5,211.5 857.5,222.5 874.5,222.5 874.5,211.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="866" y1="202" x2="866" y2="212" stroke="#d4380d" stroke-width="1.4"/>
+<text x="867" y="201" font-size="5" fill="#a8071a">1</text>
+<line x1="866" y1="232" x2="866" y2="222" stroke="#d4380d" stroke-width="1.4"/>
+<text x="867" y="231" font-size="5" fill="#a8071a">2</text>
+<circle cx="866" cy="217" r="1.5" fill="#222"/>
+<text x="869" y="214" font-size="7" font-family="Arial,sans-serif" fill="#111">C10 ={Value}</text>
+<polygon points="917.5,211.5 917.5,222.5 934.5,222.5 934.5,211.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="926" y1="202" x2="926" y2="212" stroke="#d4380d" stroke-width="1.4"/>
+<text x="927" y="201" font-size="5" fill="#a8071a">1</text>
+<line x1="926" y1="232" x2="926" y2="222" stroke="#d4380d" stroke-width="1.4"/>
+<text x="927" y="231" font-size="5" fill="#a8071a">2</text>
+<circle cx="926" cy="217" r="1.5" fill="#222"/>
+<text x="929" y="214" font-size="7" font-family="Arial,sans-serif" fill="#111">C11 ={Value}</text>
+<polygon points="183.658024691358,226.2382716049383 183.658024691358,257.2382716049383 202.658024691358,257.2382716049383 202.658024691358,226.2382716049383" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="193.158024691358" y1="216.7382716049383" x2="193.158024691358" y2="226.7382716049383" stroke="#d4380d" stroke-width="1.4"/>
+<text x="194.158024691358" y="215.7382716049383" font-size="5" fill="#a8071a">1</text>
+<line x1="193.158024691358" y1="266.7382716049383" x2="193.158024691358" y2="256.7382716049383" stroke="#d4380d" stroke-width="1.4"/>
+<text x="194.158024691358" y="265.7382716049383" font-size="5" fill="#a8071a">2</text>
+<circle cx="193.158024691358" cy="241.7382716049383" r="1.5" fill="#222"/>
+<text x="196.158024691358" y="238.7382716049383" font-size="7" font-family="Arial,sans-serif" fill="#111">D6 ={Manufacturer Part}</text>
+<polygon points="218,275 218,295 228,295 228,275" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="223" y1="305" x2="223" y2="295" stroke="#d4380d" stroke-width="1.4"/>
+<text x="224" y="304" font-size="5" fill="#a8071a">2</text>
+<line x1="223" y1="265" x2="223" y2="275" stroke="#d4380d" stroke-width="1.4"/>
+<text x="224" y="264" font-size="5" fill="#a8071a">1</text>
+<circle cx="223" cy="285" r="1.5" fill="#222"/>
+<text x="226" y="282" font-size="7" font-family="Arial,sans-serif" fill="#111">R6 300mΩ</text>
+<polygon points="695,280 695,300 705,300 705,280" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="700" y1="310" x2="700" y2="300" stroke="#d4380d" stroke-width="1.4"/>
+<text x="701" y="309" font-size="5" fill="#a8071a">2</text>
+<line x1="700" y1="270" x2="700" y2="280" stroke="#d4380d" stroke-width="1.4"/>
+<text x="701" y="269" font-size="5" fill="#a8071a">1</text>
+<circle cx="700" cy="290" r="1.5" fill="#222"/>
+<text x="703" y="287" font-size="7" font-family="Arial,sans-serif" fill="#111">R17 300mΩ</text>
+<polygon points="231.5,185.5 231.5,169.5 214.5,169.5 214.5,185.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="223" y1="190" x2="223" y2="180" stroke="#d4380d" stroke-width="1.4"/>
+<text x="224" y="189" font-size="5" fill="#a8071a">1</text>
+<line x1="223" y1="160" x2="223" y2="170" stroke="#d4380d" stroke-width="1.4"/>
+<text x="224" y="159" font-size="5" fill="#a8071a">2</text>
+<circle cx="223" cy="175" r="1.5" fill="#222"/>
+<text x="226" y="172" font-size="7" font-family="Arial,sans-serif" fill="#111">C5 ={Value}</text>
+<polygon points="708.5,190.49999999999977 708.5,174.49999999999977 691.5,174.49999999999977 691.5,190.49999999999977" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="700" y1="194.99999999999977" x2="700" y2="184.99999999999977" stroke="#d4380d" stroke-width="1.4"/>
+<text x="701" y="193.99999999999977" font-size="5" fill="#a8071a">1</text>
+<line x1="700" y1="164.99999999999977" x2="700" y2="174.99999999999977" stroke="#d4380d" stroke-width="1.4"/>
+<text x="701" y="163.99999999999977" font-size="5" fill="#a8071a">2</text>
+<circle cx="700" cy="179.99999999999977" r="1.5" fill="#222"/>
+<text x="703" y="176.99999999999977" font-size="7" font-family="Arial,sans-serif" fill="#111">C9 ={Value}</text>
+<polygon points="739,335 739,347 727,347 727,335" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="733" y1="320" x2="733" y2="335" stroke="#d4380d" stroke-width="1.4"/>
+<text x="734" y="319" font-size="5" fill="#a8071a">1</text>
+<circle cx="733" cy="345" r="1.5" fill="#222"/>
+<text x="736" y="342" font-size="7" font-family="Arial,sans-serif" fill="#111">CN8 ={Manufacturer Part}</text>
+<polygon points="374,275 374,295 382,295 382,275" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="378" y1="305" x2="378" y2="295" stroke="#d4380d" stroke-width="1.4"/>
+<text x="379" y="304" font-size="5" fill="#a8071a">2</text>
+<line x1="378" y1="265" x2="378" y2="275" stroke="#d4380d" stroke-width="1.4"/>
+<text x="379" y="264" font-size="5" fill="#a8071a">1</text>
+<circle cx="378" cy="285" r="1.5" fill="#222"/>
+<text x="381" y="282" font-size="7" font-family="Arial,sans-serif" fill="#111">R8 ={Value}</text>
+<polygon points="420,251 400,251 400,259 420,259" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="390" y1="255" x2="400" y2="255" stroke="#d4380d" stroke-width="1.4"/>
+<text x="391" y="254" font-size="5" fill="#a8071a">2</text>
+<line x1="430" y1="255" x2="420" y2="255" stroke="#d4380d" stroke-width="1.4"/>
+<text x="431" y="254" font-size="5" fill="#a8071a">1</text>
+<circle cx="410" cy="255" r="1.5" fill="#222"/>
+<text x="413" y="252" font-size="7" font-family="Arial,sans-serif" fill="#111">R9 ={Value}</text>
+<polygon points="334.5,169.5 334.5,190.5 351.5,190.5 351.5,169.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="343" y1="160" x2="343" y2="170" stroke="#d4380d" stroke-width="1.4"/>
+<text x="344" y="159" font-size="5" fill="#a8071a">1</text>
+<line x1="343" y1="200" x2="343" y2="190" stroke="#d4380d" stroke-width="1.4"/>
+<text x="344" y="199" font-size="5" fill="#a8071a">2</text>
+<circle cx="343" cy="180" r="1.5" fill="#222"/>
+<text x="346" y="177" font-size="7" font-family="Arial,sans-serif" fill="#111">C6 ={Value}</text>
+<polygon points="434.5,214.5 434.5,235.5 451.5,235.5 451.5,214.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="443" y1="205" x2="443" y2="215" stroke="#d4380d" stroke-width="1.4"/>
+<text x="444" y="204" font-size="5" fill="#a8071a">1</text>
+<line x1="443" y1="245" x2="443" y2="235" stroke="#d4380d" stroke-width="1.4"/>
+<text x="444" y="244" font-size="5" fill="#a8071a">2</text>
+<circle cx="443" cy="225" r="1.5" fill="#222"/>
+<text x="446" y="222" font-size="7" font-family="Arial,sans-serif" fill="#111">C7 ={Value}</text>
+<polygon points="507.5,274.5 507.5,295.5 524.5,295.5 524.5,274.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="516" y1="265" x2="516" y2="275" stroke="#d4380d" stroke-width="1.4"/>
+<text x="517" y="264" font-size="5" fill="#a8071a">1</text>
+<line x1="516" y1="305" x2="516" y2="295" stroke="#d4380d" stroke-width="1.4"/>
+<text x="517" y="304" font-size="5" fill="#a8071a">2</text>
+<circle cx="516" cy="285" r="1.5" fill="#222"/>
+<text x="519" y="282" font-size="7" font-family="Arial,sans-serif" fill="#111">C8 ={Value}</text>
+<polygon points="318.5,185.5 318.5,164.5 301.5,164.5 301.5,185.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="310" y1="195" x2="310" y2="185" stroke="#d4380d" stroke-width="1.4"/>
+<text x="311" y="194" font-size="5" fill="#a8071a">1</text>
+<line x1="310" y1="155" x2="310" y2="165" stroke="#d4380d" stroke-width="1.4"/>
+<text x="311" y="154" font-size="5" fill="#a8071a">2</text>
+<circle cx="310" cy="175" r="1.5" fill="#222"/>
+<text x="313" y="172" font-size="7" font-family="Arial,sans-serif" fill="#111">D7</text>
+<polygon points="573.5,300.5 573.5,279.5 556.5,279.5 556.5,300.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="565" y1="310" x2="565" y2="300" stroke="#d4380d" stroke-width="1.4"/>
+<text x="566" y="309" font-size="5" fill="#a8071a">1</text>
+<line x1="565" y1="270" x2="565" y2="280" stroke="#d4380d" stroke-width="1.4"/>
+<text x="566" y="269" font-size="5" fill="#a8071a">2</text>
+<circle cx="565" cy="290" r="1.5" fill="#222"/>
+<text x="568" y="287" font-size="7" font-family="Arial,sans-serif" fill="#111">D8</text>
+<polygon points="386.5,225.49999999999977 386.5,204.49999999999977 369.5,204.49999999999977 369.5,225.49999999999977" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="378" y1="234.99999999999977" x2="378" y2="224.99999999999977" stroke="#d4380d" stroke-width="1.4"/>
+<text x="379" y="233.99999999999977" font-size="5" fill="#a8071a">1</text>
+<line x1="378" y1="194.99999999999977" x2="378" y2="204.99999999999977" stroke="#d4380d" stroke-width="1.4"/>
+<text x="379" y="193.99999999999977" font-size="5" fill="#a8071a">2</text>
+<circle cx="378" cy="214.99999999999977" r="1.5" fill="#222"/>
+<text x="381" y="211.99999999999977" font-size="7" font-family="Arial,sans-serif" fill="#111">U7</text>
+<polygon points="472.5000000000001,244.5 483.5000000000001,244.5 483.5000000000001,265.5 472.5000000000001,265.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="463.0000000000001" y1="255" x2="473.0000000000001" y2="255" stroke="#d4380d" stroke-width="1.4"/>
+<text x="464.0000000000001" y="254" font-size="5" fill="#a8071a">1</text>
+<line x1="483.0000000000001" y1="275" x2="483.0000000000001" y2="265" stroke="#d4380d" stroke-width="1.4"/>
+<text x="484.0000000000001" y="274" font-size="5" fill="#a8071a">2</text>
+<line x1="483.0000000000001" y1="235" x2="483.0000000000001" y2="245" stroke="#d4380d" stroke-width="1.4"/>
+<text x="484.0000000000001" y="234" font-size="5" fill="#a8071a">3</text>
+<circle cx="473.0000000000001" cy="255" r="1.5" fill="#222"/>
+<text x="476.0000000000001" y="252" font-size="7" font-family="Arial,sans-serif" fill="#111">Q11</text>
+<polygon points="601.5,307.5 601.5,333.5 622.5,333.5 622.5,307.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="632" y1="320" x2="622" y2="320" stroke="#d4380d" stroke-width="1.4"/>
+<text x="633" y="319" font-size="5" fill="#a8071a">4</text>
+<line x1="602" y1="300" x2="602" y2="308" stroke="#d4380d" stroke-width="1.4"/>
+<text x="603" y="299" font-size="5" fill="#a8071a">1</text>
+<line x1="592" y1="320" x2="602" y2="320" stroke="#d4380d" stroke-width="1.4"/>
+<text x="593" y="319" font-size="5" fill="#a8071a">3</text>
+<circle cx="612" cy="320" r="1.5" fill="#222"/>
+<text x="615" y="317" font-size="7" font-family="Arial,sans-serif" fill="#111">Q12 ={Manufacturer Part}</text>
+<line x1="336" y1="60" x2="346" y2="60" stroke="#d4380d" stroke-width="1.4"/>
+<text x="337" y="59" font-size="5" fill="#a8071a">1</text>
+<circle cx="336" cy="60" r="1.5" fill="#222"/>
+<text x="339" y="57" font-size="7" font-family="Arial,sans-serif" fill="#111">GND</text>
+<polygon points="231,65 251,65 251,55 231,55" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="261" y1="60" x2="251" y2="60" stroke="#d4380d" stroke-width="1.4"/>
+<text x="262" y="59" font-size="5" fill="#a8071a">2</text>
+<line x1="221" y1="60" x2="231" y2="60" stroke="#d4380d" stroke-width="1.4"/>
+<text x="222" y="59" font-size="5" fill="#a8071a">1</text>
+<circle cx="241" cy="60" r="1.5" fill="#222"/>
+<text x="244" y="57" font-size="7" font-family="Arial,sans-serif" fill="#111">R20 ={Value}</text>
+<polygon points="743.5,227.5 743.5,206.5 728.47,206.5 728.47,227.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="736" y1="237" x2="736" y2="227" stroke="#d4380d" stroke-width="1.4"/>
+<text x="737" y="236" font-size="5" fill="#a8071a">1</text>
+<line x1="736" y1="197" x2="736" y2="207" stroke="#d4380d" stroke-width="1.4"/>
+<text x="737" y="196" font-size="5" fill="#a8071a">2</text>
+<circle cx="736" cy="217" r="1.5" fill="#222"/>
+<text x="739" y="214" font-size="7" font-family="Arial,sans-serif" fill="#111">C17 ={Value}</text>
+<polygon points="808.5,227.5 808.5,206.5 793.47,206.5 793.47,227.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="801" y1="237" x2="801" y2="227" stroke="#d4380d" stroke-width="1.4"/>
+<text x="802" y="236" font-size="5" fill="#a8071a">1</text>
+<line x1="801" y1="197" x2="801" y2="207" stroke="#d4380d" stroke-width="1.4"/>
+<text x="802" y="196" font-size="5" fill="#a8071a">2</text>
+<circle cx="801" cy="217" r="1.5" fill="#222"/>
+<text x="804" y="214" font-size="7" font-family="Arial,sans-serif" fill="#111">C18 ={Value}</text>
+<polygon points="295.5,68.5 317.5,68.5 317.5,42.5 295.5,42.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="281" y1="60" x2="296" y2="60" stroke="#d4380d" stroke-width="1.4"/>
+<text x="282" y="59" font-size="5" fill="#a8071a">1</text>
+<line x1="321" y1="60" x2="306" y2="60" stroke="#d4380d" stroke-width="1.4"/>
+<text x="322" y="59" font-size="5" fill="#a8071a">2</text>
+<circle cx="301" cy="60" r="1.5" fill="#222"/>
+<text x="304" y="57" font-size="7" font-family="Arial,sans-serif" fill="#111">L1 ={Manufacturer Part}</text>
+<polygon points="267.9999999999999,95 237.9999999999999,95 237.9999999999999,145 267.9999999999999,145" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="227.9999999999999" y1="120" x2="237.9999999999999" y2="120" stroke="#d4380d" stroke-width="1.4"/>
+<text x="228.9999999999999" y="119" font-size="5" fill="#a8071a">5</text>
+<line x1="277.9999999999999" y1="135" x2="267.9999999999999" y2="135" stroke="#d4380d" stroke-width="1.4"/>
+<text x="278.9999999999999" y="134" font-size="5" fill="#a8071a">4</text>
+<line x1="277.9999999999999" y1="125" x2="267.9999999999999" y2="125" stroke="#d4380d" stroke-width="1.4"/>
+<text x="278.9999999999999" y="124" font-size="5" fill="#a8071a">3</text>
+<line x1="277.9999999999999" y1="115" x2="267.9999999999999" y2="115" stroke="#d4380d" stroke-width="1.4"/>
+<text x="278.9999999999999" y="114" font-size="5" fill="#a8071a">2</text>
+<line x1="277.9999999999999" y1="105" x2="267.9999999999999" y2="105" stroke="#d4380d" stroke-width="1.4"/>
+<text x="278.9999999999999" y="104" font-size="5" fill="#a8071a">1</text>
+<circle cx="252.9999999999999" cy="120" r="1.5" fill="#222"/>
+<text x="255.9999999999999" y="117" font-size="7" font-family="Arial,sans-serif" fill="#111">Q4</text>
+<polygon points="925.4999999999999,-30.49999999999943 914.4999999999999,-30.49999999999943 914.4999999999999,-13.499999999999432 925.4999999999999,-13.499999999999432" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="934.9999999999999" y1="-21.99999999999943" x2="924.9999999999999" y2="-21.99999999999943" stroke="#d4380d" stroke-width="1.4"/>
+<text x="935.9999999999999" y="-22.99999999999943" font-size="5" fill="#a8071a">1</text>
+<line x1="904.9999999999999" y1="-21.99999999999943" x2="914.9999999999999" y2="-21.99999999999943" stroke="#d4380d" stroke-width="1.4"/>
+<text x="905.9999999999999" y="-22.99999999999943" font-size="5" fill="#a8071a">2</text>
+<circle cx="919.9999999999999" cy="-21.99999999999943" r="1.5" fill="#222"/>
+<text x="922.9999999999999" y="-24.99999999999943" font-size="7" font-family="Arial,sans-serif" fill="#111">C21 ={Value}</text>
+<line x1="515.0625" y1="-49.5625" x2="515.0625" y2="-44.5625" stroke="#d4380d" stroke-width="1.4"/>
+<text x="516.0625" y="-50.5625" font-size="5" fill="#a8071a">1</text>
+<circle cx="515.0625" cy="-49.5625" r="1.5" fill="#222"/>
+<text x="518.0625" y="-52.5625" font-size="7" font-family="Arial,sans-serif" fill="#111">VCC</text>
+<polygon points="529.7847222222222,-86.72916666666674 529.7847222222222,-107.72916666666674 512.7847222222222,-107.72916666666674 512.7847222222222,-86.72916666666674" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="521.2847222222222" y1="-77.22916666666674" x2="521.2847222222222" y2="-87.22916666666674" stroke="#d4380d" stroke-width="1.4"/>
+<text x="522.2847222222222" y="-78.22916666666674" font-size="5" fill="#a8071a">1</text>
+<line x1="521.2847222222222" y1="-117.22916666666674" x2="521.2847222222222" y2="-107.22916666666674" stroke="#d4380d" stroke-width="1.4"/>
+<text x="522.2847222222222" y="-118.22916666666674" font-size="5" fill="#a8071a">2</text>
+<circle cx="521.2847222222222" cy="-97.22916666666674" r="1.5" fill="#222"/>
+<text x="524.2847222222222" y="-100.22916666666674" font-size="7" font-family="Arial,sans-serif" fill="#111">C56 ={Value}</text>
+<polygon points="561.7847222222222,-87.0625 561.7847222222222,-108.0625 544.7847222222222,-108.0625 544.7847222222222,-87.0625" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="553.2847222222222" y1="-77.5625" x2="553.2847222222222" y2="-87.5625" stroke="#d4380d" stroke-width="1.4"/>
+<text x="554.2847222222222" y="-78.5625" font-size="5" fill="#a8071a">1</text>
+<line x1="553.2847222222222" y1="-117.5625" x2="553.2847222222222" y2="-107.5625" stroke="#d4380d" stroke-width="1.4"/>
+<text x="554.2847222222222" y="-118.5625" font-size="5" fill="#a8071a">2</text>
+<circle cx="553.2847222222222" cy="-97.5625" r="1.5" fill="#222"/>
+<text x="556.2847222222222" y="-100.5625" font-size="7" font-family="Arial,sans-serif" fill="#111">C57 ={Value}</text>
+<line x1="885" y1="-22" x2="885" y2="-17" stroke="#d4380d" stroke-width="1.4"/>
+<text x="886" y="-23" font-size="5" fill="#a8071a">1</text>
+<circle cx="885" cy="-22" r="1.5" fill="#222"/>
+<text x="888" y="-25" font-size="7" font-family="Arial,sans-serif" fill="#111">DCBUS</text>
+<polygon points="946,-52 946,-32 956,-32 956,-52" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="951" y1="-22" x2="951" y2="-32" stroke="#d4380d" stroke-width="1.4"/>
+<text x="952" y="-23" font-size="5" fill="#a8071a">2</text>
+<line x1="951" y1="-62" x2="951" y2="-52" stroke="#d4380d" stroke-width="1.4"/>
+<text x="952" y="-63" font-size="5" fill="#a8071a">1</text>
+<circle cx="951" cy="-42" r="1.5" fill="#222"/>
+<text x="954" y="-45" font-size="7" font-family="Arial,sans-serif" fill="#111">R13 ={Value}</text>
+<polygon points="826,-57 826,-37 834,-37 834,-57" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="830" y1="-27" x2="830" y2="-37" stroke="#d4380d" stroke-width="1.4"/>
+<text x="831" y="-28" font-size="5" fill="#a8071a">2</text>
+<line x1="830" y1="-67" x2="830" y2="-57" stroke="#d4380d" stroke-width="1.4"/>
+<text x="831" y="-68" font-size="5" fill="#a8071a">1</text>
+<circle cx="830" cy="-47" r="1.5" fill="#222"/>
+<text x="833" y="-50" font-size="7" font-family="Arial,sans-serif" fill="#111">R15 ={Value}</text>
+<polygon points="479.39236111110984,-86.39583333333371 479.39236111110984,-107.39583333333371 462.39236111110984,-107.39583333333371 462.39236111110984,-86.39583333333371" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="470.89236111110984" y1="-76.89583333333371" x2="470.89236111110984" y2="-86.89583333333371" stroke="#d4380d" stroke-width="1.4"/>
+<text x="471.89236111110984" y="-77.89583333333371" font-size="5" fill="#a8071a">1</text>
+<line x1="470.89236111110984" y1="-116.89583333333371" x2="470.89236111110984" y2="-106.89583333333371" stroke="#d4380d" stroke-width="1.4"/>
+<text x="471.89236111110984" y="-117.89583333333371" font-size="5" fill="#a8071a">2</text>
+<circle cx="470.89236111110984" cy="-96.89583333333371" r="1.5" fill="#222"/>
+<text x="473.89236111110984" y="-99.89583333333371" font-size="7" font-family="Arial,sans-serif" fill="#111">C32 ={Value}</text>
+<polygon points="506.50347222222183,-86.84027777777817 506.50347222222183,-107.84027777777817 489.50347222222183,-107.84027777777817 489.50347222222183,-86.84027777777817" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="498.00347222222183" y1="-77.34027777777817" x2="498.00347222222183" y2="-87.34027777777817" stroke="#d4380d" stroke-width="1.4"/>
+<text x="499.00347222222183" y="-78.34027777777817" font-size="5" fill="#a8071a">1</text>
+<line x1="498.00347222222183" y1="-117.34027777777817" x2="498.00347222222183" y2="-107.34027777777817" stroke="#d4380d" stroke-width="1.4"/>
+<text x="499.00347222222183" y="-118.34027777777817" font-size="5" fill="#a8071a">2</text>
+<circle cx="498.00347222222183" cy="-97.34027777777817" r="1.5" fill="#222"/>
+<text x="501.00347222222183" y="-100.34027777777817" font-size="7" font-family="Arial,sans-serif" fill="#111">C33 ={Value}</text>
+<polygon points="674.3298611111095,-83.57986111110961 674.3298611111095,-104.57986111110961 657.3298611111095,-104.57986111110961 657.3298611111095,-83.57986111110961" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="665.8298611111095" y1="-74.07986111110961" x2="665.8298611111095" y2="-84.07986111110961" stroke="#d4380d" stroke-width="1.4"/>
+<text x="666.8298611111095" y="-75.07986111110961" font-size="5" fill="#a8071a">1</text>
+<line x1="665.8298611111095" y1="-114.07986111110961" x2="665.8298611111095" y2="-104.07986111110961" stroke="#d4380d" stroke-width="1.4"/>
+<text x="666.8298611111095" y="-115.07986111110961" font-size="5" fill="#a8071a">2</text>
+<circle cx="665.8298611111095" cy="-94.07986111110961" r="1.5" fill="#222"/>
+<text x="668.8298611111095" y="-97.07986111110961" font-size="7" font-family="Arial,sans-serif" fill="#111">C50 ={Value}</text>
+<polygon points="850,-102 930,-102 930,-32 850,-32" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="860" y1="-97" x2="870" y2="-97" stroke="#d4380d" stroke-width="1.4"/>
+<text x="861" y="-98" font-size="5" fill="#a8071a">1</text>
+<line x1="885" y1="-32" x2="885" y2="-42" stroke="#d4380d" stroke-width="1.4"/>
+<text x="886" y="-33" font-size="5" fill="#a8071a">2</text>
+<line x1="860" y1="-67" x2="870" y2="-67" stroke="#d4380d" stroke-width="1.4"/>
+<text x="861" y="-68" font-size="5" fill="#a8071a">3</text>
+<line x1="860" y1="-82" x2="870" y2="-82" stroke="#d4380d" stroke-width="1.4"/>
+<text x="861" y="-83" font-size="5" fill="#a8071a">4</text>
+<line x1="940" y1="-82" x2="930" y2="-82" stroke="#d4380d" stroke-width="1.4"/>
+<text x="941" y="-83" font-size="5" fill="#a8071a">5</text>
+<line x1="940" y1="-97" x2="930" y2="-97" stroke="#d4380d" stroke-width="1.4"/>
+<text x="941" y="-98" font-size="5" fill="#a8071a">6</text>
+<line x1="900" y1="-32" x2="900" y2="-42" stroke="#d4380d" stroke-width="1.4"/>
+<text x="901" y="-33" font-size="5" fill="#a8071a">7</text>
+<line x1="940" y1="-52" x2="930" y2="-52" stroke="#d4380d" stroke-width="1.4"/>
+<text x="941" y="-53" font-size="5" fill="#a8071a">8</text>
+<line x1="900" y1="-122" x2="900" y2="-112" stroke="#d4380d" stroke-width="1.4"/>
+<text x="901" y="-123" font-size="5" fill="#a8071a">9</text>
+<circle cx="895" cy="-72" r="1.5" fill="#222"/>
+<text x="898" y="-75" font-size="7" font-family="Arial,sans-serif" fill="#111">U6 ={Manufacturer Part}</text>
+<polygon points="763.5,-66.50000000000011 763.5,-77.50000000000011 746.5,-77.50000000000011 746.5,-66.50000000000011" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="755" y1="-57.000000000000114" x2="755" y2="-67.00000000000011" stroke="#d4380d" stroke-width="1.4"/>
+<text x="756" y="-58.000000000000114" font-size="5" fill="#a8071a">1</text>
+<line x1="755" y1="-87.00000000000011" x2="755" y2="-77.00000000000011" stroke="#d4380d" stroke-width="1.4"/>
+<text x="756" y="-88.00000000000011" font-size="5" fill="#a8071a">2</text>
+<circle cx="755" cy="-72.00000000000011" r="1.5" fill="#222"/>
+<text x="758" y="-75.00000000000011" font-size="7" font-family="Arial,sans-serif" fill="#111">C23 ={Value}</text>
+<polygon points="808.5,-62.500000000000114 808.5,-83.50000000000011 791.5,-83.50000000000011 791.5,-62.500000000000114" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="800" y1="-53.000000000000114" x2="800" y2="-63.000000000000114" stroke="#d4380d" stroke-width="1.4"/>
+<text x="801" y="-54.000000000000114" font-size="5" fill="#a8071a">1</text>
+<line x1="800" y1="-93.00000000000011" x2="800" y2="-83.00000000000011" stroke="#d4380d" stroke-width="1.4"/>
+<text x="801" y="-94.00000000000011" font-size="5" fill="#a8071a">2</text>
+<circle cx="800" cy="-73.00000000000011" r="1.5" fill="#222"/>
+<text x="803" y="-76.00000000000011" font-size="7" font-family="Arial,sans-serif" fill="#111">C24 ={Value}</text>
+<polygon points="606,236 606,216 598,216 598,236" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="602" y1="206" x2="602" y2="216" stroke="#d4380d" stroke-width="1.4"/>
+<text x="603" y="205" font-size="5" fill="#a8071a">2</text>
+<line x1="602" y1="246" x2="602" y2="236" stroke="#d4380d" stroke-width="1.4"/>
+<text x="603" y="245" font-size="5" fill="#a8071a">1</text>
+<circle cx="602" cy="226" r="1.5" fill="#222"/>
+<text x="605" y="223" font-size="7" font-family="Arial,sans-serif" fill="#111">R11 ={Value}</text>
+<polygon points="479,151 479,171 487,171 487,151" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="483" y1="181" x2="483" y2="171" stroke="#d4380d" stroke-width="1.4"/>
+<text x="484" y="180" font-size="5" fill="#a8071a">2</text>
+<line x1="483" y1="141" x2="483" y2="151" stroke="#d4380d" stroke-width="1.4"/>
+<text x="484" y="140" font-size="5" fill="#a8071a">1</text>
+<circle cx="483" cy="161" r="1.5" fill="#222"/>
+<text x="486" y="158" font-size="7" font-family="Arial,sans-serif" fill="#111">R10 ={Value}</text>
+<polygon points="306,274 306,294 314,294 314,274" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="310" y1="304" x2="310" y2="294" stroke="#d4380d" stroke-width="1.4"/>
+<text x="311" y="303" font-size="5" fill="#a8071a">2</text>
+<line x1="310" y1="264" x2="310" y2="274" stroke="#d4380d" stroke-width="1.4"/>
+<text x="311" y="263" font-size="5" fill="#a8071a">1</text>
+<circle cx="310" cy="284" r="1.5" fill="#222"/>
+<text x="313" y="281" font-size="7" font-family="Arial,sans-serif" fill="#111">R7 ={Value}</text>
+<polygon points="229,335 229,347 217,347 217,335" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="223" y1="320" x2="223" y2="335" stroke="#d4380d" stroke-width="1.4"/>
+<text x="224" y="319" font-size="5" fill="#a8071a">1</text>
+<circle cx="223" cy="345" r="1.5" fill="#222"/>
+<text x="226" y="342" font-size="7" font-family="Arial,sans-serif" fill="#111">CN3 ={Manufacturer Part}</text>
+<polygon points="369,-63 349,-63 349,-55 369,-55" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="339" y1="-59" x2="349" y2="-59" stroke="#d4380d" stroke-width="1.4"/>
+<text x="340" y="-60" font-size="5" fill="#a8071a">2</text>
+<line x1="379" y1="-59" x2="369" y2="-59" stroke="#d4380d" stroke-width="1.4"/>
+<text x="380" y="-60" font-size="5" fill="#a8071a">1</text>
+<circle cx="359" cy="-59" r="1.5" fill="#222"/>
+<text x="362" y="-62" font-size="7" font-family="Arial,sans-serif" fill="#111">R61 ={Value}</text>
+<line x1="393" y1="-59" x2="403" y2="-59" stroke="#d4380d" stroke-width="1.4"/>
+<text x="394" y="-60" font-size="5" fill="#a8071a">1</text>
+<circle cx="393" cy="-59" r="1.5" fill="#222"/>
+<text x="396" y="-62" font-size="7" font-family="Arial,sans-serif" fill="#111">GND</text>
+<line x1="700" y1="109" x2="700" y2="99" stroke="#d4380d" stroke-width="1.4"/>
+<text x="701" y="108" font-size="5" fill="#a8071a">1</text>
+<circle cx="700" cy="109" r="1.5" fill="#222"/>
+<text x="703" y="106" font-size="7" font-family="Arial,sans-serif" fill="#111">GND</text>
+<polygon points="658.5,347.5 658.5,373.5 679.5,373.5 679.5,347.5" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="689" y1="360" x2="679" y2="360" stroke="#d4380d" stroke-width="1.4"/>
+<text x="690" y="359" font-size="5" fill="#a8071a">4</text>
+<line x1="659" y1="340" x2="659" y2="348" stroke="#d4380d" stroke-width="1.4"/>
+<text x="660" y="339" font-size="5" fill="#a8071a">1</text>
+<line x1="649" y1="360" x2="659" y2="360" stroke="#d4380d" stroke-width="1.4"/>
+<text x="650" y="359" font-size="5" fill="#a8071a">3</text>
+<circle cx="669" cy="360" r="1.5" fill="#222"/>
+<text x="672" y="357" font-size="7" font-family="Arial,sans-serif" fill="#111">Q3 ={Manufacturer Part}</text>
+<polygon points="597,265 597,285 607,285 607,265" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="602" y1="295" x2="602" y2="285" stroke="#d4380d" stroke-width="1.4"/>
+<text x="603" y="294" font-size="5" fill="#a8071a">2</text>
+<line x1="602" y1="255" x2="602" y2="265" stroke="#d4380d" stroke-width="1.4"/>
+<text x="603" y="254" font-size="5" fill="#a8071a">1</text>
+<circle cx="602" cy="275" r="1.5" fill="#222"/>
+<text x="605" y="272" font-size="7" font-family="Arial,sans-serif" fill="#111">R68 ={Value}</text>
+<polygon points="623,260 643,260 643,250 623,250" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="653" y1="255" x2="643" y2="255" stroke="#d4380d" stroke-width="1.4"/>
+<text x="654" y="254" font-size="5" fill="#a8071a">2</text>
+<line x1="613" y1="255" x2="623" y2="255" stroke="#d4380d" stroke-width="1.4"/>
+<text x="614" y="254" font-size="5" fill="#a8071a">1</text>
+<circle cx="633" cy="255" r="1.5" fill="#222"/>
+<text x="636" y="252" font-size="7" font-family="Arial,sans-serif" fill="#111">R69 ={Value}</text>
+<polygon points="577.2062454223592,-106.60833104451592 577.2062454223592,-85.60833104451592 594.2062454223592,-85.60833104451592 594.2062454223592,-106.60833104451592" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="585.7062454223592" y1="-116.10833104451592" x2="585.7062454223592" y2="-106.10833104451592" stroke="#d4380d" stroke-width="1.4"/>
+<text x="586.7062454223592" y="-117.10833104451592" font-size="5" fill="#a8071a">1</text>
+<line x1="585.7062454223592" y1="-76.10833104451592" x2="585.7062454223592" y2="-86.10833104451592" stroke="#d4380d" stroke-width="1.4"/>
+<text x="586.7062454223592" y="-77.10833104451592" font-size="5" fill="#a8071a">2</text>
+<circle cx="585.7062454223592" cy="-96.10833104451592" r="1.5" fill="#222"/>
+<text x="588.7062454223592" y="-99.10833104451592" font-size="7" font-family="Arial,sans-serif" fill="#111">C48 ={Value}</text>
+<line x1="654.2988380149562" y1="-71.46944215562678" x2="654.2988380149562" y2="-66.46944215562678" stroke="#d4380d" stroke-width="1.4"/>
+<text x="655.2988380149562" y="-72.46944215562678" font-size="5" fill="#a8071a">1</text>
+<circle cx="654.2988380149562" cy="-71.46944215562678" r="1.5" fill="#222"/>
+<text x="657.2988380149562" y="-74.46944215562678" font-size="7" font-family="Arial,sans-serif" fill="#111">AVCC</text>
+<polygon points="628.4082571168295,-84.38745617615905 628.4082571168295,-105.38745617615905 611.4082571168295,-105.38745617615905 611.4082571168295,-84.38745617615905" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="619.9082571168295" y1="-114.88745617615905" x2="619.9082571168295" y2="-104.88745617615905" stroke="#d4380d" stroke-width="1.4"/>
+<text x="620.9082571168295" y="-115.88745617615905" font-size="5" fill="#a8071a">2</text>
+<line x1="619.9082571168295" y1="-74.88745617615905" x2="619.9082571168295" y2="-84.88745617615905" stroke="#d4380d" stroke-width="1.4"/>
+<text x="620.9082571168295" y="-75.88745617615905" font-size="5" fill="#a8071a">1</text>
+<circle cx="619.9082571168295" cy="-94.88745617615905" r="1.5" fill="#222"/>
+<text x="622.9082571168295" y="-97.88745617615905" font-size="7" font-family="Arial,sans-serif" fill="#111">C88 ={Value}</text>
+<polygon points="651.7584105204178,-83.91728102673403 651.7584105204178,-104.91728102673403 634.7584105204178,-104.91728102673403 634.7584105204178,-83.91728102673403" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="643.2584105204178" y1="-114.41728102673403" x2="643.2584105204178" y2="-104.41728102673403" stroke="#d4380d" stroke-width="1.4"/>
+<text x="644.2584105204178" y="-115.41728102673403" font-size="5" fill="#a8071a">2</text>
+<line x1="643.2584105204178" y1="-74.41728102673403" x2="643.2584105204178" y2="-84.41728102673403" stroke="#d4380d" stroke-width="1.4"/>
+<text x="644.2584105204178" y="-75.41728102673403" font-size="5" fill="#a8071a">1</text>
+<circle cx="643.2584105204178" cy="-94.41728102673403" r="1.5" fill="#222"/>
+<text x="646.2584105204178" y="-97.41728102673403" font-size="7" font-family="Arial,sans-serif" fill="#111">C89 ={Value}</text>
+<polygon points="694.0361882981963,-84.18811436006774 694.0361882981963,-105.18811436006774 677.0361882981963,-105.18811436006774 677.0361882981963,-84.18811436006774" fill="none" stroke="#555" stroke-width="0.7"/>
+<line x1="685.5361882981963" y1="-74.68811436006774" x2="685.5361882981963" y2="-84.68811436006774" stroke="#d4380d" stroke-width="1.4"/>
+<text x="686.5361882981963" y="-75.68811436006774" font-size="5" fill="#a8071a">1</text>
+<line x1="685.5361882981963" y1="-114.68811436006774" x2="685.5361882981963" y2="-104.68811436006774" stroke="#d4380d" stroke-width="1.4"/>
+<text x="686.5361882981963" y="-115.68811436006774" font-size="5" fill="#a8071a">2</text>
+<circle cx="685.5361882981963" cy="-94.68811436006774" r="1.5" fill="#222"/>
+<text x="688.5361882981963" y="-97.68811436006774" font-size="7" font-family="Arial,sans-serif" fill="#111">C90 ={Value}</text>
+</svg>

@@ -1,0 +1,48 @@
+{
+  "slide": 19,
+  "title": "IVINP/N滤波网络的设计目的",
+  "prompt": "# Codex PPT Slide Image Prompt\n\n## Canvas\n{\n  \"type\": \"16:9 full-slide PowerPoint image\",\n  \"language\": \"Chinese\",\n  \"slide_number\": 19,\n  \"render_slide_number\": false\n}\n\n## Deck Goal\n先向老师完整介绍36V输入、约29V/18A输出的LT3763同步降压恒流电源板，再说明原理图参数如何计算、器件为何这样选择、设计怎样落实到四层PCB，最后请老师对尚未闭环的问题和样机验证边界给出结论。\n\n## Required Background\n{\n  \"deck_context\": {\n    \"source_summary\": \"首版约522W同步Buck恒流电源板，控制器为LT3763，标称36V输入、29V/18A输出，四层全2oz，盘中孔采用树脂塞孔加电镀盖孔。主线是设计介绍和依据说明，而不是问题清单。\",\n    \"core_claim\": \"设计者能够说明每个关键参数的计算和选型依据；对补偿、动态均流、输入保护配合、局部高电流与热性能等无法仅靠静态计算闭环的事项，请老师划分为必须修改、必须验证和可以保留。\",\n    \"canonical_terms\": [\n      \"LT3763\",\n      \"VCC_BAT\",\n      \"$1N947\",\n      \"SW\",\n      \"L6\",\n      \"R1\",\n      \"R12\",\n      \"CTRL1\",\n      \"CTRL2\",\n      \"FBIN\",\n      \"SENSE±\",\n      \"IVINP/N\",\n      \"Kelvin采样\"\n    ],\n    \"datasheet_explanation_rule\": \"数据手册截图旁只做必要的1至2句中文导读；如果公式或标注已将关系说清，不重复解释，也不为此增加页面。\"\n  },\n  \"slide_local_context\": {\n    \"required_background\": \"R59=1kΩ、R60=1kΩ、C77=1µF；该网络用于滤除高边开关造成的输入电流噪声，观察和限制平均输入电流；数据手册明确给出1kΩ与1µF作为500kHz示例；当前200kHz仍需结合稳定性验证；该慢滤波不能取代SENSE±输出电流环的快速保护\"\n  }\n}\n\n## Global Style\n{\n  \"name\": \"清爽专业风（面向老师一对一技术研讨）\",\n  \"visual_direction\": \"白色或极浅蓝背景，深蓝单行标题，克制的蓝灰分隔线，清晰证据链和工程计算层级；像工程师带着原理图和数据手册逐项讲解，不像正式答辩海报或营销仪表盘\",\n  \"color_palette\": \"主色深蓝#123B7A，辅助蓝#2563EB和浅蓝#EEF5FF，中性文字#1F2937，风险或待验证信息仅少量使用琥珀色\",\n  \"typography\": \"清晰无衬线中文；标题粗体且单行；公式和关键参数明显放大；正文左对齐，最小字号保持屏幕可读\",\n  \"texture_and_finish\": \"干净平面化技术资料风，轻边框、少量浅色底，不使用厚重阴影、霓虹或卡通装饰\",\n  \"datasheet_treatment\": \"原文截图作为证据，最多配1至2句中文导读；避免重复说明和额外信息框\",\n  \"pcb_treatment\": \"PCB截图保持原始网络和几何，只允许外围标签、半透明区域、箭头和编号标注\"\n}\n\n## Input Images\n\n- Image 1: C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png — approved sample slide style reference; match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content\n- Image 2: C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p18.png — LT3763输入电流监测说明；严格输入素材；LT3763输入电流监测; strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model\n\n\n## Slide\n{\n  \"number\": 19,\n  \"title\": \"IVINP/N滤波网络的设计目的\",\n  \"role\": \"concept\",\n  \"intent\": \"解释IVIN滤波网络为何较慢\"\n}\n\n## Text\n{\n  \"title\": \"IVINP/N滤波网络的设计目的\",\n  \"key_points\": [\n    \"R59=1kΩ、R60=1kΩ、C77=1µF\",\n    \"该网络用于滤除高边开关造成的输入电流噪声，观察和限制平均输入电流\",\n    \"数据手册明确给出1kΩ与1µF作为500kHz示例；当前200kHz仍需结合稳定性验证\",\n    \"该慢滤波不能取代SENSE±输出电流环的快速保护\"\n  ],\n  \"speaker_focus\": \"先说明本页结论，再按视觉顺序解释计算、数据手册依据或PCB证据。\"\n}\n\n## Layout\n{\n  \"composition\": \"左侧数据手册原文与中文导读，右侧RC网络、平均采样用途和保护边界\",\n  \"content_zones\": \"单行标题区、主体证据/计算区、必要时一条简短结论或验证提示\",\n  \"variation_rule\": \"保持同一蓝白专业风格，但相邻页面避免重复相同卡片布局\",\n  \"spacing\": \"清晰对齐、留白充分、重要内容不重叠，标题不得换行\"\n}\n\n## Visual Elements\n{\n  \"main_visual\": \"使用本页严格输入素材作为主要证据\"\n}\n\n## Source Image Rules\n将严格素材作为原始证据；PCB图只加外围箭头、边框或标注，数据手册图配中文导读。\n\n## Constraints\n[\n  \"使用已批准Slide 13作为风格参考，只匹配配色、字体气质、密度和视觉语言，不复制相同版式\",\n  \"所有中文、器件编号、数值、单位和公式必须准确清晰，不得出现乱码或额外问句\",\n  \"面向老师一对一技术研讨，先解释设计依据，再陈述需要验证的边界，不使用营销或耸动措辞\",\n  \"不得显示页码、水印、无关Logo或装饰性电路图\",\n  \"数据手册导读只保留必要的1至2句，指出看哪一段或哪幅图以及它支持什么结论；若公式和标注已充分说明，不再增加重复说明框\",\n  \"严格输入素材必须原样可辨识地嵌入；只允许等比例缩放或裁切，不得重绘、替换、改变网络或数据\"\n]\n\n## Style Reference Rule\nUse Image 1 as the approved sample-slide style reference. Match its palette, typography mood, density, texture, and overall visual identity. Do not copy its exact layout unless this slide's layout explicitly asks for it.\n\n## Input Image Handling Rules\nFor any input image marked as a strict input asset, include it visibly and preserve its content. Do not redraw, replace, relabel, or invent a similar figure. Scale and crop only as needed for composition while keeping the important labels, arrows, data, and relationships recognizable.\n\n## Universal Constraints\n- The final image itself must contain the title and key points.\n- Render Chinese text exactly and legibly; avoid garbled characters.\n- Keep the confirmed deck style consistent while varying layout by slide role.\n- No watermark, unrelated logo, or extra slide number.\n",
+  "out": "slide_19.png",
+  "input_images": [
+    {
+      "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+      "role": "approved sample slide style reference",
+      "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+    },
+    {
+      "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p18.png",
+      "role": "LT3763输入电流监测说明；严格输入素材；LT3763输入电流监测",
+      "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+    }
+  ],
+  "requires_context_images": true,
+  "expected_backend": "built-in image tool",
+  "sample_generation_method": {
+    "backend_used": "built-in image tool",
+    "tool_name": "image_gen",
+    "mode": "edit",
+    "prompt_source": "conversation-approved Slide 13 generation and revision prompts",
+    "size": "16:9 landscape, built-in generated resolution",
+    "quality": "built-in default",
+    "model_config": "built-in image generation default; model identifier not exposed",
+    "approved_sample_path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+    "input_context_preparation": "parent inspects every local required image with view_image; workers use referenced_image_paths including approved sample and required assets",
+    "handoff_rule": "Subagents must use the same built-in image_gen edit path with the approved sample as style-only reference and return a blocker if unavailable."
+  },
+  "generation_contract": {
+    "must_use_selected_image_backend": true,
+    "must_match_sample_generation_method": true,
+    "forbidden_final_image_methods": [
+      "local drawing/rendering scripts",
+      "Pillow-generated slides",
+      "SVG/HTML/CSS/canvas screenshots",
+      "python-pptx/PptxGenJS/native PPT layout screenshots",
+      "manually composited text/image overlays"
+    ],
+    "must_return": [
+      "backend_used",
+      "selected_source",
+      "qa_note"
+    ]
+  }
+}

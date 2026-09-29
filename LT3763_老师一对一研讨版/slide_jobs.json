@@ -1,0 +1,1738 @@
+{
+  "run_status": "slides_recorded",
+  "deck_name": "LT3763_老师一对一研讨版",
+  "selected_backend": "built-in image tool",
+  "sample_generation_method": {
+    "backend_used": "built-in image tool",
+    "tool_name": "image_gen",
+    "mode": "edit",
+    "prompt_source": "conversation-approved Slide 13 generation and revision prompts",
+    "size": "16:9 landscape, built-in generated resolution",
+    "quality": "built-in default",
+    "model_config": "built-in image generation default; model identifier not exposed",
+    "approved_sample_path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+    "input_context_preparation": "parent inspects every local required image with view_image; workers use referenced_image_paths including approved sample and required assets",
+    "handoff_rule": "Subagents must use the same built-in image_gen edit path with the approved sample as style-only reference and return a blocker if unavailable."
+  },
+  "max_concurrent_slides": 3,
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "number": 1,
+      "title": "LT3763同步降压恒流电源板",
+      "job": "prompts/slide_01.json",
+      "out": "origin_image/slide_01.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_full.png",
+          "role": "当前PCB整板；严格输入素材；PCB图形不得重绘；当前PCB整板",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_01",
+        "agent_nickname": "slide_01",
+        "prompt": "prompts/slide_01.json",
+        "prompt_sha256": "7a404dbaf78d5811f54364c0729fe60aaeb6034632d89775dc9db9ad79721d63",
+        "dispatched_at": "2026-08-25T12:15:43Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_01",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038d7-fa20-7982-9b42-42e1f7427980\\exec-5d6befa1-1441-4f9f-8a65-9cea38791296.png",
+        "selected_source_sha256": "67ba603b0ae1beb6b1c15c473f763dabe463dd20999232b4ca9c7ae7a7c29ed6",
+        "final_image": "origin_image/slide_01.png",
+        "final_image_sha256": "67ba603b0ae1beb6b1c15c473f763dabe463dd20999232b4ca9c7ae7a7c29ed6",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "封面克制；PCB完整可辨；标题和项目参数准确。",
+        "recorded_at": "2026-08-25T12:20:09Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_02",
+      "number": 2,
+      "title": "本次交流的内容安排",
+      "job": "prompts/slide_02.json",
+      "out": "origin_image/slide_02.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_02",
+        "agent_nickname": "slide_02",
+        "prompt": "prompts/slide_02.json",
+        "prompt_sha256": "9cb983c70d04e63a7066a0d5d29bd43eda94e076756533c64260f5eb3d198030",
+        "dispatched_at": "2026-08-25T12:15:44Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_02",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038d8-422b-77f2-8e16-5c377762a10d\\exec-53a5ff99-86e9-4063-95c4-af55be0b9d35.png",
+        "selected_source_sha256": "2a13c1f8d32a2def8adbd84d0bd3dfa3b5baf9b169e2f0cb32bd45326352241f",
+        "final_image": "origin_image/slide_02.png",
+        "final_image_sha256": "2a13c1f8d32a2def8adbd84d0bd3dfa3b5baf9b169e2f0cb32bd45326352241f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "中文清晰；四阶段路线完整；与样张风格一致。",
+        "recorded_at": "2026-08-25T12:19:17Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_03",
+      "number": 3,
+      "title": "设计背景与负载需求",
+      "job": "prompts/slide_03.json",
+      "out": "origin_image/slide_03.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03",
+        "agent_nickname": "slide_03",
+        "prompt": "prompts/slide_03.json",
+        "prompt_sha256": "dc718d56586b40948c5afd701fee2ac4c2a7aa724962232a72d82172468072cb",
+        "dispatched_at": "2026-08-25T12:15:44Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038d8-83c7-78c3-ab09-1aa1ad7c46d5\\exec-e930ff1e-3654-45bf-ad9f-376ba2fd8bf7.png",
+        "selected_source_sha256": "70ebb917dccc980d72bd7972d7e95f518cdd5328b669dccd5e80b3e613ca937c",
+        "final_image": "origin_image/slide_03.png",
+        "final_image_sha256": "70ebb917dccc980d72bd7972d7e95f518cdd5328b669dccd5e80b3e613ca937c",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "36V、29V、18A、522W准确；中文清晰；首版定位完整。",
+        "recorded_at": "2026-08-25T12:19:17Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_04",
+      "number": 4,
+      "title": "主要设计指标与工作边界",
+      "job": "prompts/slide_04.json",
+      "out": "origin_image/slide_04.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_04",
+        "agent_nickname": "slide_04",
+        "prompt": "prompts/slide_04.json",
+        "prompt_sha256": "5234d5b1e444625c1c895f2ac75d46a3c322a3828821013d5183e17da6cc32ba",
+        "dispatched_at": "2026-08-25T12:21:07Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_04",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038dd-561a-7412-acae-e38d0d3d3479\\exec-fb0e7f89-823f-447c-a690-3c8c35718b39.png",
+        "selected_source_sha256": "3c4a45f085e63fe369a04fd48ab8b67bf5f5769576705e7ff830b69ba43dccc4",
+        "final_image": "origin_image/slide_04.png",
+        "final_image_sha256": "3c4a45f085e63fe369a04fd48ab8b67bf5f5769576705e7ff830b69ba43dccc4",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "仅保留已核验设计指标与工作边界，无额外推断。",
+        "recorded_at": "2026-08-25T12:31:06Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_05",
+      "number": 5,
+      "title": "系统组成与能量流向",
+      "job": "prompts/slide_05.json",
+      "out": "origin_image/slide_05.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_05",
+        "agent_nickname": "slide_05",
+        "prompt": "prompts/slide_05.json",
+        "prompt_sha256": "3de71ea0a6da5d63ef58c6dd3dc858d3c9749c8b57d587e4075ff2394d0a9e68",
+        "dispatched_at": "2026-08-25T12:21:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_05",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\019ff0c9-b26d-7ee3-9e2d-937ac7d6bdaa\\exec-a9dc1c61-45f9-4b0a-a731-f420dd9f723f.png",
+        "selected_source_sha256": "a9303ecd5fbf80679c2eb448287b5238af5b9dd2e903be16f878584b9dfeecb7",
+        "final_image": "origin_image/slide_05.png",
+        "final_image_sha256": "a9303ecd5fbf80679c2eb448287b5238af5b9dd2e903be16f878584b9dfeecb7",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "主功率、控制、设定和辅助路径准确；SENSE+与SENSE−均明确标出。",
+        "recorded_at": "2026-08-25T12:37:37Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_06",
+      "number": 6,
+      "title": "外部接口与板上主要节点",
+      "job": "prompts/slide_06.json",
+      "out": "origin_image/slide_06.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_full.png",
+          "role": "当前PCB整板；严格输入素材；只增加接口标记；当前PCB整板",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_06",
+        "agent_nickname": "slide_06",
+        "prompt": "prompts/slide_06.json",
+        "prompt_sha256": "25012b91f47b78a71ed6468e2a74abc58ff7541d157add6fdb0b09c0211f805e",
+        "dispatched_at": "2026-08-25T12:21:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_06",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038dd-c9f7-7383-8cbf-e64c41c95814\\exec-33ec37de-d3d9-4f56-a4b5-96e1e0539b03.png",
+        "selected_source_sha256": "037f3f49e5a181dfb463534062acc56fe95372e0bc3d1dc9bb0dcbe54e8520be",
+        "final_image": "origin_image/slide_06.png",
+        "final_image_sha256": "037f3f49e5a181dfb463534062acc56fe95372e0bc3d1dc9bb0dcbe54e8520be",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "接口采用区域标注，不声明未核实的单焊盘极性；SW和L6位置可辨。",
+        "recorded_at": "2026-08-25T12:41:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_07",
+      "number": 7,
+      "title": "PCB功能分区与器件位置",
+      "job": "prompts/slide_07.json",
+      "out": "origin_image/slide_07.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_full.png",
+          "role": "当前PCB整板；严格输入素材；允许增加半透明分区和短标签；PCB功能分区",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_07",
+        "agent_nickname": "slide_07",
+        "prompt": "prompts/slide_07.json",
+        "prompt_sha256": "585d0c6074b8dc0974e37602bd9333c8097346fc05f8ddb03f0b63588a13edb0",
+        "dispatched_at": "2026-08-25T12:38:41Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_07",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038ed-9221-73a2-ab90-25bdbbcfc7a9\\exec-9d5ab1bb-d059-439a-ad68-888d3519769f.png",
+        "selected_source_sha256": "21f5e56bfcada5848ba4c90748edbbaebee459cc483b446ddef1ae8f43c6f522",
+        "final_image": "origin_image/slide_07.png",
+        "final_image_sha256": "21f5e56bfcada5848ba4c90748edbbaebee459cc483b446ddef1ae8f43c6f522",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "整板几何保持；四个功能区采用宽泛半透明分区，无虚构器件。",
+        "recorded_at": "2026-08-25T12:43:26Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_08",
+      "number": 8,
+      "title": "主功率路径与回流路径",
+      "job": "prompts/slide_08.json",
+      "out": "origin_image/slide_08.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_power_detail.png",
+          "role": "顶层功率区域；严格输入素材；用于标出正向电流和回流；顶层功率区域",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_08",
+        "agent_nickname": "slide_08",
+        "prompt": "prompts/slide_08.json",
+        "prompt_sha256": "1255e2f989155dedbe9deddbfecbec0b4f1972b6943b39945463d5a4e1d7b998",
+        "dispatched_at": "2026-08-25T12:38:41Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_08",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038ed-ca95-7081-a8dd-1605881849b5\\exec-4a648c90-ffd6-4c79-b422-3ec4c3ccd602.png",
+        "selected_source_sha256": "19e6d52bb2d1cc753b8d7bcc08ea550fe316a0d1f84f8cd4bebccad690e4ef8d",
+        "final_image": "origin_image/slide_08.png",
+        "final_image_sha256": "19e6d52bb2d1cc753b8d7bcc08ea550fe316a0d1f84f8cd4bebccad690e4ef8d",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "仅使用区域级路径箭头；右侧路径文字准确；未声明未核实焊盘端点。",
+        "recorded_at": "2026-08-25T12:48:29Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_09",
+      "number": 9,
+      "title": "同步Buck拓扑与LT3763的控制职责",
+      "job": "prompts/slide_09.json",
+      "out": "origin_image/slide_09.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p01.png",
+          "role": "LT3763数据手册首页；严格输入素材；保持典型应用和器件型号不变；LT3763数据手册首页",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_09",
+        "agent_nickname": "slide_09",
+        "prompt": "prompts/slide_09.json",
+        "prompt_sha256": "588307c965031df88d06193ff886ab4d4a7181938b0d52e2fc6f4c19c5901096",
+        "dispatched_at": "2026-08-25T12:42:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_09",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038f0-f362-77b2-90cb-cf8a01dd805a\\exec-e2dd7f03-0f16-4c46-9f5c-110d5d75aa41.png",
+        "selected_source_sha256": "719aacff0beb1101158d2b58143e56787be5d14376bc2f74d655a4f945f7530a",
+        "final_image": "origin_image/slide_09.png",
+        "final_image_sha256": "719aacff0beb1101158d2b58143e56787be5d14376bc2f74d655a4f945f7530a",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "数据手册可辨；控制职责和选型理由准确；60V边界表述正确。",
+        "recorded_at": "2026-08-25T12:46:20Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_10",
+      "number": 10,
+      "title": "LT3763内部控制环与保护路径",
+      "job": "prompts/slide_10.json",
+      "out": "origin_image/slide_10.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p12.png",
+          "role": "LT3763内部框图；严格输入素材；连线和文字不得改变；LT3763内部框图",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_10",
+        "agent_nickname": "slide_10",
+        "prompt": "prompts/slide_10.json",
+        "prompt_sha256": "f5cdb9dba9e1fbba1bed5c25866189b4e812205149c81c92ea46eed2f5b8879b",
+        "dispatched_at": "2026-08-25T12:44:37Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_10",
+        "backend_used": "built-in image tool",
+        "selected_source": "D:\\codex\\generated_images\\01a038f3-43e1-7403-a1eb-60122c23873b\\exec-8a03299f-8102-4222-a1fb-7a3c62988d6a.png",
+        "selected_source_sha256": "60350ef5a3b0452bfbaafc6fd714bb81a05e6e07eebe7bc26655bb42fda1847f",
+        "final_image": "origin_image/slide_10.png",
+        "final_image_sha256": "60350ef5a3b0452bfbaafc6fd714bb81a05e6e07eebe7bc26655bb42fda1847f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "内部框图保持原样；四条控制与驱动路径中文导读准确。",
+        "recorded_at": "2026-08-25T12:53:09Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_11",
+      "number": 11,
+      "title": "29.19V输出电压的设定",
+      "job": "prompts/slide_11.json",
+      "out": "origin_image/slide_11.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p19.png",
+          "role": "LT3763输出电压设定页面；严格输入素材；LT3763输出电压说明",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_11",
+        "agent_nickname": "slide_11",
+        "prompt": "prompts/slide_11.json",
+        "prompt_sha256": "86f100fe109dd3259c27ed1d141c631bab8b81c0f083cc04964bac8eafb68820",
+        "dispatched_at": "2026-08-25T12:46:57Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_11",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\slide_11.png",
+        "selected_source_sha256": "883564ceb58f726c31a46d1c14cbdfcc65c41bcf36c0b6090a92f78138153a1f",
+        "final_image": "origin_image/slide_11.png",
+        "final_image_sha256": "883564ceb58f726c31a46d1c14cbdfcc65c41bcf36c0b6090a92f78138153a1f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "R30/R49与29.19V公式准确；FB关系正确；中文导读简洁。",
+        "recorded_at": "2026-08-25T12:51:27Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_12",
+      "number": 12,
+      "title": "输出过压阈值与29V调节值的关系",
+      "job": "prompts/slide_12.json",
+      "out": "origin_image/slide_12.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p19.png",
+          "role": "LT3763输出电压与OVP说明；严格输入素材；LT3763电压与OVP",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_12",
+        "agent_nickname": "slide_12",
+        "prompt": "prompts/slide_12.json",
+        "prompt_sha256": "1aa7b26296edce961649f8ad7e1547ec7a44739baaf1a2eb538688ebd46fd78a",
+        "dispatched_at": "2026-08-25T12:49:07Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_12",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\slide_12.png",
+        "selected_source_sha256": "d415db0a1615c6917ae0df885949b4c87ebe88f1955565a6871115bb27f6497f",
+        "final_image": "origin_image/slide_12.png",
+        "final_image_sha256": "d415db0a1615c6917ae0df885949b4c87ebe88f1955565a6871115bb27f6497f",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "29.19V正常调节与36.66V内部过压锁止计算准确，功能边界清晰。",
+        "recorded_at": "2026-08-25T12:54:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_13",
+      "number": 13,
+      "title": "18A输出电流设定与硬件量程",
+      "job": "prompts/slide_13.json",
+      "out": "origin_image/slide_13.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p18.png",
+          "role": "LT3763电流控制和检测曲线；严格输入素材；LT3763电流控制曲线",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "accepted",
+      "dispatch": null,
+      "result": {
+        "final_image": "origin_image/slide_13.png",
+        "accepted_sample": true
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_14",
+      "number": 14,
+      "title": "MCU/DAC到CTRL1的电流命令换算",
+      "job": "prompts/slide_14.json",
+      "out": "origin_image/slide_14.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_14",
+        "agent_nickname": "slide_14",
+        "prompt": "prompts/slide_14.json",
+        "prompt_sha256": "5f01cc2fa0486a0873095541aff4c4bf11104fcf50a42c45275f0603c82ad895",
+        "dispatched_at": "2026-08-25T12:52:06Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_14",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_14_worker_source.png",
+        "selected_source_sha256": "a912cec10bed8e7934e73d1811a9e446d1b5a27904623dbcec8cc1e43db74425",
+        "final_image": "origin_image/slide_14.png",
+        "final_image_sha256": "a912cec10bed8e7934e73d1811a9e446d1b5a27904623dbcec8cc1e43db74425",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "18A到45mV、CTRL1约1.32V、DAC约2.94V换算链准确。",
+        "recorded_at": "2026-08-25T12:56:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_15",
+      "number": 15,
+      "title": "CTRL2温度降额网络",
+      "job": "prompts/slide_15.json",
+      "out": "origin_image/slide_15.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p21.png",
+          "role": "LT3763温度降额说明；严格输入素材；LT3763温度降额",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_15",
+        "agent_nickname": "slide_15",
+        "prompt": "prompts/slide_15.json",
+        "prompt_sha256": "2233f3e5375ec35251ef269797bbea8dbd2be576203f4a632cf923151227d1a0",
+        "dispatched_at": "2026-08-25T12:54:02Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_15",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\slide_15.png",
+        "selected_source_sha256": "d652c92a9e110af2294c5af6a81c3f677c34c8111d2376ece6ea7bd6d5eca571",
+        "final_image": "origin_image/slide_15.png",
+        "final_image_sha256": "d652c92a9e110af2294c5af6a81c3f677c34c8111d2376ece6ea7bd6d5eca571",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "NTC阻值与四组电流估算准确；CTRL2作用条件和实测边界清楚。",
+        "recorded_at": "2026-08-25T12:58:28Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_16",
+      "number": 16,
+      "title": "EN/UVLO启动与关闭阈值",
+      "job": "prompts/slide_16.json",
+      "out": "origin_image/slide_16.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p21.png",
+          "role": "LT3763 UVLO说明；严格输入素材；LT3763 UVLO",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_16",
+        "agent_nickname": "slide_16",
+        "prompt": "prompts/slide_16.json",
+        "prompt_sha256": "efb68ec953254a1ae6ad2b785284444ab052729d537f95f162cbd8867d1a7755",
+        "dispatched_at": "2026-08-25T12:55:20Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_16",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\slide_16.png",
+        "selected_source_sha256": "dbcf6f51d2574b1ed5f5cb8639339b05eade2900e4b2a50ff2ec5e7566ed28a9",
+        "final_image": "origin_image/slide_16.png",
+        "final_image_sha256": "dbcf6f51d2574b1ed5f5cb8639339b05eade2900e4b2a50ff2ec5e7566ed28a9",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "R52/R53和UVLO启动关闭阈值准确；迟滞窗口与输入边界表述合理。",
+        "recorded_at": "2026-08-25T13:01:38Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_17",
+      "number": 17,
+      "title": "FBIN输入电压折返功能",
+      "job": "prompts/slide_17.json",
+      "out": "origin_image/slide_17.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_17",
+        "agent_nickname": "slide_17",
+        "prompt": "prompts/slide_17.json",
+        "prompt_sha256": "cc84370e6a515fe75bb30ba011ae592230ca3ce0b85451559853e7961bca4c31",
+        "dispatched_at": "2026-08-25T12:56:56Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_17",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_17_worker_source.png",
+        "selected_source_sha256": "defac80f98e3a7272eb8be3a94b2f83da3dd4622c8d46be540aba980e22af9b7",
+        "final_image": "origin_image/slide_17.png",
+        "final_image_sha256": "defac80f98e3a7272eb8be3a94b2f83da3dd4622c8d46be540aba980e22af9b7",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "功能边界表述准确；未虚构折返阈值；待确认项保留给老师讨论。",
+        "recorded_at": "2026-08-25T13:04:48Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_18",
+      "number": 18,
+      "title": "R12与输入平均电流限制",
+      "job": "prompts/slide_18.json",
+      "out": "origin_image/slide_18.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_18",
+        "agent_nickname": "slide_18",
+        "prompt": "prompts/slide_18.json",
+        "prompt_sha256": "3bb0a46acbddc372f5efd8eb0885c33aacf3cefefaaf1efa5b27fed0d06d7714",
+        "dispatched_at": "2026-08-25T12:59:14Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_18",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_18_worker_source.png",
+        "selected_source_sha256": "aee5d9e1f02eef25a76a954fa2f7e1594ebc5a54b193ab56ddabf25c31ebf53a",
+        "final_image": "origin_image/slide_18.png",
+        "final_image_sha256": "aee5d9e1f02eef25a76a954fa2f7e1594ebc5a54b193ab56ddabf25c31ebf53a",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "R12、限流范围及36V/31V/30V输入电流计算复核无误；明确为输入平均电流限制。",
+        "recorded_at": "2026-08-25T13:04:49Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_19",
+      "number": 19,
+      "title": "IVINP/N滤波网络的设计目的",
+      "job": "prompts/slide_19.json",
+      "out": "origin_image/slide_19.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p18.png",
+          "role": "LT3763输入电流监测说明；严格输入素材；LT3763输入电流监测",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_19",
+        "agent_nickname": "slide_19",
+        "prompt": "prompts/slide_19.json",
+        "prompt_sha256": "fce6d22aca2525c84267636dd8b6d8e611c49480bf04823b857946b1207bb83b",
+        "dispatched_at": "2026-08-25T13:02:27Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_19",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_19_worker_source.png",
+        "selected_source_sha256": "c3d87551804dc2c3bc0af48e60677978c6c28a1bd45dbfa62c75129f1a37973b",
+        "final_image": "origin_image/slide_19.png",
+        "final_image_sha256": "c3d87551804dc2c3bc0af48e60677978c6c28a1bd45dbfa62c75129f1a37973b",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "数据手册截图、板上1kΩ+1µF、500kHz示例与200kHz样机验证边界均准确；未误称为快速短路保护。",
+        "recorded_at": "2026-08-25T13:07:05Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_20",
+      "number": 20,
+      "title": "开关频率与VC补偿网络",
+      "job": "prompts/slide_20.json",
+      "out": "origin_image/slide_20.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lt_p22.png",
+          "role": "LT3763补偿与布局建议；严格输入素材；LT3763补偿与布局",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_20",
+        "agent_nickname": "slide_20",
+        "prompt": "prompts/slide_20.json",
+        "prompt_sha256": "25e5f06a8b1c762e38599cc0ea86b2cfd905cc291c82994e0990e7a8a087e1cd",
+        "dispatched_at": "2026-08-25T13:05:43Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_20",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_20_worker_source.png",
+        "selected_source_sha256": "faacf8b8697c750acfb4849d81b28a571fd2e30d76b501271b9cbf53efab2561",
+        "final_image": "origin_image/slide_20.png",
+        "final_image_sha256": "faacf8b8697c750acfb4849d81b28a571fd2e30d76b501271b9cbf53efab2561",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "频率设定、补偿起点与样机验证边界清晰；数据手册证据原样可辨。",
+        "recorded_at": "2026-08-25T13:10:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_21",
+      "number": 21,
+      "title": "INTVCC、BOOST与栅极驱动外围",
+      "job": "prompts/slide_21.json",
+      "out": "origin_image/slide_21.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_21",
+        "agent_nickname": "slide_21",
+        "prompt": "prompts/slide_21.json",
+        "prompt_sha256": "1505dd106ca4db76414d214666fba214be14fad3e79bce1a74e00e945fff282d",
+        "dispatched_at": "2026-08-25T13:05:44Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_21",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_21_worker_source.png",
+        "selected_source_sha256": "0aca39cd191efe8ba1d2adbede503466c0effac173187fd59ee2b6eec58c6594",
+        "final_image": "origin_image/slide_21.png",
+        "final_image_sha256": "0aca39cd191efe8ba1d2adbede503466c0effac173187fd59ee2b6eec58c6594",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "INTVCC与自举供电链、C75/C85一致性事项及PCB短对称约束表述准确。",
+        "recorded_at": "2026-08-25T13:13:00Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_22",
+      "number": 22,
+      "title": "主开关MOS BSC070N10LS5的选择",
+      "job": "prompts/slide_22.json",
+      "out": "origin_image/slide_22.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\bsc_p01.png",
+          "role": "BSC070N10LS5关键参数；严格输入素材；BSC070N10LS5关键参数",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_22",
+        "agent_nickname": "slide_22",
+        "prompt": "prompts/slide_22.json",
+        "prompt_sha256": "8d40327c6282190e8472c957400b6f79ead7d2e8de5aaaa941fb58619dc73e8d",
+        "dispatched_at": "2026-08-25T13:07:28Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_22",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_22_worker_source.png",
+        "selected_source_sha256": "e534948cf80632d1663128ab80b6f88d21343ff36b277503b646a8f7ae637923",
+        "final_image": "origin_image/slide_22.png",
+        "final_image_sha256": "e534948cf80632d1663128ab80b6f88d21343ff36b277503b646a8f7ae637923",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "100V、逻辑电平、RDS(on)和Qg证据准确，数据手册截图清楚；并联目的表述适度。",
+        "recorded_at": "2026-08-25T13:12:11Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_23",
+      "number": 23,
+      "title": "并联MOS的损耗与动态风险",
+      "job": "prompts/slide_23.json",
+      "out": "origin_image/slide_23.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\bsc_p06.png",
+          "role": "BSC070动态与SOA曲线；严格输入素材；BSC070动态与SOA",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_23",
+        "agent_nickname": "slide_23",
+        "prompt": "prompts/slide_23.json",
+        "prompt_sha256": "7a7a805d6a4d061808957e8977e0fa4c11bf54c6ff8775918e0ea48ace296633",
+        "dispatched_at": "2026-08-25T13:10:34Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_23",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_23_worker_source.png",
+        "selected_source_sha256": "217e7bf02968a31652f4360bafa5c2a0de2d400035722a1ed1bf2b143e4a6169",
+        "final_image": "origin_image/slide_23.png",
+        "final_image_sha256": "217e7bf02968a31652f4360bafa5c2a0de2d400035722a1ed1bf2b143e4a6169",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "清楚区分静态导通损耗与开关损耗/动态均流；验证项聚焦温升和TG/BG/SW波形。",
+        "recorded_at": "2026-08-25T13:15:42Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_24",
+      "number": 24,
+      "title": "L6电感值、纹波与饱和电流",
+      "job": "prompts/slide_24.json",
+      "out": "origin_image/slide_24.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_24",
+        "agent_nickname": "slide_24",
+        "prompt": "prompts/slide_24.json",
+        "prompt_sha256": "2e614947904bcc4fbb6dbab491c6676bac4bc5cbd63dcfee44cfa5888fe528fb",
+        "dispatched_at": "2026-08-25T13:12:38Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_24",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_24_worker_source.png",
+        "selected_source_sha256": "760f3a9b0ad031a031724ba80acae0047a52e30080dfa96267aa05a83bf7f455",
+        "final_image": "origin_image/slide_24.png",
+        "final_image_sha256": "760f3a9b0ad031a031724ba80acae0047a52e30080dfa96267aa05a83bf7f455",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "电感纹波与峰值计算复核正确；额定、饱和和实测边界表达清楚。",
+        "recorded_at": "2026-08-25T13:17:27Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_25",
+      "number": 25,
+      "title": "R1与R12采样电阻的功耗",
+      "job": "prompts/slide_25.json",
+      "out": "origin_image/slide_25.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_25",
+        "agent_nickname": "slide_25",
+        "prompt": "prompts/slide_25.json",
+        "prompt_sha256": "123b774bde87d273f6b5c7527b6e2618ca87320af1fde67303c15b9627c2bdaa",
+        "dispatched_at": "2026-08-25T13:13:26Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_25",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_25_worker_source.png",
+        "selected_source_sha256": "38265a7915d3f45e66166263c03538d3dbfe7ff712955fb38114972cbf0101b5",
+        "final_image": "origin_image/slide_25.png",
+        "final_image_sha256": "38265a7915d3f45e66166263c03538d3dbfe7ff712955fb38114972cbf0101b5",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "R1与R12功耗计算准确；明确功率标称不等于温升和脉冲能力已闭环。",
+        "recorded_at": "2026-08-25T13:18:24Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_26",
+      "number": 26,
+      "title": "输入与输出电容配置",
+      "job": "prompts/slide_26.json",
+      "out": "origin_image/slide_26.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_switch.png",
+          "role": "半桥与本地电容区域；严格输入素材；半桥与本地电容",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_26",
+        "agent_nickname": "slide_26",
+        "prompt": "prompts/slide_26.json",
+        "prompt_sha256": "e8d48f599903f0b01e6d94123f8a37660fe7a6e3278b3f99738e8df33517e216",
+        "dispatched_at": "2026-08-25T13:16:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_26",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_26_worker_source.png",
+        "selected_source_sha256": "50845fa1cba4af99bf631fe7822ba865514ecc7bee745229d9ca97609dab3b54",
+        "final_image": "origin_image/slide_26.png",
+        "final_image_sha256": "50845fa1cba4af99bf631fe7822ba865514ecc7bee745229d9ca97609dab3b54",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "PCB素材保持可辨识；新增电容区域、作用和满载纹波/温升验证边界准确。",
+        "recorded_at": "2026-08-25T13:21:02Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_27",
+      "number": 27,
+      "title": "输入保护器件与动态配合",
+      "job": "prompts/slide_27.json",
+      "out": "origin_image/slide_27.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_input.png",
+          "role": "输入保护PCB区域；严格输入素材；输入保护PCB区域",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\sum_p01.png",
+          "role": "SUM110P08参数；严格输入素材；SUM110P08参数",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\bzt_p05.png",
+          "role": "BZT52C43参数表；严格输入素材；BZT52C43参数",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_27",
+        "agent_nickname": "slide_27",
+        "prompt": "prompts/slide_27.json",
+        "prompt_sha256": "6c25c80984075836dadb72437512c126d50da136f971e775e78516a32092ca50",
+        "dispatched_at": "2026-08-25T13:17:57Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_27",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_27_worker_source.png",
+        "selected_source_sha256": "d82c4f292f36c6fa0f3ef8827406921cc3d8928095cd84f9f0bc0917fb61e3c5",
+        "final_image": "origin_image/slide_27.png",
+        "final_image_sha256": "d82c4f292f36c6fa0f3ef8827406921cc3d8928095cd84f9f0bc0917fb61e3c5",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "输入保护链器件参数和动态配合边界准确；PCB与数据手册素材保真可辨。",
+        "recorded_at": "2026-08-25T13:25:51Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_28",
+      "number": 28,
+      "title": "输入RC阻尼支路的能量与脉冲应力",
+      "job": "prompts/slide_28.json",
+      "out": "origin_image/slide_28.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_28",
+        "agent_nickname": "slide_28",
+        "prompt": "prompts/slide_28.json",
+        "prompt_sha256": "738fd821d36032e801fa4ec1070cf342b7cfacc0d010e250fc86807280497ef3",
+        "dispatched_at": "2026-08-25T13:18:51Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_28",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_28_worker_source.png",
+        "selected_source_sha256": "dafc3776acad0723988e5cb8eb5b29454330908c4167651bb8e9667f0f52e32d",
+        "final_image": "origin_image/slide_28.png",
+        "final_image_sha256": "dafc3776acad0723988e5cb8eb5b29454330908c4167651bb8e9667f0f52e32d",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "四项理论计算准确，并明确实际峰值限制、3W连续额定与脉冲能力的区别。",
+        "recorded_at": "2026-08-25T13:23:27Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_29",
+      "number": 29,
+      "title": "LM5164辅助电源外围",
+      "job": "prompts/slide_29.json",
+      "out": "origin_image/slide_29.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\lm_p24.png",
+          "role": "LM5164应用与布局页面；严格输入素材；LM5164应用与布局",
+          "fidelity": "strict datasheet input asset; preserve the original English text, figure numbers, curves, axes, labels, values and device model"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_29",
+        "agent_nickname": "slide_29",
+        "prompt": "prompts/slide_29.json",
+        "prompt_sha256": "abbfdcfcdfe7091e3293fe90c2e39baa0267d8d76f6382ed20f1dbea63aeb4f5",
+        "dispatched_at": "2026-08-25T13:21:28Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_29",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_29_worker_source.png",
+        "selected_source_sha256": "a676757f4d33a2d7741240d8bb6be19b24bddf2e95b8d833d8f5d5b5fd7bc5cb",
+        "final_image": "origin_image/slide_29.png",
+        "final_image_sha256": "a676757f4d33a2d7741240d8bb6be19b24bddf2e95b8d833d8f5d5b5fd7bc5cb",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "36V到12V、C25与独立验证项目准确；未据此推断主功率级性能。",
+        "recorded_at": "2026-08-25T13:27:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_30",
+      "number": 30,
+      "title": "四层板层叠与铜厚选择",
+      "job": "prompts/slide_30.json",
+      "out": "origin_image/slide_30.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_30",
+        "agent_nickname": "slide_30",
+        "prompt": "prompts/slide_30.json",
+        "prompt_sha256": "c68786f6137890f039b8b9d580e779abfd3f8ae2fe4a0a30c8e66ad9453a4ee3",
+        "dispatched_at": "2026-08-25T13:23:54Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_30",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_30_worker_source.png",
+        "selected_source_sha256": "06a97ab06f3a4802f4c6876f1652ff11413115f2c7287a845e09ee52484834de",
+        "final_image": "origin_image/slide_30.png",
+        "final_image_sha256": "06a97ab06f3a4802f4c6876f1652ff11413115f2c7287a845e09ee52484834de",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "四层全2oz和盘中孔工艺表述准确；18A能力仍需截面、过孔、铜损和温升验证。",
+        "recorded_at": "2026-08-25T13:28:38Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_31",
+      "number": 31,
+      "title": "顶层大电流路径与局部瓶颈",
+      "job": "prompts/slide_31.json",
+      "out": "origin_image/slide_31.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_power_detail.png",
+          "role": "顶层功率区域；严格输入素材；顶层功率区域",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_31",
+        "agent_nickname": "slide_31",
+        "prompt": "prompts/slide_31.json",
+        "prompt_sha256": "7aeacdb749557a2995f26a175b57041d4d229c898446a2ee4e773c0bea6e9128",
+        "dispatched_at": "2026-08-25T13:26:19Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_31",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_31_worker_source.png",
+        "selected_source_sha256": "f4513240ff08cce952f5598da89f84daaffb169d95c438158f2041da4c1a82d4",
+        "final_image": "origin_image/slide_31.png",
+        "final_image_sha256": "f4513240ff08cce952f5598da89f84daaffb169d95c438158f2041da4c1a82d4",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "顶层主功率路径用宽泛区域表示；局部瓶颈检查项与GND回流区域明确，未伪造新网络。",
+        "recorded_at": "2026-08-25T13:35:34Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_32",
+      "number": 32,
+      "title": "半桥高di/dt开关环",
+      "job": "prompts/slide_32.json",
+      "out": "origin_image/slide_32.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_switch.png",
+          "role": "半桥开关区域；严格输入素材；半桥开关区域",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_32",
+        "agent_nickname": "slide_32",
+        "prompt": "prompts/slide_32.json",
+        "prompt_sha256": "ad1195d6a266a33c8ea07238d3beea7c0b40bcc2b97ecda3f6bfc65ab7412377",
+        "dispatched_at": "2026-08-25T13:28:10Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_32",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_32_worker_source.png",
+        "selected_source_sha256": "a399ace4533f2274c58b9184d7dfd0a6094131e3b8fafc147ffbe850cbd6eaa7",
+        "final_image": "origin_image/slide_32.png",
+        "final_image_sha256": "a399ace4533f2274c58b9184d7dfd0a6094131e3b8fafc147ffbe850cbd6eaa7",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "高di/dt输入回路以宽泛区域表示；目标、MLCC作用与SW尖峰/输入纹波实测边界准确。",
+        "recorded_at": "2026-08-25T13:33:44Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_33",
+      "number": 33,
+      "title": "SW节点面积与跨层控制",
+      "job": "prompts/slide_33.json",
+      "out": "origin_image/slide_33.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\inner2_switch.png",
+          "role": "内层SW节点；严格输入素材；内层SW节点",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_33",
+        "agent_nickname": "slide_33",
+        "prompt": "prompts/slide_33.json",
+        "prompt_sha256": "383caa8033aba4b2126f507a23b977c3041b39e0beb54fcdd18fecc182edf014",
+        "dispatched_at": "2026-08-25T13:29:06Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_33",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_33_worker_source.png",
+        "selected_source_sha256": "947113a8577088f327fa9fb3d9975fdc9831a285272acf11b7144cbbf00c6a31",
+        "final_image": "origin_image/slide_33.png",
+        "final_image_sha256": "947113a8577088f327fa9fb3d9975fdc9831a285272acf11b7144cbbf00c6a31",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "SW面积和跨层策略准确；删除了错误的精确测量点指向，改为通用SW/GND小环路示意。",
+        "recorded_at": "2026-08-25T13:36:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_34",
+      "number": 34,
+      "title": "R1/R12 Kelvin采样与敏感线布线",
+      "job": "prompts/slide_34.json",
+      "out": "origin_image/slide_34.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\top_power_detail.png",
+          "role": "顶层功率及采样区域；严格输入素材；顶层功率及采样区域",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_34",
+        "agent_nickname": "slide_34",
+        "prompt": "prompts/slide_34.json",
+        "prompt_sha256": "03ec34626d51c936bf1e31dc612b4c24240a614a60bd68cf3822834abbd67fb8",
+        "dispatched_at": "2026-08-25T13:34:51Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_34",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_34_worker_source.png",
+        "selected_source_sha256": "b7e508bd6f963e180519aa3b7eec9eff6cfac2b44be9e461e851e4d2ad0302fa",
+        "final_image": "origin_image/slide_34.png",
+        "final_image_sha256": "b7e508bd6f963e180519aa3b7eec9eff6cfac2b44be9e461e851e4d2ad0302fa",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "R1/R12 Kelvin原则、敏感线远离SW/栅极及功率路径与采样路径分离表达准确。",
+        "recorded_at": "2026-08-25T13:43:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_35",
+      "number": 35,
+      "title": "L3、底层与过孔阵列的电流分配",
+      "job": "prompts/slide_35.json",
+      "out": "origin_image/slide_35.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\inner2_power.png",
+          "role": "内层主电流路径；严格输入素材；内层主电流路径",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\l3_power.png",
+          "role": "L3功率层；严格输入素材；L3功率层",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        },
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\assets\\figures\\bottom_power.png",
+          "role": "底层回流；严格输入素材；底层回流",
+          "fidelity": "strict PCB input asset; preserve all components, pads, vias, copper shapes, nets and relative positions"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_35",
+        "agent_nickname": "slide_35",
+        "prompt": "prompts/slide_35.json",
+        "prompt_sha256": "4d12870aa673747663ea7d35389d530220996fec3ea4e4bfd28c7323129e99b5",
+        "dispatched_at": "2026-08-25T13:36:03Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_35",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_35_worker_source.png",
+        "selected_source_sha256": "c4cf486333866dd840e369f1dcb5153bb9c9c0a18a5475fbb6d6613da9cc5b61",
+        "final_image": "origin_image/slide_35.png",
+        "final_image_sha256": "c4cf486333866dd840e369f1dcb5153bb9c9c0a18a5475fbb6d6613da9cc5b61",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "三层铜皮对比、$1N947跨层、Power_Via规格及SW限制准确；删除了未经确认的MOS编号。",
+        "recorded_at": "2026-08-25T13:48:42Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_36",
+      "number": 36,
+      "title": "当前已经确定并准备保留的设计",
+      "job": "prompts/slide_36.json",
+      "out": "origin_image/slide_36.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_36",
+        "agent_nickname": "slide_36",
+        "prompt": "prompts/slide_36.json",
+        "prompt_sha256": "9b08eeed1f7f65c06347612f9c4443059fad9f3bbbf91c3355248b98dec527d6",
+        "dispatched_at": "2026-08-25T13:37:14Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_36",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_36_worker_source.png",
+        "selected_source_sha256": "3a934e3e3652f337891d332ca08da4c971459f9202de9bb49dffe9af50738868",
+        "final_image": "origin_image/slide_36.png",
+        "final_image_sha256": "3a934e3e3652f337891d332ca08da4c971459f9202de9bb49dffe9af50738868",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "仅汇总用户已确认或已执行的9项设计，不增加推断。",
+        "recorded_at": "2026-08-25T13:41:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_37",
+      "number": 37,
+      "title": "投板前仍需老师重点确认的问题",
+      "job": "prompts/slide_37.json",
+      "out": "origin_image/slide_37.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_37",
+        "agent_nickname": "slide_37",
+        "prompt": "prompts/slide_37.json",
+        "prompt_sha256": "c0c552ab4d6237be1a8dde8165e7a30db95ef9b96cc0c78466db9a98b7bfff6c",
+        "dispatched_at": "2026-08-25T13:42:08Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_37",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_37_worker_source.png",
+        "selected_source_sha256": "55a527323e8377d04b11380a1496965dce9c142aaa17f9946bc059c9cc4c4573",
+        "final_image": "origin_image/slide_37.png",
+        "final_image_sha256": "55a527323e8377d04b11380a1496965dce9c142aaa17f9946bc059c9cc4c4573",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "仅保留五项老师判断问题，分类口径清楚，无预设结论。",
+        "recorded_at": "2026-08-25T13:47:26Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_38",
+      "number": 38,
+      "title": "首版样机的分级上电方案",
+      "job": "prompts/slide_38.json",
+      "out": "origin_image/slide_38.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_38",
+        "agent_nickname": "slide_38",
+        "prompt": "prompts/slide_38.json",
+        "prompt_sha256": "2c9a2cbaa7123b77472b71f473c3edd7b972ac9b636cb1503ce61fa596cf028a",
+        "dispatched_at": "2026-08-25T13:44:26Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_38",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_38_worker_source.png",
+        "selected_source_sha256": "fb360f52e0be55528014a988ec1d741d988e1367bc8a891c3018c5aaed2ebfa8",
+        "final_image": "origin_image/slide_38.png",
+        "final_image_sha256": "fb360f52e0be55528014a988ec1d741d988e1367bc8a891c3018c5aaed2ebfa8",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "四阶段分级上电、逐级升流与停止条件明确；最终才到29V/18A。",
+        "recorded_at": "2026-08-25T13:50:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_39",
+      "number": 39,
+      "title": "需要记录的关键波形与温度",
+      "job": "prompts/slide_39.json",
+      "out": "origin_image/slide_39.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_39",
+        "agent_nickname": "slide_39",
+        "prompt": "prompts/slide_39.json",
+        "prompt_sha256": "4b3b9d790f9b3e13385b6f792cac22f7eb0ae00916c5db14e4297e3652958c41",
+        "dispatched_at": "2026-08-25T13:47:58Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_39",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_39_worker_source.png",
+        "selected_source_sha256": "9c096d0171c048fdc1d8246091461d7917a0540f59bdbca03fb3bcacd71e5336",
+        "final_image": "origin_image/slide_39.png",
+        "final_image_sha256": "9c096d0171c048fdc1d8246091461d7917a0540f59bdbca03fb3bcacd71e5336",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "关键波形、温度对象、工况轴与测量小环路/差分注意完整准确。",
+        "recorded_at": "2026-08-25T13:52:37Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_40",
+      "number": 40,
+      "title": "希望老师给出的最终结论形式",
+      "job": "prompts/slide_40.json",
+      "out": "origin_image/slide_40.png",
+      "input_images": [
+        {
+          "path": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\origin_image\\slide_13.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography mood, density and engineering explanation style only; do not copy exact layout or content"
+        }
+      ],
+      "requires_context_images": true,
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_40",
+        "agent_nickname": "slide_40",
+        "prompt": "prompts/slide_40.json",
+        "prompt_sha256": "41dbdf526a8dc1d6b7d77d2d45d20d2e4a586f997529d5cfbc83e1baeb880705",
+        "dispatched_at": "2026-08-25T13:49:20Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_40",
+        "backend_used": "built-in image tool",
+        "selected_source": "C:\\Users\\Administrator\\Desktop\\henliu\\LT3763_老师一对一研讨版\\drafts\\slide_40_worker_source.png",
+        "selected_source_sha256": "ced587ced27e8b6825117680753c84a7ec66a4b4f579576ae59e7a22952173d3",
+        "final_image": "origin_image/slide_40.png",
+        "final_image_sha256": "ced587ced27e8b6825117680753c84a7ec66a4b4f579576ae59e7a22952173d3",
+        "expected_backend": "built-in image tool",
+        "expected_backend_labels": [
+          "built-in image tool",
+          "image_gen"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "三栏为空白决策记录区，未替老师预分类；会后闭环流程准确。",
+        "recorded_at": "2026-08-25T13:53:56Z"
+      },
+      "blocker": null
+    }
+  ],
+  "updated_at": "2026-08-25T13:53:56Z"
+}

@@ -1,0 +1,379 @@
+{"kind":"deck","id":"pr/8btd79","name":"Deck"}
+{"kind":"layout","layoutId":"efebcd12-63f7-4cd5-9cc1-5c68e58a153b","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"f7518bca-b79e-4f1d-9171-69cf6fd28e57","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/t1zcz3","slide":1,"title":"独立审板介绍","textShapes":8}
+{"kind":"textbox","id":"sh/b2dkbq50","slide":1,"text":"独立审板介绍","textPreview":"独立审板介绍","textChars":6,"textLines":1,"bbox":[44,38,360,28]}
+{"kind":"textbox","id":"sh/wnmlkv6l","slide":1,"text":"36V → 29V / 18A\nLT3763 恒流源板","textPreview":"36V → 29V / 18A | LT3763 恒流源板","textChars":27,"textLines":2,"bbox":[44,110,548,160]}
+{"kind":"textbox","id":"sh/xov2d0n6","slide":1,"text":"面向电力电子老师的功能、布局、风险与验证说明","textPreview":"面向电力电子老师的功能、布局、风险与验证说明","textChars":22,"textLines":1,"bbox":[44,302,540,70]}
+{"kind":"shape","id":"sh/mxkje1oj","slide":1,"bbox":[44,420,130,32]}
+{"kind":"textbox","id":"sh/nytk7654","slide":1,"text":"约 522 W","textPreview":"约 522 W","textChars":7,"textLines":1,"bbox":[54,425,110,22]}
+{"kind":"shape","id":"sh/oz21gb6p","slide":1,"bbox":[188,420,138,32]}
+{"kind":"textbox","id":"sh/90v29gna","slide":1,"text":"同步 Buck","textPreview":"同步 Buck","textChars":7,"textLines":1,"bbox":[198,425,118,22]}
+{"kind":"shape","id":"sh/6to3q5on","slide":1,"bbox":[340,420,206,32]}
+{"kind":"textbox","id":"sh/7uxkja58","slide":1,"text":"四层 · 计划全 2 oz","textPreview":"四层 · 计划全 2 oz","textChars":13,"textLines":1,"bbox":[350,425,186,22]}
+{"kind":"textbox","id":"sh/rmdw36ho","slide":1,"text":"当前工程：8.13 5.epro2\n日期：2026-08-19","textPreview":"当前工程：8.13 5.epro2 | 日期：2026-08-19","textChars":31,"textLines":2,"bbox":[44,590,400,58]}
+{"kind":"shape","id":"sh/6l4fa1g3","slide":1,"bbox":[640,38,598,610]}
+{"kind":"textbox","id":"sh/snmxcry9","slide":1,"text":"AI 辅助设计；请以独立审查和样机实测作为最终依据","textPreview":"AI 辅助设计；请以独立审查和样机实测作为最终依据","textChars":25,"textLines":1,"bbox":[640,660,598,22]}
+{"kind":"image","id":"im/yp4bi9on","slide":1,"name":"","geometry":"roundRect","alt":"最新版PCB顶层总览","bbox":[640,38,598,610]}
+{"kind":"notes","id":"nt/t1zcz3","slide":1,"text":"讲解提示：\n先直接说明背景：这不是已经定型的产品板，而是一块约500W的实验样机。我不是电气专业学生，设计过程使用了AI辅助，所以这次最希望老师帮助判断的是：有没有投板前硬伤，以及哪些问题必须靠样机测试才能定。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/8.13 5.epro2\n- C:/Users/Administrator/Desktop/henliu/tmp/epro_8135_review/top_full.png\n[/Sources]"}
+{"kind":"slide","id":"sl/ytb6dm","slide":2,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":15}
+{"kind":"textbox","id":"sh/wrapkf61","slide":2,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/vq1ora5g","slide":2,"text":"先用一分钟说明：这块板做什么","textPreview":"先用一分钟说明：这块板做什么","textChars":14,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/ups7i5ov","slide":2,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/5w3qxkni","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/4vapof6x","slide":2,"bbox":[42,162,278,132]}
+{"kind":"textbox","id":"sh/ju18va5c","slide":2,"text":"36 V","textPreview":"36 V","textChars":4,"textLines":1,"bbox":[60,180,242,52]}
+{"kind":"textbox","id":"sh/its7m5or","slide":2,"text":"标称直流输入","textPreview":"标称直流输入","textChars":6,"textLines":1,"bbox":[60,242,242,34]}
+{"kind":"shape","id":"sh/l0z6l0ne","slide":2,"bbox":[346,162,278,132]}
+{"kind":"textbox","id":"sh/kzqpcv6t","slide":2,"text":"29 V","textPreview":"29 V","textChars":4,"textLines":1,"bbox":[364,180,242,52]}
+{"kind":"textbox","id":"sh/y90fidkb","slide":2,"text":"目标输出电压，可到约30V","textPreview":"目标输出电压，可到约30V","textChars":13,"textLines":1,"bbox":[364,242,242,34]}
+{"kind":"shape","id":"sh/ja9wbilw","slide":2,"bbox":[650,162,278,132]}
+{"kind":"textbox","id":"sh/kb2xkn21","slide":2,"text":"18 A","textPreview":"18 A","textChars":4,"textLines":1,"bbox":[668,180,242,52]}
+{"kind":"textbox","id":"sh/lcbyd83m","slide":2,"text":"连续输出目标，软件设定","textPreview":"连续输出目标，软件设定","textChars":11,"textLines":1,"bbox":[668,242,242,34]}
+{"kind":"shape","id":"sh/6dkfmdk7","slide":2,"bbox":[954,162,284,132]}
+{"kind":"textbox","id":"sh/7etgfils","slide":2,"text":"≈522 W","textPreview":"≈522 W","textChars":6,"textLines":1,"bbox":[972,180,248,52]}
+{"kind":"textbox","id":"sh/8f2xon2d","slide":2,"text":"额定输出功率","textPreview":"额定输出功率","textChars":6,"textLines":1,"bbox":[972,242,248,34]}
+{"kind":"shape","id":"sh/tgbyhs3y","slide":2,"bbox":[42,324,578,288]}
+{"kind":"textbox","id":"sh/u1kfqxkj","slide":2,"text":"主功率级","textPreview":"主功率级","textChars":4,"textLines":1,"bbox":[66,348,220,34]}
+{"kind":"textbox","id":"sh/v2tgj2l4","slide":2,"text":"• LT3763 控制同步降压\n• 高边 2×BSC070N10LS5\n• 低边 2×BSC070N10LS5\n• 6.8 µH / 30 A 电感\n• 输入、输出各有 2.5 mΩ 采样","textPreview":"• LT3763 控制同步降压 | • 高边 2×BSC070N10LS5 | • 低边 2×BSC070N10LS5 | • 6.8 µH / 30 A 电感 | • 输入、输出各有 2.5 mΩ 采样","textChars":94,"textLines":5,"bbox":[66,397,510,170]}
+{"kind":"shape","id":"sh/r6dw72hw","slide":2,"bbox":[648,324,590,288]}
+{"kind":"textbox","id":"sh/q54fex0b","slide":2,"text":"控制与辅助电源","textPreview":"控制与辅助电源","textChars":7,"textLines":1,"bbox":[672,348,260,34]}
+{"kind":"textbox","id":"sh/d8ve9cz2","slide":2,"text":"• MCU DAC 设置输出电流\n• LT3763 同时管电压环、输入限流和快速逐周期过流\n• LM5164：36 V → 12 V\n• JW5026：12 V → 5 V\n• LDO：5 V → 3.3 V / AVCC","textPreview":"• MCU DAC 设置输出电流 | • LT3763 同时管电压环、输入限流和快速逐周期过流 | • LM5164：36 V → 12 V | • JW5026：12 V → 5 V | • LDO：5 V → 3.3 V / AVCC","textChars":111,"textLines":5,"bbox":[672,397,522,170]}
+{"kind":"notes","id":"nt/ytb6dm","slide":2,"text":"讲解提示：\n这一页只讲目标，不讲细节。老师需要先知道它不是普通小电源：29V×18A约522W，输入端在36V下大约15A以上，任何铜皮、过孔、连接器和热设计问题都会被放大。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n- https://www.analog.com/media/en/technical-documentation/data-sheets/lt3763.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/ikn3zo","slide":3,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":18}
+{"kind":"textbox","id":"sh/m9wraxgv","slide":3,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/9cnqlcfm","slide":3,"text":"电能先经过输入保护，再由同步 Buck 输出","textPreview":"电能先经过输入保护，再由同步 Buck 输出","textChars":22,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/8be9c7y1","slide":3,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/zml8fixk","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/ylcr6dgz","slide":3,"bbox":[148,277,988,0]}
+{"kind":"shape","id":"sh/l83qhsfa","slide":3,"bbox":[1000,277,136,0]}
+{"kind":"shape","id":"sh/0nu98ny5","slide":3,"bbox":[42,208,164,138]}
+{"kind":"textbox","id":"sh/jipsrmxo","slide":3,"text":"36V 输入","textPreview":"36V 输入","textChars":6,"textLines":1,"bbox":[56,232,136,34]}
+{"kind":"textbox","id":"sh/ihgrihg3","slide":3,"text":"接口 + 线束","textPreview":"接口 + 线束","textChars":7,"textLines":1,"bbox":[56,278,136,30]}
+{"kind":"shape","id":"sh/83ip4vul","slide":3,"bbox":[246,208,164,138]}
+{"kind":"textbox","id":"sh/94rqd0b6","slide":3,"text":"浪涌/反接","textPreview":"浪涌/反接","textChars":5,"textLines":1,"bbox":[260,232,136,34]}
+{"kind":"textbox","id":"sh/mh0725cf","slide":3,"text":"D6 · Q4","textPreview":"D6 · Q4","textChars":7,"textLines":1,"bbox":[260,278,136,30]}
+{"kind":"shape","id":"sh/7298bqt0","slide":3,"bbox":[450,208,164,138]}
+{"kind":"textbox","id":"sh/kfip0vu9","slide":3,"text":"输入通断","textPreview":"输入通断","textChars":4,"textLines":1,"bbox":[464,232,136,34]}
+{"kind":"textbox","id":"sh/lgrq90bu","slide":3,"text":"Q3 / Q12","textPreview":"Q3 / Q12","textChars":8,"textLines":1,"bbox":[464,278,136,30]}
+{"kind":"shape","id":"sh/ydg7ylcj","slide":3,"bbox":[654,208,164,138]}
+{"kind":"textbox","id":"sh/ze987qto","slide":3,"text":"同步半桥","textPreview":"同步半桥","textChars":4,"textLines":1,"bbox":[668,232,136,34]}
+{"kind":"textbox","id":"sh/cbypwbud","slide":3,"text":"Q1/Q6 · Q2/Q5","textPreview":"Q1/Q6 · Q2/Q5","textChars":13,"textLines":1,"bbox":[668,278,136,30]}
+{"kind":"shape","id":"sh/xc7q5gby","slide":3,"bbox":[858,208,164,138]}
+{"kind":"textbox","id":"sh/d8z69cnm","slide":3,"text":"L6 + R1","textPreview":"L6 + R1","textChars":7,"textLines":1,"bbox":[872,232,136,34]}
+{"kind":"textbox","id":"sh/s7q507m1","slide":3,"text":"6.8µH · Kelvin","textPreview":"6.8µH · Kelvin","textChars":14,"textLines":1,"bbox":[872,278,136,30]}
+{"kind":"shape","id":"sh/r6ho725g","slide":3,"bbox":[1062,208,164,138]}
+{"kind":"textbox","id":"sh/q58nyx4v","slide":3,"text":"29V / 18A","textPreview":"29V / 18A","textChars":9,"textLines":1,"bbox":[1076,232,136,34]}
+{"kind":"textbox","id":"sh/54z65snq","slide":3,"text":"输出端","textPreview":"输出端","textChars":3,"textLines":1,"bbox":[1076,278,136,30]}
+{"kind":"shape","id":"sh/43q5wnm5","slide":3,"bbox":[42,400,1196,202]}
+{"kind":"textbox","id":"sh/32ho325k","slide":3,"text":"主电流路径","textPreview":"主电流路径","textChars":5,"textLines":1,"bbox":[66,424,210,30]}
+{"kind":"textbox","id":"sh/i1onux4z","slide":3,"text":"VCC_BAT → Q3/Q12 → DCBUS → 本地陶瓷输入电容 → 半桥 SW → L6 → R1 → VCC_OUT","textPreview":"VCC_BAT → Q3/Q12 → DCBUS → 本地陶瓷输入电容 → 半桥 SW → L6 → R1 → VCC_OUT","textChars":63,"textLines":1,"bbox":[66,470,1100,36]}
+{"kind":"textbox","id":"sh/90j6hw3u","slide":3,"text":"回流路径：负载 GND → 功率地平面/过孔阵列 → 低边 MOS → 本地输入电容。老师审板时，请优先沿这两个闭环寻找窄颈、绕行和共阻抗。","textPreview":"回流路径：负载 GND → 功率地平面/过孔阵列 → 低边 MOS → 本地输入电容。老师审板时，请优先沿这两个闭环寻找窄颈、绕行和共阻抗。","textChars":70,"textLines":1,"bbox":[66,526,1100,52]}
+{"kind":"notes","id":"nt/ikn3zo","slide":3,"text":"讲解提示：\n介绍时沿蓝线从左到右指。重点说清楚：真正需要审查的不是某一根线，而是正向电流和回流构成的闭环；半桥本地电容到上下MOS的高di/dt小环路是噪声和尖峰的核心。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/8.13 5.epro2\n- https://www.analog.com/media/en/technical-documentation/data-sheets/lt3763.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/fcavmk","slide":4,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":15}
+{"kind":"textbox","id":"sh/ehgjats3","slide":4,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/1kr258ru","slide":4,"text":"LT3763 同时管理四件事；软件只负责设定目标","textPreview":"LT3763 同时管理四件事；软件只负责设定目标","textChars":24,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/0jilc3a9","slide":4,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/repkzy9c","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/qdgj6ts7","slide":4,"bbox":[396,318,482,0]}
+{"kind":"shape","id":"sh/dg721ori","slide":4,"bbox":[638,212,0,306]}
+{"kind":"shape","id":"sh/sfy183ax","slide":4,"bbox":[486,246,304,144]}
+{"kind":"textbox","id":"sh/3q5kve9g","slide":4,"text":"LT3763","textPreview":"LT3763","textChars":6,"textLines":1,"bbox":[526,272,224,42]}
+{"kind":"textbox","id":"sh/ipwj29sv","slide":4,"text":"200 kHz 同步 Buck 控制器","textPreview":"200 kHz 同步 Buck 控制器","textChars":19,"textLines":1,"bbox":[518,328,240,26]}
+{"kind":"shape","id":"sh/s3itgfmp","slide":4,"bbox":[42,170,340,152]}
+{"kind":"textbox","id":"sh/t4rupknu","slide":4,"text":"输出电流","textPreview":"输出电流","textChars":4,"textLines":1,"bbox":[62,190,300,30]}
+{"kind":"textbox","id":"sh/610bep4j","slide":4,"text":"R1 2.5mΩ\nSENSE± 快速逐周期保护","textPreview":"R1 2.5mΩ | SENSE± 快速逐周期保护","textChars":23,"textLines":2,"bbox":[62,236,300,60]}
+{"kind":"shape","id":"sh/729cnu54","slide":4,"bbox":[42,430,340,152]}
+{"kind":"textbox","id":"sh/kzytcfmd","slide":4,"text":"输入电流","textPreview":"输入电流","textChars":4,"textLines":1,"bbox":[62,450,300,30]}
+{"kind":"textbox","id":"sh/507ulkny","slide":4,"text":"R12 2.5mΩ\nIVIN 为平均输入限流","textPreview":"R12 2.5mΩ | IVIN 为平均输入限流","textChars":22,"textLines":2,"bbox":[62,496,300,60]}
+{"kind":"shape","id":"sh/ixgba547","slide":4,"bbox":[898,170,340,152]}
+{"kind":"textbox","id":"sh/jypcja5s","slide":4,"text":"输出电压","textPreview":"输出电压","textChars":4,"textLines":1,"bbox":[918,190,300,30]}
+{"kind":"textbox","id":"sh/4v2dozmh","slide":4,"text":"R30/R49\n标称约29.19V","textPreview":"R30/R49 | 标称约29.19V","textChars":17,"textLines":2,"bbox":[918,236,300,60]}
+{"kind":"shape","id":"sh/pwbux4n2","slide":4,"bbox":[898,430,340,152]}
+{"kind":"textbox","id":"sh/dc7uh4f6","slide":4,"text":"启动与温度","textPreview":"启动与温度","textChars":5,"textLines":1,"bbox":[918,450,300,30]}
+{"kind":"textbox","id":"sh/cbyt8ze1","slide":4,"text":"UVLO + CTRL2 NTC\n阈值仍待确认","textPreview":"UVLO + CTRL2 NTC | 阈值仍待确认","textChars":23,"textLines":2,"bbox":[918,496,300,60]}
+{"kind":"shape","id":"sh/bqpcfuxg","slide":4,"bbox":[412,538,452,32]}
+{"kind":"textbox","id":"sh/qpgb69wv","slide":4,"text":"MCU DAC → CTRL1：正常工作电流命令","textPreview":"MCU DAC → CTRL1：正常工作电流命令","textChars":24,"textLines":1,"bbox":[422,543,432,22]}
+{"kind":"textbox","id":"sh/po7ud4fa","slide":4,"text":"注意：软件限制18A ≠ 独立硬件18A上限；软件异常时仍由LT3763内部硬保护兜底。","textPreview":"注意：软件限制18A ≠ 独立硬件18A上限；软件异常时仍由LT3763内部硬保护兜底。","textChars":44,"textLines":1,"bbox":[290,602,700,38]}
+{"kind":"notes","id":"nt/fcavmk","slide":4,"text":"讲解提示：\n澄清两个容易误解的点：第一，输入电流检测的1kΩ/1µF滤波是平均输入限流，不是快速短路保护；快速逐周期保护走SENSE±。第二，软件DAC只设置正常目标，不应被描述成独立安全保护。\n\n[Sources]\n- https://www.analog.com/media/en/technical-documentation/data-sheets/lt3763.pdf\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n[/Sources]"}
+{"kind":"slide","id":"sl/ep6nbg","slide":5,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":10}
+{"kind":"textbox","id":"sh/g7ilcrqx","slide":5,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/vm9k3mpc","slide":5,"text":"主功率布局围绕最小化高 di/dt 回路","textPreview":"主功率布局围绕最小化高 di/dt 回路","textChars":20,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/ul03a18r","slide":5,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/5cbm9g7e","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/4b2lgbqt","slide":5,"bbox":[42,154,742,472]}
+{"kind":"shape","id":"sh/i9k3e183","slide":5,"bbox":[816,166,350,32]}
+{"kind":"textbox","id":"sh/dgbmdg7q","slide":5,"text":"① LT3763 + 栅极网络","textPreview":"① LT3763 + 栅极网络","textChars":15,"textLines":1,"bbox":[826,171,330,22]}
+{"kind":"shape","id":"sh/sf2lkb65","slide":5,"bbox":[816,218,350,32]}
+{"kind":"textbox","id":"sh/y9gjexkf","slide":5,"text":"② 上下桥并联 MOS","textPreview":"② 上下桥并联 MOS","textChars":11,"textLines":1,"bbox":[826,223,330,22]}
+{"kind":"shape","id":"sh/zapkn21k","slide":5,"bbox":[816,270,350,32]}
+{"kind":"textbox","id":"sh/0by1g725","slide":5,"text":"③ 半桥本地 100V MLCC","textPreview":"③ 半桥本地 100V MLCC","textChars":16,"textLines":1,"bbox":[826,275,330,22]}
+{"kind":"shape","id":"sh/lw72pcjq","slide":5,"bbox":[816,322,350,32]}
+{"kind":"textbox","id":"sh/mxgjihkb","slide":5,"text":"④ SW 主要保留在顶层","textPreview":"④ SW 主要保留在顶层","textChars":12,"textLines":1,"bbox":[826,327,330,22]}
+{"kind":"shape","id":"sh/ny9krm1w","slide":5,"bbox":[816,374,350,32]}
+{"kind":"textbox","id":"sh/8zi1k72h","slide":5,"text":"⑤ L6 → R1 顶层大铜皮","textPreview":"⑤ L6 → R1 顶层大铜皮","textChars":15,"textLines":1,"bbox":[826,379,330,22]}
+{"kind":"shape","id":"sh/90r2tcj2","slide":5,"bbox":[816,444,398,182]}
+{"kind":"textbox","id":"sh/21wj6dk7","slide":5,"text":"请老师重点看","textPreview":"请老师重点看","textChars":6,"textLines":1,"bbox":[838,464,240,28]}
+{"kind":"textbox","id":"sh/3250fi1s","slide":5,"text":"• 输入电容到半桥的闭环面积\n• 并联MOS栅极/源极是否对称\n• SW是否仍耦合采样与模拟线\n• L6、R1和输出端是否存在局部窄颈","textPreview":"• 输入电容到半桥的闭环面积 | • 并联MOS栅极/源极是否对称 | • SW是否仍耦合采样与模拟线 | • L6、R1和输出端是否存在局部窄颈","textChars":67,"textLines":4,"bbox":[838,505,350,96]}
+{"kind":"image","id":"im/mx07m50b","slide":5,"name":"","geometry":"roundRect","alt":"半桥、LT3763、电感与分流器顶层细节","bbox":[42,154,742,472]}
+{"kind":"notes","id":"nt/ep6nbg","slide":5,"text":"讲解提示：\n这一页不要声称布局已经通过。先说已完成的改动：SW底层大面积铜已经删除，本地电容已增加，L6到R1主要留在顶层以保护Kelvin边界。然后请老师从回路面积、均流和采样污染三个角度判断。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/tmp/epro_8135_review/top_power_detail.png\n- C:/Users/Administrator/Desktop/henliu/8.13 5.epro2\n[/Sources]"}
+{"kind":"slide","id":"sl/84oeif","slide":6,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":15}
+{"kind":"textbox","id":"sh/v6543epc","slide":6,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/w7e5cjqh","slide":6,"text":"输入保护能工作，但动态可靠性仍需重点判断","textPreview":"输入保护能工作，但动态可靠性仍需重点判断","textChars":20,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/h8nm5o72","slide":6,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/mhcn698f","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/7il4ze90","slide":6,"bbox":[42,154,660,472]}
+{"kind":"shape","id":"sh/943m1476","slide":6,"bbox":[730,154,508,101]}
+{"kind":"shape","id":"sh/6dgnit8z","slide":6,"bbox":[746,170,94,32]}
+{"kind":"textbox","id":"sh/repobyp4","slide":6,"text":"D6","textPreview":"D6","textChars":2,"textLines":1,"bbox":[756,175,74,22]}
+{"kind":"textbox","id":"sh/r254fmpo","slide":6,"text":"SMCJ36CA","textPreview":"SMCJ36CA","textChars":8,"textLines":1,"bbox":[856,170,178,25]}
+{"kind":"textbox","id":"sh/q1wnmh8j","slide":6,"text":"58.1V最大钳位值接近60V器件等级","textPreview":"58.1V最大钳位值接近60V器件等级","textChars":19,"textLines":1,"bbox":[856,204,350,35]}
+{"kind":"shape","id":"sh/don6hw7u","slide":6,"bbox":[730,270,508,101]}
+{"kind":"shape","id":"sh/c3e5orq9","slide":6,"bbox":[746,286,94,32]}
+{"kind":"textbox","id":"sh/zqpojmp0","slide":6,"text":"Q3/Q12","textPreview":"Q3/Q12","textChars":6,"textLines":1,"bbox":[756,291,74,22]}
+{"kind":"textbox","id":"sh/epwnq18f","slide":6,"text":"80V P-MOS","textPreview":"80V P-MOS","textChars":9,"textLines":1,"bbox":[856,286,178,25]}
+{"kind":"textbox","id":"sh/1s76lw76","slide":6,"text":"导通损耗可控；热插拔线性SOA待验证","textPreview":"导通损耗可控；热插拔线性SOA待验证","textChars":18,"textLines":1,"bbox":[856,320,350,35]}
+{"kind":"shape","id":"sh/0ry5srql","slide":6,"bbox":[730,386,508,101]}
+{"kind":"shape","id":"sh/nupon6pw","slide":6,"bbox":[746,402,94,32]}
+{"kind":"textbox","id":"sh/mtgnu18b","slide":6,"text":"U7/Q11","textPreview":"U7/Q11","textChars":6,"textLines":1,"bbox":[756,407,74,22]}
+{"kind":"textbox","id":"sh/ypk7m5sj","slide":6,"text":"43V稳压管关断","textPreview":"43V稳压管关断","textChars":8,"textLines":1,"bbox":[856,402,178,25]}
+{"kind":"textbox","id":"sh/jqt8fa94","slide":6,"text":"R8=100k使阈值、温漂和速度不精确","textPreview":"R8=100k使阈值、温漂和速度不精确","textChars":19,"textLines":1,"bbox":[856,436,350,35]}
+{"kind":"shape","id":"sh/kr29ofap","slide":6,"bbox":[730,502,508,101]}
+{"kind":"shape","id":"sh/lsbqhkra","slide":6,"bbox":[746,518,94,32]}
+{"kind":"textbox","id":"sh/al07i5sn","slide":6,"text":"R6/C5 + R17/C9","textPreview":"R6/C5 + R17/C9","textChars":14,"textLines":1,"bbox":[756,523,74,22]}
+{"kind":"textbox","id":"sh/bm98bq98","slide":6,"text":"串联RC阻尼","textPreview":"串联RC阻尼","textChars":6,"textLines":1,"bbox":[856,518,178,25]}
+{"kind":"textbox","id":"sh/wnipkvat","slide":6,"text":"每支路理想阶跃能量约64.8mJ","textPreview":"每支路理想阶跃能量约64.8mJ","textChars":16,"textLines":1,"bbox":[856,552,350,35]}
+{"kind":"image","id":"im/xwr25gv6","slide":6,"name":"","geometry":"roundRect","alt":"输入保护、TVS、并联P-MOS与阻尼支路","bbox":[42,154,660,472]}
+{"kind":"notes","id":"nt/84oeif","slide":6,"text":"讲解提示：\n把这里描述为‘可用于实验，但没有完成产品级浪涌/热插拔证明’。慢慢升压只能降低首次上电风险，不能证明直接36V接入、线缆振铃、TVS钳位、MOS线性区SOA和RC脉冲耐量合格。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/tmp/epro_8135_review/top_input.png\n- https://www.littelfuse.com/assetdocs/littelfuse_tvs_diode_smcj_datasheet.pdf?assetguid=37388813-0d6d-4329-969b-1aa8b7614ac1\n- https://www.vishay.com/docs/73471/sum110p0.pdf\n- https://assets.nexperia.com/documents/data-sheet/BZT52_SER.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/7w4quu","slide":7,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":32}
+{"kind":"textbox","id":"sh/ve9ozm5s","slide":7,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/wfip8rmd","slide":7,"text":"关键工作点已有计算；是否可靠仍要用实测闭环","textPreview":"关键工作点已有计算；是否可靠仍要用实测闭环","textChars":21,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/xgr61wny","slide":7,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/ih07a14j","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/ji9o3m5o","slide":7,"bbox":[42,160,238,48]}
+{"kind":"textbox","id":"sh/4jipcrm9","slide":7,"text":"项目","textPreview":"项目","textChars":2,"textLines":1,"bbox":[54,173,214,24]}
+{"kind":"shape","id":"sh/5kb65wnu","slide":7,"bbox":[280,160,310,48]}
+{"kind":"textbox","id":"sh/ylgnyx4z","slide":7,"text":"当前条件","textPreview":"当前条件","textChars":4,"textLines":1,"bbox":[292,173,286,24]}
+{"kind":"shape","id":"sh/zmpor25k","slide":7,"bbox":[590,160,340,48]}
+{"kind":"textbox","id":"sh/fq5cfap0","slide":7,"text":"计算结果","textPreview":"计算结果","textChars":4,"textLines":1,"bbox":[602,173,316,24]}
+{"kind":"shape","id":"sh/epwvm58f","slide":7,"bbox":[930,160,308,48]}
+{"kind":"textbox","id":"sh/1snehk76","slide":7,"text":"判断","textPreview":"判断","textChars":2,"textLines":1,"bbox":[942,173,284,24]}
+{"kind":"shape","id":"sh/gredofql","slide":7,"bbox":[42,208,238,68]}
+{"kind":"textbox","id":"sh/r2lcbqp4","slide":7,"text":"输出电压","textPreview":"输出电压","textChars":4,"textLines":1,"bbox":[54,220,214,44]}
+{"kind":"shape","id":"sh/61cvil8j","slide":7,"bbox":[280,208,310,68]}
+{"kind":"textbox","id":"sh/tonud07a","slide":7,"text":"R30=232k / R49=10k","textPreview":"R30=232k / R49=10k","textChars":18,"textLines":1,"bbox":[292,220,286,44]}
+{"kind":"shape","id":"sh/snudkvqp","slide":7,"bbox":[590,208,340,68]}
+{"kind":"textbox","id":"sh/jylc7qps","slide":7,"text":"29.19V 标称；正常最差约29.7V","textPreview":"29.19V 标称；正常最差约29.7V","textChars":20,"textLines":1,"bbox":[602,220,316,44]}
+{"kind":"shape","id":"sh/ixcvel8n","slide":7,"bbox":[930,208,308,68]}
+{"kind":"textbox","id":"sh/mtsvqlsf","slide":7,"text":"符合≤30V目标","textPreview":"符合≤30V目标","textChars":8,"textLines":1,"bbox":[942,220,284,44]}
+{"kind":"shape","id":"sh/7u1wjqt0","slide":7,"bbox":[42,276,238,68]}
+{"kind":"textbox","id":"sh/8vadsba5","slide":7,"text":"电感电流","textPreview":"电感电流","textChars":4,"textLines":1,"bbox":[54,288,214,44]}
+{"kind":"shape","id":"sh/9w3elgbq","slide":7,"bbox":[280,276,310,68]}
+{"kind":"textbox","id":"sh/uxcvulsb","slide":7,"text":"36→29V，18A，200kHz","textPreview":"36→29V，18A，200kHz","textChars":17,"textLines":1,"bbox":[292,288,286,44]}
+{"kind":"shape","id":"sh/vylwnqtw","slide":7,"bbox":[590,276,340,68]}
+{"kind":"textbox","id":"sh/wzuxwvah","slide":7,"text":"纹波≈4.15App；峰值≈20.1A","textPreview":"纹波≈4.15App；峰值≈20.1A","textChars":19,"textLines":1,"bbox":[602,288,316,44]}
+{"kind":"shape","id":"sh/h03ep0b2","slide":7,"bbox":[930,276,308,68]}
+{"kind":"textbox","id":"sh/ilcfy5sn","slide":7,"text":"低于40A饱和值","textPreview":"低于40A饱和值","textChars":8,"textLines":1,"bbox":[942,288,284,44]}
+{"kind":"shape","id":"sh/jmlwra98","slide":7,"bbox":[42,344,238,68]}
+{"kind":"textbox","id":"sh/tg7yh4va","slide":7,"text":"输出分流器","textPreview":"输出分流器","textChars":5,"textLines":1,"bbox":[54,356,214,44]}
+{"kind":"shape","id":"sh/sfehozup","slide":7,"bbox":[280,344,310,68]}
+{"kind":"textbox","id":"sh/ru5gfud4","slide":7,"text":"R1=2.5mΩ","textPreview":"R1=2.5mΩ","textChars":8,"textLines":1,"bbox":[292,356,286,44]}
+{"kind":"shape","id":"sh/6twzmpcj","slide":7,"bbox":[590,344,340,68]}
+{"kind":"textbox","id":"sh/1k7yl4b6","slide":7,"text":"18A时≈0.81W","textPreview":"18A时≈0.81W","textChars":10,"textLines":1,"bbox":[602,356,316,44]}
+{"kind":"shape","id":"sh/gjyhszul","slide":7,"bbox":[930,344,308,68]}
+{"kind":"textbox","id":"sh/fipgjedg","slide":7,"text":"核实焊盘热梯度","textPreview":"核实焊盘热梯度","textChars":7,"textLines":1,"bbox":[942,356,284,44]}
+{"kind":"shape","id":"sh/ehgzq9cv","slide":7,"bbox":[42,412,238,68]}
+{"kind":"textbox","id":"sh/poripobi","slide":7,"text":"输入电流","textPreview":"输入电流","textChars":4,"textLines":1,"bbox":[54,424,214,44]}
+{"kind":"shape","id":"sh/onihwjux","slide":7,"bbox":[280,412,310,68]}
+{"kind":"textbox","id":"sh/kvmt47ih","slide":7,"text":"η按95%估算","textPreview":"η按95%估算","textChars":7,"textLines":1,"bbox":[292,424,286,44]}
+{"kind":"shape","id":"sh/lgvadcjm","slide":7,"bbox":[590,412,340,68]}
+{"kind":"textbox","id":"sh/yt4b2h0b","slide":7,"text":"约15.3A；R12≈0.59W","textPreview":"约15.3A；R12≈0.59W","textChars":16,"textLines":1,"bbox":[602,424,316,44]}
+{"kind":"shape","id":"sh/judsbm1w","slide":7,"bbox":[930,412,308,68]}
+{"kind":"textbox","id":"sh/wr2t07i5","slide":7,"text":"输入限流有余量","textPreview":"输入限流有余量","textChars":7,"textLines":1,"bbox":[942,424,284,44]}
+{"kind":"shape","id":"sh/xsva9cjq","slide":7,"bbox":[42,480,238,68]}
+{"kind":"textbox","id":"sh/apkbyx0z","slide":7,"text":"软件电流","textPreview":"软件电流","textChars":4,"textLines":1,"bbox":[54,492,214,44]}
+{"kind":"shape","id":"sh/bqts721k","slide":7,"bbox":[280,480,310,68]}
+{"kind":"textbox","id":"sh/gn6tcri9","slide":7,"text":"R2=10k / R19=8.2k","textPreview":"R2=10k / R19=8.2k","textChars":17,"textLines":1,"bbox":[292,492,286,44]}
+{"kind":"shape","id":"sh/hofulwzu","slide":7,"bbox":[590,480,340,68]}
+{"kind":"textbox","id":"sh/rihwbq1c","slide":7,"text":"18A典型DAC≈2.94V","textPreview":"18A典型DAC≈2.94V","textChars":14,"textLines":1,"bbox":[602,492,316,44]}
+{"kind":"shape","id":"sh/qh8vi5kr","slide":7,"bbox":[930,480,308,68]}
+{"kind":"textbox","id":"sh/dkjed0j2","slide":7,"text":"首测建议更保守","textPreview":"首测建议更保守","textChars":7,"textLines":1,"bbox":[942,492,284,44]}
+{"kind":"shape","id":"sh/sjadkv2h","slide":7,"bbox":[42,548,238,68]}
+{"kind":"textbox","id":"sh/f61wfa18","slide":7,"text":"UVLO","textPreview":"UVLO","textChars":4,"textLines":1,"bbox":[54,560,214,44]}
+{"kind":"shape","id":"sh/e5svm5kn","slide":7,"bbox":[280,548,310,68]}
+{"kind":"textbox","id":"sh/18jehkje","slide":7,"text":"R52=120k / R53=6.34k","textPreview":"R52=120k / R53=6.34k","textChars":20,"textLines":1,"bbox":[292,560,286,44]}
+{"kind":"shape","id":"sh/07adof2t","slide":7,"bbox":[590,548,340,68]}
+{"kind":"textbox","id":"sh/vaxw36l4","slide":7,"text":"约30.3V关断 / 34V启动","textPreview":"约30.3V关断 / 34V启动","textChars":16,"textLines":1,"bbox":[602,560,316,44]}
+{"kind":"shape","id":"sh/upovalkj","slide":7,"bbox":[930,548,308,68]}
+{"kind":"textbox","id":"sh/y5wzi947","slide":7,"text":"需台架复测阈值","textPreview":"需台架复测阈值","textChars":7,"textLines":1,"bbox":[942,560,284,44]}
+{"kind":"textbox","id":"sh/j65gbels","slide":7,"text":"计算值用于确定量级和测试边界；不能替代示波器波形、热像、效率和保护动作测试。","textPreview":"计算值用于确定量级和测试边界；不能替代示波器波形、热像、效率和保护动作测试。","textChars":38,"textLines":1,"bbox":[42,634,1100,28]}
+{"kind":"notes","id":"nt/7w4quu","slide":7,"text":"讲解提示：\n这一页建议你提前熟悉四个数：522W、输入约15.3A、电感峰值约20A、R1约0.81W。老师追问时，不需要背全部公式，但要说明假设：36V输入、29V/18A输出、200kHz、效率按95%估算。\n\n[Sources]\n- https://www.analog.com/media/en/technical-documentation/data-sheets/lt3763.pdf\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n[/Sources]"}
+{"kind":"slide","id":"sl/tzqf7t","slide":8,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":7}
+{"kind":"textbox","id":"sh/sbm9cnah","slide":8,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/7adsji9w","slide":8,"text":"四层电流路径已补强；铜厚和过孔能力仍需制造确认","textPreview":"四层电流路径已补强；铜厚和过孔能力仍需制造确认","textChars":23,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/694radsb","slide":8,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/h0fapsry","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/gz6tgnad","slide":8,"bbox":[42,154,570,408]}
+{"kind":"shape","id":"sh/uxobedsn","slide":8,"bbox":[630,154,608,408]}
+{"kind":"shape","id":"sh/436tk7ap","slide":8,"bbox":[92,576,470,32]}
+{"kind":"textbox","id":"sh/u9kj6dgj","slide":8,"text":"内层：大面积电源/地铜 + 过孔阵列","textPreview":"内层：大面积电源/地铜 + 过孔阵列","textChars":18,"textLines":1,"bbox":[102,581,450,22]}
+{"kind":"shape","id":"sh/fatkfih4","slide":8,"bbox":[690,576,488,32]}
+{"kind":"textbox","id":"sh/gb2l8nyp","slide":8,"text":"底层：回流与辅助跨层，避免大面积SW","textPreview":"底层：回流与辅助跨层，避免大面积SW","textChars":18,"textLines":1,"bbox":[700,581,468,22]}
+{"kind":"textbox","id":"sh/hcv2hsza","slide":8,"text":"已知：$1N947 顶层与 L3 同网并通过孔相连；高电流焊盘直连；常规功率过孔约0.6/0.3mm。","textPreview":"已知：$1N947 顶层与 L3 同网并通过孔相连；高电流焊盘直连；常规功率过孔约0.6/0.3mm。","textChars":51,"textLines":1,"bbox":[42,630,1196,28]}
+{"kind":"textbox","id":"sh/2d43axgv","slide":8,"text":"待确认：嘉立创下单全层2oz是否与生产文件一致；孔铜厚度、局部窄颈和电流分配是否满足连续18A温升。","textPreview":"待确认：嘉立创下单全层2oz是否与生产文件一致；孔铜厚度、局部窄颈和电流分配是否满足连续18A温升。","textChars":50,"textLines":1,"bbox":[42,660,1196,24]}
+{"kind":"image","id":"im/y9g3mls3","slide":8,"name":"","geometry":"roundRect","alt":"内层功率铜皮与过孔分布","bbox":[42,154,570,408]}
+{"kind":"image","id":"im/c7elkvax","slide":8,"name":"","geometry":"roundRect","alt":"底层功率回流与过孔分布","bbox":[630,154,608,408]}
+{"kind":"notes","id":"nt/tzqf7t","slide":8,"text":"讲解提示：\n解释为什么不是简单‘四层全铺同一网络’：高di/dt的SW不希望跨层扩大，但直流母线、输出和GND可以多层并联。过孔数量多不等于一定够，需要结合孔铜、铜厚、局部入口宽度和热像判断。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/tmp/epro_8135_review/inner2_power.png\n- C:/Users/Administrator/Desktop/henliu/tmp/epro_8135_review/bottom_power.png\n- C:/Users/Administrator/Desktop/henliu/8.13 5.epro2\n[/Sources]"}
+{"kind":"slide","id":"sl/vb28xx","slide":9,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":27}
+{"kind":"textbox","id":"sh/4jq9o7up","slide":9,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/3ih8f2t4","slide":9,"text":"当前没有被证明的，不等于已经安全","textPreview":"当前没有被证明的，不等于已经安全","textChars":16,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/2h8rmxcj","slide":9,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/hgzqdsbe","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/gvq9knut","slide":9,"bbox":[42,168,1196,66]}
+{"kind":"shape","id":"sh/fuh8b2t8","slide":9,"bbox":[52,178,46,46]}
+{"kind":"textbox","id":"sh/utorixcn","slide":9,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[52,185,46,28]}
+{"kind":"textbox","id":"sh/tsfq9sb2","slide":9,"text":"热降额曲线","textPreview":"热降额曲线","textChars":5,"textLines":1,"bbox":[116,178,330,26]}
+{"kind":"textbox","id":"sh/sr6pgnuh","slide":9,"text":"R57=20kΩ可能过早降额；NTC位置也必须能代表热点","textPreview":"R57=20kΩ可能过早降额；NTC位置也必须能代表热点","textChars":28,"textLines":1,"bbox":[452,177,650,44]}
+{"kind":"shape","id":"sh/ml4n6dwf","slide":9,"bbox":[1110,185,105,32]}
+{"kind":"textbox","id":"sh/nmdofix0","slide":9,"text":"中","textPreview":"中","textChars":1,"textLines":1,"bbox":[1120,190,85,22]}
+{"kind":"shape","id":"sh/87m58nel","slide":9,"bbox":[42,246,1196,66]}
+{"kind":"shape","id":"sh/98v618f6","slide":9,"bbox":[52,256,46,46]}
+{"kind":"textbox","id":"sh/yhkn2twj","slide":9,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[52,263,46,28]}
+{"kind":"textbox","id":"sh/zitobyxo","slide":9,"text":"浪涌/热插拔","textPreview":"浪涌/热插拔","textChars":6,"textLines":1,"bbox":[116,256,330,26]}
+{"kind":"textbox","id":"sh/0j2543e9","slide":9,"text":"D6、U7/Q11、Q3/Q12的动态配合与SOA尚未实测","textPreview":"D6、U7/Q11、Q3/Q12的动态配合与SOA尚未实测","textChars":29,"textLines":1,"bbox":[452,255,650,44]}
+{"kind":"shape","id":"sh/lkb6d8fu","slide":9,"bbox":[1110,263,105,32]}
+{"kind":"textbox","id":"sh/qd0nytw7","slide":9,"text":"高","textPreview":"高","textChars":1,"textLines":1,"bbox":[1120,268,85,22]}
+{"kind":"shape","id":"sh/beto7yxs","slide":9,"bbox":[42,324,1196,66]}
+{"kind":"shape","id":"sh/fipkzudk","slide":9,"bbox":[52,334,46,46]}
+{"kind":"textbox","id":"sh/ehg36pcz","slide":9,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[52,341,46,28]}
+{"kind":"textbox","id":"sh/1k721kvq","slide":9,"text":"RC阻尼脉冲","textPreview":"RC阻尼脉冲","textChars":6,"textLines":1,"bbox":[116,334,330,26]}
+{"kind":"textbox","id":"sh/gjyl8zu5","slide":9,"text":"R6/R17必须有明确单脉冲和重复脉冲耐量","textPreview":"R6/R17必须有明确单脉冲和重复脉冲耐量","textChars":21,"textLines":1,"bbox":[452,333,650,44]}
+{"kind":"shape","id":"sh/3m9k3udg","slide":9,"bbox":[1110,341,105,32]}
+{"kind":"textbox","id":"sh/2lg3apcb","slide":9,"text":"高","textPreview":"高","textChars":1,"textLines":1,"bbox":[1120,346,85,22]}
+{"kind":"shape","id":"sh/porm54vm","slide":9,"bbox":[42,402,1196,66]}
+{"kind":"shape","id":"sh/onilczu1","slide":9,"bbox":[52,412,46,46]}
+{"kind":"textbox","id":"sh/jq5kradc","slide":9,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[52,419,46,28]}
+{"kind":"textbox","id":"sh/ipwjy5cr","slide":9,"text":"LM5164 C25","textPreview":"LM5164 C25","textChars":10,"textLines":1,"bbox":[116,412,330,26]}
+{"kind":"textbox","id":"sh/8vuh8bap","slide":9,"text":"当前2.2nF与典型56pF差异大，需比较轻载和瞬态","textPreview":"当前2.2nF与典型56pF差异大，需比较轻载和瞬态","textChars":26,"textLines":1,"bbox":[452,411,650,44]}
+{"kind":"shape","id":"sh/9w3i1gba","slide":9,"bbox":[1110,419,105,32]}
+{"kind":"textbox","id":"sh/mtsz61sj","slide":9,"text":"中","textPreview":"中","textChars":1,"textLines":1,"bbox":[1120,424,85,22]}
+{"kind":"shape","id":"sh/nu10z6t4","slide":9,"bbox":[42,480,1196,66]}
+{"kind":"shape","id":"sh/07ah4rad","slide":9,"bbox":[52,490,46,46]}
+{"kind":"textbox","id":"sh/lsjixwby","slide":9,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[52,497,46,28]}
+{"kind":"textbox","id":"sh/y5sz2hsn","slide":9,"text":"制造一致性","textPreview":"制造一致性","textChars":5,"textLines":1,"bbox":[116,490,330,26]}
+{"kind":"textbox","id":"sh/z610vmt8","slide":9,"text":"全层2oz、盘中孔树脂塞孔盖铜、钢网分窗需下单确认","textPreview":"全层2oz、盘中孔树脂塞孔盖铜、钢网分窗需下单确认","textChars":25,"textLines":1,"bbox":[452,489,650,44]}
+{"kind":"shape","id":"sh/kne1gvax","slide":9,"bbox":[1110,497,105,32]}
+{"kind":"textbox","id":"sh/5oni90bi","slide":9,"text":"中","textPreview":"中","textChars":1,"textLines":1,"bbox":[1120,502,85,22]}
+{"kind":"shape","id":"sh/hwv6loni","slide":9,"bbox":[42,558,1196,66]}
+{"kind":"shape","id":"sh/gvm5cjmx","slide":9,"bbox":[52,568,46,46]}
+{"kind":"textbox","id":"sh/fudoje5c","slide":9,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[52,575,46,28]}
+{"kind":"textbox","id":"sh/ut4na947","slide":9,"text":"软件边界","textPreview":"软件边界","textChars":4,"textLines":1,"bbox":[116,568,330,26]}
+{"kind":"textbox","id":"sh/p0f6p8nu","slide":9,"text":"18A依赖DAC设定；异常情况下的独立上限与故障策略待定","textPreview":"18A依赖DAC设定；异常情况下的独立上限与故障策略待定","textChars":28,"textLines":1,"bbox":[452,567,650,44]}
+{"kind":"shape","id":"sh/4z65g3m9","slide":9,"bbox":[1110,575,105,32]}
+{"kind":"textbox","id":"sh/3ydony5o","slide":9,"text":"中","textPreview":"中","textChars":1,"textLines":1,"bbox":[1120,580,85,22]}
+{"kind":"notes","id":"nt/vb28xx","slide":9,"text":"讲解提示：\n这六项不是说板子一定会坏，而是目前证据不足。请老师帮忙把每项归类为：投板前必须改、实验板可保留但必须测试、仅优化、已经合理。这样比问‘还有没有问题’更容易得到明确答案。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n- https://www.ti.com/lit/ds/symlink/lm5164.pdf\n[/Sources]"}
+{"kind":"slide","id":"sl/851oif","slide":10,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":28}
+{"kind":"textbox","id":"sh/qhori1sn","slide":10,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/dkfadgre","slide":10,"text":"希望老师优先回答这 8 个问题","textPreview":"希望老师优先回答这 8 个问题","textChars":15,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/sj69kbat","slide":10,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/3exs7m9w","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/id4re1sr","slide":10,"bbox":[42,154,588,104]}
+{"kind":"textbox","id":"sh/5gfa9wr2","slide":10,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[60,170,46,28]}
+{"kind":"textbox","id":"sh/4f69grah","slide":10,"text":"功率回路","textPreview":"功率回路","textChars":4,"textLines":1,"bbox":[120,168,180,28]}
+{"kind":"textbox","id":"sh/vqds3mt0","slide":10,"text":"半桥本地输入电容—MOS—GND闭环是否足够小？","textPreview":"半桥本地输入电容—MOS—GND闭环是否足够小？","textChars":24,"textLines":1,"bbox":[120,202,480,40]}
+{"kind":"shape","id":"sh/up4rahsf","slide":10,"bbox":[650,154,588,104]}
+{"kind":"textbox","id":"sh/grmtsreh","slide":10,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[668,170,46,28]}
+{"kind":"textbox","id":"sh/1svu1wv2","slide":10,"text":"铜皮/过孔","textPreview":"铜皮/过孔","textChars":5,"textLines":1,"bbox":[728,168,180,28]}
+{"kind":"textbox","id":"sh/e54bq1wr","slide":10,"text":"连续18A下，各层分流、窄颈和过孔阵列是否合理？","textPreview":"连续18A下，各层分流、窄颈和过孔阵列是否合理？","textChars":24,"textLines":1,"bbox":[728,202,480,40]}
+{"kind":"shape","id":"sh/fqdczmdc","slide":10,"bbox":[42,278,588,104]}
+{"kind":"textbox","id":"sh/s32torel","slide":10,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[60,294,46,28]}
+{"kind":"textbox","id":"sh/t4baxwv6","slide":10,"text":"Kelvin采样","textPreview":"Kelvin采样","textChars":8,"textLines":1,"bbox":[120,292,180,28]}
+{"kind":"textbox","id":"sh/61kbmhwf","slide":10,"text":"R1/R12采样是否可能被大电流铜皮和地弹污染？","textPreview":"R1/R12采样是否可能被大电流铜皮和地弹污染？","textChars":24,"textLines":1,"bbox":[120,326,480,40]}
+{"kind":"shape","id":"sh/r2tsvmd0","slide":10,"bbox":[650,278,588,104]}
+{"kind":"textbox","id":"sh/cz6t0bep","slide":10,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[668,294,46,28]}
+{"kind":"textbox","id":"sh/d0fu9gva","slide":10,"text":"浪涌协调","textPreview":"浪涌协调","textChars":4,"textLines":1,"bbox":[728,292,180,28]}
+{"kind":"textbox","id":"sh/lgbudgne","slide":10,"text":"SMCJ36CA、离散过压关断和60V器件余量是否可接受？","textPreview":"SMCJ36CA、离散过压关断和60V器件余量是否可接受？","textChars":29,"textLines":1,"bbox":[728,326,480,40]}
+{"kind":"shape","id":"sh/kf2tkb6t","slide":10,"bbox":[42,402,588,104]}
+{"kind":"textbox","id":"sh/zetsb65o","slide":10,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[60,418,46,28]}
+{"kind":"textbox","id":"sh/ydkbi1o3","slide":10,"text":"热插拔SOA","textPreview":"热插拔SOA","textChars":6,"textLines":1,"bbox":[120,416,180,28]}
+{"kind":"textbox","id":"sh/xcba9gni","slide":10,"text":"Q3/Q12在直接36V接入时是否可能进入危险线性区？","textPreview":"Q3/Q12在直接36V接入时是否可能进入危险线性区？","textChars":27,"textLines":1,"bbox":[120,450,480,40]}
+{"kind":"shape","id":"sh/cbitgb6x","slide":10,"bbox":[650,402,588,104]}
+{"kind":"textbox","id":"sh/bq9s765c","slide":10,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[668,418,46,28]}
+{"kind":"textbox","id":"sh/ap0be1or","slide":10,"text":"阻尼支路","textPreview":"阻尼支路","textChars":4,"textLines":1,"bbox":[728,416,180,28]}
+{"kind":"textbox","id":"sh/pora5wn6","slide":10,"text":"0.3Ω+100µF的电阻脉冲等级和阻尼值应如何确定？","textPreview":"0.3Ω+100µF的电阻脉冲等级和阻尼值应如何确定？","textChars":27,"textLines":1,"bbox":[728,450,480,40]}
+{"kind":"shape","id":"sh/onitcr6l","slide":10,"bbox":[42,526,588,104]}
+{"kind":"textbox","id":"sh/etgrmx4j","slide":10,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[60,542,46,28]}
+{"kind":"textbox","id":"sh/fup8f2l4","slide":10,"text":"控制细节","textPreview":"控制细节","textChars":4,"textLines":1,"bbox":[120,540,180,28]}
+{"kind":"textbox","id":"sh/0vy9o7mp","slide":10,"text":"CTRL2热降额和LM5164 C25首版应选什么值？","textPreview":"CTRL2热降额和LM5164 C25首版应选什么值？","textChars":27,"textLines":1,"bbox":[120,574,480,40]}
+{"kind":"shape","id":"sh/1w7qhc3a","slide":10,"bbox":[650,526,588,104]}
+{"kind":"textbox","id":"sh/qpw7id4n","slide":10,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[668,542,46,28]}
+{"kind":"textbox","id":"sh/rq58bil8","slide":10,"text":"测试边界","textPreview":"测试边界","textChars":4,"textLines":1,"bbox":[728,540,180,28]}
+{"kind":"textbox","id":"sh/srepknmd","slide":10,"text":"首次满载前必须测哪些波形、温度和保护动作？","textPreview":"首次满载前必须测哪些波形、温度和保护动作？","textChars":21,"textLines":1,"bbox":[728,574,480,40]}
+{"kind":"textbox","id":"sh/ds7qds3y","slide":10,"text":"建议把老师的回答直接记录成：结论 / 依据 / 修改值 / 验证方法。","textPreview":"建议把老师的回答直接记录成：结论 / 依据 / 修改值 / 验证方法。","textChars":35,"textLines":1,"bbox":[42,664,1196,24]}
+{"kind":"notes","id":"nt/851oif","slide":10,"text":"讲解提示：\n把这一页打印或打开在电脑旁边。不要泛泛地问‘您看有没有问题’，而是逐项问判断和依据。对老师不确定的地方，继续问需要补什么资料：原理图PDF、Gerber、BOM、铜厚、波形还是热像。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n[/Sources]"}
+{"kind":"slide","id":"sl/jixfsy","slide":11,"title":"LT3763 恒流源 · 独立审板介绍","textShapes":28}
+{"kind":"textbox","id":"sh/ned8fyx0","slide":11,"text":"LT3763 恒流源 · 独立审板介绍","textPreview":"LT3763 恒流源 · 独立审板介绍","textChars":19,"textLines":1,"bbox":[42,24,560,22]}
+{"kind":"textbox","id":"sh/ofm98jel","slide":11,"text":"样机验证按低风险 → 高风险推进","textPreview":"样机验证按低风险 → 高风险推进","textChars":16,"textLines":1,"bbox":[42,53,1160,66]}
+{"kind":"shape","id":"sh/pgvqhof6","slide":11,"bbox":[42,126,1196,0]}
+{"kind":"textbox","id":"sh/epk729gj","slide":11,"text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"shape","id":"sh/fqt8bex4","slide":11,"bbox":[136,352,1008,0]}
+{"kind":"shape","id":"sh/0rmp4jyp","slide":11,"bbox":[42,170,266,116]}
+{"kind":"shape","id":"sh/1svqdofa","slide":11,"bbox":[56,184,38,38]}
+{"kind":"textbox","id":"sh/6lk7y9g7","slide":11,"text":"1","textPreview":"1","textChars":1,"textLines":1,"bbox":[56,190,38,22]}
+{"kind":"textbox","id":"sh/rmt87exs","slide":11,"text":"限流慢升压","textPreview":"限流慢升压","textChars":5,"textLines":1,"bbox":[104,184,188,28]}
+{"kind":"textbox","id":"sh/jmpk3mp8","slide":11,"text":"空载；先检查短路、静态电流与异常发热","textPreview":"空载；先检查短路、静态电流与异常发热","textChars":18,"textLines":1,"bbox":[60,228,230,44]}
+{"kind":"shape","id":"sh/ilg3uh8n","slide":11,"bbox":[346,170,266,116]}
+{"kind":"shape","id":"sh/5o725c7e","slide":11,"bbox":[360,184,38,38]}
+{"kind":"textbox","id":"sh/knylw7qt","slide":11,"text":"2","textPreview":"2","textChars":1,"textLines":1,"bbox":[360,190,38,22]}
+{"kind":"textbox","id":"sh/7q9k7mpk","slide":11,"text":"检查辅助电源","textPreview":"检查辅助电源","textChars":6,"textLines":1,"bbox":[408,184,188,28]}
+{"kind":"textbox","id":"sh/6pg3yh8z","slide":11,"text":"确认12V、5V、3.3V和AVCC","textPreview":"确认12V、5V、3.3V和AVCC","textChars":18,"textLines":1,"bbox":[364,228,230,44]}
+{"kind":"shape","id":"sh/tcr2tw7a","slide":11,"bbox":[650,170,266,116]}
+{"kind":"shape","id":"sh/sbil0rq5","slide":11,"bbox":[664,184,38,38]}
+{"kind":"textbox","id":"sh/nu5kv2p0","slide":11,"text":"3","textPreview":"3","textChars":1,"textLines":1,"bbox":[664,190,38,22]}
+{"kind":"textbox","id":"sh/mtwjmx8f","slide":11,"text":"低电流看波形","textPreview":"低电流看波形","textChars":6,"textLines":1,"bbox":[712,184,188,28]}
+{"kind":"textbox","id":"sh/q94nu5s3","slide":11,"text":"SW、TG/BG、死区、尖峰；短地弹簧","textPreview":"SW、TG/BG、死区、尖峰；短地弹簧","textChars":19,"textLines":1,"bbox":[668,228,230,44]}
+{"kind":"shape","id":"sh/rado3q9o","slide":11,"bbox":[954,170,266,116]}
+{"kind":"shape","id":"sh/cbm5wvq9","slide":11,"bbox":[968,184,38,38]}
+{"kind":"textbox","id":"sh/dcv650ru","slide":11,"text":"4","textPreview":"4","textChars":1,"textLines":1,"bbox":[968,190,38,22]}
+{"kind":"textbox","id":"sh/25knqls7","slide":11,"text":"阶梯加载","textPreview":"阶梯加载","textChars":4,"textLines":1,"bbox":[1016,184,188,28]}
+{"kind":"textbox","id":"sh/36tozq9s","slide":11,"text":"1A → 5A → 10A → 15A → 18A","textPreview":"1A → 5A → 10A → 15A → 18A","textChars":25,"textLines":1,"bbox":[972,228,230,44]}
+{"kind":"shape","id":"sh/4725svad","slide":11,"bbox":[42,410,266,116]}
+{"kind":"shape","id":"sh/p8b610ri","slide":11,"bbox":[56,424,38,38]}
+{"kind":"textbox","id":"sh/uhknmlsv","slide":11,"text":"5","textPreview":"5","textChars":1,"textLines":1,"bbox":[56,430,38,22]}
+{"kind":"textbox","id":"sh/fit4v69g","slide":11,"text":"满载热平衡","textPreview":"满载热平衡","textChars":5,"textLines":1,"bbox":[104,424,188,28]}
+{"kind":"textbox","id":"sh/xwzq1oby","slide":11,"text":"热像记录MOS、电感、分流器、过孔和端子","textPreview":"热像记录MOS、电感、分流器、过孔和端子","textChars":20,"textLines":1,"bbox":[60,468,230,44]}
+{"kind":"shape","id":"sh/wvq9sjad","slide":11,"bbox":[346,410,266,116]}
+{"kind":"shape","id":"sh/vuh8zet8","slide":11,"bbox":[360,424,38,38]}
+{"kind":"textbox","id":"sh/a98rq9sn","slide":11,"text":"6","textPreview":"6","textChars":1,"textLines":1,"bbox":[360,430,38,22]}
+{"kind":"textbox","id":"sh/98zqx4b2","slide":11,"text":"动态与热插拔","textPreview":"动态与热插拔","textChars":6,"textLines":1,"bbox":[408,424,188,28]}
+{"kind":"textbox","id":"sh/876pozuh","slide":11,"text":"限流条件下直接使能/接入，观察浪涌与SOA","textPreview":"限流条件下直接使能/接入，观察浪涌与SOA","textChars":21,"textLines":1,"bbox":[364,468,230,44]}
+{"kind":"shape","id":"sh/n6x8vutw","slide":11,"bbox":[650,410,266,116]}
+{"kind":"shape","id":"sh/m5o7mpcb","slide":11,"bbox":[664,424,38,38]}
+{"kind":"textbox","id":"sh/l4fqt4bq","slide":11,"text":"7","textPreview":"7","textChars":1,"textLines":1,"bbox":[664,430,38,22]}
+{"kind":"textbox","id":"sh/036pkzul","slide":11,"text":"保护阈值","textPreview":"保护阈值","textChars":4,"textLines":1,"bbox":[712,424,188,28]}
+{"kind":"textbox","id":"sh/07yh03ah","slide":11,"text":"验证UVLO、U7关断、TVS前后电压","textPreview":"验证UVLO、U7关断、TVS前后电压","textChars":19,"textLines":1,"bbox":[668,468,230,44]}
+{"kind":"shape","id":"sh/187yt8b2","slide":11,"bbox":[954,410,266,116]}
+{"kind":"shape","id":"sh/e5gzytsb","slide":11,"bbox":[968,424,38,38]}
+{"kind":"textbox","id":"sh/z6pgrytw","slide":11,"text":"8","textPreview":"8","textChars":1,"textLines":1,"bbox":[968,430,38,22]}
+{"kind":"textbox","id":"sh/obih43ad","slide":11,"text":"故障测试","textPreview":"故障测试","textChars":4,"textLines":1,"bbox":[1016,424,188,28]}
+{"kind":"textbox","id":"sh/9cryx8by","slide":11,"text":"限流下开路、短路、掉电、重复启动","textPreview":"限流下开路、短路、掉电、重复启动","textChars":16,"textLines":1,"bbox":[972,468,230,44]}
+{"kind":"textbox","id":"sh/m9gz2dsn","slide":11,"text":"约500W实验必须使用保险、限流电源、远程使能和合适探头；禁止带电用手调整。","textPreview":"约500W实验必须使用保险、限流电源、远程使能和合适探头；禁止带电用手调整。","textChars":38,"textLines":1,"bbox":[42,648,1196,30]}
+{"kind":"notes","id":"nt/jixfsy","slide":11,"text":"讲解提示：\n这一页是为了证明测试有顺序。前四步正常后，才能做满载和故障测试。测SW和栅极要用短地弹簧或差分探头，不能用长鳄鱼夹地线；热插拔与短路必须在限流、保险和安全隔离条件下进行。\n\n[Sources]\n- https://www.analog.com/media/en/technical-documentation/data-sheets/lt3763.pdf\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n[/Sources]"}
+{"kind":"slide","id":"sl/q3yodf","slide":12,"title":"希望这次审板最后得到三类明确结论","textShapes":13}
+{"kind":"textbox","id":"sh/ovmlov2h","slide":12,"text":"希望这次审板最后得到三类明确结论","textPreview":"希望这次审板最后得到三类明确结论","textChars":16,"textLines":1,"bbox":[42,54,1196,70]}
+{"kind":"shape","id":"sh/nudkfqlw","slide":12,"bbox":[42,160,368,336]}
+{"kind":"textbox","id":"sh/mt43ml4b","slide":12,"text":"必须修改","textPreview":"必须修改","textChars":4,"textLines":1,"bbox":[66,188,300,40]}
+{"kind":"textbox","id":"sh/1sv2dg36","slide":12,"text":"投板前不改就可能导致器件损坏、控制失效或无法制造的项目","textPreview":"投板前不改就可能导致器件损坏、控制失效或无法制造的项目","textChars":27,"textLines":1,"bbox":[66,252,296,100]}
+{"kind":"textbox","id":"sh/0rmlkbml","slide":12,"text":"输出格式：位号 + 风险 + 修改值","textPreview":"输出格式：位号 + 风险 + 修改值","textChars":18,"textLines":1,"bbox":[66,424,296,36]}
+{"kind":"shape","id":"sh/z6tkb6l0","slide":12,"bbox":[456,160,368,336]}
+{"kind":"textbox","id":"sh/e5k3i14f","slide":12,"text":"必须验证","textPreview":"必须验证","textChars":4,"textLines":1,"bbox":[480,188,300,40]}
+{"kind":"textbox","id":"sh/d4b29w3u","slide":12,"text":"实验板可以保留，但必须给出测试方法、限制条件和通过标准的项目","textPreview":"实验板可以保留，但必须给出测试方法、限制条件和通过标准的项目","textChars":30,"textLines":1,"bbox":[480,252,296,100]}
+{"kind":"textbox","id":"sh/c32lgbm9","slide":12,"text":"输出格式：工况 + 仪器 + 通过标准","textPreview":"输出格式：工况 + 仪器 + 通过标准","textChars":19,"textLines":1,"bbox":[480,424,296,36]}
+{"kind":"shape","id":"sh/edofu98f","slide":12,"bbox":[870,160,368,336]}
+{"kind":"textbox","id":"sh/fexw3e90","slide":12,"text":"可以保留","textPreview":"可以保留","textChars":4,"textLines":1,"bbox":[894,188,300,40]}
+{"kind":"textbox","id":"sh/gf6xwjql","slide":12,"text":"经数据手册、计算和布局审查后，可用于首版样机的部分","textPreview":"经数据手册、计算和布局审查后，可用于首版样机的部分","textChars":25,"textLines":1,"bbox":[894,252,296,100]}
+{"kind":"textbox","id":"sh/1gfe54r6","slide":12,"text":"输出格式：依据 + 仍需监测项","textPreview":"输出格式：依据 + 仍需监测项","textChars":15,"textLines":1,"bbox":[894,424,296,36]}
+{"kind":"textbox","id":"sh/6p4vqp8j","slide":12,"text":"我会根据老师结论修改工程，再用同一套清单进行复核。","textPreview":"我会根据老师结论修改工程，再用同一套清单进行复核。","textChars":25,"textLines":1,"bbox":[42,552,1196,42]}
+{"kind":"textbox","id":"sh/rqxwzu94","slide":12,"text":"AI 辅助设计 · DRC=0 不代表电气与热设计通过 · 最终以独立审查和实测为准","textPreview":"AI 辅助设计 · DRC=0 不代表电气与热设计通过 · 最终以独立审查和实测为准","textChars":42,"textLines":1,"bbox":[42,628,1196,28]}
+{"kind":"textbox","id":"sh/sb6dszqp","slide":12,"text":"12","textPreview":"12","textChars":2,"textLines":1,"bbox":[1182,674,56,20]}
+{"kind":"notes","id":"nt/q3yodf","slide":12,"text":"讲解提示：\n最后主动请老师给可执行结论，不要只收集评价。说明你愿意据此修改并再次复核。也再次透明披露AI辅助：它适合整理和计算，但高功率硬件的最终安全性必须由有经验的人和受控实验验证。\n\n[Sources]\n- C:/Users/Administrator/Desktop/henliu/8.13 5.epro2\n- C:/Users/Administrator/Desktop/henliu/PCB独立AI复审交接_2026-08-14.md\n[/Sources]"}

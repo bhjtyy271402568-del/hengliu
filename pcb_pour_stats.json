@@ -1,0 +1,926 @@
+{
+  "Layer 1 | Net: 12V": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "12V",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR18",
+      "order": 10,
+      "path": [
+        [
+          8649.8835,
+          -571.5157,
+          "L",
+          8418.956,
+          -571.5157,
+          8419.2315,
+          -709.1769,
+          8329.2513,
+          -708.9391,
+          8329.2513,
+          -747.1574,
+          7996.2513,
+          -747.1574,
+          7996.2513,
+          -711.8661,
+          7887.2513,
+          -711.8661,
+          7887.2513,
+          -785.8661,
+          7849.1464,
+          -785.8661,
+          7849.1464,
+          -499.9448,
+          8648.33,
+          -499.9448,
+          8650.2513,
+          -501.8661,
+          8650.2513,
+          -571.1479,
+          8649.8835,
+          -571.5157
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: $1N836": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N836",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR19",
+      "order": 11,
+      "path": [
+        [
+          7875.2513,
+          -956.1067,
+          "L",
+          7755.7075,
+          -956.1067,
+          7744.7244,
+          -967.0898,
+          7744.7244,
+          -1061.5321,
+          7703.2513,
+          -1061.5321,
+          7703.2513,
+          -875.8661,
+          7695.2513,
+          -867.8661,
+          7627.2513,
+          -867.8661,
+          7627.2513,
+          -819.8661,
+          7731.2513,
+          -819.8661,
+          7731.2513,
+          -846.6519,
+          7763.2513,
+          -876.375,
+          7763.2513,
+          -905.8661,
+          7875.2513,
+          -905.8661,
+          7875.2513,
+          -956.1067
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: GND": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "GND",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR1",
+      "order": 29,
+      "path": [
+        [
+          "R",
+          6894.6119,
+          1678.7008,
+          4782.4803,
+          3817.9134,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: VCC_OUT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_OUT",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR2",
+      "order": 13,
+      "path": [
+        [
+          10085.0735,
+          -2015.3359,
+          "L",
+          9787.9977,
+          -2015.3359,
+          9787.9977,
+          -563.9228,
+          9944.9977,
+          -563.9228,
+          9944.9977,
+          -717.9848,
+          10085.0735,
+          -717.9848,
+          10085.0735,
+          -2015.3359
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: $1N984": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N984",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR3",
+      "order": 14,
+      "path": [
+        [
+          10198.5503,
+          -563.9228,
+          "L",
+          10197.9977,
+          -563.9228,
+          10197.9977,
+          -494.8189,
+          10287.9977,
+          -494.8189,
+          10287.9977,
+          -357.8189,
+          10571.9977,
+          -357.8189,
+          10571.9977,
+          -717.9848,
+          10198.5503,
+          -717.9848,
+          10198.5503,
+          -563.9228
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: $1N947": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N947",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR4",
+      "order": 15,
+      "path": [
+        [
+          10257.9977,
+          -395.1817,
+          "L",
+          9019.9977,
+          -395.1817,
+          9019.9977,
+          -178.8189,
+          9719.386,
+          -178.8189,
+          9719.386,
+          -18.3473,
+          9929.9977,
+          -18.3473,
+          9929.9977,
+          -26.8189,
+          9930.9977,
+          -26.8189,
+          9930.9977,
+          -142.8189,
+          10022.3945,
+          -142.8189,
+          10022.3945,
+          -18.1782,
+          10257.9977,
+          -18.1782,
+          10257.9977,
+          -395.1817
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    },
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N947",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR8",
+      "order": 22,
+      "path": [
+        [
+          8444.9977,
+          907.9001,
+          "L",
+          8444.9977,
+          1081.1811,
+          8596.9977,
+          1081.1811,
+          8596.9977,
+          907.9001,
+          8444.9977,
+          907.9001
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: $1N1036": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N1036",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR5",
+      "order": 18,
+      "path": [
+        [
+          9627.9977,
+          52.1811,
+          "L",
+          9627.9977,
+          158.1811,
+          9721.0184,
+          166.1741,
+          9731.3457,
+          258.2778,
+          10148.4085,
+          255.9571,
+          10572.9977,
+          35.7639,
+          10572.9977,
+          -181.18,
+          10295.9977,
+          -181.18,
+          10261.2785,
+          -8.8189,
+          10084.9977,
+          -8.8189,
+          10074.583,
+          52.1811,
+          9937.728,
+          52.1811,
+          9926.8244,
+          -10.7328,
+          9784.7994,
+          -10.7328,
+          9766.5978,
+          52.1811,
+          9627.9977,
+          52.1811
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: DCBUS": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "DCBUS",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR7",
+      "order": 21,
+      "path": [
+        [
+          8200.7064,
+          -393.337,
+          "L",
+          8200.7064,
+          668.1811,
+          8620.9977,
+          668.1811,
+          8620.9977,
+          701.1811,
+          8771.9977,
+          701.1811,
+          8771.9977,
+          -561.8189,
+          8688.9977,
+          -561.8189,
+          8667.6845,
+          -393.337,
+          8200.7064,
+          -393.337
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: GND_BAT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "GND_BAT",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR9",
+      "order": 24,
+      "path": [
+        [
+          7307.5045,
+          1550.3496,
+          "L",
+          7612.5045,
+          1550.3496,
+          7616.9145,
+          632.2268,
+          7684.9977,
+          564.1436,
+          7684.9977,
+          -108.8189,
+          7657.9977,
+          -135.8189,
+          7381.9977,
+          -135.8189,
+          7362.9977,
+          -116.8189,
+          7362.9977,
+          49.1811,
+          7368.5418,
+          43.637,
+          7587.9023,
+          43.637,
+          7602.9977,
+          58.7324,
+          7602.9977,
+          289.1811,
+          7164.9977,
+          289.1811,
+          7150.9977,
+          303.1811,
+          7150.9977,
+          593.1811,
+          7307.5045,
+          749.6879,
+          7307.5045,
+          1550.3496
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: $1N497": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N497",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR10",
+      "order": 25,
+      "path": [
+        [
+          7154.9977,
+          269.1811,
+          "L",
+          7166.9977,
+          281.1811,
+          7584.9977,
+          281.1811,
+          7597.9977,
+          268.1811,
+          7597.9977,
+          72.1811,
+          7590.9977,
+          65.1811,
+          7154.9977,
+          65.1811,
+          7154.9977,
+          269.1811
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 1 | Net: VCC_BAT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_BAT",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR11",
+      "order": 26,
+      "path": [
+        [
+          7624.5027,
+          1550.3496,
+          "L",
+          7921.9977,
+          1550.3496,
+          7921.9977,
+          113.7631,
+          7805.8098,
+          113.7631,
+          7805.8098,
+          75.9932,
+          7777.9977,
+          48.1811,
+          7685.9977,
+          48.1811,
+          7672.9977,
+          61.1811,
+          7672.9977,
+          99.1811,
+          7685.2942,
+          99.1811,
+          7702.8762,
+          116.7631,
+          7702.8762,
+          545.2067,
+          7624.5027,
+          623.5802,
+          7624.5027,
+          1550.3496
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    },
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_BAT",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR13",
+      "order": 27,
+      "path": [
+        [
+          "R",
+          7881.9977,
+          240.1811,
+          231.8137,
+          219.8612,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    },
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_BAT",
+      "layerId": 1,
+      "width": 0.2,
+      "name": "POUR14",
+      "order": 28,
+      "path": [
+        [
+          "R",
+          7881.9977,
+          -188.1295,
+          231.8137,
+          219.8612,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 16 | Net: VCC_BAT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_BAT",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR12",
+      "order": 1,
+      "path": [
+        [
+          7627.9977,
+          1546.9948,
+          "L",
+          8113.8114,
+          1546.9948,
+          8113.8114,
+          -411.487,
+          7584.9977,
+          -411.487,
+          7584.9977,
+          -140.8189,
+          7627.9977,
+          -140.8189,
+          7627.9977,
+          1546.9948
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 16 | Net: DCBUS": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "DCBUS",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR15",
+      "order": 2,
+      "path": [
+        [
+          8194.3507,
+          864.355,
+          "L",
+          8913.9977,
+          864.355,
+          8913.9977,
+          -976.8189,
+          8194.3507,
+          -976.8189,
+          8194.3507,
+          864.355
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 2 | Net: DCBUS": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "DCBUS",
+      "layerId": 2,
+      "width": 0.2,
+      "name": "POUR16",
+      "order": 0,
+      "path": [
+        [
+          "R",
+          8197.4329,
+          704.2783,
+          540.33,
+          1340.124,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 2 | Net: GND": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "GND",
+      "layerId": 2,
+      "width": 0.2,
+      "name": "POUR17",
+      "order": 3,
+      "path": [
+        [
+          "R",
+          6838.9977,
+          1676.1811,
+          4874,
+          3914,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 2 | Net: VCC_OUT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_OUT",
+      "layerId": 2,
+      "width": 0.2,
+      "name": "POUR20",
+      "order": 1,
+      "path": [
+        [
+          10085.0735,
+          -2015.3359,
+          "L",
+          9787.9977,
+          -2015.3359,
+          9787.9977,
+          -563.9228,
+          9944.9977,
+          -563.9228,
+          9944.9977,
+          -717.9848,
+          10085.0735,
+          -717.9848,
+          10085.0735,
+          -2015.3359
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 16 | Net: GND_BAT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "GND_BAT",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR21",
+      "order": 3,
+      "path": [
+        [
+          "R",
+          7148.9977,
+          1550.3496,
+          463.5068,
+          1266.1685,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 16 | Net: $1N947": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N947",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR6",
+      "order": 4,
+      "path": [
+        [
+          10253.9977,
+          -18.8189,
+          "L",
+          10253.9977,
+          -386.8189,
+          10251.9977,
+          -388.8189,
+          8925.9977,
+          -388.8189,
+          8925.9977,
+          852.1811,
+          10253.9977,
+          852.1811,
+          10255.9977,
+          -16.8189,
+          10253.9977,
+          -18.8189
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    },
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "$1N947",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR24",
+      "order": 6,
+      "path": [
+        [
+          8434.9977,
+          1080.1811,
+          "L",
+          8434.9977,
+          884.1811,
+          8435.9977,
+          883.1811,
+          8923.2209,
+          883.1811,
+          8923.2209,
+          629.8867,
+          9189.9992,
+          629.8867,
+          9189.9992,
+          1124.5513,
+          8451.3679,
+          1124.5513,
+          8434.9977,
+          1108.1811,
+          8434.9977,
+          1080.1811
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 16 | Net: VCC_OUT": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "VCC_OUT",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR22",
+      "order": 5,
+      "path": [
+        [
+          "R",
+          9790.9977,
+          -563.8189,
+          290.7564,
+          1451.517,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ],
+  "Layer 16 | Net: GND": [
+    {
+      "partitionId": "",
+      "groupId": 0,
+      "netName": "GND",
+      "layerId": 16,
+      "width": 0.2,
+      "name": "POUR23",
+      "order": 7,
+      "path": [
+        [
+          "R",
+          6460.9977,
+          1845.1811,
+          5527,
+          4242,
+          0,
+          0
+        ]
+      ],
+      "pourType": {
+        "pourType": "SOLID",
+        "fineness": 8
+      },
+      "keepIsland": false,
+      "locked": false,
+      "zIndex": -1
+    }
+  ]
+}

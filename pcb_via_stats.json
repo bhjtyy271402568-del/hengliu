@@ -1,0 +1,396 @@
+{
+  "$1N836": {
+    "count": 1,
+    "diameters": {
+      "20": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 7725.2513,
+    "maxX": 7725.2513,
+    "minY": -1015.8661,
+    "maxY": -1015.8661
+  },
+  "$1N734": {
+    "count": 2,
+    "diameters": {
+      "20": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7472.2061,
+    "maxX": 8136.2198,
+    "minY": -1422.709,
+    "maxY": -971.7515
+  },
+  "$1N733": {
+    "count": 2,
+    "diameters": {
+      "20": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7475.2921,
+    "maxX": 8107.9274,
+    "minY": -1453.6378,
+    "maxY": -971.2531
+  },
+  "12V": {
+    "count": 5,
+    "diameters": {
+      "20": 5
+    },
+    "holeDiameters": {
+      "12": 5
+    },
+    "minX": 7546.6095,
+    "maxX": 7874.3379,
+    "minY": -912.8039,
+    "maxY": -615.8189
+  },
+  "GND": {
+    "count": 300,
+    "diameters": {
+      "20": 31,
+      "24": 269
+    },
+    "holeDiameters": {
+      "12": 300
+    },
+    "minX": 7144.68,
+    "maxX": 11544.68,
+    "minY": -1890.2948,
+    "maxY": 1509.7052
+  },
+  "VCC": {
+    "count": 10,
+    "diameters": {
+      "20": 6,
+      "24": 4
+    },
+    "holeDiameters": {
+      "12": 10
+    },
+    "minX": 7260.2799,
+    "maxX": 9190.9468,
+    "minY": -1907.6682,
+    "maxY": 828.6624
+  },
+  "PWM": {
+    "count": 3,
+    "diameters": {
+      "20": 1,
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 3
+    },
+    "minX": 8431.5137,
+    "maxX": 9485.9972,
+    "minY": -1308.3029,
+    "maxY": 121.8811
+  },
+  "AVCC": {
+    "count": 2,
+    "diameters": {
+      "20": 1,
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7665.9731,
+    "maxX": 8006.5829,
+    "minY": -1546.8987,
+    "maxY": -477.7482
+  },
+  "$1N992": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 9607.9399,
+    "maxX": 9976.9977,
+    "minY": -122.8189,
+    "maxY": -29.7611
+  },
+  "$1N967": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 9125.1101,
+    "maxX": 9395.9179,
+    "minY": 660.0059,
+    "maxY": 766.5632
+  },
+  "$1N965": {
+    "count": 3,
+    "diameters": {
+      "24": 3
+    },
+    "holeDiameters": {
+      "12": 3
+    },
+    "minX": 9125.8313,
+    "maxX": 9567.9977,
+    "minY": -99.8189,
+    "maxY": 834.0999
+  },
+  "$1N1034": {
+    "count": 1,
+    "diameters": {
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 9760.9194,
+    "maxX": 9760.9194,
+    "minY": 14.5816,
+    "maxY": 14.5816
+  },
+  "$1N1036": {
+    "count": 4,
+    "diameters": {
+      "24": 4
+    },
+    "holeDiameters": {
+      "12": 4
+    },
+    "minX": 9821.8789,
+    "maxX": 10120.8789,
+    "minY": 14.5821,
+    "maxY": 120.1811
+  },
+  "$1N1032": {
+    "count": 1,
+    "diameters": {
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 10057.2799,
+    "maxX": 10057.2799,
+    "minY": 17.5811,
+    "maxY": 17.5811
+  },
+  "$1N947": {
+    "count": 69,
+    "diameters": {
+      "24": 69
+    },
+    "holeDiameters": {
+      "12": 69
+    },
+    "minX": 8478.9977,
+    "maxX": 10218.1465,
+    "minY": -356.8189,
+    "maxY": 1061.9001
+  },
+  "VCC_BAT": {
+    "count": 141,
+    "diameters": {
+      "24": 141
+    },
+    "holeDiameters": {
+      "12": 141
+    },
+    "minX": 7617.4299,
+    "maxX": 8095.9977,
+    "minY": -373.9907,
+    "maxY": 1502.1811
+  },
+  "NRST": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7675.6181,
+    "maxX": 7826.9977,
+    "minY": -1513.18,
+    "maxY": -1369.8189
+  },
+  "$1N732": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7451.9977,
+    "maxX": 8268.1387,
+    "minY": -1683.4578,
+    "maxY": -1521.0078
+  },
+  "$1N731": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7450.9977,
+    "maxX": 8431.9977,
+    "minY": -1628.8189,
+    "maxY": -1556.4487
+  },
+  "DIANLIUKONGZHI": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 7821.9884,
+    "maxX": 9104.5363,
+    "minY": -1759.2677,
+    "maxY": 482.9517
+  },
+  "SHUCHUDIANLIUJIANCE": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 8293.0339,
+    "maxX": 9223.8718,
+    "minY": -1508.2609,
+    "maxY": 135.1004
+  },
+  "SHURUDIANLIUJIANCE": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 8293.0339,
+    "maxX": 9248.9633,
+    "minY": -1442.8189,
+    "maxY": 830.3019
+  },
+  "STOP": {
+    "count": 2,
+    "diameters": {
+      "24": 2
+    },
+    "holeDiameters": {
+      "12": 2
+    },
+    "minX": 8431.5392,
+    "maxX": 9233.6097,
+    "minY": -1572.3082,
+    "maxY": 733.3803
+  },
+  "DCBUS": {
+    "count": 111,
+    "diameters": {
+      "24": 111
+    },
+    "holeDiameters": {
+      "12": 111
+    },
+    "minX": 8254.7064,
+    "maxX": 8872.9977,
+    "minY": -963.7101,
+    "maxY": 642.1811
+  },
+  "GND_BAT": {
+    "count": 133,
+    "diameters": {
+      "24": 133
+    },
+    "holeDiameters": {
+      "12": 133
+    },
+    "minX": 7204.9977,
+    "maxX": 7654.9977,
+    "minY": 18.1811,
+    "maxY": 1518.1811
+  },
+  "$1N490": {
+    "count": 1,
+    "diameters": {
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 7702.0755,
+    "maxX": 7702.0755,
+    "minY": -176.6389,
+    "maxY": -176.6389
+  },
+  "$1N492": {
+    "count": 1,
+    "diameters": {
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 7782.9977,
+    "maxX": 7782.9977,
+    "minY": -214.0389,
+    "maxY": -214.0389
+  },
+  "$1N1048": {
+    "count": 1,
+    "diameters": {
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 9983.6445,
+    "maxX": 9983.6445,
+    "minY": 317.2171,
+    "maxY": 317.2171
+  },
+  "$1N1049": {
+    "count": 1,
+    "diameters": {
+      "24": 1
+    },
+    "holeDiameters": {
+      "12": 1
+    },
+    "minX": 9761.6465,
+    "maxX": 9761.6465,
+    "minY": 317.2151,
+    "maxY": 317.2151
+  },
+  "VCC_OUT": {
+    "count": 106,
+    "diameters": {
+      "24": 106
+    },
+    "holeDiameters": {
+      "12": 106
+    },
+    "minX": 9841.9977,
+    "maxX": 10041.9977,
+    "minY": -1961.3359,
+    "maxY": -611.3359
+  }
+}

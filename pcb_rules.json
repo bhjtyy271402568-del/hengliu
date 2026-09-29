@@ -1,0 +1,1227 @@
+[
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 517800,
+      "id": "[\"RULE\",\"SAFE\",\"copperThickness1oz\"]",
+      "firstTicket": 412890
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 517801,
+      "id": "[\"RULE\",\"SAFE\",\"copperThickness2oz\"]",
+      "firstTicket": 412891
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038559,
+      "id": "[\"RULE\",\"OTHER\",\"otherClearance\"]",
+      "firstTicket": 412892
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "deviceClearance": 0,
+        "thru2SmdClearance": 0,
+        "holeClearance": 10
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 519183,
+      "id": "[\"RULE\",\"TRACK\",\"copperThickness1oz\"]",
+      "firstTicket": 412893
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 519184,
+      "id": "[\"RULE\",\"TRACK\",\"copperThickness2oz\"]",
+      "firstTicket": 412894
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038565,
+      "id": "[\"RULE\",\"NET_LENGTH\",\"netLength\"]",
+      "firstTicket": 412895
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "netLenMin": 0,
+        "netLenMax": 0
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038566,
+      "id": "[\"RULE\",\"NET_LENGTH_TOLERANCE\",\"netLengthTolerance\"]",
+      "firstTicket": 412896
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "netLengthTolerance": 1000
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038567,
+      "id": "[\"RULE\",\"DIFFER_ENTAIL\",\"differentialPair\"]",
+      "firstTicket": 412897
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "stroWidth": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 8,
+              "stroMax": 100,
+              "stroDef": 10
+            },
+            {
+              "layerId": 2,
+              "stroMin": 8,
+              "stroMax": 100,
+              "stroDef": 10
+            },
+            {
+              "layerId": 15,
+              "stroMin": 8,
+              "stroMax": 100,
+              "stroDef": 10
+            },
+            {
+              "layerId": 16,
+              "stroMin": 8,
+              "stroMax": 100,
+              "stroDef": 10
+            }
+          ]
+        },
+        "spacing": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "spacMin": 8,
+              "spacDef": 8
+            },
+            {
+              "layerId": 2,
+              "spacMin": 8,
+              "spacDef": 8
+            },
+            {
+              "layerId": 15,
+              "spacMin": 8,
+              "spacDef": 8
+            },
+            {
+              "layerId": 16,
+              "spacMin": 8,
+              "spacDef": 8
+            }
+          ]
+        },
+        "differPairLenTolerMax": 2300
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038568,
+      "id": "[\"RULE\",\"BLIND\",\"blindVia\"]",
+      "firstTicket": 412898
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "blinds": {
+          "content": []
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038569,
+      "id": "[\"RULE\",\"RADIUS\",\"viaSize\"]",
+      "firstTicket": 412899
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "minRadius": 10,
+        "defRadius": 12,
+        "maxRadius": 40,
+        "minInner": 5,
+        "defInner": 6,
+        "maxInner": 20
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038572,
+      "id": "[\"RULE\",\"PLANE\",\"innerPlane\"]",
+      "firstTicket": 412900
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 2,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 15,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 16,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038573,
+      "id": "[\"RULE\",\"COPPER\",\"copperRegion\"]",
+      "firstTicket": 412901
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "sglPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT",
+              "spoSpac": 8,
+              "spoWidth": 8,
+              "spoAng": 90
+            },
+            {
+              "layerId": 2,
+              "connType": "DIRECT",
+              "spoSpac": 8,
+              "spoWidth": 8,
+              "spoAng": 90
+            }
+          ]
+        },
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 2,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 15,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 16,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            }
+          ]
+        },
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT"
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038576,
+      "id": "[\"RULE\",\"PASTE\",\"pasteMaskExpansion\"]",
+      "firstTicket": 412902
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "padTopExpan": 0,
+        "padBotExpan": 0,
+        "testPointTopExpan": -1000,
+        "testPointBotExpan": -1000
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038575,
+      "id": "[\"RULE\",\"SOLDER\",\"solderMaskExpansion\"]",
+      "firstTicket": 412903
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "padTopExpan": 4,
+        "padBotExpan": 4,
+        "viaTopExpan": -1000,
+        "viaBotExpan": -1000,
+        "testPointTopExpan": 2,
+        "testPointBotExpan": 2
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 453235,
+      "id": "[\"RULE\",\"AUTO_ROUTER\",\"Common\"]",
+      "firstTicket": 412904
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "routingCorner": "L45",
+        "isKeep": 1,
+        "viaQuantity": "LESS",
+        "routingEffectPriority": "COMPLETION_FIRST",
+        "layers": [
+          1,
+          2,
+          12
+        ],
+        "ignoreNets": []
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038555,
+      "id": "[\"RULE\",\"SAFE\",\"safeClearance\"]",
+      "firstTicket": 517797
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                8
+              ],
+              [
+                8,
+                7.9
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ]
+            ],
+            "columnNames": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038556,
+      "id": "[\"RULE\",\"SAFE\",\"Copper_copperRegion\"]",
+      "firstTicket": 517798
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                8
+              ],
+              [
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ]
+            ],
+            "columnNames": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038558,
+      "id": "[\"RULE\",\"SAFE\",\"Plane_innerPlane\"]",
+      "firstTicket": 517799
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                8
+              ],
+              [
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ],
+              [
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20
+              ],
+              [
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8,
+                8
+              ]
+            ],
+            "columnNames": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038560,
+      "id": "[\"RULE\",\"TRACK\",\"trackWidth\"]",
+      "firstTicket": 517805
+    },
+    "body": {
+      "ruleState": "DEFAULT",
+      "ruleContext": {
+        "unit": "mil",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 8,
+              "stroDef": 10,
+              "stroMax": 100
+            },
+            {
+              "layerId": 2,
+              "stroMin": 8,
+              "stroDef": 10,
+              "stroMax": 100
+            },
+            {
+              "layerId": 15,
+              "stroMin": 8,
+              "stroDef": 10,
+              "stroMax": 100
+            },
+            {
+              "layerId": 16,
+              "stroMin": 8,
+              "stroDef": 10,
+              "stroMax": 100
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 557196,
+      "id": "[\"RULE\",\"SAFE\",\"36v\"]",
+      "firstTicket": 536472
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038557,
+      "id": "[\"RULE\",\"SAFE\",\"HV36_Clearance\"]",
+      "firstTicket": 1009169
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "isForAll": "ALL",
+        "safeSpacing": [
+          {
+            "layerId": 1,
+            "isOpen": true,
+            "content": [
+              [
+                12
+              ],
+              [
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ],
+              [
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20,
+                20
+              ],
+              [
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12,
+                12
+              ]
+            ],
+            "columnNames": []
+          }
+        ]
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038561,
+      "id": "[\"RULE\",\"TRACK\",\"ControlPower_Track\"]",
+      "firstTicket": 1009173
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 8,
+              "stroDef": 12,
+              "stroMax": 80
+            },
+            {
+              "layerId": 2,
+              "stroMin": 8,
+              "stroDef": 12,
+              "stroMax": 80
+            },
+            {
+              "layerId": 15,
+              "stroMin": 8,
+              "stroDef": 12,
+              "stroMax": 80
+            },
+            {
+              "layerId": 16,
+              "stroMin": 8,
+              "stroDef": 12,
+              "stroMax": 80
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038562,
+      "id": "[\"RULE\",\"TRACK\",\"GateDrive_Track\"]",
+      "firstTicket": 1009174
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 10,
+              "stroDef": 16,
+              "stroMax": 40
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038563,
+      "id": "[\"RULE\",\"TRACK\",\"KelvinSense_Track\"]",
+      "firstTicket": 1009175
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 8,
+              "stroDef": 8,
+              "stroMax": 12
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038564,
+      "id": "[\"RULE\",\"TRACK\",\"Power20A_Track\"]",
+      "firstTicket": 1009176
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "stroMin": 80,
+              "stroDef": 300,
+              "stroMax": 800
+            },
+            {
+              "layerId": 2,
+              "stroMin": 80,
+              "stroDef": 300,
+              "stroMax": 800
+            },
+            {
+              "layerId": 16,
+              "stroMin": 80,
+              "stroDef": 300,
+              "stroMax": 800
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038570,
+      "id": "[\"RULE\",\"RADIUS\",\"Power_Via\"]",
+      "firstTicket": 1009182
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "minRadius": 11.8,
+        "defRadius": 11.8,
+        "maxRadius": 19.7,
+        "minInner": 5.9,
+        "defInner": 5.9,
+        "maxInner": 9.85
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038571,
+      "id": "[\"RULE\",\"RADIUS\",\"Thermal_Via\"]",
+      "firstTicket": 1009183
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "minRadius": 9.85,
+        "defRadius": 11.8,
+        "maxRadius": 15.75,
+        "minInner": 4.9,
+        "defInner": 5.9,
+        "maxInner": 7.85
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE",
+      "ticket": 1038574,
+      "id": "[\"RULE\",\"COPPER\",\"Power_Copper_Direct\"]",
+      "firstTicket": 1009186
+    },
+    "body": {
+      "ruleState": "NORMAL",
+      "ruleContext": {
+        "unit": "mil",
+        "sglPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT",
+              "spoSpac": 8,
+              "spoWidth": 8,
+              "spoAng": 90
+            },
+            {
+              "layerId": 2,
+              "connType": "DIRECT",
+              "spoSpac": 8,
+              "spoWidth": 8,
+              "spoAng": 90
+            }
+          ]
+        },
+        "mulPad": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 2,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 15,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            },
+            {
+              "layerId": 16,
+              "connType": "DIRECT",
+              "spoSpac": 10,
+              "spoWidth": 10,
+              "spoAng": 90
+            }
+          ]
+        },
+        "track": {
+          "isOpen": true,
+          "content": [
+            {
+              "layerId": 1,
+              "connType": "DIRECT"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

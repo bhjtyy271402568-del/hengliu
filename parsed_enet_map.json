@@ -1,0 +1,6016 @@
+{
+  "CN2": {
+    "designator": "CN2",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C98732",
+    "mfrPart": "XT60PW-M",
+    "footprint": "CONN-TH_XT60PW-M",
+    "pins": {
+      "1": {
+        "name": "-",
+        "number": "1",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "+",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "3",
+        "number": "3",
+        "net": "",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "4",
+        "number": "4",
+        "net": "",
+        "props": {
+          "Pin Number": "4"
+        }
+      }
+    }
+  },
+  "C3": {
+    "designator": "C3",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C4": {
+    "designator": "C4",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C10": {
+    "designator": "C10",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C11": {
+    "designator": "C11",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C12": {
+    "designator": "C12",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C13": {
+    "designator": "C13",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C14": {
+    "designator": "C14",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C15": {
+    "designator": "C15",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C16": {
+    "designator": "C16",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C19": {
+    "designator": "C19",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C20": {
+    "designator": "C20",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C36": {
+    "designator": "C36",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C43": {
+    "designator": "C43",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D6": {
+    "designator": "D6",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C41411750",
+    "mfrPart": "SMCJ45CA",
+    "footprint": "SMC_L6.9-W5.9-LS7.9-BI",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R6": {
+    "designator": "R6",
+    "value": "300mΩ",
+    "supplierPart": "C5375492",
+    "mfrPart": "HoYLR2512-3W-300mR-1%",
+    "footprint": "R2512",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N497",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R17": {
+    "designator": "R17",
+    "value": "300mΩ",
+    "supplierPart": "C5375492",
+    "mfrPart": "HoYLR2512-3W-300mR-1%",
+    "footprint": "R2512",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N498",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C5": {
+    "designator": "C5",
+    "value": "100uF",
+    "supplierPart": "C51953411",
+    "mfrPart": "RVT63V100M10X10",
+    "footprint": "CAP-SMD_BD10.0-L10.3-W10.3-LS11.0-FD_1",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N497",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C9": {
+    "designator": "C9",
+    "value": "100uF",
+    "supplierPart": "C51953411",
+    "mfrPart": "RVT63V100M10X10",
+    "footprint": "CAP-SMD_BD10.0-L10.3-W10.3-LS11.0-FD_1",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N498",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "CN8": {
+    "designator": "CN8",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "R8": {
+    "designator": "R8",
+    "value": "100kΩ",
+    "supplierPart": "C149504",
+    "mfrPart": "0805W8F1003T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N493",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R9": {
+    "designator": "R9",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N492",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N493",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C6": {
+    "designator": "C6",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N496",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C7": {
+    "designator": "C7",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N490",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N492",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C8": {
+    "designator": "C8",
+    "value": "1nF",
+    "supplierPart": "C94121",
+    "mfrPart": "CC0805KRX7R9BB102",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N491",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D7": {
+    "designator": "D7",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C19077410",
+    "mfrPart": "BZT52C12",
+    "footprint": "SOD-123_L2.7-W1.6-LS3.7-RD",
+    "pins": {
+      "1": {
+        "name": "K",
+        "number": "1",
+        "net": "$1N496",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D8": {
+    "designator": "D8",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C19077410",
+    "mfrPart": "BZT52C12",
+    "footprint": "SOD-123_L2.7-W1.6-LS3.7-RD",
+    "pins": {
+      "1": {
+        "name": "K",
+        "number": "1",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "$1N491",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U7": {
+    "designator": "U7",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C22395571",
+    "mfrPart": "BZT52C43",
+    "footprint": "SOD-123_L2.7-W1.6-LS3.7-RD",
+    "pins": {
+      "1": {
+        "name": "K",
+        "number": "1",
+        "net": "$1N493",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "Q11": {
+    "designator": "Q11",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C21488",
+    "mfrPart": "MMBT5401LT1G",
+    "footprint": "SOT-23-3_L2.9-W1.3-P1.90-LS2.4-BR",
+    "pins": {
+      "1": {
+        "name": "B",
+        "number": "1",
+        "net": "$1N492",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "E",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "C",
+        "number": "3",
+        "net": "$1N490",
+        "props": {
+          "Pin Number": "3"
+        }
+      }
+    }
+  },
+  "Q12": {
+    "designator": "Q12",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C222447",
+    "mfrPart": "SQM120P06-07L_GE3",
+    "footprint": "TO-263-2_L10.1-W9.1-P5.08-LS15.2-TL-1",
+    "pins": {
+      "1": {
+        "name": "G",
+        "number": "1",
+        "net": "$1N491",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "3": {
+        "name": "S",
+        "number": "3",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "D",
+        "number": "4",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "4"
+        }
+      }
+    }
+  },
+  "R21": {
+    "designator": "R21",
+    "value": "0Ω",
+    "supplierPart": "C21189",
+    "mfrPart": "0603WAF0000T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R20": {
+    "designator": "R20",
+    "value": "22kΩ",
+    "supplierPart": "C2907015",
+    "mfrPart": "FRC0603F2202TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N520",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C17": {
+    "designator": "C17",
+    "value": "220uF",
+    "supplierPart": "C46550454",
+    "mfrPart": "PA63V220M10x15",
+    "footprint": "CAP-TH_BD10.0-P5.00-D0.6-FD_2",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C18": {
+    "designator": "C18",
+    "value": "220uF",
+    "supplierPart": "C46550454",
+    "mfrPart": "PA63V220M10x15",
+    "footprint": "CAP-TH_BD10.0-P5.00-D0.6-FD_2",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "L1": {
+    "designator": "L1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84263",
+    "mfrPart": "NCD0603R1",
+    "footprint": "LED0603-RD_RED",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N520",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "Q4": {
+    "designator": "Q4",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C113391",
+    "mfrPart": "BSC014N06NS",
+    "footprint": "POWERVDFN-8_L6.2-W5.2-P1.27-LS6.0-BL",
+    "pins": {
+      "1": {
+        "name": "S",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "S",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "S",
+        "number": "3",
+        "net": "GND",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "G",
+        "number": "4",
+        "net": "$1N496",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "D",
+        "number": "5",
+        "net": "GND_BAT",
+        "props": {
+          "Pin Number": "5"
+        }
+      }
+    }
+  },
+  "U2": {
+    "designator": "U2",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C431633",
+    "mfrPart": "STM32G431RBT6",
+    "footprint": "LQFP-64_L10.0-W10.0-P0.50-LS12.0-BL",
+    "pins": {
+      "1": {
+        "name": "VBAT",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "PC13",
+        "number": "2",
+        "net": "R_EN",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "PC14-OSC32_IN",
+        "number": "3",
+        "net": "",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "PC15-OSC32_OUT",
+        "number": "4",
+        "net": "",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "PF0-OSC_IN",
+        "number": "5",
+        "net": "O_IN",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "PF1-OSC_OUT",
+        "number": "6",
+        "net": "O_OUT",
+        "props": {
+          "Pin Number": "6"
+        }
+      },
+      "7": {
+        "name": "PG10-NRST",
+        "number": "7",
+        "net": "NRST",
+        "props": {
+          "Pin Number": "7"
+        }
+      },
+      "8": {
+        "name": "PC0",
+        "number": "8",
+        "net": "",
+        "props": {
+          "Pin Number": "8"
+        }
+      },
+      "9": {
+        "name": "PC1",
+        "number": "9",
+        "net": "",
+        "props": {
+          "Pin Number": "9"
+        }
+      },
+      "10": {
+        "name": "PC2",
+        "number": "10",
+        "net": "",
+        "props": {
+          "Pin Number": "10"
+        }
+      },
+      "11": {
+        "name": "PC3",
+        "number": "11",
+        "net": "",
+        "props": {
+          "Pin Number": "11"
+        }
+      },
+      "12": {
+        "name": "PA0",
+        "number": "12",
+        "net": "",
+        "props": {
+          "Pin Number": "12"
+        }
+      },
+      "13": {
+        "name": "PA1",
+        "number": "13",
+        "net": "",
+        "props": {
+          "Pin Number": "13"
+        }
+      },
+      "14": {
+        "name": "PA2",
+        "number": "14",
+        "net": "",
+        "props": {
+          "Pin Number": "14"
+        }
+      },
+      "15": {
+        "name": "VSS",
+        "number": "15",
+        "net": "GND",
+        "props": {
+          "Pin Number": "15"
+        }
+      },
+      "16": {
+        "name": "VDD",
+        "number": "16",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "16"
+        }
+      },
+      "17": {
+        "name": "PA3",
+        "number": "17",
+        "net": "",
+        "props": {
+          "Pin Number": "17"
+        }
+      },
+      "18": {
+        "name": "PA4",
+        "number": "18",
+        "net": "$1N1013",
+        "props": {
+          "Pin Number": "18"
+        }
+      },
+      "19": {
+        "name": "PA5",
+        "number": "19",
+        "net": "RGB",
+        "props": {
+          "Pin Number": "19"
+        }
+      },
+      "20": {
+        "name": "PA6",
+        "number": "20",
+        "net": "",
+        "props": {
+          "Pin Number": "20"
+        }
+      },
+      "21": {
+        "name": "PA7",
+        "number": "21",
+        "net": "",
+        "props": {
+          "Pin Number": "21"
+        }
+      },
+      "22": {
+        "name": "PC4",
+        "number": "22",
+        "net": "",
+        "props": {
+          "Pin Number": "22"
+        }
+      },
+      "23": {
+        "name": "PC5",
+        "number": "23",
+        "net": "",
+        "props": {
+          "Pin Number": "23"
+        }
+      },
+      "24": {
+        "name": "PB0",
+        "number": "24",
+        "net": "",
+        "props": {
+          "Pin Number": "24"
+        }
+      },
+      "25": {
+        "name": "PB1",
+        "number": "25",
+        "net": "",
+        "props": {
+          "Pin Number": "25"
+        }
+      },
+      "26": {
+        "name": "PB2",
+        "number": "26",
+        "net": "",
+        "props": {
+          "Pin Number": "26"
+        }
+      },
+      "27": {
+        "name": "VSSA",
+        "number": "27",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "27"
+        }
+      },
+      "28": {
+        "name": "VREF+",
+        "number": "28",
+        "net": "AVCC",
+        "props": {
+          "Pin Number": "28"
+        }
+      },
+      "29": {
+        "name": "VDDA",
+        "number": "29",
+        "net": "AVCC",
+        "props": {
+          "Pin Number": "29"
+        }
+      },
+      "30": {
+        "name": "PB10",
+        "number": "30",
+        "net": "TX_RX",
+        "props": {
+          "Pin Number": "30"
+        }
+      },
+      "31": {
+        "name": "VSS",
+        "number": "31",
+        "net": "GND",
+        "props": {
+          "Pin Number": "31"
+        }
+      },
+      "32": {
+        "name": "VDD",
+        "number": "32",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "32"
+        }
+      },
+      "33": {
+        "name": "PB11",
+        "number": "33",
+        "net": "RX_TX",
+        "props": {
+          "Pin Number": "33"
+        }
+      },
+      "34": {
+        "name": "PB12",
+        "number": "34",
+        "net": "$1N1004",
+        "props": {
+          "Pin Number": "34"
+        }
+      },
+      "35": {
+        "name": "PB13",
+        "number": "35",
+        "net": "",
+        "props": {
+          "Pin Number": "35"
+        }
+      },
+      "36": {
+        "name": "PB14",
+        "number": "36",
+        "net": "SHUCHUDIANLIUJIANCE",
+        "props": {
+          "Pin Number": "36"
+        }
+      },
+      "37": {
+        "name": "PB15",
+        "number": "37",
+        "net": "SHURUDIANLIUJIANCE",
+        "props": {
+          "Pin Number": "37"
+        }
+      },
+      "38": {
+        "name": "PC6",
+        "number": "38",
+        "net": "",
+        "props": {
+          "Pin Number": "38"
+        }
+      },
+      "39": {
+        "name": "PC7",
+        "number": "39",
+        "net": "",
+        "props": {
+          "Pin Number": "39"
+        }
+      },
+      "40": {
+        "name": "PC8",
+        "number": "40",
+        "net": "",
+        "props": {
+          "Pin Number": "40"
+        }
+      },
+      "41": {
+        "name": "PC9",
+        "number": "41",
+        "net": "KEY1",
+        "props": {
+          "Pin Number": "41"
+        }
+      },
+      "42": {
+        "name": "PA8",
+        "number": "42",
+        "net": "$1N824",
+        "props": {
+          "Pin Number": "42"
+        }
+      },
+      "43": {
+        "name": "PA9",
+        "number": "43",
+        "net": "$1N758",
+        "props": {
+          "Pin Number": "43"
+        }
+      },
+      "44": {
+        "name": "PA10",
+        "number": "44",
+        "net": "",
+        "props": {
+          "Pin Number": "44"
+        }
+      },
+      "45": {
+        "name": "PA11",
+        "number": "45",
+        "net": "",
+        "props": {
+          "Pin Number": "45"
+        }
+      },
+      "46": {
+        "name": "PA12",
+        "number": "46",
+        "net": "",
+        "props": {
+          "Pin Number": "46"
+        }
+      },
+      "47": {
+        "name": "VSS",
+        "number": "47",
+        "net": "GND",
+        "props": {
+          "Pin Number": "47"
+        }
+      },
+      "48": {
+        "name": "VDD",
+        "number": "48",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "48"
+        }
+      },
+      "49": {
+        "name": "PA13",
+        "number": "49",
+        "net": "DIO",
+        "props": {
+          "Pin Number": "49"
+        }
+      },
+      "50": {
+        "name": "PA14",
+        "number": "50",
+        "net": "CLK",
+        "props": {
+          "Pin Number": "50"
+        }
+      },
+      "51": {
+        "name": "PA15",
+        "number": "51",
+        "net": "",
+        "props": {
+          "Pin Number": "51"
+        }
+      },
+      "52": {
+        "name": "PC10",
+        "number": "52",
+        "net": "",
+        "props": {
+          "Pin Number": "52"
+        }
+      },
+      "53": {
+        "name": "PC11",
+        "number": "53",
+        "net": "",
+        "props": {
+          "Pin Number": "53"
+        }
+      },
+      "54": {
+        "name": "PC12",
+        "number": "54",
+        "net": "",
+        "props": {
+          "Pin Number": "54"
+        }
+      },
+      "55": {
+        "name": "PD2",
+        "number": "55",
+        "net": "",
+        "props": {
+          "Pin Number": "55"
+        }
+      },
+      "56": {
+        "name": "PB3",
+        "number": "56",
+        "net": "",
+        "props": {
+          "Pin Number": "56"
+        }
+      },
+      "57": {
+        "name": "PB4",
+        "number": "57",
+        "net": "",
+        "props": {
+          "Pin Number": "57"
+        }
+      },
+      "58": {
+        "name": "PB5",
+        "number": "58",
+        "net": "",
+        "props": {
+          "Pin Number": "58"
+        }
+      },
+      "59": {
+        "name": "PB6",
+        "number": "59",
+        "net": "",
+        "props": {
+          "Pin Number": "59"
+        }
+      },
+      "60": {
+        "name": "PB7",
+        "number": "60",
+        "net": "",
+        "props": {
+          "Pin Number": "60"
+        }
+      },
+      "61": {
+        "name": "PB8-BOOT0",
+        "number": "61",
+        "net": "$1N887",
+        "props": {
+          "Pin Number": "61"
+        }
+      },
+      "62": {
+        "name": "PB9",
+        "number": "62",
+        "net": "",
+        "props": {
+          "Pin Number": "62"
+        }
+      },
+      "63": {
+        "name": "VSS",
+        "number": "63",
+        "net": "GND",
+        "props": {
+          "Pin Number": "63"
+        }
+      },
+      "64": {
+        "name": "VDD",
+        "number": "64",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "64"
+        }
+      }
+    }
+  },
+  "C35": {
+    "designator": "C35",
+    "value": "22pF",
+    "supplierPart": "C1653",
+    "mfrPart": "CL10C220JB8NNNC",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "O_OUT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C34": {
+    "designator": "C34",
+    "value": "22pF",
+    "supplierPart": "C1653",
+    "mfrPart": "CL10C220JB8NNNC",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "O_IN",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C25": {
+    "designator": "C25",
+    "value": "2.2nF",
+    "supplierPart": "C28260",
+    "mfrPart": "CL21C222JBFNNNE",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N846",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "FB",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C22": {
+    "designator": "C22",
+    "value": "3.3nF",
+    "supplierPart": "C1613",
+    "mfrPart": "CL10B332KB8NNNC",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N846",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C21": {
+    "designator": "C21",
+    "value": "2.2nF",
+    "supplierPart": "C28260",
+    "mfrPart": "CL21C222JBFNNNE",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N562",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N560",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C56": {
+    "designator": "C56",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C55": {
+    "designator": "C55",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C57": {
+    "designator": "C57",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U3": {
+    "designator": "U3",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C424705",
+    "mfrPart": "XC6210B332MR",
+    "footprint": "TSOT-23-5_L2.9-W1.6-P0.95-LS2.8-BR",
+    "pins": {
+      "1": {
+        "name": "VIN",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "VSS",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "CE",
+        "number": "3",
+        "net": "5V",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "NC",
+        "number": "4",
+        "net": "",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "VOUT",
+        "number": "5",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "5"
+        }
+      }
+    }
+  },
+  "CN5": {
+    "designator": "CN5",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN4": {
+    "designator": "CN4",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AVCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN7": {
+    "designator": "CN7",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN6": {
+    "designator": "CN6",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "L5": {
+    "designator": "L5",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84263",
+    "mfrPart": "NCD0603R1",
+    "footprint": "LED0603-RD_RED",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N647",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "L3": {
+    "designator": "L3",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84263",
+    "mfrPart": "NCD0603R1",
+    "footprint": "LED0603-RD_RED",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N628",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "L4": {
+    "designator": "L4",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84263",
+    "mfrPart": "NCD0603R1",
+    "footprint": "LED0603-RD_RED",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N570",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R26": {
+    "designator": "R26",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N647",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R34": {
+    "designator": "R34",
+    "value": "0Ω",
+    "supplierPart": "C21189",
+    "mfrPart": "0603WAF0000T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R33": {
+    "designator": "R33",
+    "value": "0Ω",
+    "supplierPart": "C21189",
+    "mfrPart": "0603WAF0000T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R14": {
+    "designator": "R14",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N628",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R25": {
+    "designator": "R25",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N570",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R38": {
+    "designator": "R38",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N839",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R31": {
+    "designator": "R31",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "NRST",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R39": {
+    "designator": "R39",
+    "value": "12kΩ",
+    "supplierPart": "C22790",
+    "mfrPart": "0603WAF1202T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N834",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R36": {
+    "designator": "R36",
+    "value": "62kΩ",
+    "supplierPart": "C17783",
+    "mfrPart": "0805W8F6202T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N834",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R27": {
+    "designator": "R27",
+    "value": "0Ω",
+    "supplierPart": "C21189",
+    "mfrPart": "0603WAF0000T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "5V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U5": {
+    "designator": "U5",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C185109",
+    "mfrPart": "JW5026",
+    "footprint": "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR",
+    "pins": {
+      "1": {
+        "name": "BST",
+        "number": "1",
+        "net": "$1N635",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "GND",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "FB",
+        "number": "3",
+        "net": "$1N834",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "EN",
+        "number": "4",
+        "net": "$1N839",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "VIN",
+        "number": "5",
+        "net": "12V",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "SW",
+        "number": "6",
+        "net": "$1N636",
+        "props": {
+          "Pin Number": "6"
+        }
+      }
+    }
+  },
+  "L7": {
+    "designator": "L7",
+    "value": "4.7uH",
+    "supplierPart": "C490449",
+    "mfrPart": "MPIH252010-4R7M-LF",
+    "footprint": "IND-SMD_L2.5-W2.0_SWPA252012S",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N636",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "L2": {
+    "designator": "L2",
+    "value": "68uH",
+    "supplierPart": "C5189964",
+    "mfrPart": "CYA0650-68UH",
+    "footprint": "IND-SMD_L7.2-W6.6_GPSR07X0",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N562",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R29": {
+    "designator": "R29",
+    "value": "49.9kΩ",
+    "supplierPart": "C23184",
+    "mfrPart": "0603WAF4992T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "FB",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R16": {
+    "designator": "R16",
+    "value": "453kΩ",
+    "supplierPart": "C3013202",
+    "mfrPart": "FRC0603F4533TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "FB",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R13": {
+    "designator": "R13",
+    "value": "453kΩ",
+    "supplierPart": "C3013202",
+    "mfrPart": "FRC0603F4533TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N846",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N562",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R28": {
+    "designator": "R28",
+    "value": "100kΩ",
+    "supplierPart": "C149504",
+    "mfrPart": "0805W8F1003T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N567",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R15": {
+    "designator": "R15",
+    "value": "100kΩ",
+    "supplierPart": "C149504",
+    "mfrPart": "0805W8F1003T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N561",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C28": {
+    "designator": "C28",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C27": {
+    "designator": "C27",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C37": {
+    "designator": "C37",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C38": {
+    "designator": "C38",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C39": {
+    "designator": "C39",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C32": {
+    "designator": "C32",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C33": {
+    "designator": "C33",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C31": {
+    "designator": "C31",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C48": {
+    "designator": "C48",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AVCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C1": {
+    "designator": "C1",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C30": {
+    "designator": "C30",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C50": {
+    "designator": "C50",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AVCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C45": {
+    "designator": "C45",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C46": {
+    "designator": "C46",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C26": {
+    "designator": "C26",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C44": {
+    "designator": "C44",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C106": {
+    "designator": "C106",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N836",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C51": {
+    "designator": "C51",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "NRST",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U6": {
+    "designator": "U6",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C477928",
+    "mfrPart": "LM5164DDAR",
+    "footprint": "SO-8_L4.9-W3.9-P1.27-LS6.0-BL-EP",
+    "pins": {
+      "1": {
+        "name": "GND",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "VIN",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "EN",
+        "number": "3",
+        "net": "$1N561",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "RON",
+        "number": "4",
+        "net": "$1N567",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "FB",
+        "number": "5",
+        "net": "FB",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "PG",
+        "number": "6",
+        "net": "",
+        "props": {
+          "Pin Number": "6"
+        }
+      },
+      "7": {
+        "name": "BST",
+        "number": "7",
+        "net": "$1N560",
+        "props": {
+          "Pin Number": "7"
+        }
+      },
+      "8": {
+        "name": "SW",
+        "number": "8",
+        "net": "$1N562",
+        "props": {
+          "Pin Number": "8"
+        }
+      },
+      "9": {
+        "name": "EP",
+        "number": "9",
+        "net": "GND",
+        "props": {
+          "Pin Number": "9"
+        }
+      }
+    }
+  },
+  "C29": {
+    "designator": "C29",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C23": {
+    "designator": "C23",
+    "value": "10uF",
+    "supplierPart": "C77102",
+    "mfrPart": "GRM32ER71H106KA12L",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C24": {
+    "designator": "C24",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C40": {
+    "designator": "C40",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N635",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N636",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U4": {
+    "designator": "U4",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C130005",
+    "mfrPart": "LP5907QMFX-3.3Q1",
+    "footprint": "SOT-23-5_L3.0-W1.7-P0.95-LS2.8-BR",
+    "pins": {
+      "1": {
+        "name": "IN",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "GND",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "EN",
+        "number": "3",
+        "net": "5V",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "NC",
+        "number": "4",
+        "net": "",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "OUT",
+        "number": "5",
+        "net": "AVCC",
+        "props": {
+          "Pin Number": "5"
+        }
+      }
+    }
+  },
+  "K1": {
+    "designator": "K1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C410366",
+    "mfrPart": "TS-KG02S",
+    "footprint": "SW-SMD_4P-L6.0-W6.0-P4.50-LS8.5",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "NRST",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R45": {
+    "designator": "R45",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "R_EN",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N701",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "L10": {
+    "designator": "L10",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84267",
+    "mfrPart": "NCD0603G1",
+    "footprint": "LED0603-RD_1",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N701",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "CN9": {
+    "designator": "CN9",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C3029382",
+    "mfrPart": "WAFER-GH1.25-7PWB",
+    "footprint": "CONN-SMD_7P-P1.25_FWF12514-S07B24W5M",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N734",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "3",
+        "number": "3",
+        "net": "$1N733",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "4",
+        "number": "4",
+        "net": "$1N732",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "5",
+        "number": "5",
+        "net": "$1N731",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "6",
+        "number": "6",
+        "net": "$1N868",
+        "props": {
+          "Pin Number": "6"
+        }
+      },
+      "7": {
+        "name": "7",
+        "number": "7",
+        "net": "GND",
+        "props": {
+          "Pin Number": "7"
+        }
+      },
+      "8": {
+        "name": "8",
+        "number": "8",
+        "net": "GND",
+        "props": {
+          "Pin Number": "8"
+        }
+      },
+      "9": {
+        "name": "9",
+        "number": "9",
+        "net": "GND",
+        "props": {
+          "Pin Number": "9"
+        }
+      }
+    }
+  },
+  "R50": {
+    "designator": "R50",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "RX_TX",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N731",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R64": {
+    "designator": "R64",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "TX_RX",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N732",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R65": {
+    "designator": "R65",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "CLK",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N733",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R66": {
+    "designator": "R66",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DIO",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N734",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D1": {
+    "designator": "D1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C111566",
+    "mfrPart": "ESD9B5.0ST5G",
+    "footprint": "SOD-923_L0.8-W0.6-LS1.0-BI",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N733",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D2": {
+    "designator": "D2",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C111566",
+    "mfrPart": "ESD9B5.0ST5G",
+    "footprint": "SOD-923_L0.8-W0.6-LS1.0-BI",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N734",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D3": {
+    "designator": "D3",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C111566",
+    "mfrPart": "ESD9B5.0ST5G",
+    "footprint": "SOD-923_L0.8-W0.6-LS1.0-BI",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N732",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D4": {
+    "designator": "D4",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C111566",
+    "mfrPart": "ESD9B5.0ST5G",
+    "footprint": "SOD-923_L0.8-W0.6-LS1.0-BI",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N731",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R35": {
+    "designator": "R35",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N758",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "PWM",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C61": {
+    "designator": "C61",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "KEY1",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R67": {
+    "designator": "R67",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "KEY1",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "K2": {
+    "designator": "K2",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C410366",
+    "mfrPart": "TS-KG02S",
+    "footprint": "SW-SMD_4P-L6.0-W6.0-P4.50-LS8.5",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "KEY1",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C65": {
+    "designator": "C65",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "5V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "LED1": {
+    "designator": "LED1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2890364",
+    "mfrPart": "XL-3528RGBW-2812B",
+    "footprint": "LED-SMD_4P-L3.5-W2.8-BR-1",
+    "pins": {
+      "1": {
+        "name": "GND",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "DI",
+        "number": "2",
+        "net": "RGB",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "VDD",
+        "number": "3",
+        "net": "5V",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "DO",
+        "number": "4",
+        "net": "",
+        "props": {
+          "Pin Number": "4"
+        }
+      }
+    }
+  },
+  "C66": {
+    "designator": "C66",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C67": {
+    "designator": "C67",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C68": {
+    "designator": "C68",
+    "value": "10uF",
+    "supplierPart": "C6119889",
+    "mfrPart": "CGA0805X5R106K500MT",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "CN10": {
+    "designator": "CN10",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C722695",
+    "mfrPart": "2.54-2A-LT",
+    "footprint": "CONN-SMD_2P-P2.54_XH2.54-2AB",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "12V",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "3",
+        "number": "3",
+        "net": "GND",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "4",
+        "number": "4",
+        "net": "GND",
+        "props": {
+          "Pin Number": "4"
+        }
+      }
+    }
+  },
+  "R11": {
+    "designator": "R11",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N491",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N490",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R10": {
+    "designator": "R10",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N490",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R7": {
+    "designator": "R7",
+    "value": "100kΩ",
+    "supplierPart": "C149504",
+    "mfrPart": "0805W8F1003T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N496",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R55": {
+    "designator": "R55",
+    "value": "220Ω",
+    "supplierPart": "C22962",
+    "mfrPart": "0603WAF2200T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N824",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "SHOOT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "CN3": {
+    "designator": "CN3",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC_BAT",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN11": {
+    "designator": "CN11",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "12V",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "R44": {
+    "designator": "R44",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "NRST",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N868",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D11": {
+    "designator": "D11",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C111566",
+    "mfrPart": "ESD9B5.0ST5G",
+    "footprint": "SOD-923_L0.8-W0.6-LS1.0-BI",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N868",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "X1": {
+    "designator": "X1",
+    "value": "8MHz",
+    "supplierPart": "C2682774",
+    "mfrPart": "X32258MSB4SI",
+    "footprint": "CRYSTAL-SMD_4P-L3.2-W2.5-BL",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "O_IN",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "GND",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "3",
+        "number": "3",
+        "net": "O_OUT",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "GND",
+        "number": "4",
+        "net": "GND",
+        "props": {
+          "Pin Number": "4"
+        }
+      }
+    }
+  },
+  "R61": {
+    "designator": "R61",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N887",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C78": {
+    "designator": "C78",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "SHURUDIANLIUJIANCE",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C58": {
+    "designator": "C58",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "SHUCHUDIANLIUJIANCE",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U1": {
+    "designator": "U1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C459912",
+    "mfrPart": "LT3763EFE#PBF",
+    "footprint": "TSSOP-28_L9.7-W4.4-P0.65-LS6.4-BL-EP-1",
+    "pins": {
+      "1": {
+        "name": "BG",
+        "number": "1",
+        "net": "$1N988",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "INTVCC",
+        "number": "2",
+        "net": "$1N963",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "VIN",
+        "number": "3",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "EN/UVLO",
+        "number": "4",
+        "net": "$1N970",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "VREF",
+        "number": "5",
+        "net": "$1N967",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "IVINN",
+        "number": "6",
+        "net": "$1N983",
+        "props": {
+          "Pin Number": "6"
+        }
+      },
+      "7": {
+        "name": "IVINP",
+        "number": "7",
+        "net": "$1N986",
+        "props": {
+          "Pin Number": "7"
+        }
+      },
+      "8": {
+        "name": "IVINMON",
+        "number": "8",
+        "net": "$1N960",
+        "props": {
+          "Pin Number": "8"
+        }
+      },
+      "9": {
+        "name": "FAULT#",
+        "number": "9",
+        "net": "STOP",
+        "props": {
+          "Pin Number": "9"
+        }
+      },
+      "10": {
+        "name": "FBIN",
+        "number": "10",
+        "net": "$1N967",
+        "props": {
+          "Pin Number": "10"
+        }
+      },
+      "11": {
+        "name": "FB",
+        "number": "11",
+        "net": "$1N978",
+        "props": {
+          "Pin Number": "11"
+        }
+      },
+      "12": {
+        "name": "GND",
+        "number": "12",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "12"
+        }
+      },
+      "13": {
+        "name": "CTRL2",
+        "number": "13",
+        "net": "$1N965",
+        "props": {
+          "Pin Number": "13"
+        }
+      },
+      "14": {
+        "name": "CTRL1",
+        "number": "14",
+        "net": "DIANLIUKONGZHI",
+        "props": {
+          "Pin Number": "14"
+        }
+      },
+      "15": {
+        "name": "SS",
+        "number": "15",
+        "net": "$1N969",
+        "props": {
+          "Pin Number": "15"
+        }
+      },
+      "16": {
+        "name": "SENSE–",
+        "number": "16",
+        "net": "$1N980",
+        "props": {
+          "Pin Number": "16"
+        }
+      },
+      "17": {
+        "name": "SENSE+",
+        "number": "17",
+        "net": "$1N979",
+        "props": {
+          "Pin Number": "17"
+        }
+      },
+      "18": {
+        "name": "VC",
+        "number": "18",
+        "net": "$1N971",
+        "props": {
+          "Pin Number": "18"
+        }
+      },
+      "19": {
+        "name": "ISMON",
+        "number": "19",
+        "net": "$1N961",
+        "props": {
+          "Pin Number": "19"
+        }
+      },
+      "20": {
+        "name": "RT",
+        "number": "20",
+        "net": "$1N981",
+        "props": {
+          "Pin Number": "20"
+        }
+      },
+      "21": {
+        "name": "SYNC",
+        "number": "21",
+        "net": "GND",
+        "props": {
+          "Pin Number": "21"
+        }
+      },
+      "22": {
+        "name": "PWM",
+        "number": "22",
+        "net": "$1N1002",
+        "props": {
+          "Pin Number": "22"
+        }
+      },
+      "23": {
+        "name": "GND",
+        "number": "23",
+        "net": "GND",
+        "props": {
+          "Pin Number": "23"
+        }
+      },
+      "24": {
+        "name": "PWM_OUT",
+        "number": "24",
+        "net": "",
+        "props": {
+          "Pin Number": "24"
+        }
+      },
+      "25": {
+        "name": "TG",
+        "number": "25",
+        "net": "$1N992",
+        "props": {
+          "Pin Number": "25"
+        }
+      },
+      "26": {
+        "name": "SW",
+        "number": "26",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "26"
+        }
+      },
+      "27": {
+        "name": "BOOST",
+        "number": "27",
+        "net": "$1N964",
+        "props": {
+          "Pin Number": "27"
+        }
+      },
+      "28": {
+        "name": "GND",
+        "number": "28",
+        "net": "GND",
+        "props": {
+          "Pin Number": "28"
+        }
+      },
+      "29": {
+        "name": "GND",
+        "number": "29",
+        "net": "GND",
+        "props": {
+          "Pin Number": "29"
+        }
+      }
+    }
+  },
+  "CN1": {
+    "designator": "CN1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C98732",
+    "mfrPart": "XT60PW-M",
+    "footprint": "CONN-TH_XT60PW-M",
+    "pins": {
+      "1": {
+        "name": "-",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "+",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "3",
+        "number": "3",
+        "net": "",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "4",
+        "number": "4",
+        "net": "",
+        "props": {
+          "Pin Number": "4"
+        }
+      }
+    }
+  },
+  "C80": {
+    "designator": "C80",
+    "value": "10uF",
+    "supplierPart": "C5156756",
+    "mfrPart": "FS32X106K101EGG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C81": {
+    "designator": "C81",
+    "value": "10uF",
+    "supplierPart": "C5156756",
+    "mfrPart": "FS32X106K101EGG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C82": {
+    "designator": "C82",
+    "value": "10uF",
+    "supplierPart": "C5156756",
+    "mfrPart": "FS32X106K101EGG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C83": {
+    "designator": "C83",
+    "value": "10uF",
+    "supplierPart": "C5156756",
+    "mfrPart": "FS32X106K101EGG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R49": {
+    "designator": "R49",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N978",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R53": {
+    "designator": "R53",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N970",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R62": {
+    "designator": "R62",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "SHURUDIANLIUJIANCE",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N960",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R63": {
+    "designator": "R63",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "SHUCHUDIANLIUJIANCE",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N961",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R3": {
+    "designator": "R3",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "STOP",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R60": {
+    "designator": "R60",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N986",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R59": {
+    "designator": "R59",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N983",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C72": {
+    "designator": "C72",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N969",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C41": {
+    "designator": "C41",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DIANLIUKONGZHI",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C77": {
+    "designator": "C77",
+    "value": "1uF",
+    "supplierPart": "C5370002",
+    "mfrPart": "CC0805KKX7R0BB105",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N986",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N983",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C69": {
+    "designator": "C69",
+    "value": "1nF",
+    "supplierPart": "C692314",
+    "mfrPart": "FV32N102J202EFG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N989",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R22": {
+    "designator": "R22",
+    "value": "221kΩ",
+    "supplierPart": "C5713300",
+    "mfrPart": "FRC0805F2213TS",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N981",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R23": {
+    "designator": "R23",
+    "value": "10Ω",
+    "supplierPart": "C17415",
+    "mfrPart": "0805W8F100JT5E",
+    "footprint": "R0805_NEW",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N979",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N984",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R24": {
+    "designator": "R24",
+    "value": "10Ω",
+    "supplierPart": "C17415",
+    "mfrPart": "0805W8F100JT5E",
+    "footprint": "R0805_NEW",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N980",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C49": {
+    "designator": "C49",
+    "value": "33nF",
+    "supplierPart": "C5200606",
+    "mfrPart": "GRM3195C2A333JA01D",
+    "footprint": "C1206",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N980",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N979",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R52": {
+    "designator": "R52",
+    "value": "150kΩ",
+    "supplierPart": "C136927",
+    "mfrPart": "RT0805BRD07150KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N970",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R56": {
+    "designator": "R56",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C49247668",
+    "mfrPart": "HNTC0603-104F3950FB",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N965",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R57": {
+    "designator": "R57",
+    "value": "4.3kΩ",
+    "supplierPart": "C666992",
+    "mfrPart": "TD03G4301BT",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N967",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N965",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C75": {
+    "designator": "C75",
+    "value": "47uF",
+    "supplierPart": "C7432791",
+    "mfrPart": "HGC1210R5476M250NSVK",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N963",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D9": {
+    "designator": "D9",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C18199178",
+    "mfrPart": "SS110",
+    "footprint": "SMA_L4.3-W2.6-LS5.0-RD",
+    "pins": {
+      "1": {
+        "name": "K",
+        "number": "1",
+        "net": "$1N964",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "$1N963",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C76": {
+    "designator": "C76",
+    "value": "220nF",
+    "supplierPart": "C21120",
+    "mfrPart": "CL10B224KA8NNNC",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N964",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C47": {
+    "designator": "C47",
+    "value": "4.7uF",
+    "supplierPart": "C33546021",
+    "mfrPart": "HHV1210R7475K101NSVK",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D5": {
+    "designator": "D5",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C18199171",
+    "mfrPart": "SS510",
+    "footprint": "SMA_L4.3-W2.6-LS5.0-RD",
+    "pins": {
+      "1": {
+        "name": "K",
+        "number": "1",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D10": {
+    "designator": "D10",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C18199169",
+    "mfrPart": "SS56",
+    "footprint": "SMA_L4.3-W2.6-LS5.0-RD",
+    "pins": {
+      "1": {
+        "name": "K",
+        "number": "1",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C2": {
+    "designator": "C2",
+    "value": "2.2uF",
+    "supplierPart": "C57895",
+    "mfrPart": "CL10A225KA8NNNC",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N967",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R30": {
+    "designator": "R30",
+    "value": "240kΩ",
+    "supplierPart": "C515423",
+    "mfrPart": "RT0603BRD07240KL",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N978",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R48": {
+    "designator": "R48",
+    "value": "2.2Ω",
+    "supplierPart": "C965979",
+    "mfrPart": "AS101AJ022JT4E",
+    "footprint": "R2010",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N989",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R70": {
+    "designator": "R70",
+    "value": "2.2Ω",
+    "supplierPart": "C965979",
+    "mfrPart": "AS101AJ022JT4E",
+    "footprint": "R2010",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N991",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N992",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R71": {
+    "designator": "R71",
+    "value": "2.2Ω",
+    "supplierPart": "C965979",
+    "mfrPart": "AS101AJ022JT4E",
+    "footprint": "R2010",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N987",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N988",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "Q1": {
+    "designator": "Q1",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C534316",
+    "mfrPart": "BSC028N06LS3 G",
+    "footprint": "PG-TDSON-8_L5.9-W5.2-P1.27-LS6.2-BL-EP",
+    "pins": {
+      "1": {
+        "name": "S",
+        "number": "1",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "S",
+        "number": "2",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "S",
+        "number": "3",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "G",
+        "number": "4",
+        "net": "$1N991",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "D",
+        "number": "5",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "D",
+        "number": "6",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "6"
+        }
+      },
+      "7": {
+        "name": "D",
+        "number": "7",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "7"
+        }
+      },
+      "8": {
+        "name": "D",
+        "number": "8",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "8"
+        }
+      },
+      "9": {
+        "name": "D",
+        "number": "9",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "9"
+        }
+      }
+    }
+  },
+  "Q3": {
+    "designator": "Q3",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C534316",
+    "mfrPart": "BSC028N06LS3 G",
+    "footprint": "PG-TDSON-8_L5.9-W5.2-P1.27-LS6.2-BL-EP",
+    "pins": {
+      "1": {
+        "name": "S",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "S",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "S",
+        "number": "3",
+        "net": "GND",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "G",
+        "number": "4",
+        "net": "$1N987",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "D",
+        "number": "5",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "D",
+        "number": "6",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "6"
+        }
+      },
+      "7": {
+        "name": "D",
+        "number": "7",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "7"
+        }
+      },
+      "8": {
+        "name": "D",
+        "number": "8",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "8"
+        }
+      },
+      "9": {
+        "name": "D",
+        "number": "9",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "9"
+        }
+      }
+    }
+  },
+  "R12": {
+    "designator": "R12",
+    "value": "2.5mΩ",
+    "supplierPart": "C48868281",
+    "mfrPart": "HoCG251232m50D4",
+    "footprint": "R2512",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DCBUS",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N947",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R1": {
+    "designator": "R1",
+    "value": "2.5mΩ",
+    "supplierPart": "C48868281",
+    "mfrPart": "HoCG251232m50D4",
+    "footprint": "R2512",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N984",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "L6": {
+    "designator": "L6",
+    "value": "6.8uH",
+    "supplierPart": "C881788",
+    "mfrPart": "MTP2915-6R8MC",
+    "footprint": "IND-SMD_3P-L28.0-W27.0",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N984",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "NC",
+        "number": "3",
+        "net": "",
+        "props": {
+          "Pin Number": "3"
+        }
+      }
+    }
+  },
+  "CN13": {
+    "designator": "CN13",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DIANLIUKONGZHI",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN14": {
+    "designator": "CN14",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN15": {
+    "designator": "CN15",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N963",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN16": {
+    "designator": "CN16",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N967",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN12": {
+    "designator": "CN12",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N961",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN17": {
+    "designator": "CN17",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N960",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "CN18": {
+    "designator": "CN18",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C2906766",
+    "mfrPart": "5012",
+    "footprint": "TESTPOINT-TH_BD2.0_C9900010656",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "STOP",
+        "props": {
+          "Pin Number": "1"
+        }
+      }
+    }
+  },
+  "R32": {
+    "designator": "R32",
+    "value": "12kΩ",
+    "supplierPart": "C22790",
+    "mfrPart": "0603WAF1202T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N987",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R5": {
+    "designator": "R5",
+    "value": "12kΩ",
+    "supplierPart": "C22790",
+    "mfrPart": "0603WAF1202T5E",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N990",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N991",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D12": {
+    "designator": "D12",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84410",
+    "mfrPart": "1N4148TR",
+    "footprint": "DO-35_BD2.0-L4.2-P8.20-D0.5-RD",
+    "pins": {
+      "1": {
+        "name": "C",
+        "number": "1",
+        "net": "$1N988",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "$1N987",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R4": {
+    "designator": "R4",
+    "value": "18.2kΩ",
+    "supplierPart": "C2933164",
+    "mfrPart": "FRC0603F1822TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N971",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N973",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C42": {
+    "designator": "C42",
+    "value": "10nF",
+    "supplierPart": "C432938",
+    "mfrPart": "CGA3E1C0G2A103JT0Y0E",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N973",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R37": {
+    "designator": "R37",
+    "value": "1kΩ",
+    "supplierPart": "C2960674",
+    "mfrPart": "FRC2512J102 TS",
+    "footprint": "R2512",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C54": {
+    "designator": "C54",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N965",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R40": {
+    "designator": "R40",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "PWM",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N1002",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C60": {
+    "designator": "C60",
+    "value": "1nF",
+    "supplierPart": "C94121",
+    "mfrPart": "CC0805KRX7R9BB102",
+    "footprint": "C0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N1002",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R41": {
+    "designator": "R41",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N1002",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R54": {
+    "designator": "R54",
+    "value": "22Ω",
+    "supplierPart": "C2930077",
+    "mfrPart": "FRC0603F22R0TS",
+    "footprint": "R0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N1004",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "STOP",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C59": {
+    "designator": "C59",
+    "value": "470uF",
+    "supplierPart": "C49232909",
+    "mfrPart": "PA63V470M10X17",
+    "footprint": "CAP-TH_BD10.0-P5.00-D0.6-FD-A",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U8": {
+    "designator": "U8",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C24267845",
+    "mfrPart": "TLP2761(D4-TP4,E",
+    "footprint": "SOP-6_L7.5-W3.8-P1.27-LS11.1-BL",
+    "pins": {
+      "1": {
+        "name": "Anode",
+        "number": "1",
+        "net": "$1N1014",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "N.C.",
+        "number": "2",
+        "net": "",
+        "props": {
+          "Pin Number": "2"
+        }
+      },
+      "3": {
+        "name": "Cathode",
+        "number": "3",
+        "net": "WGND",
+        "props": {
+          "Pin Number": "3"
+        }
+      },
+      "4": {
+        "name": "GND",
+        "number": "4",
+        "net": "GND",
+        "props": {
+          "Pin Number": "4"
+        }
+      },
+      "5": {
+        "name": "VO(Output)",
+        "number": "5",
+        "net": "SHOOT",
+        "props": {
+          "Pin Number": "5"
+        }
+      },
+      "6": {
+        "name": "VDD",
+        "number": "6",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "6"
+        }
+      }
+    }
+  },
+  "C62": {
+    "designator": "C62",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "VCC",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "GND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R19": {
+    "designator": "R19",
+    "value": "8.2kΩ",
+    "supplierPart": "C21571500",
+    "mfrPart": "TC0525B8201T5G",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "DIANLIUKONGZHI",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "AGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R18": {
+    "designator": "R18",
+    "value": "1kΩ",
+    "supplierPart": "C17513",
+    "mfrPart": "0805W8F1001T5E",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "PA",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N1014",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "D13": {
+    "designator": "D13",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C84410",
+    "mfrPart": "1N4148TR",
+    "footprint": "DO-35_BD2.0-L4.2-P8.20-D0.5-RD",
+    "pins": {
+      "1": {
+        "name": "C",
+        "number": "1",
+        "net": "PA",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "A",
+        "number": "2",
+        "net": "WGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "R2": {
+    "designator": "R2",
+    "value": "10kΩ",
+    "supplierPart": "C110775",
+    "mfrPart": "RT0805BRD0710KL",
+    "footprint": "R0805",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "$1N1013",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "DIANLIUKONGZHI",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "U9": {
+    "designator": "U9",
+    "value": "={Manufacturer Part}",
+    "supplierPart": "C695629",
+    "mfrPart": "DB301V-3.5-2P-GN-S",
+    "footprint": "CONN-TH_DB301V-3.5-2P-GN",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "PA",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "WGND",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C63": {
+    "designator": "C63",
+    "value": "10uF",
+    "supplierPart": "C5156756",
+    "mfrPart": "FS32X106K101EGG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C64": {
+    "designator": "C64",
+    "value": "10uF",
+    "supplierPart": "C5156756",
+    "mfrPart": "FS32X106K101EGG",
+    "footprint": "C1210",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "VCC_OUT",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  },
+  "C52": {
+    "designator": "C52",
+    "value": "100nF",
+    "supplierPart": "C14663",
+    "mfrPart": "CC0603KRX7R9BB104",
+    "footprint": "C0603",
+    "pins": {
+      "1": {
+        "name": "1",
+        "number": "1",
+        "net": "GND",
+        "props": {
+          "Pin Number": "1"
+        }
+      },
+      "2": {
+        "name": "2",
+        "number": "2",
+        "net": "$1N970",
+        "props": {
+          "Pin Number": "2"
+        }
+      }
+    }
+  }
+}

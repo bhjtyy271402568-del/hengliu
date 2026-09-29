@@ -1,0 +1,1607 @@
+[
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026170,
+      "id": "[\"LAYER\",1]",
+      "firstTicket": 412819
+    },
+    "body": {
+      "layerId": 1,
+      "layerType": "TOP",
+      "layerName": "Top Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ff0000",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f0000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026176,
+      "id": "[\"LAYER\",2]",
+      "firstTicket": 412820
+    },
+    "body": {
+      "layerId": 2,
+      "layerType": "BOTTOM",
+      "layerName": "Bottom Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#0000ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#00007f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026167,
+      "id": "[\"LAYER\",3]",
+      "firstTicket": 412821
+    },
+    "body": {
+      "layerId": 3,
+      "layerType": "TOP_SILK",
+      "layerName": "Top Silkscreen Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ffcc00",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f6600",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026179,
+      "id": "[\"LAYER\",4]",
+      "firstTicket": 412822
+    },
+    "body": {
+      "layerId": 4,
+      "layerType": "BOT_SILK",
+      "layerName": "Bottom Silkscreen Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#66cc33",
+      "activateTransparency": 1,
+      "inactiveColor": "#336619",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026169,
+      "id": "[\"LAYER\",5]",
+      "firstTicket": 412823
+    },
+    "body": {
+      "layerId": 5,
+      "layerType": "TOP_SOLDER_MASK",
+      "layerName": "Top Solder Mask Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#800080",
+      "activateTransparency": 0.7,
+      "inactiveColor": "#400040",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026177,
+      "id": "[\"LAYER\",6]",
+      "firstTicket": 412824
+    },
+    "body": {
+      "layerId": 6,
+      "layerType": "BOT_SOLDER_MASK",
+      "layerName": "Bottom Solder Mask Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#aa00ff",
+      "activateTransparency": 0.7,
+      "inactiveColor": "#55007f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026168,
+      "id": "[\"LAYER\",7]",
+      "firstTicket": 412825
+    },
+    "body": {
+      "layerId": 7,
+      "layerType": "TOP_PASTE_MASK",
+      "layerName": "Top Paste Mask Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#808080",
+      "activateTransparency": 1,
+      "inactiveColor": "#404040",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026178,
+      "id": "[\"LAYER\",8]",
+      "firstTicket": 412826
+    },
+    "body": {
+      "layerId": 8,
+      "layerType": "BOT_PASTE_MASK",
+      "layerName": "Bottom Paste Mask Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#800000",
+      "activateTransparency": 1,
+      "inactiveColor": "#400000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026111,
+      "id": "[\"LAYER\",9]",
+      "firstTicket": 412827
+    },
+    "body": {
+      "layerId": 9,
+      "layerType": "TOP_ASSEMBLY",
+      "layerName": "Top Assembly Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#33cc99",
+      "activateTransparency": 1,
+      "inactiveColor": "#19664c",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026112,
+      "id": "[\"LAYER\",10]",
+      "firstTicket": 412828
+    },
+    "body": {
+      "layerId": 10,
+      "layerType": "BOT_ASSEMBLY",
+      "layerName": "Bottom Assembly Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#5555ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#2a2a7f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026113,
+      "id": "[\"LAYER\",11]",
+      "firstTicket": 412829
+    },
+    "body": {
+      "layerId": 11,
+      "layerType": "OUTLINE",
+      "layerName": "Board Outline Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ff00ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f007f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026114,
+      "id": "[\"LAYER\",12]",
+      "firstTicket": 412830
+    },
+    "body": {
+      "layerId": 12,
+      "layerType": "MULTI",
+      "layerName": "Multi-Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#c0c0c0",
+      "activateTransparency": 1,
+      "inactiveColor": "#606060",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026115,
+      "id": "[\"LAYER\",13]",
+      "firstTicket": 412831
+    },
+    "body": {
+      "layerId": 13,
+      "layerType": "DOCUMENT",
+      "layerName": "Document Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ffffff",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f7f7f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026116,
+      "id": "[\"LAYER\",14]",
+      "firstTicket": 412832
+    },
+    "body": {
+      "layerId": 14,
+      "layerType": "MECHANICAL",
+      "layerName": "Mechanical Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#f022f0",
+      "activateTransparency": 1,
+      "inactiveColor": "#781178",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026172,
+      "id": "[\"LAYER\",15]",
+      "firstTicket": 412833
+    },
+    "body": {
+      "layerId": 15,
+      "layerType": "PLANE",
+      "layerName": "Inner1",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#00ffff",
+      "activateTransparency": 1,
+      "inactiveColor": "#4c4c33",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026174,
+      "id": "[\"LAYER\",16]",
+      "firstTicket": 412834
+    },
+    "body": {
+      "layerId": 16,
+      "layerType": "SIGNAL",
+      "layerName": "Inner2",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ffff66",
+      "activateTransparency": 1,
+      "inactiveColor": "#004000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026119,
+      "id": "[\"LAYER\",17]",
+      "firstTicket": 412835
+    },
+    "body": {
+      "layerId": 17,
+      "layerType": "SIGNAL",
+      "layerName": "Inner3",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#cc9900",
+      "activateTransparency": 1,
+      "inactiveColor": "#007f00",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026120,
+      "id": "[\"LAYER\",18]",
+      "firstTicket": 412836
+    },
+    "body": {
+      "layerId": 18,
+      "layerType": "SIGNAL",
+      "layerName": "Inner4",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#00ff00",
+      "activateTransparency": 1,
+      "inactiveColor": "#5e4700",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026121,
+      "id": "[\"LAYER\",19]",
+      "firstTicket": 412837
+    },
+    "body": {
+      "layerId": 19,
+      "layerType": "SIGNAL",
+      "layerName": "Inner5",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#70dbfa",
+      "activateTransparency": 1,
+      "inactiveColor": "#39503f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026122,
+      "id": "[\"LAYER\",20]",
+      "firstTicket": 412838
+    },
+    "body": {
+      "layerId": 20,
+      "layerType": "SIGNAL",
+      "layerName": "Inner6",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#00cc66",
+      "activateTransparency": 1,
+      "inactiveColor": "#006633",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026123,
+      "id": "[\"LAYER\",21]",
+      "firstTicket": 412839
+    },
+    "body": {
+      "layerId": 21,
+      "layerType": "SIGNAL",
+      "layerName": "Inner7",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#9966ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#4c337f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026124,
+      "id": "[\"LAYER\",22]",
+      "firstTicket": 412840
+    },
+    "body": {
+      "layerId": 22,
+      "layerType": "SIGNAL",
+      "layerName": "Inner8",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#800080",
+      "activateTransparency": 1,
+      "inactiveColor": "#400040",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026125,
+      "id": "[\"LAYER\",23]",
+      "firstTicket": 412841
+    },
+    "body": {
+      "layerId": 23,
+      "layerType": "SIGNAL",
+      "layerName": "Inner9",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#008080",
+      "activateTransparency": 1,
+      "inactiveColor": "#004040",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026126,
+      "id": "[\"LAYER\",24]",
+      "firstTicket": 412842
+    },
+    "body": {
+      "layerId": 24,
+      "layerType": "SIGNAL",
+      "layerName": "Inner10",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#15935f",
+      "activateTransparency": 1,
+      "inactiveColor": "#0a492f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026127,
+      "id": "[\"LAYER\",25]",
+      "firstTicket": 412843
+    },
+    "body": {
+      "layerId": 25,
+      "layerType": "SIGNAL",
+      "layerName": "Inner11",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#000080",
+      "activateTransparency": 1,
+      "inactiveColor": "#000040",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026128,
+      "id": "[\"LAYER\",26]",
+      "firstTicket": 412844
+    },
+    "body": {
+      "layerId": 26,
+      "layerType": "SIGNAL",
+      "layerName": "Inner12",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#00b400",
+      "activateTransparency": 1,
+      "inactiveColor": "#005a00",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026129,
+      "id": "[\"LAYER\",27]",
+      "firstTicket": 412845
+    },
+    "body": {
+      "layerId": 27,
+      "layerType": "SIGNAL",
+      "layerName": "Inner13",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#2e4756",
+      "activateTransparency": 1,
+      "inactiveColor": "#17232b",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026130,
+      "id": "[\"LAYER\",28]",
+      "firstTicket": 412846
+    },
+    "body": {
+      "layerId": 28,
+      "layerType": "SIGNAL",
+      "layerName": "Inner14",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#99842f",
+      "activateTransparency": 1,
+      "inactiveColor": "#4c4217",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026131,
+      "id": "[\"LAYER\",29]",
+      "firstTicket": 412847
+    },
+    "body": {
+      "layerId": 29,
+      "layerType": "SIGNAL",
+      "layerName": "Inner15",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#ffffaa",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f7f55",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026132,
+      "id": "[\"LAYER\",30]",
+      "firstTicket": 412848
+    },
+    "body": {
+      "layerId": 30,
+      "layerType": "SIGNAL",
+      "layerName": "Inner16",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#99842f",
+      "activateTransparency": 1,
+      "inactiveColor": "#4c4217",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026133,
+      "id": "[\"LAYER\",31]",
+      "firstTicket": 412849
+    },
+    "body": {
+      "layerId": 31,
+      "layerType": "SIGNAL",
+      "layerName": "Inner17",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#2e4756",
+      "activateTransparency": 1,
+      "inactiveColor": "#17232b",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026134,
+      "id": "[\"LAYER\",32]",
+      "firstTicket": 412850
+    },
+    "body": {
+      "layerId": 32,
+      "layerType": "SIGNAL",
+      "layerName": "Inner18",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#3535ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#1a1a7f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026135,
+      "id": "[\"LAYER\",33]",
+      "firstTicket": 412851
+    },
+    "body": {
+      "layerId": 33,
+      "layerType": "SIGNAL",
+      "layerName": "Inner19",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#8000bc",
+      "activateTransparency": 1,
+      "inactiveColor": "#40005e",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026136,
+      "id": "[\"LAYER\",34]",
+      "firstTicket": 412852
+    },
+    "body": {
+      "layerId": 34,
+      "layerType": "SIGNAL",
+      "layerName": "Inner20",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#43ae5f",
+      "activateTransparency": 1,
+      "inactiveColor": "#21572f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026137,
+      "id": "[\"LAYER\",35]",
+      "firstTicket": 412853
+    },
+    "body": {
+      "layerId": 35,
+      "layerType": "SIGNAL",
+      "layerName": "Inner21",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#c3ecce",
+      "activateTransparency": 1,
+      "inactiveColor": "#617667",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026138,
+      "id": "[\"LAYER\",36]",
+      "firstTicket": 412854
+    },
+    "body": {
+      "layerId": 36,
+      "layerType": "SIGNAL",
+      "layerName": "Inner22",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#728978",
+      "activateTransparency": 1,
+      "inactiveColor": "#39443c",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026139,
+      "id": "[\"LAYER\",37]",
+      "firstTicket": 412855
+    },
+    "body": {
+      "layerId": 37,
+      "layerType": "SIGNAL",
+      "layerName": "Inner23",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#39503f",
+      "activateTransparency": 1,
+      "inactiveColor": "#1c281f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026140,
+      "id": "[\"LAYER\",38]",
+      "firstTicket": 412856
+    },
+    "body": {
+      "layerId": 38,
+      "layerType": "SIGNAL",
+      "layerName": "Inner24",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#0c715d",
+      "activateTransparency": 1,
+      "inactiveColor": "#06382e",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026141,
+      "id": "[\"LAYER\",39]",
+      "firstTicket": 412857
+    },
+    "body": {
+      "layerId": 39,
+      "layerType": "SIGNAL",
+      "layerName": "Inner25",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#5a8a80",
+      "activateTransparency": 1,
+      "inactiveColor": "#2d4540",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026142,
+      "id": "[\"LAYER\",40]",
+      "firstTicket": 412858
+    },
+    "body": {
+      "layerId": 40,
+      "layerType": "SIGNAL",
+      "layerName": "Inner26",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#2b937e",
+      "activateTransparency": 1,
+      "inactiveColor": "#15493f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026143,
+      "id": "[\"LAYER\",41]",
+      "firstTicket": 412859
+    },
+    "body": {
+      "layerId": 41,
+      "layerType": "SIGNAL",
+      "layerName": "Inner27",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#23999d",
+      "activateTransparency": 1,
+      "inactiveColor": "#114c4e",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026144,
+      "id": "[\"LAYER\",42]",
+      "firstTicket": 412860
+    },
+    "body": {
+      "layerId": 42,
+      "layerType": "SIGNAL",
+      "layerName": "Inner28",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#45b4e3",
+      "activateTransparency": 1,
+      "inactiveColor": "#225a71",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026145,
+      "id": "[\"LAYER\",43]",
+      "firstTicket": 412861
+    },
+    "body": {
+      "layerId": 43,
+      "layerType": "SIGNAL",
+      "layerName": "Inner29",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#215da1",
+      "activateTransparency": 1,
+      "inactiveColor": "#102e50",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026146,
+      "id": "[\"LAYER\",44]",
+      "firstTicket": 412862
+    },
+    "body": {
+      "layerId": 44,
+      "layerType": "SIGNAL",
+      "layerName": "Inner30",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#4564d7",
+      "activateTransparency": 1,
+      "inactiveColor": "#22326b",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026147,
+      "id": "[\"LAYER\",45]",
+      "firstTicket": 412863
+    },
+    "body": {
+      "layerId": 45,
+      "layerType": "SIGNAL",
+      "layerName": "Inner31",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#6969e9",
+      "activateTransparency": 1,
+      "inactiveColor": "#343474",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026148,
+      "id": "[\"LAYER\",46]",
+      "firstTicket": 412864
+    },
+    "body": {
+      "layerId": 46,
+      "layerType": "SIGNAL",
+      "layerName": "Inner32",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#9069e9",
+      "activateTransparency": 1,
+      "inactiveColor": "#483474",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026149,
+      "id": "[\"LAYER\",47]",
+      "firstTicket": 412865
+    },
+    "body": {
+      "layerId": 47,
+      "layerType": "HOLE",
+      "layerName": "Hole Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#222222",
+      "activateTransparency": 1,
+      "inactiveColor": "#111111",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026150,
+      "id": "[\"LAYER\",48]",
+      "firstTicket": 412866
+    },
+    "body": {
+      "layerId": 48,
+      "layerType": "COMPONENT_SHAPE",
+      "layerName": "Component Shape Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#00cccc",
+      "activateTransparency": 1,
+      "inactiveColor": "#006666",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026151,
+      "id": "[\"LAYER\",49]",
+      "firstTicket": 412867
+    },
+    "body": {
+      "layerId": 49,
+      "layerType": "COMPONENT_MARKING",
+      "layerName": "Component Marking Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#66ffcc",
+      "activateTransparency": 1,
+      "inactiveColor": "#337f66",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026152,
+      "id": "[\"LAYER\",50]",
+      "firstTicket": 412868
+    },
+    "body": {
+      "layerId": 50,
+      "layerType": "PIN_SOLDERING",
+      "layerName": "Pin Soldering Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#cc9999",
+      "activateTransparency": 1,
+      "inactiveColor": "#664c4c",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026153,
+      "id": "[\"LAYER\",51]",
+      "firstTicket": 412869
+    },
+    "body": {
+      "layerId": 51,
+      "layerType": "PIN_FLOATING",
+      "layerName": "Pin Floating Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ff99ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f4c7f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026154,
+      "id": "[\"LAYER\",52]",
+      "firstTicket": 412870
+    },
+    "body": {
+      "layerId": 52,
+      "layerType": "COMPONENT_MODEL",
+      "layerName": "Component Model Layer",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#ffffff",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f7f7f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026155,
+      "id": "[\"LAYER\",53]",
+      "firstTicket": 412871
+    },
+    "body": {
+      "layerId": 53,
+      "layerType": "3D_SHELL_OUTLINE",
+      "layerName": "3D Shell Outline Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#66ff99",
+      "activateTransparency": 1,
+      "inactiveColor": "#337f4c",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026156,
+      "id": "[\"LAYER\",54]",
+      "firstTicket": 412872
+    },
+    "body": {
+      "layerId": 54,
+      "layerType": "3D_SHELL_TOP",
+      "layerName": "3D Shell Top Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#ffccff",
+      "activateTransparency": 1,
+      "inactiveColor": "#7f667f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026157,
+      "id": "[\"LAYER\",55]",
+      "firstTicket": 412873
+    },
+    "body": {
+      "layerId": 55,
+      "layerType": "3D_SHELL_BOTTOM",
+      "layerName": "3D Shell Bottom Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#0066cc",
+      "activateTransparency": 1,
+      "inactiveColor": "#003366",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026158,
+      "id": "[\"LAYER\",56]",
+      "firstTicket": 412874
+    },
+    "body": {
+      "layerId": 56,
+      "layerType": "DRILL_DRAWING",
+      "layerName": "Drill Drawing Layer",
+      "use": true,
+      "show": true,
+      "locked": false,
+      "activeColor": "#008080",
+      "activateTransparency": 1,
+      "inactiveColor": "#004040",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026159,
+      "id": "[\"LAYER\",57]",
+      "firstTicket": 412875
+    },
+    "body": {
+      "layerId": 57,
+      "layerType": "OTHER",
+      "layerName": "Ratline Layer",
+      "use": true,
+      "show": true,
+      "locked": true,
+      "activeColor": "#6464ff",
+      "activateTransparency": 1,
+      "inactiveColor": "#32327f",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026160,
+      "id": "[\"LAYER\",58]",
+      "firstTicket": 412876
+    },
+    "body": {
+      "layerId": 58,
+      "layerType": "TOP_STIFFENER",
+      "layerName": "Top Stiffener Layer",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#eee666",
+      "activateTransparency": 1,
+      "inactiveColor": "#777333",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026161,
+      "id": "[\"LAYER\",59]",
+      "firstTicket": 412877
+    },
+    "body": {
+      "layerId": 59,
+      "layerType": "BOTTOM_STIFFENER",
+      "layerName": "Bottom Stiffener Layer",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#ccff00",
+      "activateTransparency": 1,
+      "inactiveColor": "#667f00",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026171,
+      "id": "[\"LAYER\",361]",
+      "firstTicket": 412878
+    },
+    "body": {
+      "layerId": 361,
+      "layerType": "SUBSTRATE",
+      "layerName": "Dielectric1",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#000000",
+      "activateTransparency": 0,
+      "inactiveColor": "#000000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026180,
+      "id": "[\"LAYER_PHYS\",3]",
+      "firstTicket": 412879
+    },
+    "body": {
+      "material": "",
+      "thickness": 0,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026181,
+      "id": "[\"LAYER_PHYS\",7]",
+      "firstTicket": 412880
+    },
+    "body": {
+      "material": "",
+      "thickness": 0,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 2
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026182,
+      "id": "[\"LAYER_PHYS\",5]",
+      "firstTicket": 412881
+    },
+    "body": {
+      "material": "",
+      "thickness": 0,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 3
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026183,
+      "id": "[\"LAYER_PHYS\",1]",
+      "firstTicket": 412882
+    },
+    "body": {
+      "material": "Outer layer thickness 1oz",
+      "thickness": 1.378,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1000
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026184,
+      "id": "[\"LAYER_PHYS\",361]",
+      "firstTicket": 412883
+    },
+    "body": {
+      "material": "3313 RC57% 4.2mil",
+      "thickness": 3.913,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1001
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026189,
+      "id": "[\"LAYER_PHYS\",2]",
+      "firstTicket": 412884
+    },
+    "body": {
+      "material": "Outer layer thickness 1oz",
+      "thickness": 1.378,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 9000
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026190,
+      "id": "[\"LAYER_PHYS\",6]",
+      "firstTicket": 412885
+    },
+    "body": {
+      "material": "",
+      "thickness": 0,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 10000
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026191,
+      "id": "[\"LAYER_PHYS\",8]",
+      "firstTicket": 412886
+    },
+    "body": {
+      "material": "",
+      "thickness": 0,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 10001
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026192,
+      "id": "[\"LAYER_PHYS\",4]",
+      "firstTicket": 412887
+    },
+    "body": {
+      "material": "",
+      "thickness": 0,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 10002
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026173,
+      "id": "[\"LAYER\",362]",
+      "firstTicket": 519979
+    },
+    "body": {
+      "layerId": 362,
+      "layerType": "SUBSTRATE",
+      "layerName": "Dielectric2",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#000000",
+      "activateTransparency": 0,
+      "inactiveColor": "#000000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026175,
+      "id": "[\"LAYER\",363]",
+      "firstTicket": 519981
+    },
+    "body": {
+      "layerId": 363,
+      "layerType": "SUBSTRATE",
+      "layerName": "Dielectric3",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#000000",
+      "activateTransparency": 0,
+      "inactiveColor": "#000000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026165,
+      "id": "[\"LAYER\",364]",
+      "firstTicket": 519983
+    },
+    "body": {
+      "layerId": 364,
+      "layerType": "SUBSTRATE",
+      "layerName": "Dielectric4",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#000000",
+      "activateTransparency": 0,
+      "inactiveColor": "#000000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER",
+      "ticket": 1026166,
+      "id": "[\"LAYER\",365]",
+      "firstTicket": 519985
+    },
+    "body": {
+      "layerId": 365,
+      "layerType": "SUBSTRATE",
+      "layerName": "Dielectric5",
+      "use": false,
+      "show": false,
+      "locked": false,
+      "activeColor": "#000000",
+      "activateTransparency": 0,
+      "inactiveColor": "#000000",
+      "inactiveTransparency": 0.5
+    },
+    "type": "LAYER"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026185,
+      "id": "[\"LAYER_PHYS\",15]",
+      "firstTicket": 519995
+    },
+    "body": {
+      "material": "Inner layer thickness",
+      "thickness": 0.598,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1002
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026186,
+      "id": "[\"LAYER_PHYS\",362]",
+      "firstTicket": 519996
+    },
+    "body": {
+      "material": "1.3mm H/HOZ Copper",
+      "thickness": 49.803,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1003
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026187,
+      "id": "[\"LAYER_PHYS\",16]",
+      "firstTicket": 519997
+    },
+    "body": {
+      "material": "Inner layer thickness",
+      "thickness": 0.598,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1004
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 1026188,
+      "id": "[\"LAYER_PHYS\",363]",
+      "firstTicket": 519998
+    },
+    "body": {
+      "material": "3313 RC57% 4.2mil",
+      "thickness": 3.913,
+      "permittivity": 0,
+      "lossTangent": 0,
+      "isKeepIsland": true,
+      "zIndex": 1005
+    },
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 995590,
+      "id": "[\"LAYER_PHYS\",17]",
+      "firstTicket": 519999
+    },
+    "body": {},
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 995591,
+      "id": "[\"LAYER_PHYS\",364]",
+      "firstTicket": 520000
+    },
+    "body": {},
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 995592,
+      "id": "[\"LAYER_PHYS\",18]",
+      "firstTicket": 520001
+    },
+    "body": {},
+    "type": "LAYER_PHYS"
+  },
+  {
+    "head": {
+      "type": "LAYER_PHYS",
+      "ticket": 995593,
+      "id": "[\"LAYER_PHYS\",365]",
+      "firstTicket": 520002
+    },
+    "body": {},
+    "type": "LAYER_PHYS"
+  }
+]

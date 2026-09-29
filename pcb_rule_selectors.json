@@ -1,0 +1,3776 @@
+[
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 461673,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c4d378fa2d2d5c11\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 463436,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N535\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038760,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"GND_BAT\"]]",
+      "firstTicket": 517777
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 517793,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c5ce2977d0c0ede4\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038757,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"5V\"]]",
+      "firstTicket": 517815
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "ControlPower_Track",
+        "NET_LENGTH_TOLERANCE": [
+          "default",
+          null
+        ]
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1039788,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"GND\"]]",
+      "firstTicket": 517817
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "COPPER": "copperRegion"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 993850,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"AGND\"]]",
+      "firstTicket": 517819
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775815,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N467\"]]",
+      "firstTicket": 517821
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038759,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"VCC_BAT\"]]",
+      "firstTicket": 517823
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038761,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N497\"]]",
+      "firstTicket": 517827
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038762,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N496\"]]",
+      "firstTicket": 517829
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 836623,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"PGND\"]]",
+      "firstTicket": 517831
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038763,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N492\"]]",
+      "firstTicket": 517833
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038764,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N490\"]]",
+      "firstTicket": 517835
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038765,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N491\"]]",
+      "firstTicket": 517837
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038766,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N498\"]]",
+      "firstTicket": 517839
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038767,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"DCBUS\"]]",
+      "firstTicket": 517841
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038768,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N560\"]]",
+      "firstTicket": 517843
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038769,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N562\"]]",
+      "firstTicket": 517845
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038770,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"12V\"]]",
+      "firstTicket": 517847
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "ControlPower_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038771,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"FB\"]]",
+      "firstTicket": 517849
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038772,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"VCC\"]]",
+      "firstTicket": 517851
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038773,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"O_IN\"]]",
+      "firstTicket": 517853
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038774,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"O_OUT\"]]",
+      "firstTicket": 517855
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038775,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N636\"]]",
+      "firstTicket": 517857
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038776,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N635\"]]",
+      "firstTicket": 517859
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038777,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"AVCC\"]]",
+      "firstTicket": 517861
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775823,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N487\"]]",
+      "firstTicket": 517863
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775819,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N486\"]]",
+      "firstTicket": 517865
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038778,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"NRST\"]]",
+      "firstTicket": 517867
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038779,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"VCC_OUT\"]]",
+      "firstTicket": 517869
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775813,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"USB_5V_DET\"]]",
+      "firstTicket": 517871
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038780,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"KEY1\"]]",
+      "firstTicket": 517873
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 846814,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"KEY2\"]]",
+      "firstTicket": 517875
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 846816,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"KEY3\"]]",
+      "firstTicket": 517877
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 846818,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"KEY4\"]]",
+      "firstTicket": 517879
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775809,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N512\"]]",
+      "firstTicket": 517881
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775763,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N476\"]]",
+      "firstTicket": 517883
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775807,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N470\"]]",
+      "firstTicket": 517885
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775803,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N513\"]]",
+      "firstTicket": 517887
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775801,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N462\"]]",
+      "firstTicket": 517889
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775827,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N507\"]]",
+      "firstTicket": 517891
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775825,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N510\"]]",
+      "firstTicket": 517893
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038781,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SHURUDIANLIUJIANCE\"]]",
+      "firstTicket": 517895
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038782,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SHUCHUDIANLIUJIANCE\"]]",
+      "firstTicket": 517897
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038783,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N732\"]]",
+      "firstTicket": 517899
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038784,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N733\"]]",
+      "firstTicket": 517901
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038785,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N734\"]]",
+      "firstTicket": 517903
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038786,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N731\"]]",
+      "firstTicket": 517905
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 604478,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N678\"]]",
+      "firstTicket": 517907
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 604474,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N677\"]]",
+      "firstTicket": 517909
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 604470,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N676\"]]",
+      "firstTicket": 517911
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 604482,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N679\"]]",
+      "firstTicket": 517913
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775761,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N533\"]]",
+      "firstTicket": 517915
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775759,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"USB_5V\"]]",
+      "firstTicket": 517917
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775757,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"LEDA\"]]",
+      "firstTicket": 517919
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 777914,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"LCD_RES\"]]",
+      "firstTicket": 517921
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 777912,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"LCD_DC\"]]",
+      "firstTicket": 517923
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775779,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI3_MOSI\"]]",
+      "firstTicket": 517925
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775775,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI3_SCK\"]]",
+      "firstTicket": 517927
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 776959,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"LCD_CS\"]]",
+      "firstTicket": 517929
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038787,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N520\"]]",
+      "firstTicket": 517931
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038788,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N628\"]]",
+      "firstTicket": 517933
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038789,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N570\"]]",
+      "firstTicket": 517935
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038790,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N647\"]]",
+      "firstTicket": 517937
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775821,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N508\"]]",
+      "firstTicket": 517939
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775755,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N706\"]]",
+      "firstTicket": 517941
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775753,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N707\"]]",
+      "firstTicket": 517943
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038791,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N701\"]]",
+      "firstTicket": 517945
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 993857,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"RGB\"]]",
+      "firstTicket": 517947
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 568243,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N506\"]]",
+      "firstTicket": 517949
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775749,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N575\"]]",
+      "firstTicket": 517951
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038792,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N493\"]]",
+      "firstTicket": 517953
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038793,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N561\"]]",
+      "firstTicket": 517955
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775793,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N488\"]]",
+      "firstTicket": 517957
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038794,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N567\"]]",
+      "firstTicket": 517959
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775817,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N485\"]]",
+      "firstTicket": 517961
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038795,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"PWM\"]]",
+      "firstTicket": 517963
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038796,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N758\"]]",
+      "firstTicket": 517965
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038797,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"DIANLIUKONGZHI\"]]",
+      "firstTicket": 517967
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775745,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"USB_DM\"]]",
+      "firstTicket": 517969
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775769,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"BDM\"]]",
+      "firstTicket": 517971
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775743,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"USB_DP\"]]",
+      "firstTicket": 517973
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775771,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"BDP\"]]",
+      "firstTicket": 517975
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 776953,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"LCD_BLK\"]]",
+      "firstTicket": 517977
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038798,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"R_EN\"]]",
+      "firstTicket": 517979
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038799,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"RX_TX\"]]",
+      "firstTicket": 517981
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775781,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N474\"]]",
+      "firstTicket": 517983
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775791,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N471\"]]",
+      "firstTicket": 517985
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775789,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N463\"]]",
+      "firstTicket": 517987
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775787,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N458\"]]",
+      "firstTicket": 517989
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775799,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N459\"]]",
+      "firstTicket": 517991
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038800,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"TX_RX\"]]",
+      "firstTicket": 517993
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038801,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"CLK\"]]",
+      "firstTicket": 517995
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038802,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"DIO\"]]",
+      "firstTicket": 517997
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 605338,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI1_MOSI\"]]",
+      "firstTicket": 517999
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 605335,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI1_MISO\"]]",
+      "firstTicket": 518001
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 605341,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI1_SCK\"]]",
+      "firstTicket": 518003
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 605344,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI1_CSN\"]]",
+      "firstTicket": 518005
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775773,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI3_CSN\"]]",
+      "firstTicket": 518007
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775777,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SPI3_MISO\"]]",
+      "firstTicket": 518009
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038803,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N846\"]]",
+      "firstTicket": 518011
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038804,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N836\"]]",
+      "firstTicket": 518013
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775805,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N803\"]]",
+      "firstTicket": 518015
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775797,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N788\"]]",
+      "firstTicket": 518017
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775795,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N790\"]]",
+      "firstTicket": 518019
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 852811,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N829\"]]",
+      "firstTicket": 518021
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038805,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"STOP\"]]",
+      "firstTicket": 518023
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038806,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N834\"]]",
+      "firstTicket": 518025
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 604417,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N815\"]]",
+      "firstTicket": 518027
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775765,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N820\"]]",
+      "firstTicket": 518029
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038807,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N839\"]]",
+      "firstTicket": 518031
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 605353,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N811\"]]",
+      "firstTicket": 518033
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038808,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"SHOOT\"]]",
+      "firstTicket": 518035
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038809,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N824\"]]",
+      "firstTicket": 518037
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775785,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N787\"]]",
+      "firstTicket": 518039
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775783,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N789\"]]",
+      "firstTicket": 518041
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775767,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N821\"]]",
+      "firstTicket": 518043
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038810,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N868\"]]",
+      "firstTicket": 518045
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775751,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N871\"]]",
+      "firstTicket": 518047
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 518957,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"80ab9994ab7a9ab0\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038847,
+      "id": "[\"RULE_SELECTOR\",[[\"NET\",\"5V\"],[\"NET\",\"12V\"]]]",
+      "firstTicket": 520502
+    },
+    "body": {
+      "ruleOrder": 3,
+      "ruleKeyValue": {
+        "SAFE": "Copper_copperRegion"
+      },
+      "copperValue": {
+        "COPPER": null
+      },
+      "innerPlaneValue": {
+        "PLANE": null
+      }
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1025082,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP1\"]]",
+      "firstTicket": 541822
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1025080,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP2\"]]",
+      "firstTicket": 542025
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 551624,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e306f308fa84cb4f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 798015,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP3\"]]",
+      "firstTicket": 553443
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 562814,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"daec7875b2fc41ed\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 563144,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"51a334b3cd7db5e8\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775811,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N885\"]]",
+      "firstTicket": 574532
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 580200,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"dbc12830c5177576\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 583732,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"f6c0d434f4c541b9\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 583742,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"17a24fb8fab92fa1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 775747,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N886\"]]",
+      "firstTicket": 613559
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672088,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N918\"]]",
+      "firstTicket": 626911
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672136,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N919\"]]",
+      "firstTicket": 626913
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672094,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N930\"]]",
+      "firstTicket": 626915
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672092,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N899\"]]",
+      "firstTicket": 626917
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672090,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N900\"]]",
+      "firstTicket": 626919
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672114,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N908\"]]",
+      "firstTicket": 626921
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672116,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N905\"]]",
+      "firstTicket": 626923
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672124,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N913\"]]",
+      "firstTicket": 626925
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672096,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N924\"]]",
+      "firstTicket": 626927
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672098,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N944\"]]",
+      "firstTicket": 626929
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672100,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N911\"]]",
+      "firstTicket": 626931
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672102,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N912\"]]",
+      "firstTicket": 626933
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672104,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N902\"]]",
+      "firstTicket": 626935
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672106,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N922\"]]",
+      "firstTicket": 626937
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672108,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N928\"]]",
+      "firstTicket": 626939
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672110,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N901\"]]",
+      "firstTicket": 626941
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672112,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N927\"]]",
+      "firstTicket": 626943
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672118,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N907\"]]",
+      "firstTicket": 626945
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672120,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N904\"]]",
+      "firstTicket": 626947
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672122,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N910\"]]",
+      "firstTicket": 626949
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672126,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N921\"]]",
+      "firstTicket": 626951
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672128,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N926\"]]",
+      "firstTicket": 626953
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672130,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N931\"]]",
+      "firstTicket": 626955
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672132,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N898\"]]",
+      "firstTicket": 626957
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 672134,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N903\"]]",
+      "firstTicket": 626959
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629586,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"335dec755b2db15f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629587,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e1d6b2a21d65bb46\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629588,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"dc1f54d6477c22e8\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629589,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"0842cce4b317b294\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629590,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"14fc6de09762a44d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629591,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"fa29671a84c0b73c\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629592,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"65610bd11973ea9d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629593,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"b953a3ae07a99583\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629594,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"532ee7d00943f763\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629595,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"380527de22adf7e1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629596,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5994c9c1a5d50fd1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629597,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"1611140db399c8fc\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629598,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"0a5b9d8517b0f1e9\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629599,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"8d8b54870e0f0d26\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629600,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"cd90802239b35824\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629601,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c6dac9dd9638503f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629602,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"62dadff21172cfd2\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629603,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c5047c330bc985ad\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629604,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"09425c7410403a12\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629605,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d7a646e69ae1d156\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629606,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"b638195df626b03e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629607,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5a016e587988bdf6\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629608,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"22de860ab195dfb3\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629609,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c25bab8f4ab22c68\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629610,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"eb33b812a790dfdc\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629611,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"0cd3b5357b6c31c4\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629612,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"06a8d3326350a787\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629613,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"60857bc38305886f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629614,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6822b74c7900f224\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629615,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"8782cd25387173d1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629616,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5a6e6630c4f84799\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629617,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"cebc1ac1082c0697\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629618,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e62ad19551bd52bd\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629619,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d50d0a484c408db2\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629620,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"98aa098f3731cdad\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 629621,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c614784d6ec20e0b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 696162,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"4ede9575d32a2f9e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 696390,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"a3b36c68840ac1f3\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 991384,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N990\"]]",
+      "firstTicket": 697895
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038815,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N947\"]]",
+      "firstTicket": 698463
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 798016,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP4\"]]",
+      "firstTicket": 702682
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1025086,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP5\"]]",
+      "firstTicket": 704060
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1025078,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP6\"]]",
+      "firstTicket": 704242
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 739742,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"226a036b7fbdd4e8\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 741730,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"476d24a98bce506e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 741731,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d0fb9d6f7189b966\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038825,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N984\"]]",
+      "firstTicket": 771645
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038821,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N983\"]]",
+      "firstTicket": 773423
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "KelvinSense_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038822,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N986\"]]",
+      "firstTicket": 773425
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "KelvinSense_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038816,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N979\"]]",
+      "firstTicket": 773427
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "KelvinSense_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038817,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N980\"]]",
+      "firstTicket": 773429
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "KelvinSense_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038827,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N978\"]]",
+      "firstTicket": 773431
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038814,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N967\"]]",
+      "firstTicket": 773433
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 940125,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N989\"]]",
+      "firstTicket": 773435
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038818,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N969\"]]",
+      "firstTicket": 773437
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038820,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N964\"]]",
+      "firstTicket": 773439
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038826,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N981\"]]",
+      "firstTicket": 773443
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038828,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N970\"]]",
+      "firstTicket": 773445
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038823,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N960\"]]",
+      "firstTicket": 773449
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038824,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N961\"]]",
+      "firstTicket": 773451
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038830,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N992\"]]",
+      "firstTicket": 773453
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780343,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d67c20e4dcc7e482\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780344,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ad56c38054ea81d9\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780345,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6d5bd4668e0c5c21\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780346,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"bb1bee4c1dbd541d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780347,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3dbc5c1641c190aa\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780348,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9a738d74b3cb30dd\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780349,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"80a13f52047cd482\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780350,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c47bc1e06a445f98\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 780351,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"4ffd8e2e4263f5b2\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783425,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"33bf72be8d0cf23c\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783426,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"1475fc65a78f6341\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783427,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ae5361dfc9d2cce1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783428,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6c5b2c87c7b0f377\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783429,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"a30064ce417d9986\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783430,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"45f5baa151d5085d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783431,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"4b1ecb1122779f92\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783432,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"288f711e9e7af7bf\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 783433,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"8855582073a1446f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784009,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"0254558aee05ff87\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784010,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"948d87fddeb1cba6\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784011,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3f6b0d7c632f2f27\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784012,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3c94fb2d82ccf653\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784013,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"255fed8c362cfc44\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784014,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e43413708f637514\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784015,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c95bcfd54665037d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784016,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e4bbf441be5d6c5a\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784017,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5451a03f1c59c95c\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784354,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ec8cbb15edcc5713\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784355,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"00087cc078809b28\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784356,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"0ffdcaa5ffaf4156\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784357,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"31f739793c846a1b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784358,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"f389df36c7f5050c\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784359,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"f463466d45199bb1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784360,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"962c5085dfa4f44a\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784361,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ebb861c51a7745e4\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784362,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"a01e04bc5c86b78d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784390,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"932c4af5d0707d44\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784391,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"02a9a2146a1289cc\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784392,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"f8bcf523e22dc176\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784393,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"7409a8239deec6aa\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784394,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c968458d045bffc8\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784395,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6ebe76e0e54329eb\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784396,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"993604dab8483daf\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784397,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"53cbf33242b00a82\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784398,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ea91946d915aa31b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784669,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6d2fe22977cc1d33\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784670,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"733621626a92636a\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784671,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e90dfae6523b3952\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784672,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3cb839aea48ca01f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784673,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9fe964285aa50b52\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784674,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9d774eeaad198b9f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784675,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"bfe60a4bfe9b9d4c\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784676,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6a864a42fc0e7cbf\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 784677,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6ab0569e256a3a03\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785284,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"1f23002a1f711188\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785285,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"35fd6b0c90f406a5\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785286,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"56ec95aead547644\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785287,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9a7b4948cb7a58c0\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785288,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e0323bd94cc45781\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785289,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"fc8b5162303d7a1d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785290,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"31b5752005d960ad\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785291,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e9f86cfdb4d97537\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785292,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9faf2b097292e201\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785812,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"df32a1453270d7f4\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785813,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3173de5dcdd70d98\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785814,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"149c032cb17b4666\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785815,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"4ce23adc6a9d390a\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785816,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"fe9c3841cd8af502\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785817,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"600edbe25b3c3263\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785818,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9438884a0fb42a93\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785819,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"50287b17574d5656\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 785820,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"13b09faaf2d09be0\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786053,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6e7399e36b64960f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786054,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ad7dd366284794d9\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786055,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"a75041b8e2d3c2d6\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786056,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d9e0e78ead2a21af\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786057,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"328a26479d4ced3b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786058,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"18451bb6a30e6284\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786059,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"255aec09bdb8fa4e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786060,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e1726e7d1afdc173\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 786061,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"61077ce684cbf1fc\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 797377,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"dd9ff0911346bc23\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1025076,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP7\"]]",
+      "firstTicket": 798178
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1025084,
+      "id": "[\"RULE_SELECTOR\",[\"DIFF_PAIR\",\"DP8\"]]",
+      "firstTicket": 803496
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 808009,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"22647afa00b04100\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 809090,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"20cfe270d140dae4\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 833219,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"1e8d47274aa4fb20\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 836677,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"91bc724dd96f31b3\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 847195,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N889\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 852781,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1011\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 860076,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1016\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864981,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"abcf5697f5924717\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864982,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6226688e9f27ad6a\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864983,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"342ac1fd8a294e21\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864984,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3f58051fff83a25d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864985,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"4b817bdc3fcee4a7\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864986,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"06be16e026179d5e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864987,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"da2ee28e590067b1\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864988,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"10ba0af232ceff65\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864989,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"a7533d78dcd74cbe\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864990,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ce42c62eda4c6d41\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864991,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3196db9ce754049a\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864992,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"84259d541814aaea\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864993,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c5d1394ef034f743\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864994,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"31c355e0f2940770\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 864995,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"1f27905f34f250c0\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 868222,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"c9f181c3877f225f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 868616,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"005b5abf0b46c5b7\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879934,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e25064f6579821d0\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879935,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"e4da742101c35523\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879936,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d02a1d77bf53474d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879937,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"9b2edc976540fb1d\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879938,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3da709eb9679b07b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879939,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"37396bc0c7ad8de8\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 879940,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d3aaf4a0d32c8316\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883246,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"a1983542c18e82eb\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883247,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"f6afee267e2bae64\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883248,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"024abbad8299085b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883249,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"83342e78aa655a5b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883250,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"0be24776df71ac9e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883251,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"8f6b5934efd6e146\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883252,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"562eb23958f6009b\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883253,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"10b83e71a2e21bce\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883254,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"d2f06a2bd117f436\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883255,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"ed9a337633731be3\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883384,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"98c7039243373255\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883385,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"7bf726ec7abb8d3e\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883386,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"f42fd69ba20d3a10\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883387,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"94626602a44defed\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883388,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5e1caf38441dc1ab\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883389,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5deef6826c1bc61f\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883390,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"774a2f88158fc251\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883391,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"6f95fefd9f1ad7a5\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883392,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"518b0515da53e844\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883393,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"5ada348789034c26\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883444,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"03bf62f74e3fb326\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 883487,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"3cc7cace5b54d233\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 933656,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N987\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 933658,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N991\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038811,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N887\"]]",
+      "firstTicket": 994705
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038812,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N988\"]]",
+      "firstTicket": 994707
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038813,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N973\"]]",
+      "firstTicket": 994709
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038819,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N963\"]]",
+      "firstTicket": 994721
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "ControlPower_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038829,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N965\"]]",
+      "firstTicket": 994741
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038831,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N971\"]]",
+      "firstTicket": 994745
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038832,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1002\"]]",
+      "firstTicket": 994747
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038833,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1004\"]]",
+      "firstTicket": 994749
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038834,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1013\"]]",
+      "firstTicket": 994751
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038835,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"WGND\"]]",
+      "firstTicket": 994753
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038836,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"PA\"]]",
+      "firstTicket": 994755
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038837,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1014\"]]",
+      "firstTicket": 994757
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {},
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038838,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1036\"]]",
+      "firstTicket": 994759
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038839,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1052\"]]",
+      "firstTicket": 994761
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038840,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1032\"]]",
+      "firstTicket": 994763
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038841,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1048\"]]",
+      "firstTicket": 994765
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038842,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1049\"]]",
+      "firstTicket": 994767
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038843,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1096\"]]",
+      "firstTicket": 994769
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038844,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1095\"]]",
+      "firstTicket": 994771
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038845,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1053\"]]",
+      "firstTicket": 994773
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "SAFE": "HV36_Clearance"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1038846,
+      "id": "[\"RULE_SELECTOR\",[\"NET\",\"$1N1034\"]]",
+      "firstTicket": 994775
+    },
+    "body": {
+      "ruleOrder": 4,
+      "ruleKeyValue": {
+        "TRACK": "GateDrive_Track"
+      },
+      "copperValue": {},
+      "innerPlaneValue": {}
+    }
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1019803,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"b7c095517168e366\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1019804,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"b36e152941fcbb65\"]]"
+    },
+    "body": {}
+  },
+  {
+    "head": {
+      "type": "RULE_SELECTOR",
+      "ticket": 1039805,
+      "id": "[\"RULE_SELECTOR\",[\"REGION\",\"4dccaaccb7f4f45c\"]]"
+    },
+    "body": {}
+  }
+]

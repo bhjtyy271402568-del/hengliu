@@ -1,0 +1,4304 @@
+[
+  {
+    "id": "75b8aadc572e42e9",
+    "ticket": 2401,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 0,
+      "y": 0,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 22
+    }
+  },
+  {
+    "id": "90ee1cc624fd3f72",
+    "ticket": 426634,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 203,
+      "y": -1270,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1386
+    }
+  },
+  {
+    "id": "f2dba2c6422067f1",
+    "ticket": 426628,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 113,
+      "y": -1275,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1386
+    }
+  },
+  {
+    "id": "5bb13fe029cdc7aa",
+    "ticket": 919285,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 740,
+      "y": -1270,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1386
+    }
+  },
+  {
+    "id": "ac55609a0e31b019",
+    "ticket": 427028,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 236,
+      "y": -1010,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1386
+    }
+  },
+  {
+    "id": "20d97e2cd00b8c71",
+    "ticket": 426559,
+    "allAttrs": {},
+    "body": {
+      "partId": "XT60PW-M.1",
+      "x": 183.00000000000003,
+      "y": -1205,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6756
+    }
+  },
+  {
+    "id": "92f2b5c9deb9e199",
+    "ticket": 426640,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 203,
+      "y": -1065,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1384
+    }
+  },
+  {
+    "id": "7ffb7729fbf4c20a",
+    "ticket": 426652,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 113,
+      "y": -1060,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1384
+    }
+  },
+  {
+    "id": "2aadcb64c8fb7f52",
+    "ticket": 426646,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 418,
+      "y": -1135,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1384
+    }
+  },
+  {
+    "id": "d71d92c8e8a189cf",
+    "ticket": 930165,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 98,
+      "y": -1175.936442615455,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8447.1
+    }
+  },
+  {
+    "id": "5f7d8cb45f0691b3",
+    "ticket": 928353,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 128,
+      "y": -1175,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8448.1
+    }
+  },
+  {
+    "id": "ae245829a22a8e03",
+    "ticket": 929924,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 906,
+      "y": -1167.561865569273,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8449.1
+    }
+  },
+  {
+    "id": "86fb00b8e46346c9",
+    "ticket": 928513,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 966,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8450.1
+    }
+  },
+  {
+    "id": "59dc15f01860732a",
+    "ticket": 928593,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1026,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8451.1
+    }
+  },
+  {
+    "id": "3071185dffecd92e",
+    "ticket": 928673,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1086,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8452.1
+    }
+  },
+  {
+    "id": "bb43bb468702aa13",
+    "ticket": 928753,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1146,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8453.1
+    }
+  },
+  {
+    "id": "f202e72e8593126f",
+    "ticket": 928833,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1206,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8454.1
+    }
+  },
+  {
+    "id": "4f672f84588e9f98",
+    "ticket": 928913,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1266,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8455.1
+    }
+  },
+  {
+    "id": "a855bba92ef764ff",
+    "ticket": 928993,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1326,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8456.1
+    }
+  },
+  {
+    "id": "a915c79b335e33d7",
+    "ticket": 929073,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1381,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8457.1
+    }
+  },
+  {
+    "id": "4b32193fcb210a79",
+    "ticket": 929313,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1436,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8460.1
+    }
+  },
+  {
+    "id": "df7e5114ba4ac5a0",
+    "ticket": 929393,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1496,
+      "y": -1167,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8461.1
+    }
+  },
+  {
+    "id": "4ca28279a2db84f8",
+    "ticket": 927290,
+    "allAttrs": {},
+    "body": {
+      "partId": "SMCJ36CA_C19077609.1",
+      "x": 233.158024691358,
+      "y": -1191.7382716049383,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8425.1
+    }
+  },
+  {
+    "id": "f71ddbb40877adbb",
+    "ticket": 426539,
+    "allAttrs": {},
+    "body": {
+      "partId": "HOYLR2512-3W-300MR-1%.1",
+      "x": 263,
+      "y": -1235,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6782
+    }
+  },
+  {
+    "id": "a0183a585fedac3b",
+    "ticket": 919273,
+    "allAttrs": {},
+    "body": {
+      "partId": "HOYLR2512-3W-300MR-1%.1",
+      "x": 740,
+      "y": -1240,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6782
+    }
+  },
+  {
+    "id": "3aaa4a64fc81b608",
+    "ticket": 426483,
+    "allAttrs": {},
+    "body": {
+      "partId": "ERS1HM101F12OT.1",
+      "x": 263,
+      "y": -1125,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6855
+    }
+  },
+  {
+    "id": "724ed1f5b278c87f",
+    "ticket": 919268,
+    "allAttrs": {},
+    "body": {
+      "partId": "ERS1HM101F12OT.1",
+      "x": 740,
+      "y": -1129.9999999999998,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6856
+    }
+  },
+  {
+    "id": "0189f6049b116c17",
+    "ticket": 919279,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 773,
+      "y": -1295,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "96c3f23c6a94a4f8",
+    "ticket": 495200,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1003T5E_C149504.1",
+      "x": 418,
+      "y": -1235,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7828.1
+    }
+  },
+  {
+    "id": "0273897462794aa1",
+    "ticket": 502262,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1001T5E.1",
+      "x": 450,
+      "y": -1205,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7726.1
+    }
+  },
+  {
+    "id": "6ecc174142e9f988",
+    "ticket": 496311,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 383,
+      "y": -1130,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7848.1
+    }
+  },
+  {
+    "id": "46e64105975b0a99",
+    "ticket": 495915,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 483,
+      "y": -1175,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7841.1
+    }
+  },
+  {
+    "id": "8023e8f32a49f602",
+    "ticket": 932208,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB102.1",
+      "x": 556,
+      "y": -1235,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8480.1
+    }
+  },
+  {
+    "id": "38d6b2e8f1b7bad2",
+    "ticket": 426504,
+    "allAttrs": {},
+    "body": {
+      "partId": "BZT52C12_C19077410.1",
+      "x": 350,
+      "y": -1125,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6802
+    }
+  },
+  {
+    "id": "5d56c3afd99f376b",
+    "ticket": 517714,
+    "allAttrs": {},
+    "body": {
+      "partId": "BZT52C12_C19077410.1",
+      "x": 605,
+      "y": -1240,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6802
+    }
+  },
+  {
+    "id": "83f9f37afc0e1c0a",
+    "ticket": 426499,
+    "allAttrs": {},
+    "body": {
+      "partId": "BZT52C43_C22395571.1",
+      "x": 418,
+      "y": -1164.9999999999998,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6815
+    }
+  },
+  {
+    "id": "046881e740ef916b",
+    "ticket": 426494,
+    "allAttrs": {},
+    "body": {
+      "partId": "MMBT5401LT1G.1",
+      "x": 513.0000000000001,
+      "y": -1205,
+      "rotation": 180,
+      "isMirror": true,
+      "attrs": {},
+      "zIndex": 6823
+    }
+  },
+  {
+    "id": "7b0e3ee42b12bf0d",
+    "ticket": 426489,
+    "allAttrs": {},
+    "body": {
+      "partId": "SQM120P06-07L_GE3.1",
+      "x": 652,
+      "y": -1270,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6833
+    }
+  },
+  {
+    "id": "3035a1e229fac3dd",
+    "ticket": 427033,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 376,
+      "y": -1010,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1162,
+      "locked": false
+    }
+  },
+  {
+    "id": "1cbe71ab5c762153",
+    "ticket": 426989,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F2202TS.1",
+      "x": 281,
+      "y": -1010,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6864,
+      "locked": false
+    }
+  },
+  {
+    "id": "f50c2c7dbc49bb4a",
+    "ticket": 426925,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1146,
+      "y": -1267,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 974,
+      "locked": false
+    }
+  },
+  {
+    "id": "efe23d794273f701",
+    "ticket": 879731,
+    "allAttrs": {},
+    "body": {
+      "partId": "PA63V220M10X15.1",
+      "x": 776,
+      "y": -1167,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8122.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "3b1c372165abf14e",
+    "ticket": 879741,
+    "allAttrs": {},
+    "body": {
+      "partId": "PA63V220M10X15.1",
+      "x": 841,
+      "y": -1167,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8123.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "7e26dddc9325964e",
+    "ticket": 427022,
+    "allAttrs": {},
+    "body": {
+      "partId": "LED-0603_R.1",
+      "x": 341,
+      "y": -1010,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 4309,
+      "locked": false
+    }
+  },
+  {
+    "id": "7d002c9391e33499",
+    "ticket": 426452,
+    "allAttrs": {},
+    "body": {
+      "partId": "BSC014N06NS.1",
+      "x": 292.9999999999999,
+      "y": -1070,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7256
+    }
+  },
+  {
+    "id": "85d0eef6202a579c",
+    "ticket": 503341,
+    "allAttrs": {},
+    "body": {
+      "partId": "STM32G431RBT6.1",
+      "x": 226,
+      "y": -766,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1526,
+      "locked": false
+    }
+  },
+  {
+    "id": "6ce90547cd9e62de",
+    "ticket": 406576,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 625,
+      "y": -640,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1621,
+      "locked": false
+    }
+  },
+  {
+    "id": "e58d29ee482e4113",
+    "ticket": 926965,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603FRNPO9BN330.1",
+      "x": 680,
+      "y": -659.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8423.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "72e9eb45adcb304b",
+    "ticket": 927041,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603FRNPO9BN330.1",
+      "x": 570,
+      "y": -659.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8422.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "5112ab708119a792",
+    "ticket": 932455,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10C222JB8NNNC.1",
+      "x": 1016,
+      "y": -869.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8483.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "983608086005cf63",
+    "ticket": 503273,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10B332KB8NNNC.1",
+      "x": 1035,
+      "y": -913,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7743.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "38b3e658fe07cdc5",
+    "ticket": 932375,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10C222JB8NNNC.1",
+      "x": 959.9999999999999,
+      "y": -928.0000000000006,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8482.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "3069cfd24cfad0b1",
+    "ticket": 924562,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 555.0625,
+      "y": -900.4375,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1481,
+      "locked": false
+    }
+  },
+  {
+    "id": "b6029b7eb7338f0e",
+    "ticket": 494989,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1355,
+      "y": -872,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 18,
+      "locked": false
+    }
+  },
+  {
+    "id": "2ba49f2a7af68a08",
+    "ticket": 923800,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1513.4197530864199,
+      "y": -870.5802469135801,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 24,
+      "locked": false
+    }
+  },
+  {
+    "id": "e33ca0d0776df89f",
+    "ticket": 405069,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 825,
+      "y": -330,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 61,
+      "locked": false
+    }
+  },
+  {
+    "id": "02d21b0e5ff3ee30",
+    "ticket": 405063,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 990,
+      "y": -330,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 71,
+      "locked": false
+    }
+  },
+  {
+    "id": "0415f9e8a89b02f6",
+    "ticket": 405258,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 326.99999999999994,
+      "y": -294.00000000000017,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2337,
+      "locked": false
+    }
+  },
+  {
+    "id": "96b6cbf88ce031aa",
+    "ticket": 928001,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 794,
+      "y": -645,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1050,
+      "locked": false
+    }
+  },
+  {
+    "id": "5c53e50eabcaca69",
+    "ticket": 924545,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 561.2847222222222,
+      "y": -852.7708333333333,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7844.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "19a4c443ab5cd20a",
+    "ticket": 923811,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 1513.5000000000005,
+      "y": -847.111111111111,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7837.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "7b7a1a78d84b7216",
+    "ticket": 924539,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 593.2847222222222,
+      "y": -852.4375,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7849.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "0c90bff285026893",
+    "ticket": 924556,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 555.0625,
+      "y": -808.4375,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2288,
+      "locked": false
+    }
+  },
+  {
+    "id": "c7cc7b9e9009f28d",
+    "ticket": 495009,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1365,
+      "y": -820,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 13,
+      "locked": false
+    }
+  },
+  {
+    "id": "0d828c7bdd23f96a",
+    "ticket": 923875,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1513.5555555555559,
+      "y": -827.3703703703704,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 28,
+      "locked": false
+    }
+  },
+  {
+    "id": "fcf976e694e2ed2a",
+    "ticket": 405290,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 517,
+      "y": -409,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 603,
+      "locked": false
+    }
+  },
+  {
+    "id": "7a76ec66b89a0134",
+    "ticket": 405859,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1535,
+      "y": -925,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1064,
+      "locked": false
+    }
+  },
+  {
+    "id": "76f37ac4169ee760",
+    "ticket": 406040,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1160,
+      "y": -768,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2443,
+      "locked": false
+    }
+  },
+  {
+    "id": "cb208916428dc975",
+    "ticket": 493393,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 940,
+      "y": -802,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2463,
+      "locked": false
+    }
+  },
+  {
+    "id": "a4f09e6906dc3197",
+    "ticket": 493364,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 989,
+      "y": -803,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2494,
+      "locked": false
+    }
+  },
+  {
+    "id": "d8db0ad58c22969f",
+    "ticket": 493405,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 890,
+      "y": -803,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2502,
+      "locked": false
+    }
+  },
+  {
+    "id": "c615684d71fae1a4",
+    "ticket": 928006,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 794,
+      "y": -535,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1046,
+      "locked": false
+    }
+  },
+  {
+    "id": "2c41549710956336",
+    "ticket": 405810,
+    "allAttrs": {},
+    "body": {
+      "partId": "XC6210B332MR.1",
+      "x": 1415,
+      "y": -855,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 5952,
+      "locked": false
+    }
+  },
+  {
+    "id": "93885a1a9b85de2d",
+    "ticket": 921795,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1474.888888888889,
+      "y": -900.2222222222222,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 569,
+      "locked": false
+    }
+  },
+  {
+    "id": "38b7971ad7df596e",
+    "ticket": 405239,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 732,
+      "y": -374,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2405,
+      "locked": false
+    }
+  },
+  {
+    "id": "56feade92d43f904",
+    "ticket": 923413,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1475.3305898491083,
+      "y": -800.4307270233194,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6752,
+      "locked": false
+    }
+  },
+  {
+    "id": "e3218b1a55d96014",
+    "ticket": 405176,
+    "allAttrs": {},
+    "body": {
+      "partId": "LED-0603_R.1",
+      "x": 482,
+      "y": -409,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 4155,
+      "locked": false
+    }
+  },
+  {
+    "id": "fbc4ec01eac2f3e4",
+    "ticket": 405830,
+    "allAttrs": {},
+    "body": {
+      "partId": "LED-0603_R.1",
+      "x": 1500,
+      "y": -925,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 4119,
+      "locked": false
+    }
+  },
+  {
+    "id": "44d05c3ef51d65ef",
+    "ticket": 405955,
+    "allAttrs": {},
+    "body": {
+      "partId": "LED-0603_R.1",
+      "x": 1125,
+      "y": -768,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 4137,
+      "locked": false
+    }
+  },
+  {
+    "id": "6e490068cf6b3660",
+    "ticket": 933831,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1001TS.1",
+      "x": 429,
+      "y": -409,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8496.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "2d2bf5c44374838f",
+    "ticket": 493342,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF0000T5E.1",
+      "x": 967,
+      "y": -803,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7720.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "4074b33585fa8cd6",
+    "ticket": 493316,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF0000T5E.1",
+      "x": 913,
+      "y": -803,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7721.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "21d7cc628ecb3dab",
+    "ticket": 933740,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1001TS.1",
+      "x": 1446,
+      "y": -925,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8495.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "8c5c405eb8778b01",
+    "ticket": 934383,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 1070,
+      "y": -768,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8502.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "dee041a9caaa86e6",
+    "ticket": 934561,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 392,
+      "y": -294,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8504.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "150590e1e4df7060",
+    "ticket": 934472,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 794,
+      "y": -624.9999999999994,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8503.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "a08564d0bb37296b",
+    "ticket": 494624,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF1202T5E.1",
+      "x": 542,
+      "y": -273,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7788.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "8b355662f8b5a755",
+    "ticket": 935281,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF6202T5E.1",
+      "x": 542,
+      "y": -337,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8512.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "54dfd778a27e84c0",
+    "ticket": 494696,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF0000T5E.1",
+      "x": 687,
+      "y": -374,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7722.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "f52c9391382d9d94",
+    "ticket": 405101,
+    "allAttrs": {},
+    "body": {
+      "partId": "TD1466.1",
+      "x": 452,
+      "y": -304,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6008,
+      "locked": false
+    }
+  },
+  {
+    "id": "662942b2bc085a80",
+    "ticket": 405161,
+    "allAttrs": {},
+    "body": {
+      "partId": "2.2uH.1",
+      "x": 497,
+      "y": -374,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 4228,
+      "locked": false
+    }
+  },
+  {
+    "id": "574578173639e303",
+    "ticket": 405285,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 492.00000000000006,
+      "y": -304,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 902,
+      "locked": false
+    }
+  },
+  {
+    "id": "3bb5f8ed41f58fbd",
+    "ticket": 405280,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 617,
+      "y": -264,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 907,
+      "locked": false
+    }
+  },
+  {
+    "id": "669fb0406aced4af",
+    "ticket": 405263,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 326.9999999999997,
+      "y": -374.00000000000017,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2332,
+      "locked": false
+    }
+  },
+  {
+    "id": "9abc3df73ca18fa6",
+    "ticket": 405251,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 707,
+      "y": -374,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2375,
+      "locked": false
+    }
+  },
+  {
+    "id": "43bd802a6c855836",
+    "ticket": 406035,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1180,
+      "y": -928,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2453,
+      "locked": false
+    }
+  },
+  {
+    "id": "d62242fc05d29762",
+    "ticket": 406023,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 925,
+      "y": -928,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2487,
+      "locked": false
+    }
+  },
+  {
+    "id": "99b8acdbfc8b021d",
+    "ticket": 891707,
+    "allAttrs": {},
+    "body": {
+      "partId": "CYA0650-68UH.1",
+      "x": 1015,
+      "y": -928,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8143.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "d357984fec7caa19",
+    "ticket": 494933,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF4992T5E.1",
+      "x": 1080,
+      "y": -847,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7820.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "d1c64d5220293e5c",
+    "ticket": 494868,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F4533TS.1",
+      "x": 1080,
+      "y": -893,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7866.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "8065255fafe57a84",
+    "ticket": 494887,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F4533TS.1",
+      "x": 991,
+      "y": -908,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7865.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "039eafbe8f353906",
+    "ticket": 494816,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1003T5E_C149504.1",
+      "x": 870,
+      "y": -833,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7827.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "e5126b840077dece",
+    "ticket": 603123,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1003T5E_C149504.1",
+      "x": 870,
+      "y": -903,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7829.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "3304dad20d3cd780",
+    "ticket": 499480,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 1180,
+      "y": -867.9999999999998,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7762.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "42e59464a4d8905c",
+    "ticket": 499629,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 1140,
+      "y": -867.9999999999998,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7765.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "a5fdf8ea027c09c4",
+    "ticket": 500178,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 1100,
+      "y": -868,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7775.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "74305cefc998dcbe",
+    "ticket": 499964,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 282,
+      "y": -334,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7771.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "172ebec2089c8dd5",
+    "ticket": 499321,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 327,
+      "y": -333.9999999999997,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7759.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "4d97c8c51b8238d9",
+    "ticket": 924551,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 510.89236111110984,
+      "y": -853.1041666666663,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7843.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "d374031552e6e7b8",
+    "ticket": 924533,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 538.0034722222218,
+      "y": -852.6597222222218,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7860.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "5e0d0c7603a34fd5",
+    "ticket": 931560,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 825,
+      "y": -309.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8472.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "7dea7645dc92ed52",
+    "ticket": 941568,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 705.8298611111095,
+      "y": -855.9201388888904,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7850.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "0aa63b6bb40c5405",
+    "ticket": 494682,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 617,
+      "y": -309,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7834.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "f38786773fa58619",
+    "ticket": 494689,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 662,
+      "y": -308.9999999999998,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7864.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "bb517b961b2f88cb",
+    "ticket": 494768,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 372,
+      "y": -334,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7856.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "a6a31609efbbe176",
+    "ticket": 496641,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 707,
+      "y": -308.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7854.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "c437fb023e8844ea",
+    "ticket": 927972,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 819,
+      "y": -569.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7858.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "60116d33ca8c1f57",
+    "ticket": 405896,
+    "allAttrs": {},
+    "body": {
+      "partId": "LM5164DDAR.1",
+      "x": 935,
+      "y": -878,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 5941,
+      "locked": false
+    }
+  },
+  {
+    "id": "4f2e36810db17af8",
+    "ticket": 930270,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 1220,
+      "y": -868.1481481481479,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8459.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "e4acb26715e5144e",
+    "ticket": 930215,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 795.1481481481482,
+      "y": -877.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8458.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "47e78a9448498f8c",
+    "ticket": 926799,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10B104KC8NNNC.1",
+      "x": 840,
+      "y": -876.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8421.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "61dc372c6e08d090",
+    "ticket": 492383,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 495,
+      "y": -343,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7847.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "b675696b640f61c3",
+    "ticket": 405028,
+    "allAttrs": {},
+    "body": {
+      "partId": "LP5907QMFX-3.3Q1.1",
+      "x": 915,
+      "y": -310,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 5971,
+      "locked": false
+    }
+  },
+  {
+    "id": "48195a70f9a35d5c",
+    "ticket": 927982,
+    "allAttrs": {},
+    "body": {
+      "partId": "TS-KG02S.1",
+      "x": 794,
+      "y": -570,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2573,
+      "locked": false
+    }
+  },
+  {
+    "id": "252172b57a895c32",
+    "ticket": 847292,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1283,
+      "y": -308,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2078,
+      "locked": false
+    }
+  },
+  {
+    "id": "17775653adc1c89c",
+    "ticket": 847274,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1001T5E.1",
+      "x": 1192,
+      "y": -308,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7729.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "b3d5d55dd3a27c16",
+    "ticket": 847287,
+    "allAttrs": {},
+    "body": {
+      "partId": "LED-0603_R.1",
+      "x": 1248,
+      "y": -308,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 4173,
+      "locked": false
+    }
+  },
+  {
+    "id": "ec5eca2bdbc25be3",
+    "ticket": 927686,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1272.3999999999958,
+      "y": -645.7111111111126,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1086,
+      "locked": false
+    }
+  },
+  {
+    "id": "1a5b47f6be6c9842",
+    "ticket": 927676,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1272.3999999999958,
+      "y": -545.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1090,
+      "locked": false
+    }
+  },
+  {
+    "id": "1dae0cd5f52f7103",
+    "ticket": 927646,
+    "allAttrs": {},
+    "body": {
+      "partId": "WAFER-GH1.25-7PWB.1",
+      "x": 1262.3999999999958,
+      "y": -590.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7914.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "048b4b59ef2b615b",
+    "ticket": 927666,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 1136.3999999999958,
+      "y": -585.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7810.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "992fcc3676cef144",
+    "ticket": 927661,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 1136.3999999999958,
+      "y": -595.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7813.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "29f85e5f2effcba5",
+    "ticket": 927656,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 1136.3999999999958,
+      "y": -605.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7814.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "2ef59ebdd633d02c",
+    "ticket": 927651,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 1136.3999999999958,
+      "y": -615.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7815.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "b60942ae83fb718d",
+    "ticket": 927737,
+    "allAttrs": {},
+    "body": {
+      "partId": "1",
+      "x": 1215.3999999999958,
+      "y": -548.7111111111125,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 547,
+      "locked": false
+    }
+  },
+  {
+    "id": "74fbd104a61a1d69",
+    "ticket": 927703,
+    "allAttrs": {},
+    "body": {
+      "partId": "1",
+      "x": 1235.3999999999958,
+      "y": -548.7111111111125,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 565,
+      "locked": false
+    }
+  },
+  {
+    "id": "819662391d700ba3",
+    "ticket": 927720,
+    "allAttrs": {},
+    "body": {
+      "partId": "1",
+      "x": 1196.3999999999958,
+      "y": -548.7111111111125,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 547,
+      "locked": false
+    }
+  },
+  {
+    "id": "eaf9de2a5680e1bc",
+    "ticket": 927771,
+    "allAttrs": {},
+    "body": {
+      "partId": "1",
+      "x": 1175.3999999999958,
+      "y": -548.7111111111125,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 547,
+      "locked": false
+    }
+  },
+  {
+    "id": "2a2490f5a9cd7b30",
+    "ticket": 927681,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1196.3999999999958,
+      "y": -519.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1090,
+      "locked": false
+    }
+  },
+  {
+    "id": "d799914034f29dc8",
+    "ticket": 495055,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 356,
+      "y": -711,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7807.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "c1a50b97ea81f9ad",
+    "ticket": 927978,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 904,
+      "y": -570.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7857.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "1aeaf6bfc7ba323c",
+    "ticket": 935095,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 879,
+      "y": -624.9999999999999,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8510.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "41aed7030de53dca",
+    "ticket": 927996,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 879,
+      "y": -535,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1535,
+      "locked": false
+    }
+  },
+  {
+    "id": "8876b9ddde344822",
+    "ticket": 927991,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 879,
+      "y": -645,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1539,
+      "locked": false
+    }
+  },
+  {
+    "id": "282f1db5367b11c0",
+    "ticket": 927986,
+    "allAttrs": {},
+    "body": {
+      "partId": "TS-KG02S.1",
+      "x": 879,
+      "y": -570,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2564,
+      "locked": false
+    }
+  },
+  {
+    "id": "0d0ee20a7d5167f9",
+    "ticket": 405769,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 145,
+      "y": -276,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1477,
+      "locked": false
+    }
+  },
+  {
+    "id": "f85d0ae118e6b3ea",
+    "ticket": 500825,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 105,
+      "y": -320,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7787.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "3c74f8df4412ae93",
+    "ticket": 499580,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 145,
+      "y": -319.99999999999994,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7764.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "ed8d33392b7372fc",
+    "ticket": 500721,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 185,
+      "y": -319.99999999999994,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7785.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "13472403bf0936f2",
+    "ticket": 405764,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 145,
+      "y": -367,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1845,
+      "locked": false
+    }
+  },
+  {
+    "id": "c91761447ad94d79",
+    "ticket": 405569,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 150,
+      "y": -490,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1074,
+      "locked": false
+    }
+  },
+  {
+    "id": "fb70ae65f4781056",
+    "ticket": 405575,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 150,
+      "y": -540,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1078,
+      "locked": false
+    }
+  },
+  {
+    "id": "2167405005f43445",
+    "ticket": 612849,
+    "allAttrs": {},
+    "body": {
+      "partId": "2.54-2A-LT.1",
+      "x": 135,
+      "y": -515,
+      "rotation": 180,
+      "isMirror": true,
+      "attrs": {},
+      "zIndex": 7962.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "e9fa2d330e4ad103",
+    "ticket": 502917,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1001T5E.1",
+      "x": 642,
+      "y": -1176,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7737.1
+    }
+  },
+  {
+    "id": "e9bdce6b7762c4e1",
+    "ticket": 862693,
+    "allAttrs": {},
+    "body": {
+      "partId": "RT0805BRD0710KL.1",
+      "x": 523,
+      "y": -1111,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8101.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "fe28623b57676b23",
+    "ticket": 495330,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1003T5E_C149504.1",
+      "x": 350,
+      "y": -1234,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7830.1
+    }
+  },
+  {
+    "id": "232fe1cb1c74ef1b",
+    "ticket": 887876,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF2200T5E.1",
+      "x": 356,
+      "y": -701,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8126.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "93ac3a83eda8f8cb",
+    "ticket": 493462,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 263,
+      "y": -1295,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "55710a102d0cc998",
+    "ticket": 601562,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1140,
+      "y": -955,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "d268cd9b6fdf452d",
+    "ticket": 927671,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 1136.3999999999958,
+      "y": -575.7111111111125,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7810.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "5adc83a9735482a1",
+    "ticket": 927754,
+    "allAttrs": {},
+    "body": {
+      "partId": "1",
+      "x": 1156.3999999999958,
+      "y": -547.7111111111125,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 547,
+      "locked": false
+    }
+  },
+  {
+    "id": "08975d05d624c751",
+    "ticket": 503779,
+    "allAttrs": {},
+    "body": {
+      "partId": "X32258MSB4SI.1",
+      "x": 625,
+      "y": -680,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 5983,
+      "locked": false
+    }
+  },
+  {
+    "id": "5f529ca643756def",
+    "ticket": 934828,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 399,
+      "y": -891,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8507.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "9bf0c61bd23ccfb5",
+    "ticket": 603592,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 433,
+      "y": -891,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 2288,
+      "locked": false
+    }
+  },
+  {
+    "id": "549ed45cb689cd3d",
+    "ticket": 604055,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 415.99999999999955,
+      "y": -678.0000000000002,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7832.1
+    }
+  },
+  {
+    "id": "6b16f635db01b4dc",
+    "ticket": 604081,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 415.9999999999995,
+      "y": -615.9999999999998,
+      "rotation": 0,
+      "isMirror": true,
+      "attrs": {},
+      "zIndex": 7853.1
+    }
+  },
+  {
+    "id": "642a7b6bdac57790",
+    "ticket": 930973,
+    "allAttrs": {},
+    "body": {
+      "partId": "LT3763EFE#PBF.1",
+      "x": 2043.0781249999995,
+      "y": -913.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1375
+    }
+  },
+  {
+    "id": "89266a92a15af348",
+    "ticket": 930949,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2669.078125,
+      "y": -1072.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1401
+    }
+  },
+  {
+    "id": "8cec0f8695b5b380",
+    "ticket": 930955,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1690.744791666666,
+      "y": -922.7916666666663,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1401
+    }
+  },
+  {
+    "id": "bcfb79fb5b4f4d99",
+    "ticket": 930967,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1763.0781249999995,
+      "y": -1042.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1386
+    }
+  },
+  {
+    "id": "242b02372dae35f5",
+    "ticket": 930943,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2782.0781249999995,
+      "y": -962.1249999999994,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1401
+    }
+  },
+  {
+    "id": "e8f24fb467b9e511",
+    "ticket": 930961,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1890.0781249999995,
+      "y": -1270.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1386
+    }
+  },
+  {
+    "id": "4e73a3be818a3cf0",
+    "ticket": 930888,
+    "allAttrs": {},
+    "body": {
+      "partId": "XT60PW-M.1",
+      "x": 2689.078125,
+      "y": -1049.1250000000005,
+      "rotation": 180,
+      "isMirror": true,
+      "attrs": {},
+      "zIndex": 6755
+    }
+  },
+  {
+    "id": "f6a81bfe84f5af5d",
+    "ticket": 1027482,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2025,
+      "y": -1249,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8464.1
+    }
+  },
+  {
+    "id": "575520786b8659e4",
+    "ticket": 1027534,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2043,
+      "y": -1249,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8465.1
+    }
+  },
+  {
+    "id": "d912c95036baf0c8",
+    "ticket": 1027587,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2062,
+      "y": -1249,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8466.1
+    }
+  },
+  {
+    "id": "5747893cae6c0c29",
+    "ticket": 1027640,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2081,
+      "y": -1250,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8467.1
+    }
+  },
+  {
+    "id": "7b68244a29611b9c",
+    "ticket": 1032804,
+    "allAttrs": {},
+    "body": {
+      "partId": "RT0603BRD0710KL.1",
+      "x": 1690.744791666666,
+      "y": -848.7916666666658,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8552.1
+    }
+  },
+  {
+    "id": "402514e27dcbcdb7",
+    "ticket": 930507,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F6341TS.1",
+      "x": 1763.0781249999995,
+      "y": -964.1249999999994,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8354.1
+    }
+  },
+  {
+    "id": "a96844263fbfe093",
+    "ticket": 934917,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 1974.0781249999995,
+      "y": -803.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8508.1
+    }
+  },
+  {
+    "id": "ad0889173575d346",
+    "ticket": 935006,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 2137.0781249999995,
+      "y": -748.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8509.1
+    }
+  },
+  {
+    "id": "ec2a140db6bd9740",
+    "ticket": 935189,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF2202T5E.1",
+      "x": 1931.0781249999995,
+      "y": -893.1249999999995,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8511.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "210763d0d31a1799",
+    "ticket": 934104,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1001TS.1",
+      "x": 1913.0781249999995,
+      "y": -1020.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8499.1
+    }
+  },
+  {
+    "id": "88729345516d7252",
+    "ticket": 934013,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1001TS.1",
+      "x": 1958.0781249999995,
+      "y": -1019.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8498.1
+    }
+  },
+  {
+    "id": "84ad814420c5ae7b",
+    "ticket": 930538,
+    "allAttrs": {},
+    "body": {
+      "partId": "FCC0603B334K500CT.1",
+      "x": 2108.0781249999995,
+      "y": -763.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8188.1
+    }
+  },
+  {
+    "id": "3a08f8ab33ddd7a5",
+    "ticket": 930761,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 1899.0781249999995,
+      "y": -790.1249999999993,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7845.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "9ec936ef2ceacfdf",
+    "ticket": 932121,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 1935.0781249999995,
+      "y": -988.1249999999994,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8479.1
+    }
+  },
+  {
+    "id": "8e446e7fa0b32b7c",
+    "ticket": 935378,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F2213TS.1",
+      "x": 2223.078124999999,
+      "y": -893.1249999999998,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8513.1
+    }
+  },
+  {
+    "id": "1078cac77003b123",
+    "ticket": 930593,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F10R0TS.1",
+      "x": 2281.0781249999995,
+      "y": -814.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8164.1
+    }
+  },
+  {
+    "id": "8beb6208529123f9",
+    "ticket": 930588,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F10R0TS.1",
+      "x": 2281.0781249999995,
+      "y": -774.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8165.1
+    }
+  },
+  {
+    "id": "c64a2ab0169fe091",
+    "ticket": 930598,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB333.1",
+      "x": 2221.0781249999995,
+      "y": -794.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8154.1
+    }
+  },
+  {
+    "id": "c23f32273e06869b",
+    "ticket": 930512,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF1203T5E.1",
+      "x": 1763.0781249999998,
+      "y": -1017.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8351.1
+    }
+  },
+  {
+    "id": "215bf038ebc4728c",
+    "ticket": 930865,
+    "allAttrs": {},
+    "body": {
+      "partId": "HNTC0603-104F3950FB.1",
+      "x": 1856.0781249999995,
+      "y": -826.1249999999995,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7059
+    }
+  },
+  {
+    "id": "a6f5f5c597b19a44",
+    "ticket": 930533,
+    "allAttrs": {},
+    "body": {
+      "partId": "RT0603BRE0720KL.1",
+      "x": 1866.0781249999995,
+      "y": -905.1249999999993,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8262.1
+    }
+  },
+  {
+    "id": "221eb489e0d6c82c",
+    "ticket": 930660,
+    "allAttrs": {},
+    "body": {
+      "partId": "HGC1210R5476M250NSVK.1",
+      "x": 1868.0781249999993,
+      "y": -963.1249999999999,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8088.1
+    }
+  },
+  {
+    "id": "2c8e7a3fd7aaa8b4",
+    "ticket": 930583,
+    "allAttrs": {},
+    "body": {
+      "partId": "DSS110_C511869.1",
+      "x": 2028.0781249999995,
+      "y": -1043.125,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8169.1
+    }
+  },
+  {
+    "id": "11d60f008ae7d59c",
+    "ticket": 930860,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10B224KA8NNNC.1",
+      "x": 2164.0781249999995,
+      "y": -963.1249999999994,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7087
+    }
+  },
+  {
+    "id": "8ecf6cf3a11df6c1",
+    "ticket": 1027432,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X475K101EGG.1",
+      "x": 2006,
+      "y": -1249,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8410.1
+    }
+  },
+  {
+    "id": "0c5c741cf8f5bc70",
+    "ticket": 930665,
+    "allAttrs": {},
+    "body": {
+      "partId": "SS510_C18199171.1",
+      "x": 2330.0781249999995,
+      "y": -963.1249999999994,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8067.1
+    }
+  },
+  {
+    "id": "4f2eeca283d14f09",
+    "ticket": 930855,
+    "allAttrs": {},
+    "body": {
+      "partId": "SS56_C18199169.1",
+      "x": 2816.0781249999995,
+      "y": -858.1249999999995,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7209
+    }
+  },
+  {
+    "id": "02a880caab772d3d",
+    "ticket": 930870,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10A225KA8NNNC.1",
+      "x": 1797.0781249999995,
+      "y": -883.1249999999995,
+      "rotation": 0,
+      "isMirror": true,
+      "attrs": {},
+      "zIndex": 7009
+    }
+  },
+  {
+    "id": "22c34089b77b38a0",
+    "ticket": 1032626,
+    "allAttrs": {},
+    "body": {
+      "partId": "RT0603BRD07232KL.1",
+      "x": 1690.744791666666,
+      "y": -900.7916666666663,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8550.1
+    }
+  },
+  {
+    "id": "173e25a67bd2f39c",
+    "ticket": 930466,
+    "allAttrs": {},
+    "body": {
+      "partId": "WSLP25122L500FEA.1",
+      "x": 1937.0781249999995,
+      "y": -1269.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8446.1
+    }
+  },
+  {
+    "id": "ddade370f8940608",
+    "ticket": 930471,
+    "allAttrs": {},
+    "body": {
+      "partId": "WSLP25122L500FEA.1",
+      "x": 2612.0781249999995,
+      "y": -1064.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8445.1
+    }
+  },
+  {
+    "id": "b2f6040e6bc486bf",
+    "ticket": 931009,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1911.0781249999998,
+      "y": -893.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 24,
+      "locked": false
+    }
+  },
+  {
+    "id": "498cf8d59c1860a5",
+    "ticket": 930876,
+    "allAttrs": {},
+    "body": {
+      "partId": "MTP2915-6R8MC.1",
+      "x": 2459.0781249999995,
+      "y": -1170.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6891
+    }
+  },
+  {
+    "id": "55bbac1a73d76e72",
+    "ticket": 930895,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1946.0781249999995,
+      "y": -818.1249999999993,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "834da95dba8d4030",
+    "ticket": 930916,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 2816.0781249999995,
+      "y": -980.1249999999994,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "480850e9afd5a64d",
+    "ticket": 930937,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1943.0781249999995,
+      "y": -938.1249999999993,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "306e51d5dcbc1452",
+    "ticket": 930923,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1943.0781249999995,
+      "y": -908.1249999999993,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "b5187ca71ac06fb6",
+    "ticket": 930909,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 2173.0781249999995,
+      "y": -837.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "78c50a1b90be1117",
+    "ticket": 930930,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 2001.0781249999995,
+      "y": -830.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "05a0c94ea9006185",
+    "ticket": 930902,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 1969.0781249999995,
+      "y": -921.2361111111106,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "abe569c6f54c3b0a",
+    "ticket": 930812,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF1202T5E.1",
+      "x": 2429.0781249999995,
+      "y": -979.1249999999994,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7788.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "a96b91fd578fdd9c",
+    "ticket": 930799,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF1202T5E.1",
+      "x": 2181.0781249999995,
+      "y": -1151.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7788.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "bdb419e32c0b7f92",
+    "ticket": 930670,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1822TS.1",
+      "x": 2193.0781249999995,
+      "y": -873.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8025.1
+    }
+  },
+  {
+    "id": "1e1d3a10b5a648e5",
+    "ticket": 930619,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA3E1C0G2A103JT0Y0E.1",
+      "x": 2240.0781249999995,
+      "y": -873.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8117.1
+    }
+  },
+  {
+    "id": "0b13082a9f8db035",
+    "ticket": 930517,
+    "allAttrs": {},
+    "body": {
+      "partId": "25121WF2201T4E.1",
+      "x": 2853.0781249999995,
+      "y": -858.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8276.1
+    }
+  },
+  {
+    "id": "d6d9533d8918de94",
+    "ticket": 930773,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 1846.0781249999995,
+      "y": -853.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7845.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "b6ea40a6d37aa46a",
+    "ticket": 933922,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1001TS.1",
+      "x": 2349.0781249999995,
+      "y": -913.1249999999997,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8497.1
+    }
+  },
+  {
+    "id": "72850a3781e804ed",
+    "ticket": 932289,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB102.1",
+      "x": 2294.0781249999995,
+      "y": -875.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8481.1
+    }
+  },
+  {
+    "id": "eaf6ebd5b205f343",
+    "ticket": 934650,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 2325.0781249999995,
+      "y": -874.1249999999995,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8505.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "5277929fdc25920d",
+    "ticket": 919263,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 740,
+      "y": -1059,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8003.1
+    }
+  },
+  {
+    "id": "c51173513e071a18",
+    "ticket": 836039,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1146,
+      "y": -1057,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8005.1
+    }
+  },
+  {
+    "id": "6a8577976dc00e4a",
+    "ticket": 930729,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1763.0781249999995,
+      "y": -934.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8007.1
+    }
+  },
+  {
+    "id": "aa0633c30adb2001",
+    "ticket": 930717,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1838.0781249999995,
+      "y": -963.1249999999994,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8009.1
+    }
+  },
+  {
+    "id": "d972788dc12c150e",
+    "ticket": 930711,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2067.0781249999995,
+      "y": -1220.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8011.1
+    }
+  },
+  {
+    "id": "4af292333d984300",
+    "ticket": 1040942,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2480,
+      "y": -963,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8013.1
+    }
+  },
+  {
+    "id": "712c721cf8bef380",
+    "ticket": 930693,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2112.374421296295,
+      "y": -983.1620370370368,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8014.1
+    }
+  },
+  {
+    "id": "3d4d14410a5a86ff",
+    "ticket": 930687,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2669.0781249999995,
+      "y": -1000.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8016.1
+    }
+  },
+  {
+    "id": "7c2dae6f17ded6a9",
+    "ticket": 930681,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2782.0781249999995,
+      "y": -762.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8018.1
+    }
+  },
+  {
+    "id": "232933747a4d1c86",
+    "ticket": 846983,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 347,
+      "y": -621,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7811.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "3290fc78c852fb3c",
+    "ticket": 930675,
+    "allAttrs": {},
+    "body": {
+      "partId": "PA63V470M10X17.1",
+      "x": 2712.0781249999995,
+      "y": -857.1249999999995,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8023.1
+    }
+  },
+  {
+    "id": "0e6a72d65c1fb385",
+    "ticket": 850790,
+    "allAttrs": {},
+    "body": {
+      "partId": "TLP2761(D4-TP4,E(T.1",
+      "x": 435,
+      "y": -514,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8031.1
+    }
+  },
+  {
+    "id": "71bfafe3dd72150e",
+    "ticket": 935472,
+    "allAttrs": {},
+    "body": {
+      "partId": "RT0603BRD078K2L.1",
+      "x": 1901.0781249999998,
+      "y": -755.1249999999993,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8514.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "1fa5ef4050e3cabc",
+    "ticket": 932713,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F1001T5E.1",
+      "x": 343.2962962962963,
+      "y": -542.2962962962963,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7727.1
+    }
+  },
+  {
+    "id": "c4677ae13037daa0",
+    "ticket": 932671,
+    "allAttrs": {},
+    "body": {
+      "partId": "1N4148WS-E3-08.1",
+      "x": 318.77777777777777,
+      "y": -517.2592592592594,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8484.1
+    }
+  },
+  {
+    "id": "c59e780da4642b30",
+    "ticket": 934294,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F1002TS.1",
+      "x": 111,
+      "y": -751,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8501.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "8cdfd1b7b555cdb6",
+    "ticket": 895897,
+    "allAttrs": {},
+    "body": {
+      "partId": "DB301V-3.5-2P-GN.1",
+      "x": 296,
+      "y": -515,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8145.1
+    }
+  },
+  {
+    "id": "353d8a666ee0b477",
+    "ticket": 930461,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2749.0781249999995,
+      "y": -858.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8462.1
+    }
+  },
+  {
+    "id": "1a43ccc9c609badf",
+    "ticket": 930456,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2782.0781249999995,
+      "y": -858.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8463.1
+    }
+  },
+  {
+    "id": "e4e46ef4b2c5c066",
+    "ticket": 930767,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 1734.633680555555,
+      "y": -965.4583333333329,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7845.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "a3f5b698eda3b538",
+    "ticket": 930734,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F100JT5E.1",
+      "x": 2070.0781249999995,
+      "y": -1003.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7995.1
+    }
+  },
+  {
+    "id": "007a314f102079d2",
+    "ticket": 930749,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F100JT5E.1",
+      "x": 2184.0781249999995,
+      "y": -947.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7995.1
+    }
+  },
+  {
+    "id": "f6f6fc56206db728",
+    "ticket": 931800,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 1868.0781249999995,
+      "y": -983.1249999999994,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8475.1
+    }
+  },
+  {
+    "id": "9e82179cfee1a426",
+    "ticket": 930755,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC0603KRX7R9BB104.1",
+      "x": 1868.0781249999995,
+      "y": -1002.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7845.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "1cb327a468a6479f",
+    "ticket": 930497,
+    "allAttrs": {},
+    "body": {
+      "partId": "CL10B104KC8NNNC.1",
+      "x": 1988.0781249999995,
+      "y": -1249.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8420.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "551746bf4ef4baa3",
+    "ticket": 1027695,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2105,
+      "y": -1250,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8173.1
+    }
+  },
+  {
+    "id": "9aea6eed79fd941c",
+    "ticket": 1027752,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2126,
+      "y": -1250,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8174.1
+    }
+  },
+  {
+    "id": "c7dbce67adc612ed",
+    "ticket": 1027812,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2147,
+      "y": -1250,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8175.1
+    }
+  },
+  {
+    "id": "04633bec58976239",
+    "ticket": 1027873,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2167,
+      "y": -1249,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8176.1
+    }
+  },
+  {
+    "id": "dffa752660042825",
+    "ticket": 930655,
+    "allAttrs": {},
+    "body": {
+      "partId": "HGC1210R5476M250NSVK.1",
+      "x": 1868.0781249999993,
+      "y": -945.1249999999991,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8088.1
+    }
+  },
+  {
+    "id": "8ca4fb0b7095488f",
+    "ticket": 930553,
+    "allAttrs": {},
+    "body": {
+      "partId": "BSC070N10LS5ATMA1.1",
+      "x": 2288.0781249999995,
+      "y": -1218.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8177.1
+    }
+  },
+  {
+    "id": "5af1567d71628fae",
+    "ticket": 930543,
+    "allAttrs": {},
+    "body": {
+      "partId": "BSC070N10LS5ATMA1.1",
+      "x": 2378.0781249999995,
+      "y": -1218.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8178.1
+    }
+  },
+  {
+    "id": "38651d0cec4b8f22",
+    "ticket": 930650,
+    "allAttrs": {},
+    "body": {
+      "partId": "HGC1210R5476M250NSVK.1",
+      "x": 1868.0781249999998,
+      "y": -1023.125,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8088.1
+    }
+  },
+  {
+    "id": "9dc21707a46ebbfd",
+    "ticket": 930744,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F100JT5E.1",
+      "x": 2184.0781249999995,
+      "y": -934.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7995.1
+    }
+  },
+  {
+    "id": "c756ccf91dd2dfe9",
+    "ticket": 930786,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF1202T5E.1",
+      "x": 2181.0781249999995,
+      "y": -1138.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7788.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "dae1c023c48a36cb",
+    "ticket": 930558,
+    "allAttrs": {},
+    "body": {
+      "partId": "BSC070N10LS5ATMA1.1",
+      "x": 2294.0781249999995,
+      "y": -1081.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8177.1
+    }
+  },
+  {
+    "id": "7fbcb8d53bb95590",
+    "ticket": 930548,
+    "allAttrs": {},
+    "body": {
+      "partId": "BSC070N10LS5ATMA1.1",
+      "x": 2384.0781249999995,
+      "y": -1081.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8178.1
+    }
+  },
+  {
+    "id": "4a733a039d77b704",
+    "ticket": 930705,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2153.0781249999995,
+      "y": -903.1249999999995,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8013.1
+    }
+  },
+  {
+    "id": "9478afdfb635af8a",
+    "ticket": 930739,
+    "allAttrs": {},
+    "body": {
+      "partId": "0805W8F100JT5E.1",
+      "x": 2070.0781249999995,
+      "y": -1020.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7995.1
+    }
+  },
+  {
+    "id": "28c3b7a636b0cfe6",
+    "ticket": 930825,
+    "allAttrs": {},
+    "body": {
+      "partId": "0603WAF1202T5E.1",
+      "x": 2429.0781249999995,
+      "y": -1003.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7788.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "43804b64a1447cb1",
+    "ticket": 930528,
+    "allAttrs": {},
+    "body": {
+      "partId": "RT0603BRD07100KL.1",
+      "x": 1876.0781249999995,
+      "y": -826.1249999999995,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8263.1
+    }
+  },
+  {
+    "id": "8a37476f45db3f47",
+    "ticket": 919382,
+    "allAttrs": {},
+    "body": {
+      "partId": "SQM120P06-07L_GE3.1",
+      "x": 709,
+      "y": -1310,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 6833
+    }
+  },
+  {
+    "id": "cf57409383e17fbe",
+    "ticket": 919163,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 642,
+      "y": -1225,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7807.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "b6cc7ce879016c23",
+    "ticket": 919208,
+    "allAttrs": {},
+    "body": {
+      "partId": "FRC0603F22R0TS.1",
+      "x": 673,
+      "y": -1205,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7807.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "fe5822c84471559c",
+    "ticket": 925329,
+    "allAttrs": {},
+    "body": {
+      "partId": "GRM32ER71H106KA12L.1",
+      "x": 582.4954668209832,
+      "y": -311.71180555556055,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 7765.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "b6f21d6a589398c5",
+    "ticket": 931880,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 1314.1479136149064,
+      "y": -844.990279303656,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8476.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "419af73448ae58be",
+    "ticket": 931640,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 1474.9898203364428,
+      "y": -850.009140757704,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8473.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "754dcf94492f86e6",
+    "ticket": 931720,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 989.6464561389105,
+      "y": -310.06346746094925,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8474.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "0862b494cf2e3462",
+    "ticket": 924527,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R475K160JT.1",
+      "x": 625.7062454223592,
+      "y": -853.8916689554841,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8307.1
+    }
+  },
+  {
+    "id": "d88ddf787463ebfe",
+    "ticket": 924039,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 694.2988380149562,
+      "y": -878.5305578443732,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 71,
+      "locked": false
+    }
+  },
+  {
+    "id": "ff84f8058ff93fb0",
+    "ticket": 931960,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 659.9082571168295,
+      "y": -855.112543823841,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8477.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "2172af3eed396403",
+    "ticket": 941507,
+    "allAttrs": {},
+    "body": {
+      "partId": "CGA0603X5R105K500JT.1",
+      "x": 683.2584105204178,
+      "y": -855.582718973266,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8478.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "5bf16171fe3374c5",
+    "ticket": 924329,
+    "allAttrs": {},
+    "body": {
+      "partId": "FCC0603B103K500CT.1",
+      "x": 725.5361882981963,
+      "y": -855.3118856399323,
+      "rotation": 270,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8337.1,
+      "locked": false
+    }
+  },
+  {
+    "id": "742d9c2d09ea000c",
+    "ticket": 930491,
+    "allAttrs": {},
+    "body": {
+      "partId": "SMM02070C1009FBP00.1",
+      "x": 2301.5459635416705,
+      "y": -949.1656177662039,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8426.1
+    }
+  },
+  {
+    "id": "b51ec2d5f28fbd61",
+    "ticket": 930486,
+    "allAttrs": {},
+    "body": {
+      "partId": "SMM02070C1009FBP00.1",
+      "x": 2301.1904079861147,
+      "y": -930.6767288773149,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8427.1
+    }
+  },
+  {
+    "id": "16a66f317934f355",
+    "ticket": 930481,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC1206JKNPOCBN221.1",
+      "x": 2350.434852430559,
+      "y": -949.1359881365745,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8429.1
+    }
+  },
+  {
+    "id": "757cb309a676dc13",
+    "ticket": 930476,
+    "allAttrs": {},
+    "body": {
+      "partId": "CC1206JKNPOCBN221.1",
+      "x": 2346.7212721836454,
+      "y": -930.6997741448047,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8430.1
+    }
+  },
+  {
+    "id": "75d3dbf62088877d",
+    "ticket": 993167,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 1691,
+      "y": -774,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8519.1
+    }
+  },
+  {
+    "id": "2ff7b47510bba77a",
+    "ticket": 993305,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2108,
+      "y": -737,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8523.1
+    }
+  },
+  {
+    "id": "5025d8dd881052a6",
+    "ticket": 993318,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2269,
+      "y": -856,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8524.1
+    }
+  },
+  {
+    "id": "15119e4b0adc6473",
+    "ticket": 993380,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2325,
+      "y": -840,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8526.1
+    }
+  },
+  {
+    "id": "08f984e63e6a07ff",
+    "ticket": 993413,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 990,
+      "y": -283,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8528.1
+    }
+  },
+  {
+    "id": "ceb6b3ed796ebc58",
+    "ticket": 993458,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 870,
+      "y": -290,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8531.1
+    }
+  },
+  {
+    "id": "d68a2e0b3a4089f8",
+    "ticket": 993491,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 447,
+      "y": -678,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8542.1
+    }
+  },
+  {
+    "id": "84edf20b98fdde74",
+    "ticket": 993504,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 447,
+      "y": -616,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8543.1
+    }
+  },
+  {
+    "id": "414c673e56b73533",
+    "ticket": 993527,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 695,
+      "y": -835,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8545.1
+    }
+  },
+  {
+    "id": "41ff74025467bd95",
+    "ticket": 1028134,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2177.0781249999995,
+      "y": -1289.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8173.1
+    }
+  },
+  {
+    "id": "81c5ac21f1ba04df",
+    "ticket": 1028160,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2198.0781249999995,
+      "y": -1289.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8174.1
+    }
+  },
+  {
+    "id": "4f8616b027d2d668",
+    "ticket": 1028186,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X105K101EFG.1",
+      "x": 2221.0781249999995,
+      "y": -1289.1249999999995,
+      "rotation": 0,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8175.1
+    }
+  },
+  {
+    "id": "0976792865a1b71d",
+    "ticket": 1029011,
+    "allAttrs": {},
+    "body": {
+      "partId": "pid8a0e77bacb214e",
+      "x": 2198,
+      "y": -1311,
+      "rotation": 180,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8011.1
+    }
+  },
+  {
+    "id": "c24374140cb7a089",
+    "ticket": 1028653,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2186,
+      "y": -1249,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8466.1
+    }
+  },
+  {
+    "id": "4b67f14942b63053",
+    "ticket": 1028724,
+    "allAttrs": {},
+    "body": {
+      "partId": "FS32X106K101EGG.1",
+      "x": 2209,
+      "y": -1249,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 8466.1
+    }
+  },
+  {
+    "id": "76cd735a15dc9035",
+    "ticket": 1040698,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 2117,
+      "y": -978,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  },
+  {
+    "id": "d2883c1761e0f4c6",
+    "ticket": 1040885,
+    "allAttrs": {},
+    "body": {
+      "partId": "5012.1",
+      "x": 2472,
+      "y": -988,
+      "rotation": 90,
+      "isMirror": false,
+      "attrs": {},
+      "zIndex": 1501,
+      "locked": false
+    }
+  }
+]

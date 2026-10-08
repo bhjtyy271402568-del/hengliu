@@ -1,11 +1,11 @@
 ﻿源代码审阅顺序（不是正式提交页码；原文件行号保留）
-Core\Src\main.c	980 行
-Core\Inc\main.h	108 行
-Core\Src\stm32g4xx_it.c	264 行
-Core\Inc\stm32g4xx_it.h	70 行
+Core\Src\main.c	959 行
+Core\Inc\main.h	107 行
+Core\Src\stm32g4xx_it.c	250 行
+Core\Inc\stm32g4xx_it.h	69 行
 Core\Src\iwdg.c	56 行
 Core\Inc\iwdg.h	52 行
-Core\Src\gpio.c	102 行
+Core\Src\gpio.c	99 行
 Core\Inc\gpio.h	49 行
 Core\Src\dac.c	135 行
 Core\Inc\dac.h	52 行

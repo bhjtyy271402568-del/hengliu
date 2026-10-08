@@ -125,7 +125,6 @@ static void DAC_SetValue(uint16_t val);
 static void TIM6_Start_1ms(void);
 static void Stop_IT_Off(void);
 static uint8_t Stop_IT_On(void);
-static void Shoot_IT_Off(void);
 static uint16_t Calc_Mask_Time(uint16_t dac);
 static void DAC_Ramp(void);
 static void Stop_Check(void);
@@ -145,7 +144,6 @@ static void Bench_Task(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-// 写DAC1通道1, 12位右对齐
 static void DAC_SetValue(uint16_t val)
 {
   if (val > 4095) val = 4095;
@@ -202,12 +200,6 @@ static uint8_t Stop_IT_On(void)
   return 1;
 }
 
-static void Shoot_IT_Off(void)
-{
-  EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
-  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
-  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
-}
 
 // 启动屏蔽时间: DAC缓升要的时间再加100ms, 最多200ms
 static uint16_t Calc_Mask_Time(uint16_t dac)
@@ -218,7 +210,7 @@ static uint16_t Calc_Mask_Time(uint16_t dac)
   return (uint16_t)t;
 }
 
-// 1ms一次, DAC每次加DAC_STEP, 加到目标值为止
+// DAC缓升
 static void DAC_Ramp(void)
 {
   uint16_t next;
@@ -271,9 +263,8 @@ static void Stop_Check(void)
   }
 }
 
-// SHOOT输入, TIM6里1ms读一次, 连续5次一样才认
-// 端子 -> R18 -> TLP2761 -> R55 -> PA8, 光耦是反相的:
-// 外部有信号 -> PA8低, 没信号/断线 -> PA8高(停)
+// SHOOT 1ms读一次, 连续5ms一样才认
+// 光耦TLP2761是反相的, 外部有信号时PA8是低, 断线就是高
 static void Shoot_Debounce(void)
 {
   uint8_t now;
@@ -293,8 +284,7 @@ static void Shoot_Debounce(void)
     shoot_on_req = now;   // 只有 无->有 才请求启动
   }
 
-  // 信号没了就在中断里直接关, 不等主循环
-  // STOP正在滤波就等它判完再关, 不然fault_cnt会被Laser_Stop清掉
+  // 信号撤了直接关. fault_cnt不为0是STOP在滤波, 等它判完
   if (!shoot_active && fault_cnt == 0 &&
       (laser_state == LASER_STARTING || laser_state == LASER_RUNNING))
   {
@@ -311,7 +301,7 @@ static void Shoot_Task(void)
   if (shoot_on_req)
   {
     shoot_on_req = 0;
-    // 关中断后再确认一次信号还在
+    // 再确认下信号还在
     if (shoot_en && shoot_active && shoot_dac > 0)
       Laser_Start(shoot_dac);
   }
@@ -370,7 +360,6 @@ static void Key_Scan(void)
   }
 }
 
-// 主循环里处理按键启动
 static void Key_Task(void)
 {
   uint32_t irq = __get_PRIMASK();
@@ -520,8 +509,7 @@ static void Fault_LED_Blink(void)
   }
 }
 
-// 喂狗: TIM6任务完整跑完一次才喂一次
-// 这样TIM6中断停了, 主循环还在跑也会复位
+// TIM6任务完整跑完一次才喂一次狗
 static void IWDG_Feed(void)
 {
   uint32_t cnt = tim6_cnt;
@@ -533,9 +521,7 @@ static void IWDG_Feed(void)
   }
 }
 
-/**
-  * @brief  激光控制初始化, 放在MX_xxx_Init后面调用
-  */
+// 放在MX_xxx_Init后面调
 void Laser_Init(void)
 {
   laser_state = LASER_IDLE;
@@ -569,7 +555,6 @@ void Laser_Init(void)
   wdg_last_cnt = 0;
 
   Stop_IT_Off();
-  Shoot_IT_Off();
   HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
 
@@ -585,17 +570,14 @@ void Laser_Init(void)
 }
 
 /**
-  * @brief  SHOOT外部控制开关
-  * @param  en: 1打开 0关闭, 故障锁存时打不开
-  * @note   打开后出光跟着SHOOT电平走. 打开时当作信号已经有了,
-  *         所以上电时信号就在的话不会出光, 要先撤掉再给一次
+  * @brief  SHOOT外部控制 1开 0关, 故障时开不了
+  * @note   上电时信号已经在的话不出光, 要撤掉再给一次
   */
 void Shoot_Enable(uint8_t en)
 {
   uint32_t irq = __get_PRIMASK();
 
   __disable_irq();
-  Shoot_IT_Off();       // 现在是轮询, PA8的外部中断一直关着
   shoot_cnt = 0;
   shoot_on_req = 0;
   shoot_active = 1;
@@ -639,9 +621,7 @@ void Laser_Start(uint16_t dac)
   __set_PRIMASK(irq);
 }
 
-/**
-  * @brief  正常关断, 故障锁存时不处理
-  */
+// 正常关断, 故障锁存时不管
 void Laser_Stop(void)
 {
   uint32_t irq = __get_PRIMASK();
@@ -686,7 +666,6 @@ void Laser_Fault_Lock(void)
   bench_time = 0;
 #endif
   Stop_IT_Off();
-  Shoot_IT_Off();
 
   PWM_GPIO_Port->BRR = PWM_Pin;
   DAC_SetValue(0);
@@ -720,7 +699,6 @@ uint8_t Laser_Fault_Clear(void)
     return 1;
 
   Stop_IT_Off();
-  Shoot_IT_Off();
 
   PWM_GPIO_Port->BRR = PWM_Pin;
   DAC_SetValue(0);
@@ -925,6 +903,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   tim6_cnt++;   // 放最后, 前面全部执行完才算一次
 }
 
+// 现在只有STOP用外部中断, SHOOT改到TIM6里轮询了
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == STOP_Pin)

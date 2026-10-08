@@ -127,859 +127,838 @@
 0125  static void TIM6_Start_1ms(void);
 0126  static void Stop_IT_Off(void);
 0127  static uint8_t Stop_IT_On(void);
-0128  static void Shoot_IT_Off(void);
-0129  static uint16_t Calc_Mask_Time(uint16_t dac);
-0130  static void DAC_Ramp(void);
-0131  static void Stop_Check(void);
-0132  static void Shoot_Debounce(void);
-0133  static void Shoot_Task(void);
-0134  static void Key_Scan(void);
-0135  static void Key_Task(void);
-0136  static void Current_Sample(void);
-0137  static void Current_LED_Update(void);
-0138  static void Fault_LED_Blink(void);
-0139  static void IWDG_Feed(void);
-0140  #if BENCH_MODE != 0
-0141  static void Bench_Task(void);
-0142  #endif
-0143  
-0144  /* USER CODE END PFP */
-0145  
-0146  /* Private user code ---------------------------------------------------------*/
-0147  /* USER CODE BEGIN 0 */
-0148  // 写DAC1通道1, 12位右对齐
-0149  static void DAC_SetValue(uint16_t val)
-0150  {
-0151    if (val > 4095) val = 4095;
-0152  
-0153    if (HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val) != HAL_OK)
-0154    {
-0155      Error_Handler();
-0156    }
-0157  }
-0158  
-0159  // TIM6配成1ms中断, 分频按实际PCLK1算
-0160  static void TIM6_Start_1ms(void)
-0161  {
-0162    uint32_t clk = HAL_RCC_GetPCLK1Freq();
-0163  
-0164    // APB1有分频时定时器时钟x2
-0165    if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)
-0166    {
-0167      clk *= 2;
-0168    }
-0169  
-0170    __HAL_TIM_DISABLE(&htim6);
-0171    __HAL_TIM_DISABLE_IT(&htim6, TIM_IT_UPDATE);
-0172    __HAL_TIM_SET_PRESCALER(&htim6, clk / 1000000 - 1);   // 1MHz
-0173    __HAL_TIM_SET_AUTORELOAD(&htim6, 1000 - 1);           // 1ms
-0174    __HAL_TIM_SET_COUNTER(&htim6, 0);
-0175    HAL_TIM_GenerateEvent(&htim6, TIM_EVENTSOURCE_UPDATE);
-0176    __HAL_TIM_CLEAR_FLAG(&htim6, TIM_FLAG_UPDATE);
-0177  
-0178    if (HAL_TIM_Base_Start_IT(&htim6) != HAL_OK)
-0179    {
-0180      Error_Handler();
-0181    }
-0182  }
-0183  
-0184  static void Stop_IT_Off(void)
-0185  {
-0186    EXTI->IMR1 &= ~(uint32_t)STOP_Pin;
-0187    __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
-0188    HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
-0189  }
-0190  
-0191  // 打开STOP中断, 返回0说明STOP现在就是低电平, 没有打开
-0192  static uint8_t Stop_IT_On(void)
-0193  {
-0194    __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
-0195    HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
-0196  
-0197    if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-0198    {
-0199      return 0;
-0200    }
-0201    EXTI->IMR1 |= (uint32_t)STOP_Pin;
-0202    return 1;
-0203  }
-0204  
-0205  static void Shoot_IT_Off(void)
+0128  static uint16_t Calc_Mask_Time(uint16_t dac);
+0129  static void DAC_Ramp(void);
+0130  static void Stop_Check(void);
+0131  static void Shoot_Debounce(void);
+0132  static void Shoot_Task(void);
+0133  static void Key_Scan(void);
+0134  static void Key_Task(void);
+0135  static void Current_Sample(void);
+0136  static void Current_LED_Update(void);
+0137  static void Fault_LED_Blink(void);
+0138  static void IWDG_Feed(void);
+0139  #if BENCH_MODE != 0
+0140  static void Bench_Task(void);
+0141  #endif
+0142  
+0143  /* USER CODE END PFP */
+0144  
+0145  /* Private user code ---------------------------------------------------------*/
+0146  /* USER CODE BEGIN 0 */
+0147  static void DAC_SetValue(uint16_t val)
+0148  {
+0149    if (val > 4095) val = 4095;
+0150  
+0151    if (HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val) != HAL_OK)
+0152    {
+0153      Error_Handler();
+0154    }
+0155  }
+0156  
+0157  // TIM6配成1ms中断, 分频按实际PCLK1算
+0158  static void TIM6_Start_1ms(void)
+0159  {
+0160    uint32_t clk = HAL_RCC_GetPCLK1Freq();
+0161  
+0162    // APB1有分频时定时器时钟x2
+0163    if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)
+0164    {
+0165      clk *= 2;
+0166    }
+0167  
+0168    __HAL_TIM_DISABLE(&htim6);
+0169    __HAL_TIM_DISABLE_IT(&htim6, TIM_IT_UPDATE);
+0170    __HAL_TIM_SET_PRESCALER(&htim6, clk / 1000000 - 1);   // 1MHz
+0171    __HAL_TIM_SET_AUTORELOAD(&htim6, 1000 - 1);           // 1ms
+0172    __HAL_TIM_SET_COUNTER(&htim6, 0);
+0173    HAL_TIM_GenerateEvent(&htim6, TIM_EVENTSOURCE_UPDATE);
+0174    __HAL_TIM_CLEAR_FLAG(&htim6, TIM_FLAG_UPDATE);
+0175  
+0176    if (HAL_TIM_Base_Start_IT(&htim6) != HAL_OK)
+0177    {
+0178      Error_Handler();
+0179    }
+0180  }
+0181  
+0182  static void Stop_IT_Off(void)
+0183  {
+0184    EXTI->IMR1 &= ~(uint32_t)STOP_Pin;
+0185    __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
+0186    HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
+0187  }
+0188  
+0189  // 打开STOP中断, 返回0说明STOP现在就是低电平, 没有打开
+0190  static uint8_t Stop_IT_On(void)
+0191  {
+0192    __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
+0193    HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
+0194  
+0195    if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+0196    {
+0197      return 0;
+0198    }
+0199    EXTI->IMR1 |= (uint32_t)STOP_Pin;
+0200    return 1;
+0201  }
+0202  
+0203  
+0204  // 启动屏蔽时间: DAC缓升要的时间再加100ms, 最多200ms
+0205  static uint16_t Calc_Mask_Time(uint16_t dac)
 0206  {
-0207    EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
-0208    __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
-0209    HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
-0210  }
-0211  
-0212  // 启动屏蔽时间: DAC缓升要的时间再加100ms, 最多200ms
-0213  static uint16_t Calc_Mask_Time(uint16_t dac)
-0214  {
-0215    uint32_t t = ((uint32_t)dac + DAC_STEP - 1) / DAC_STEP + START_MASK_EXTRA;
-0216  
-0217    if (t > START_MASK_MAX) t = START_MASK_MAX;
-0218    return (uint16_t)t;
-0219  }
-0220  
-0221  // 1ms一次, DAC每次加DAC_STEP, 加到目标值为止
-0222  static void DAC_Ramp(void)
-0223  {
-0224    uint16_t next;
-0225  
-0226    if (laser_state != LASER_STARTING && laser_state != LASER_RUNNING)
-0227      return;
-0228    if (dac_now >= dac_target)
-0229      return;
-0230  
-0231    next = dac_now + DAC_STEP;
-0232    if (next < dac_now || next > dac_target)
-0233    {
-0234      next = dac_target;
-0235    }
-0236    dac_now = next;
-0237    DAC_SetValue(next);
-0238  }
-0239  
-0240  // TIM6里轮询STOP脚, 和STOP中断共用fault_cnt
-0241  // 连续5次(5ms)都是低电平才锁故障
-0242  static void Stop_Check(void)
-0243  {
-0244    if (laser_state != LASER_RUNNING)
-0245    {
-0246      return;
-0247    }
-0248  
-0249    if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-0250    {
-0251      if (fault_cnt == 0)
-0252      {
-0253        Stop_IT_Off();
-0254        fault_cnt = FAULT_FILTER_MS;
-0255      }
-0256      fault_cnt--;
-0257      if (fault_cnt == 0)
-0258      {
-0259        Laser_Fault_Lock();
-0260      }
-0261    }
-0262    else if (fault_cnt != 0)
-0263    {
-0264      // 低电平没持续够, 当干扰处理, 重新开中断
-0265      fault_cnt = 0;
-0266      if (Stop_IT_On() == 0)
-0267      {
-0268        // 开中断时又变低了, 重新计数
-0269        fault_cnt = FAULT_FILTER_MS;
-0270      }
-0271    }
-0272  }
-0273  
-0274  // SHOOT输入, TIM6里1ms读一次, 连续5次一样才认
-0275  // 端子 -> R18 -> TLP2761 -> R55 -> PA8, 光耦是反相的:
-0276  // 外部有信号 -> PA8低, 没信号/断线 -> PA8高(停)
-0277  static void Shoot_Debounce(void)
-0278  {
-0279    uint8_t now;
-0280  
-0281    if (!shoot_en)
-0282      return;
-0283  
-0284    now = (HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin) == GPIO_PIN_RESET) ? 1 : 0;
-0285    if (now == shoot_active)
-0286    {
-0287      shoot_cnt = 0;
-0288    }
-0289    else if (++shoot_cnt >= SHOOT_DEBOUNCE_MS)
+0207    uint32_t t = ((uint32_t)dac + DAC_STEP - 1) / DAC_STEP + START_MASK_EXTRA;
+0208  
+0209    if (t > START_MASK_MAX) t = START_MASK_MAX;
+0210    return (uint16_t)t;
+0211  }
+0212  
+0213  // DAC缓升
+0214  static void DAC_Ramp(void)
+0215  {
+0216    uint16_t next;
+0217  
+0218    if (laser_state != LASER_STARTING && laser_state != LASER_RUNNING)
+0219      return;
+0220    if (dac_now >= dac_target)
+0221      return;
+0222  
+0223    next = dac_now + DAC_STEP;
+0224    if (next < dac_now || next > dac_target)
+0225    {
+0226      next = dac_target;
+0227    }
+0228    dac_now = next;
+0229    DAC_SetValue(next);
+0230  }
+0231  
+0232  // TIM6里轮询STOP脚, 和STOP中断共用fault_cnt
+0233  // 连续5次(5ms)都是低电平才锁故障
+0234  static void Stop_Check(void)
+0235  {
+0236    if (laser_state != LASER_RUNNING)
+0237    {
+0238      return;
+0239    }
+0240  
+0241    if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+0242    {
+0243      if (fault_cnt == 0)
+0244      {
+0245        Stop_IT_Off();
+0246        fault_cnt = FAULT_FILTER_MS;
+0247      }
+0248      fault_cnt--;
+0249      if (fault_cnt == 0)
+0250      {
+0251        Laser_Fault_Lock();
+0252      }
+0253    }
+0254    else if (fault_cnt != 0)
+0255    {
+0256      // 低电平没持续够, 当干扰处理, 重新开中断
+0257      fault_cnt = 0;
+0258      if (Stop_IT_On() == 0)
+0259      {
+0260        // 开中断时又变低了, 重新计数
+0261        fault_cnt = FAULT_FILTER_MS;
+0262      }
+0263    }
+0264  }
+0265  
+0266  // SHOOT 1ms读一次, 连续5ms一样才认
+0267  // 光耦TLP2761是反相的, 外部有信号时PA8是低, 断线就是高
+0268  static void Shoot_Debounce(void)
+0269  {
+0270    uint8_t now;
+0271  
+0272    if (!shoot_en)
+0273      return;
+0274  
+0275    now = (HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin) == GPIO_PIN_RESET) ? 1 : 0;
+0276    if (now == shoot_active)
+0277    {
+0278      shoot_cnt = 0;
+0279    }
+0280    else if (++shoot_cnt >= SHOOT_DEBOUNCE_MS)
+0281    {
+0282      shoot_cnt = 0;
+0283      shoot_active = now;
+0284      shoot_on_req = now;   // 只有 无->有 才请求启动
+0285    }
+0286  
+0287    // 信号撤了直接关. fault_cnt不为0是STOP在滤波, 等它判完
+0288    if (!shoot_active && fault_cnt == 0 &&
+0289        (laser_state == LASER_STARTING || laser_state == LASER_RUNNING))
 0290    {
-0291      shoot_cnt = 0;
-0292      shoot_active = now;
-0293      shoot_on_req = now;   // 只有 无->有 才请求启动
-0294    }
-0295  
-0296    // 信号没了就在中断里直接关, 不等主循环
-0297    // STOP正在滤波就等它判完再关, 不然fault_cnt会被Laser_Stop清掉
-0298    if (!shoot_active && fault_cnt == 0 &&
-0299        (laser_state == LASER_STARTING || laser_state == LASER_RUNNING))
-0300    {
-0301      Laser_Stop();
-0302    }
-0303  }
-0304  
-0305  // 主循环里处理SHOOT启动
-0306  static void Shoot_Task(void)
-0307  {
-0308    uint32_t irq = __get_PRIMASK();
-0309  
-0310    __disable_irq();
-0311    if (shoot_on_req)
-0312    {
-0313      shoot_on_req = 0;
-0314      // 关中断后再确认一次信号还在
-0315      if (shoot_en && shoot_active && shoot_dac > 0)
-0316        Laser_Start(shoot_dac);
-0317    }
-0318    __set_PRIMASK(irq);
-0319  }
-0320  
-0321  // K2按键扫描, TIM6里1ms调用一次
-0322  static void Key_Scan(void)
-0323  {
-0324    if (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
-0325    {
-0326      if (key_wait_up)
+0291      Laser_Stop();
+0292    }
+0293  }
+0294  
+0295  // 主循环里处理SHOOT启动
+0296  static void Shoot_Task(void)
+0297  {
+0298    uint32_t irq = __get_PRIMASK();
+0299  
+0300    __disable_irq();
+0301    if (shoot_on_req)
+0302    {
+0303      shoot_on_req = 0;
+0304      // 再确认下信号还在
+0305      if (shoot_en && shoot_active && shoot_dac > 0)
+0306        Laser_Start(shoot_dac);
+0307    }
+0308    __set_PRIMASK(irq);
+0309  }
+0310  
+0311  // K2按键扫描, TIM6里1ms调用一次
+0312  static void Key_Scan(void)
+0313  {
+0314    if (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
+0315    {
+0316      if (key_wait_up)
+0317      {
+0318        key_cnt = 0;
+0319        return;
+0320      }
+0321      if (key_down)
+0322        return;
+0323  
+0324      if(key_cnt < KEY_DEBOUNCE_MS)
+0325        key_cnt++;
+0326      if (key_cnt >= KEY_DEBOUNCE_MS)
 0327      {
-0328        key_cnt = 0;
-0329        return;
-0330      }
-0331      if (key_down)
-0332        return;
-0333  
-0334      if(key_cnt < KEY_DEBOUNCE_MS)
-0335        key_cnt++;
-0336      if (key_cnt >= KEY_DEBOUNCE_MS)
-0337      {
-0338        key_down = 1;
-0339  #if SHOOT_CTRL
-0340        shoot_on_req = 0;
-0341        Laser_Stop();     // SHOOT控制时K2只当停止键
-0342  #elif BENCH_MODE != 0
-0343        if (bench_run)
-0344        {
-0345          Laser_Stop();   // 在中断里直接关, 不等主循环
-0346        }
-0347        else if (laser_state == LASER_IDLE)
-0348        {
-0349          bench_run = 1;
-0350          bench_time = 0;
-0351          key_req = 1;
-0352        }
-0353  #else
-0354        key_req = 1;
-0355  #endif
-0356      }
-0357    }
-0358    else
-0359    {
-0360      key_cnt = 0;
-0361      key_wait_up = 0;
-0362      if (key_down)
-0363      {
-0364        key_down = 0;
-0365  #if BENCH_MODE == 0 && SHOOT_CTRL == 0
-0366        key_req = 0;
-0367        Laser_Stop();     // 松手就关, 也放在中断里
-0368  #endif
-0369      }
-0370    }
-0371  }
-0372  
-0373  // 主循环里处理按键启动
-0374  static void Key_Task(void)
-0375  {
-0376    uint32_t irq = __get_PRIMASK();
-0377  
-0378    __disable_irq();
-0379    if (key_req)
-0380    {
-0381      key_req = 0;
-0382      // 关中断后再确认一次, 防止中断里已经要停了这里又去启动
-0383  #if BENCH_MODE != 0
-0384      if (bench_run)
-0385  #else
-0386      if (key_down && !key_wait_up &&
-0387          HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
-0388  #endif
-0389      {
-0390        Laser_Start(TEST_DAC_VALUE);
-0391  #if BENCH_MODE != 0
-0392        bench_time = 0;   // 从真正出光开始计时
-0393  #endif
-0394      }
-0395    }
-0396    __set_PRIMASK(irq);
-0397  }
+0328        key_down = 1;
+0329  #if SHOOT_CTRL
+0330        shoot_on_req = 0;
+0331        Laser_Stop();     // SHOOT控制时K2只当停止键
+0332  #elif BENCH_MODE != 0
+0333        if (bench_run)
+0334        {
+0335          Laser_Stop();   // 在中断里直接关, 不等主循环
+0336        }
+0337        else if (laser_state == LASER_IDLE)
+0338        {
+0339          bench_run = 1;
+0340          bench_time = 0;
+0341          key_req = 1;
+0342        }
+0343  #else
+0344        key_req = 1;
+0345  #endif
+0346      }
+0347    }
+0348    else
+0349    {
+0350      key_cnt = 0;
+0351      key_wait_up = 0;
+0352      if (key_down)
+0353      {
+0354        key_down = 0;
+0355  #if BENCH_MODE == 0 && SHOOT_CTRL == 0
+0356        key_req = 0;
+0357        Laser_Stop();     // 松手就关, 也放在中断里
+0358  #endif
+0359      }
+0360    }
+0361  }
+0362  
+0363  static void Key_Task(void)
+0364  {
+0365    uint32_t irq = __get_PRIMASK();
+0366  
+0367    __disable_irq();
+0368    if (key_req)
+0369    {
+0370      key_req = 0;
+0371      // 关中断后再确认一次, 防止中断里已经要停了这里又去启动
+0372  #if BENCH_MODE != 0
+0373      if (bench_run)
+0374  #else
+0375      if (key_down && !key_wait_up &&
+0376          HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
+0377  #endif
+0378      {
+0379        Laser_Start(TEST_DAC_VALUE);
+0380  #if BENCH_MODE != 0
+0381        bench_time = 0;   // 从真正出光开始计时
+0382  #endif
+0383      }
+0384    }
+0385    __set_PRIMASK(irq);
+0386  }
+0387  
+0388  #if BENCH_MODE != 0
+0389  static void Bench_Task(void)
+0390  {
+0391    if (!bench_run)
+0392      return;
+0393  
+0394  #if BENCH_MODE == 2
+0395    // 上次的启动请求主循环还没处理, 先不计时
+0396    if (key_req)
+0397      return;
 0398  
-0399  #if BENCH_MODE != 0
-0400  static void Bench_Task(void)
-0401  {
-0402    if (!bench_run)
-0403      return;
-0404  
-0405  #if BENCH_MODE == 2
-0406    // 上次的启动请求主循环还没处理, 先不计时
-0407    if (key_req)
-0408      return;
-0409  
-0410    if(bench_time < 0xFFFF)
-0411      bench_time++;
-0412  
-0413    if (laser_state == LASER_IDLE)
-0414    {
-0415      if (bench_time >= BENCH_OFF_MS)
-0416        key_req = 1;
-0417    }
-0418    else if (bench_time >= BENCH_ON_MS)
-0419    {
-0420      // STOP还在滤波就先不关, 不然Laser_Stop会把fault_cnt清掉
-0421      if (fault_cnt != 0)
-0422        return;
-0423      Laser_Stop();
-0424      if (laser_state == LASER_IDLE)
-0425        bench_run = 1;    // Laser_Stop会清bench_run, 正常循环要再置1
-0426    }
-0427  #endif
-0428  }
-0429  #endif
-0430  
-0431  // 主循环里每ms采一次ISMON, 轮询方式, 不放到TIM6中断里
-0432  static void Current_Sample(void)
-0433  {
-0434    static uint32_t last_tick = 0xFFFFFFFF;
-0435    uint32_t now = HAL_GetTick();
-0436    uint32_t irq;
-0437    uint16_t raw = 0;
-0438    uint8_t ok = 0;
-0439  
-0440    if(now == last_tick)
-0441      return;
-0442    last_tick = now;
+0399    if(bench_time < 0xFFFF)
+0400      bench_time++;
+0401  
+0402    if (laser_state == LASER_IDLE)
+0403    {
+0404      if (bench_time >= BENCH_OFF_MS)
+0405        key_req = 1;
+0406    }
+0407    else if (bench_time >= BENCH_ON_MS)
+0408    {
+0409      // STOP还在滤波就先不关, 不然Laser_Stop会把fault_cnt清掉
+0410      if (fault_cnt != 0)
+0411        return;
+0412      Laser_Stop();
+0413      if (laser_state == LASER_IDLE)
+0414        bench_run = 1;    // Laser_Stop会清bench_run, 正常循环要再置1
+0415    }
+0416  #endif
+0417  }
+0418  #endif
+0419  
+0420  // 主循环里每ms采一次ISMON, 轮询方式, 不放到TIM6中断里
+0421  static void Current_Sample(void)
+0422  {
+0423    static uint32_t last_tick = 0xFFFFFFFF;
+0424    uint32_t now = HAL_GetTick();
+0425    uint32_t irq;
+0426    uint16_t raw = 0;
+0427    uint8_t ok = 0;
+0428  
+0429    if(now == last_tick)
+0430      return;
+0431    last_tick = now;
+0432  
+0433    if (HAL_ADC_Start(&hadc1) == HAL_OK)
+0434    {
+0435      if (HAL_ADC_PollForConversion(&hadc1, 1) == HAL_OK)
+0436      {
+0437        raw = (uint16_t)HAL_ADC_GetValue(&hadc1);
+0438        ok = 1;
+0439      }
+0440    }
+0441    if (HAL_ADC_Stop(&hadc1) != HAL_OK)
+0442      ok = 0;
 0443  
-0444    if (HAL_ADC_Start(&hadc1) == HAL_OK)
-0445    {
-0446      if (HAL_ADC_PollForConversion(&hadc1, 1) == HAL_OK)
-0447      {
-0448        raw = (uint16_t)HAL_ADC_GetValue(&hadc1);
-0449        ok = 1;
-0450      }
-0451    }
-0452    if (HAL_ADC_Stop(&hadc1) != HAL_OK)
-0453      ok = 0;
-0454  
-0455    // len = sprintf(buf, "adc=%d\r\n", raw);
-0456    // HAL_UART_Transmit(&huart3, (uint8_t *)buf, len, 10);
-0457  
-0458    irq = __get_PRIMASK();
-0459    __disable_irq();
-0460    ismon_adc = raw;
-0461    ismon_ok = ok;
-0462    ismon_age = 0;
-0463    if (!ok)
-0464      ismon_good_cnt = 0;
-0465    __set_PRIMASK(irq);
-0466  }
-0467  
-0468  // 出光时电流在目标值+-20%以内持续100ms, 指示灯亮
-0469  static void Current_LED_Update(void)
-0470  {
-0471    uint32_t meas, target;
-0472  
-0473    if (ismon_age < CUR_TIMEOUT_MS)
-0474      ismon_age++;
-0475  
-0476    /* 换算: CTRL = 30*Rs*I, ISMON = 20*Rs*I
-0477     * ISMON经R2/R19(10k/8.2k)分压进ADC, ADC和DAC共用VREF+
-0478     * 目标ADC = DAC * (8.2/18.2) * (20/30) = DAC * 82 / 273
-0479     * TODO: 按电阻标称值算的, 没有实际标定过
-0480     */
-0481    target = (uint32_t)dac_target * 82;
-0482    ismon_target = (uint16_t)((target + 136) / 273);
-0483    meas = (uint32_t)ismon_adc * 273 * 100;
-0484  
-0485    if (laser_state == LASER_RUNNING && target > 0 && fault_cnt == 0 &&
-0486        HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_SET &&
-0487        ismon_ok && ismon_age < CUR_TIMEOUT_MS &&
-0488        meas >= target * (100 - CUR_TOL_PCT) &&
-0489        meas <= target * (100 + CUR_TOL_PCT))
+0444    // len = sprintf(buf, "adc=%d\r\n", raw);
+0445    // HAL_UART_Transmit(&huart3, (uint8_t *)buf, len, 10);
+0446  
+0447    irq = __get_PRIMASK();
+0448    __disable_irq();
+0449    ismon_adc = raw;
+0450    ismon_ok = ok;
+0451    ismon_age = 0;
+0452    if (!ok)
+0453      ismon_good_cnt = 0;
+0454    __set_PRIMASK(irq);
+0455  }
+0456  
+0457  // 出光时电流在目标值+-20%以内持续100ms, 指示灯亮
+0458  static void Current_LED_Update(void)
+0459  {
+0460    uint32_t meas, target;
+0461  
+0462    if (ismon_age < CUR_TIMEOUT_MS)
+0463      ismon_age++;
+0464  
+0465    /* 换算: CTRL = 30*Rs*I, ISMON = 20*Rs*I
+0466     * ISMON经R2/R19(10k/8.2k)分压进ADC, ADC和DAC共用VREF+
+0467     * 目标ADC = DAC * (8.2/18.2) * (20/30) = DAC * 82 / 273
+0468     * TODO: 按电阻标称值算的, 没有实际标定过
+0469     */
+0470    target = (uint32_t)dac_target * 82;
+0471    ismon_target = (uint16_t)((target + 136) / 273);
+0472    meas = (uint32_t)ismon_adc * 273 * 100;
+0473  
+0474    if (laser_state == LASER_RUNNING && target > 0 && fault_cnt == 0 &&
+0475        HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_SET &&
+0476        ismon_ok && ismon_age < CUR_TIMEOUT_MS &&
+0477        meas >= target * (100 - CUR_TOL_PCT) &&
+0478        meas <= target * (100 + CUR_TOL_PCT))
+0479    {
+0480      if (ismon_good_cnt < CUR_OK_MS)
+0481        ismon_good_cnt++;
+0482    }
+0483    else
+0484    {
+0485      ismon_good_cnt = 0;
+0486    }
+0487  
+0488    // 故障时灯给Fault_LED_Blink用
+0489    if (laser_state != LASER_FAULT)
 0490    {
-0491      if (ismon_good_cnt < CUR_OK_MS)
-0492        ismon_good_cnt++;
+0491      HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin,
+0492                        ismon_good_cnt >= CUR_OK_MS ? GPIO_PIN_SET : GPIO_PIN_RESET);
 0493    }
-0494    else
-0495    {
-0496      ismon_good_cnt = 0;
-0497    }
-0498  
-0499    // 故障时灯给Fault_LED_Blink用
-0500    if (laser_state != LASER_FAULT)
-0501    {
-0502      HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin,
-0503                        ismon_good_cnt >= CUR_OK_MS ? GPIO_PIN_SET : GPIO_PIN_RESET);
-0504    }
-0505  }
-0506  
-0507  // 故障锁存后指示灯250ms翻转一次
-0508  static void Fault_LED_Blink(void)
-0509  {
-0510    if (laser_state != LASER_FAULT)
-0511      return;
-0512  
-0513    if (led_blink_cnt > 0)
-0514      led_blink_cnt--;
-0515  
-0516    if (led_blink_cnt == 0)
-0517    {
-0518      HAL_GPIO_TogglePin(R_EN_GPIO_Port, R_EN_Pin);
-0519      led_blink_cnt = FAULT_BLINK_MS;
-0520    }
-0521  }
-0522  
-0523  // 喂狗: TIM6任务完整跑完一次才喂一次
-0524  // 这样TIM6中断停了, 主循环还在跑也会复位
-0525  static void IWDG_Feed(void)
+0494  }
+0495  
+0496  // 故障锁存后指示灯250ms翻转一次
+0497  static void Fault_LED_Blink(void)
+0498  {
+0499    if (laser_state != LASER_FAULT)
+0500      return;
+0501  
+0502    if (led_blink_cnt > 0)
+0503      led_blink_cnt--;
+0504  
+0505    if (led_blink_cnt == 0)
+0506    {
+0507      HAL_GPIO_TogglePin(R_EN_GPIO_Port, R_EN_Pin);
+0508      led_blink_cnt = FAULT_BLINK_MS;
+0509    }
+0510  }
+0511  
+0512  // TIM6任务完整跑完一次才喂一次狗
+0513  static void IWDG_Feed(void)
+0514  {
+0515    uint32_t cnt = tim6_cnt;
+0516  
+0517    if (cnt != wdg_last_cnt)
+0518    {
+0519      wdg_last_cnt = cnt;
+0520      HAL_IWDG_Refresh(&hiwdg);
+0521    }
+0522  }
+0523  
+0524  // 放在MX_xxx_Init后面调
+0525  void Laser_Init(void)
 0526  {
-0527    uint32_t cnt = tim6_cnt;
-0528  
-0529    if (cnt != wdg_last_cnt)
-0530    {
-0531      wdg_last_cnt = cnt;
-0532      HAL_IWDG_Refresh(&hiwdg);
-0533    }
-0534  }
-0535  
-0536  /**
-0537    * @brief  激光控制初始化, 放在MX_xxx_Init后面调用
-0538    */
-0539  void Laser_Init(void)
-0540  {
-0541    laser_state = LASER_IDLE;
-0542    start_mask_cnt = 0;
-0543    fault_cnt = 0;
-0544    dac_target = 0;
-0545    dac_now = 0;
-0546    led_blink_cnt = 0;
-0547  
-0548    shoot_en = 0;
-0549    shoot_active = 1;
-0550    shoot_cnt = 0;
-0551    shoot_on_req = 0;
-0552  
-0553    key_cnt = 0;
-0554    key_down = 0;
-0555    key_req = 0;
-0556    // 上电时K2就按着的话要先松开, 防止一上电就出光
-0557    key_wait_up = (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET) ? 1 : 0;
-0558  #if BENCH_MODE != 0
-0559    bench_run = 0;
-0560    bench_time = 0;
-0561  #endif
-0562  
-0563    ismon_adc = 0;
-0564    ismon_target = 0;
-0565    ismon_ok = 0;
-0566    ismon_age = CUR_TIMEOUT_MS;
-0567    ismon_good_cnt = 0;
-0568    tim6_cnt = 0;
-0569    wdg_last_cnt = 0;
-0570  
-0571    Stop_IT_Off();
-0572    Shoot_IT_Off();
-0573    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_RESET);
-0574    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
-0575  
-0576    // 先写0再打开DAC输出, 避免PA4输出不确定
-0577    DAC_SetValue(0);
-0578    if (HAL_DAC_Start(&hdac1, DAC_CHANNEL_1) != HAL_OK)
-0579    {
-0580      Error_Handler();
-0581    }
-0582    DAC_SetValue(0);
-0583  
-0584    TIM6_Start_1ms();
-0585  }
-0586  
-0587  /**
-0588    * @brief  SHOOT外部控制开关
-0589    * @param  en: 1打开 0关闭, 故障锁存时打不开
-0590    * @note   打开后出光跟着SHOOT电平走. 打开时当作信号已经有了,
-0591    *         所以上电时信号就在的话不会出光, 要先撤掉再给一次
+0527    laser_state = LASER_IDLE;
+0528    start_mask_cnt = 0;
+0529    fault_cnt = 0;
+0530    dac_target = 0;
+0531    dac_now = 0;
+0532    led_blink_cnt = 0;
+0533  
+0534    shoot_en = 0;
+0535    shoot_active = 1;
+0536    shoot_cnt = 0;
+0537    shoot_on_req = 0;
+0538  
+0539    key_cnt = 0;
+0540    key_down = 0;
+0541    key_req = 0;
+0542    // 上电时K2就按着的话要先松开, 防止一上电就出光
+0543    key_wait_up = (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET) ? 1 : 0;
+0544  #if BENCH_MODE != 0
+0545    bench_run = 0;
+0546    bench_time = 0;
+0547  #endif
+0548  
+0549    ismon_adc = 0;
+0550    ismon_target = 0;
+0551    ismon_ok = 0;
+0552    ismon_age = CUR_TIMEOUT_MS;
+0553    ismon_good_cnt = 0;
+0554    tim6_cnt = 0;
+0555    wdg_last_cnt = 0;
+0556  
+0557    Stop_IT_Off();
+0558    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_RESET);
+0559    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0560  
+0561    // 先写0再打开DAC输出, 避免PA4输出不确定
+0562    DAC_SetValue(0);
+0563    if (HAL_DAC_Start(&hdac1, DAC_CHANNEL_1) != HAL_OK)
+0564    {
+0565      Error_Handler();
+0566    }
+0567    DAC_SetValue(0);
+0568  
+0569    TIM6_Start_1ms();
+0570  }
+0571  
+0572  /**
+0573    * @brief  SHOOT外部控制 1开 0关, 故障时开不了
+0574    * @note   上电时信号已经在的话不出光, 要撤掉再给一次
+0575    */
+0576  void Shoot_Enable(uint8_t en)
+0577  {
+0578    uint32_t irq = __get_PRIMASK();
+0579  
+0580    __disable_irq();
+0581    shoot_cnt = 0;
+0582    shoot_on_req = 0;
+0583    shoot_active = 1;
+0584    shoot_en = (en && laser_state != LASER_FAULT) ? 1 : 0;
+0585    __set_PRIMASK(irq);
+0586  }
+0587  
+0588  /**
+0589    * @brief  开始出光, PWM拉高, DAC从0缓升到目标值
+0590    * @param  dac: 目标DAC值 0~4095
+0591    * @note   只有空闲状态能启动, 启动后屏蔽一段时间再检测STOP
 0592    */
-0593  void Shoot_Enable(uint8_t en)
+0593  void Laser_Start(uint16_t dac)
 0594  {
 0595    uint32_t irq = __get_PRIMASK();
 0596  
 0597    __disable_irq();
-0598    Shoot_IT_Off();       // 现在是轮询, PA8的外部中断一直关着
-0599    shoot_cnt = 0;
-0600    shoot_on_req = 0;
-0601    shoot_active = 1;
-0602    shoot_en = (en && laser_state != LASER_FAULT) ? 1 : 0;
-0603    __set_PRIMASK(irq);
-0604  }
+0598    if (laser_state != LASER_IDLE)
+0599    {
+0600      __set_PRIMASK(irq);
+0601      return;
+0602    }
+0603  
+0604    if (dac > 4095) dac = 4095;
 0605  
-0606  /**
-0607    * @brief  开始出光, PWM拉高, DAC从0缓升到目标值
-0608    * @param  dac: 目标DAC值 0~4095
-0609    * @note   只有空闲状态能启动, 启动后屏蔽一段时间再检测STOP
-0610    */
-0611  void Laser_Start(uint16_t dac)
-0612  {
-0613    uint32_t irq = __get_PRIMASK();
+0606    Stop_IT_Off();
+0607    fault_cnt = 0;
+0608    led_blink_cnt = 0;
+0609    dac_target = dac;
+0610    dac_now = 0;
+0611    ismon_ok = 0;
+0612    ismon_good_cnt = 0;
+0613    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
 0614  
-0615    __disable_irq();
-0616    if (laser_state != LASER_IDLE)
-0617    {
-0618      __set_PRIMASK(irq);
-0619      return;
-0620    }
-0621  
-0622    if (dac > 4095) dac = 4095;
+0615    DAC_SetValue(0);
+0616    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_SET);
+0617  
+0618    start_mask_cnt = Calc_Mask_Time(dac);
+0619    laser_state = LASER_STARTING;
+0620  
+0621    __set_PRIMASK(irq);
+0622  }
 0623  
-0624    Stop_IT_Off();
-0625    fault_cnt = 0;
-0626    led_blink_cnt = 0;
-0627    dac_target = dac;
-0628    dac_now = 0;
-0629    ismon_ok = 0;
-0630    ismon_good_cnt = 0;
-0631    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
-0632  
-0633    DAC_SetValue(0);
-0634    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_SET);
+0624  // 正常关断, 故障锁存时不管
+0625  void Laser_Stop(void)
+0626  {
+0627    uint32_t irq = __get_PRIMASK();
+0628  
+0629    __disable_irq();
+0630  #if BENCH_MODE != 0
+0631    bench_run = 0;
+0632    bench_time = 0;
+0633    key_req = 0;
+0634  #endif
 0635  
-0636    start_mask_cnt = Calc_Mask_Time(dac);
-0637    laser_state = LASER_STARTING;
-0638  
-0639    __set_PRIMASK(irq);
-0640  }
+0636    if (laser_state == LASER_FAULT)
+0637    {
+0638      __set_PRIMASK(irq);
+0639      return;
+0640    }
 0641  
-0642  /**
-0643    * @brief  正常关断, 故障锁存时不处理
-0644    */
-0645  void Laser_Stop(void)
-0646  {
-0647    uint32_t irq = __get_PRIMASK();
-0648  
-0649    __disable_irq();
-0650  #if BENCH_MODE != 0
-0651    bench_run = 0;
-0652    bench_time = 0;
-0653    key_req = 0;
-0654  #endif
-0655  
-0656    if (laser_state == LASER_FAULT)
-0657    {
-0658      __set_PRIMASK(irq);
-0659      return;
-0660    }
-0661  
-0662    Stop_IT_Off();
-0663  
-0664    laser_state = LASER_IDLE;
-0665    start_mask_cnt = 0;
-0666    fault_cnt = 0;
-0667    led_blink_cnt = 0;
-0668    dac_target = 0;
-0669    dac_now = 0;
-0670  
-0671    PWM_GPIO_Port->BRR = PWM_Pin;
-0672    DAC_SetValue(0);
-0673    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
-0674  
-0675    __set_PRIMASK(irq);
-0676  }
-0677  
-0678  /**
-0679    * @brief  故障关断并锁存
-0680    * @note   锁存后按键和SHOOT都不能再启动, 要Laser_Fault_Clear或者复位
-0681    */
-0682  void Laser_Fault_Lock(void)
-0683  {
-0684  #if BENCH_MODE != 0
-0685    bench_run = 0;
-0686    bench_time = 0;
-0687  #endif
-0688    Stop_IT_Off();
-0689    Shoot_IT_Off();
-0690  
-0691    PWM_GPIO_Port->BRR = PWM_Pin;
-0692    DAC_SetValue(0);
-0693  
-0694    start_mask_cnt = 0;
-0695    fault_cnt = 0;
-0696    dac_target = 0;
-0697    dac_now = 0;
-0698    shoot_cnt = 0;
-0699    shoot_en = 0;
-0700    shoot_active = 1;
-0701    shoot_on_req = 0;
-0702    key_cnt = 0;
-0703    key_down = 0;
-0704    key_req = 0;
-0705    key_wait_up = 1;
-0706    led_blink_cnt = FAULT_BLINK_MS;
-0707    laser_state = LASER_FAULT;
-0708  
-0709    // 先点亮, 后面TIM6里Fault_LED_Blink负责闪
-0710    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_SET);
-0711  }
-0712  
-0713  /**
-0714    * @brief  清除故障锁存, 回到空闲
-0715    * @retval 1
-0716    */
-0717  uint8_t Laser_Fault_Clear(void)
-0718  {
-0719    if (laser_state != LASER_FAULT)
-0720      return 1;
-0721  
-0722    Stop_IT_Off();
-0723    Shoot_IT_Off();
+0642    Stop_IT_Off();
+0643  
+0644    laser_state = LASER_IDLE;
+0645    start_mask_cnt = 0;
+0646    fault_cnt = 0;
+0647    led_blink_cnt = 0;
+0648    dac_target = 0;
+0649    dac_now = 0;
+0650  
+0651    PWM_GPIO_Port->BRR = PWM_Pin;
+0652    DAC_SetValue(0);
+0653    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0654  
+0655    __set_PRIMASK(irq);
+0656  }
+0657  
+0658  /**
+0659    * @brief  故障关断并锁存
+0660    * @note   锁存后按键和SHOOT都不能再启动, 要Laser_Fault_Clear或者复位
+0661    */
+0662  void Laser_Fault_Lock(void)
+0663  {
+0664  #if BENCH_MODE != 0
+0665    bench_run = 0;
+0666    bench_time = 0;
+0667  #endif
+0668    Stop_IT_Off();
+0669  
+0670    PWM_GPIO_Port->BRR = PWM_Pin;
+0671    DAC_SetValue(0);
+0672  
+0673    start_mask_cnt = 0;
+0674    fault_cnt = 0;
+0675    dac_target = 0;
+0676    dac_now = 0;
+0677    shoot_cnt = 0;
+0678    shoot_en = 0;
+0679    shoot_active = 1;
+0680    shoot_on_req = 0;
+0681    key_cnt = 0;
+0682    key_down = 0;
+0683    key_req = 0;
+0684    key_wait_up = 1;
+0685    led_blink_cnt = FAULT_BLINK_MS;
+0686    laser_state = LASER_FAULT;
+0687  
+0688    // 先点亮, 后面TIM6里Fault_LED_Blink负责闪
+0689    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_SET);
+0690  }
+0691  
+0692  /**
+0693    * @brief  清除故障锁存, 回到空闲
+0694    * @retval 1
+0695    */
+0696  uint8_t Laser_Fault_Clear(void)
+0697  {
+0698    if (laser_state != LASER_FAULT)
+0699      return 1;
+0700  
+0701    Stop_IT_Off();
+0702  
+0703    PWM_GPIO_Port->BRR = PWM_Pin;
+0704    DAC_SetValue(0);
+0705  
+0706    start_mask_cnt = 0;
+0707    fault_cnt = 0;
+0708    dac_target = 0;
+0709    dac_now = 0;
+0710    shoot_cnt = 0;
+0711    shoot_en = 0;
+0712    shoot_active = 1;
+0713    shoot_on_req = 0;
+0714    key_cnt = 0;
+0715    key_down = 0;
+0716    key_req = 0;
+0717    key_wait_up = 1;    // 清完故障也要先松开按键
+0718  
+0719    led_blink_cnt = 0;
+0720    laser_state = LASER_IDLE;
+0721    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0722    return 1;
+0723  }
 0724  
-0725    PWM_GPIO_Port->BRR = PWM_Pin;
-0726    DAC_SetValue(0);
-0727  
-0728    start_mask_cnt = 0;
-0729    fault_cnt = 0;
-0730    dac_target = 0;
-0731    dac_now = 0;
-0732    shoot_cnt = 0;
-0733    shoot_en = 0;
-0734    shoot_active = 1;
-0735    shoot_on_req = 0;
-0736    key_cnt = 0;
-0737    key_down = 0;
-0738    key_req = 0;
-0739    key_wait_up = 1;    // 清完故障也要先松开按键
-0740  
-0741    led_blink_cnt = 0;
-0742    laser_state = LASER_IDLE;
-0743    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
-0744    return 1;
-0745  }
-0746  
-0747  /**
-0748    * @brief  异常处理里用, 直接写寄存器关输出
-0749    * @note   不调用HAL, 关中断后不再打开
-0750    */
-0751  void Laser_Force_Off(void)
-0752  {
-0753    __disable_irq();
-0754  
-0755    // GPIOA时钟没开说明PA9还没初始化
-0756    if (RCC->AHB2ENR & RCC_AHB2ENR_GPIOAEN)
-0757    {
-0758      PWM_GPIO_Port->BRR = PWM_Pin;
-0759    }
-0760    // DAC没开触发, 写DHR就直接更新输出
-0761    if (RCC->AHB2ENR & RCC_AHB2ENR_DAC1EN)
-0762    {
-0763      DAC1->DHR12R1 = 0;
-0764    }
-0765    if (RCC->AHB2ENR & RCC_AHB2ENR_GPIOCEN)
-0766    {
-0767      R_EN_GPIO_Port->BRR = R_EN_Pin;
-0768    }
-0769    __DSB();
-0770  }
+0725  /**
+0726    * @brief  异常处理里用, 直接写寄存器关输出
+0727    * @note   不调用HAL, 关中断后不再打开
+0728    */
+0729  void Laser_Force_Off(void)
+0730  {
+0731    __disable_irq();
+0732  
+0733    // GPIOA时钟没开说明PA9还没初始化
+0734    if (RCC->AHB2ENR & RCC_AHB2ENR_GPIOAEN)
+0735    {
+0736      PWM_GPIO_Port->BRR = PWM_Pin;
+0737    }
+0738    // DAC没开触发, 写DHR就直接更新输出
+0739    if (RCC->AHB2ENR & RCC_AHB2ENR_DAC1EN)
+0740    {
+0741      DAC1->DHR12R1 = 0;
+0742    }
+0743    if (RCC->AHB2ENR & RCC_AHB2ENR_GPIOCEN)
+0744    {
+0745      R_EN_GPIO_Port->BRR = R_EN_Pin;
+0746    }
+0747    __DSB();
+0748  }
+0749  
+0750  /* USER CODE END 0 */
+0751  
+0752  /**
+0753    * @brief  The application entry point.
+0754    * @retval int
+0755    */
+0756  int main(void)
+0757  {
+0758  
+0759    /* USER CODE BEGIN 1 */
+0760  
+0761    /* USER CODE END 1 */
+0762  
+0763    /* MCU Configuration--------------------------------------------------------*/
+0764  
+0765    /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+0766    HAL_Init();
+0767  
+0768    /* USER CODE BEGIN Init */
+0769  
+0770    /* USER CODE END Init */
 0771  
-0772  /* USER CODE END 0 */
-0773  
-0774  /**
-0775    * @brief  The application entry point.
-0776    * @retval int
-0777    */
-0778  int main(void)
-0779  {
-0780  
-0781    /* USER CODE BEGIN 1 */
-0782  
-0783    /* USER CODE END 1 */
-0784  
-0785    /* MCU Configuration--------------------------------------------------------*/
-0786  
-0787    /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-0788    HAL_Init();
-0789  
-0790    /* USER CODE BEGIN Init */
-0791  
-0792    /* USER CODE END Init */
-0793  
-0794    /* Configure the system clock */
-0795    SystemClock_Config();
-0796  
-0797    /* USER CODE BEGIN SysInit */
-0798  
-0799    /* USER CODE END SysInit */
-0800  
-0801    /* Initialize all configured peripherals */
-0802    MX_GPIO_Init();
-0803    MX_DMA_Init();
-0804    MX_DAC1_Init();
-0805    MX_TIM2_Init();
-0806    MX_USART3_UART_Init();
-0807    MX_ADC1_Init();
-0808    MX_ADC2_Init();
-0809    MX_TIM6_Init();
-0810    MX_IWDG_Init();
-0811    /* USER CODE BEGIN 2 */
-0812    if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK)
-0813    {
-0814      Error_Handler();
-0815    }
-0816    Laser_Init();
-0817  #if SHOOT_CTRL
-0818    shoot_dac = SHOOT_DAC_VALUE;
-0819    Shoot_Enable(1);
-0820  #else
-0821    shoot_dac = 0;
-0822    Shoot_Enable(0);    // SHOOT外部触发暂时不用
-0823  #endif
-0824  
-0825    /* USER CODE END 2 */
-0826  
-0827    /* Infinite loop */
-0828    /* USER CODE BEGIN WHILE */
-0829    while (1)
-0830    {
-0831      /* USER CODE END WHILE */
+0772    /* Configure the system clock */
+0773    SystemClock_Config();
+0774  
+0775    /* USER CODE BEGIN SysInit */
+0776  
+0777    /* USER CODE END SysInit */
+0778  
+0779    /* Initialize all configured peripherals */
+0780    MX_GPIO_Init();
+0781    MX_DMA_Init();
+0782    MX_DAC1_Init();
+0783    MX_TIM2_Init();
+0784    MX_USART3_UART_Init();
+0785    MX_ADC1_Init();
+0786    MX_ADC2_Init();
+0787    MX_TIM6_Init();
+0788    MX_IWDG_Init();
+0789    /* USER CODE BEGIN 2 */
+0790    if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK)
+0791    {
+0792      Error_Handler();
+0793    }
+0794    Laser_Init();
+0795  #if SHOOT_CTRL
+0796    shoot_dac = SHOOT_DAC_VALUE;
+0797    Shoot_Enable(1);
+0798  #else
+0799    shoot_dac = 0;
+0800    Shoot_Enable(0);    // SHOOT外部触发暂时不用
+0801  #endif
+0802  
+0803    /* USER CODE END 2 */
+0804  
+0805    /* Infinite loop */
+0806    /* USER CODE BEGIN WHILE */
+0807    while (1)
+0808    {
+0809      /* USER CODE END WHILE */
+0810  
+0811      /* USER CODE BEGIN 3 */
+0812      Key_Task();
+0813      Shoot_Task();
+0814      Current_Sample();
+0815      IWDG_Feed();
+0816    }
+0817    /* USER CODE END 3 */
+0818  }
+0819  
+0820  /**
+0821    * @brief System Clock Configuration
+0822    * @retval None
+0823    */
+0824  void SystemClock_Config(void)
+0825  {
+0826    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+0827    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+0828  
+0829    /** Configure the main internal regulator output voltage
+0830    */
+0831    HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
 0832  
-0833      /* USER CODE BEGIN 3 */
-0834      Key_Task();
-0835      Shoot_Task();
-0836      Current_Sample();
-0837      IWDG_Feed();
-0838    }
-0839    /* USER CODE END 3 */
-0840  }
-0841  
-0842  /**
-0843    * @brief System Clock Configuration
-0844    * @retval None
-0845    */
-0846  void SystemClock_Config(void)
-0847  {
-0848    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-0849    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+0833    /** Initializes the RCC Oscillators according to the specified parameters
+0834    * in the RCC_OscInitTypeDef structure.
+0835    */
+0836    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+0837    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+0838    RCC_OscInitStruct.LSIState = RCC_LSI_ON;
+0839    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+0840    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+0841    RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
+0842    RCC_OscInitStruct.PLL.PLLN = 85;
+0843    RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+0844    RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+0845    RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+0846    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+0847    {
+0848      Error_Handler();
+0849    }
 0850  
-0851    /** Configure the main internal regulator output voltage
+0851    /** Initializes the CPU, AHB and APB buses clocks
 0852    */
-0853    HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
-0854  
-0855    /** Initializes the RCC Oscillators according to the specified parameters
-0856    * in the RCC_OscInitTypeDef structure.
-0857    */
-0858    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
-0859    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
-0860    RCC_OscInitStruct.LSIState = RCC_LSI_ON;
-0861    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-0862    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
-0863    RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
-0864    RCC_OscInitStruct.PLL.PLLN = 85;
-0865    RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-0866    RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
-0867    RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
-0868    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-0869    {
-0870      Error_Handler();
-0871    }
-0872  
-0873    /** Initializes the CPU, AHB and APB buses clocks
-0874    */
-0875    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-0876                                |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-0877    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-0878    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-0879    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-0880    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-0881  
-0882    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+0853    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+0854                                |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+0855    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+0856    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+0857    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+0858    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+0859  
+0860    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+0861    {
+0862      Error_Handler();
+0863    }
+0864  
+0865    /** Enables the Clock Security System
+0866    */
+0867    HAL_RCC_EnableCSS();
+0868  }
+0869  
+0870  /* USER CODE BEGIN 4 */
+0871  // TIM6 1ms中断: 消抖, DAC缓升, 启动屏蔽, STOP检测, 指示灯
+0872  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+0873  {
+0874    if (htim->Instance != TIM6)
+0875      return;
+0876  
+0877    Shoot_Debounce();
+0878    Key_Scan();
+0879    DAC_Ramp();
+0880  
+0881    // 屏蔽时间到, STOP正常就进入RUNNING并打开STOP中断
+0882    if (laser_state == LASER_STARTING && start_mask_cnt > 0)
 0883    {
-0884      Error_Handler();
-0885    }
-0886  
-0887    /** Enables the Clock Security System
-0888    */
-0889    HAL_RCC_EnableCSS();
-0890  }
-0891  
-0892  /* USER CODE BEGIN 4 */
-0893  // TIM6 1ms中断: 消抖, DAC缓升, 启动屏蔽, STOP检测, 指示灯
-0894  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-0895  {
-0896    if (htim->Instance != TIM6)
-0897      return;
-0898  
-0899    Shoot_Debounce();
-0900    Key_Scan();
-0901    DAC_Ramp();
+0884      start_mask_cnt--;
+0885      if (start_mask_cnt == 0)
+0886      {
+0887        if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+0888          Laser_Fault_Lock();
+0889        else if (Stop_IT_On())
+0890          laser_state = LASER_RUNNING;
+0891        else
+0892          Laser_Fault_Lock();
+0893      }
+0894    }
+0895  
+0896    Stop_Check();
+0897  #if BENCH_MODE != 0
+0898    Bench_Task();
+0899  #endif
+0900    Current_LED_Update();
+0901    Fault_LED_Blink();
 0902  
-0903    // 屏蔽时间到, STOP正常就进入RUNNING并打开STOP中断
-0904    if (laser_state == LASER_STARTING && start_mask_cnt > 0)
-0905    {
-0906      start_mask_cnt--;
-0907      if (start_mask_cnt == 0)
-0908      {
-0909        if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-0910          Laser_Fault_Lock();
-0911        else if (Stop_IT_On())
-0912          laser_state = LASER_RUNNING;
-0913        else
-0914          Laser_Fault_Lock();
-0915      }
-0916    }
-0917  
-0918    Stop_Check();
-0919  #if BENCH_MODE != 0
-0920    Bench_Task();
-0921  #endif
-0922    Current_LED_Update();
-0923    Fault_LED_Blink();
-0924  
-0925    tim6_cnt++;   // 放最后, 前面全部执行完才算一次
+0903    tim6_cnt++;   // 放最后, 前面全部执行完才算一次
+0904  }
+0905  
+0906  // 现在只有STOP用外部中断, SHOOT改到TIM6里轮询了
+0907  void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+0908  {
+0909    if (GPIO_Pin == STOP_Pin)
+0910    {
+0911      // STOP下降沿: 先关中断, 滤波交给TIM6里的Stop_Check
+0912      uint32_t irq = __get_PRIMASK();
+0913      __disable_irq();
+0914      Stop_IT_Off();
+0915      if (laser_state == LASER_RUNNING)
+0916      {
+0917        if (fault_cnt == 0)
+0918          fault_cnt = FAULT_FILTER_MS;
+0919      }
+0920      else
+0921      {
+0922        fault_cnt = 0;
+0923      }
+0924      __set_PRIMASK(irq);
+0925    }
 0926  }
 0927  
-0928  void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-0929  {
-0930    if (GPIO_Pin == STOP_Pin)
-0931    {
-0932      // STOP下降沿: 先关中断, 滤波交给TIM6里的Stop_Check
-0933      uint32_t irq = __get_PRIMASK();
-0934      __disable_irq();
-0935      Stop_IT_Off();
-0936      if (laser_state == LASER_RUNNING)
-0937      {
-0938        if (fault_cnt == 0)
-0939          fault_cnt = FAULT_FILTER_MS;
-0940      }
-0941      else
-0942      {
-0943        fault_cnt = 0;
-0944      }
-0945      __set_PRIMASK(irq);
-0946    }
-0947  }
-0948  
-0949  /* USER CODE END 4 */
-0950  
-0951  /**
-0952    * @brief  This function is executed in case of error occurrence.
-0953    * @retval None
-0954    */
-0955  void Error_Handler(void)
-0956  {
-0957    /* USER CODE BEGIN Error_Handler_Debug */
-0958    /* User can add his own implementation to report the HAL error return state */
-0959    Laser_Force_Off();
-0960    while (1)
-0961    {
-0962    }
-0963    /* USER CODE END Error_Handler_Debug */
-0964  }
-0965  #ifdef USE_FULL_ASSERT
-0966  /**
-0967    * @brief  Reports the name of the source file and the source line number
-0968    *         where the assert_param error has occurred.
-0969    * @param  file: pointer to the source file name
-0970    * @param  line: assert_param error line source number
-0971    * @retval None
-0972    */
-0973  void assert_failed(uint8_t *file, uint32_t line)
-0974  {
-0975    /* USER CODE BEGIN 6 */
-0976    /* User can add his own implementation to report the file name and line number,
-0977       ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
-0978    /* USER CODE END 6 */
-0979  }
-0980  #endif /* USE_FULL_ASSERT */
+0928  /* USER CODE END 4 */
+0929  
+0930  /**
+0931    * @brief  This function is executed in case of error occurrence.
+0932    * @retval None
+0933    */
+0934  void Error_Handler(void)
+0935  {
+0936    /* USER CODE BEGIN Error_Handler_Debug */
+0937    /* User can add his own implementation to report the HAL error return state */
+0938    Laser_Force_Off();
+0939    while (1)
+0940    {
+0941    }
+0942    /* USER CODE END Error_Handler_Debug */
+0943  }
+0944  #ifdef USE_FULL_ASSERT
+0945  /**
+0946    * @brief  Reports the name of the source file and the source line number
+0947    *         where the assert_param error has occurred.
+0948    * @param  file: pointer to the source file name
+0949    * @param  line: assert_param error line source number
+0950    * @retval None
+0951    */
+0952  void assert_failed(uint8_t *file, uint32_t line)
+0953  {
+0954    /* USER CODE BEGIN 6 */
+0955    /* User can add his own implementation to report the file name and line number,
+0956       ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+0957    /* USER CODE END 6 */
+0958  }
+0959  #endif /* USE_FULL_ASSERT */
 
 ================ Core\Inc\main.h ================
 0001  /* USER CODE BEGIN Header */
@@ -1077,19 +1056,18 @@
 0093  #define KEY1_GPIO_Port GPIOC
 0094  #define SHOOT_Pin GPIO_PIN_8
 0095  #define SHOOT_GPIO_Port GPIOA
-0096  #define SHOOT_EXTI_IRQn EXTI9_5_IRQn
-0097  #define PWM_Pin GPIO_PIN_9
-0098  #define PWM_GPIO_Port GPIOA
-0099  
-0100  /* USER CODE BEGIN Private defines */
-0101  
-0102  /* USER CODE END Private defines */
-0103  
-0104  #ifdef __cplusplus
-0105  }
-0106  #endif
-0107  
-0108  #endif /* __MAIN_H */
+0096  #define PWM_Pin GPIO_PIN_9
+0097  #define PWM_GPIO_Port GPIOA
+0098  
+0099  /* USER CODE BEGIN Private defines */
+0100  
+0101  /* USER CODE END Private defines */
+0102  
+0103  #ifdef __cplusplus
+0104  }
+0105  #endif
+0106  
+0107  #endif /* __MAIN_H */
 
 ================ Core\Src\stm32g4xx_it.c ================
 0001  /* USER CODE BEGIN Header */
@@ -1311,51 +1289,37 @@
 0217  }
 0218  
 0219  /**
-0220    * @brief This function handles EXTI line[9:5] interrupts.
+0220    * @brief This function handles EXTI line[15:10] interrupts.
 0221    */
-0222  void EXTI9_5_IRQHandler(void)
+0222  void EXTI15_10_IRQHandler(void)
 0223  {
-0224    /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+0224    /* USER CODE BEGIN EXTI15_10_IRQn 0 */
 0225  
-0226    /* USER CODE END EXTI9_5_IRQn 0 */
-0227    HAL_GPIO_EXTI_IRQHandler(SHOOT_Pin);
-0228    /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+0226    /* USER CODE END EXTI15_10_IRQn 0 */
+0227    HAL_GPIO_EXTI_IRQHandler(STOP_Pin);
+0228    /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 0229  
-0230    /* USER CODE END EXTI9_5_IRQn 1 */
+0230    /* USER CODE END EXTI15_10_IRQn 1 */
 0231  }
 0232  
 0233  /**
-0234    * @brief This function handles EXTI line[15:10] interrupts.
+0234    * @brief This function handles TIM6 global interrupt, DAC1 and DAC3 channel underrun error interrupts.
 0235    */
-0236  void EXTI15_10_IRQHandler(void)
+0236  void TIM6_DAC_IRQHandler(void)
 0237  {
-0238    /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+0238    /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
 0239  
-0240    /* USER CODE END EXTI15_10_IRQn 0 */
-0241    HAL_GPIO_EXTI_IRQHandler(STOP_Pin);
-0242    /* USER CODE BEGIN EXTI15_10_IRQn 1 */
-0243  
-0244    /* USER CODE END EXTI15_10_IRQn 1 */
-0245  }
-0246  
-0247  /**
-0248    * @brief This function handles TIM6 global interrupt, DAC1 and DAC3 channel underrun error interrupts.
-0249    */
-0250  void TIM6_DAC_IRQHandler(void)
-0251  {
-0252    /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
-0253  
-0254    /* USER CODE END TIM6_DAC_IRQn 0 */
-0255    HAL_TIM_IRQHandler(&htim6);
-0256    HAL_DAC_IRQHandler(&hdac1);
-0257    /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
-0258  
-0259    /* USER CODE END TIM6_DAC_IRQn 1 */
-0260  }
-0261  
-0262  /* USER CODE BEGIN 1 */
-0263  
-0264  /* USER CODE END 1 */
+0240    /* USER CODE END TIM6_DAC_IRQn 0 */
+0241    HAL_TIM_IRQHandler(&htim6);
+0242    HAL_DAC_IRQHandler(&hdac1);
+0243    /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
+0244  
+0245    /* USER CODE END TIM6_DAC_IRQn 1 */
+0246  }
+0247  
+0248  /* USER CODE BEGIN 1 */
+0249  
+0250  /* USER CODE END 1 */
 
 ================ Core\Inc\stm32g4xx_it.h ================
 0001  /* USER CODE BEGIN Header */
@@ -1416,18 +1380,17 @@
 0056  void PendSV_Handler(void);
 0057  void SysTick_Handler(void);
 0058  void DMA1_Channel1_IRQHandler(void);
-0059  void EXTI9_5_IRQHandler(void);
-0060  void EXTI15_10_IRQHandler(void);
-0061  void TIM6_DAC_IRQHandler(void);
-0062  /* USER CODE BEGIN EFP */
-0063  
-0064  /* USER CODE END EFP */
-0065  
-0066  #ifdef __cplusplus
-0067  }
-0068  #endif
-0069  
-0070  #endif /* __STM32G4xx_IT_H */
+0059  void EXTI15_10_IRQHandler(void);
+0060  void TIM6_DAC_IRQHandler(void);
+0061  /* USER CODE BEGIN EFP */
+0062  
+0063  /* USER CODE END EFP */
+0064  
+0065  #ifdef __cplusplus
+0066  }
+0067  #endif
+0068  
+0069  #endif /* __STM32G4xx_IT_H */
 
 ================ Core\Src\iwdg.c ================
 0001  /* USER CODE BEGIN Header */
@@ -1621,7 +1584,7 @@
 0077  
 0078    /*Configure GPIO pin : SHOOT_Pin */
 0079    GPIO_InitStruct.Pin = SHOOT_Pin;
-0080    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+0080    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
 0081    GPIO_InitStruct.Pull = GPIO_PULLUP;
 0082    HAL_GPIO_Init(SHOOT_GPIO_Port, &GPIO_InitStruct);
 0083  
@@ -1633,17 +1596,14 @@
 0089    HAL_GPIO_Init(PWM_GPIO_Port, &GPIO_InitStruct);
 0090  
 0091    /* EXTI interrupt init*/
-0092    HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
-0093    HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+0092    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
+0093    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 0094  
-0095    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
-0096    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-0097  
-0098  }
-0099  
-0100  /* USER CODE BEGIN 2 */
-0101  
-0102  /* USER CODE END 2 */
+0095  }
+0096  
+0097  /* USER CODE BEGIN 2 */
+0098  
+0099  /* USER CODE END 2 */
 
 ================ Core\Inc\gpio.h ================
 0001  /* USER CODE BEGIN Header */

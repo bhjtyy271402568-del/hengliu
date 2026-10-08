@@ -38,28 +38,33 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define LASER_SHOOT_DEBOUNCE_MS 5U
-#define LASER_FAULT_DEBOUNCE_MS 5U
-#define LASER_FAULT_LED_BLINK_MS 250U
-#define LASER_DAC_RAMP_STEP_PER_MS 50U
-#define LASER_START_MASK_EXTRA_MS 100U
-#define LASER_START_MASK_MAX_MS 200U
-#define KEY1_PRESS_DEBOUNCE_MS 20U
-#define TEST_DAC_VALUE 3645U
-#define LASER_CURRENT_GOOD_MS 100U
-#define LASER_CURRENT_STALE_MS 5U
-#define LASER_CURRENT_TOLERANCE_PERCENT 20U
+// 测试模式 (K2 在 CubeMX 里引脚名叫 KEY1)
+// 0: 按住K2出光, 松手关
+// 1: 按一下开, 再按一下关
+// 2: 按一下开始循环, 开1s关100ms, 再按一下停
+#ifndef BENCH_MODE
+#define BENCH_MODE        1
+#endif
+#if BENCH_MODE > 2
+#error "BENCH_MODE must be 0, 1 or 2"
+#endif
 
-/* Bench test only: 0 = hold K2; 1 = toggle; 2 = toggle a timed cycle.
-   K2 is named KEY1 in the generated GPIO definitions. */
-#ifndef LASER_BENCH_MODE
-#define LASER_BENCH_MODE 1U
-#endif
-#if LASER_BENCH_MODE > 2U
-#error "LASER_BENCH_MODE must be 0, 1 or 2"
-#endif
-#define BENCH_CYCLE_ON_MS 1000U
-#define BENCH_CYCLE_OFF_MS 100U
+#define TEST_DAC_VALUE    3645    // K2测试时的DAC设定值
+#define BENCH_ON_MS       1000
+#define BENCH_OFF_MS      100
+
+#define KEY_DEBOUNCE_MS   20      // 按键消抖
+#define SHOOT_DEBOUNCE_MS 5       // SHOOT输入消抖
+#define FAULT_FILTER_MS   5       // STOP连续低5ms才算故障
+#define FAULT_BLINK_MS    250     // 故障时指示灯闪烁间隔
+
+#define DAC_STEP          50      // DAC缓升, 每ms加50
+#define START_MASK_EXTRA  100     // 启动屏蔽 = 缓升时间 + 100ms
+#define START_MASK_MAX    200     // 屏蔽时间最长200ms
+
+#define CUR_OK_MS         100     // 电流正常持续100ms才亮灯
+#define CUR_TIMEOUT_MS    5       // 采样超过5ms没更新就不算
+#define CUR_TOL_PCT       20      // 允许偏差 +-20%
 
 /* USER CODE END PD */
 
@@ -71,33 +76,39 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile Laser_State_t g_laser_state = LASER_STATE_IDLE;
-volatile uint16_t g_laser_start_mask_ms = 0U;
-volatile uint16_t g_laser_fault_debounce_ms = 0U;
-static volatile uint16_t g_laser_dac_target_val = 0U;
-static volatile uint16_t g_laser_dac_current_val = 0U;
-volatile uint16_t g_laser_shoot_dac_val = 0U;
-static volatile uint16_t g_laser_shoot_debounce_ms = 0U;
-static volatile uint16_t g_laser_fault_led_blink_ms = 0U;
-static volatile uint16_t g_laser_shoot_req_dac_val = 0U;
-static volatile uint8_t g_laser_shoot_enabled = 0U;
-static volatile uint8_t g_laser_shoot_start_req = 0U;
-static volatile uint8_t g_laser_shoot_stop_req = 0U;
-static volatile uint16_t g_key1_press_debounce_ms = 0U;
-static volatile uint8_t g_key1_latched_pressed = 0U;
-static volatile uint8_t g_key1_start_req = 0U;
-static volatile uint8_t g_key1_release_required = 0U;
-/* Nominal, uncalibrated ISMON feedback. Visible in the debugger. */
-volatile uint16_t g_laser_current_adc = 0U;
-volatile uint16_t g_laser_target_adc = 0U;
-volatile uint8_t g_laser_current_valid = 0U;
-static volatile uint16_t g_laser_current_age_ms = LASER_CURRENT_STALE_MS;
-static volatile uint16_t g_laser_current_good_ms = 0U;
-static volatile uint32_t g_tim6_completed = 0U;
-static uint32_t g_watchdog_last_completed = 0U;
-#if LASER_BENCH_MODE != 0U
-static volatile uint8_t g_bench_active = 0U;
-static volatile uint16_t g_bench_phase_ms = 0U;
+volatile LaserState_t laser_state = LASER_IDLE;
+volatile uint16_t start_mask_cnt = 0;      // 启动屏蔽倒计时
+volatile uint16_t fault_cnt = 0;           // STOP低电平滤波计数
+volatile uint16_t shoot_dac = 0;           // SHOOT触发用的DAC值, 0=不出光
+
+static volatile uint16_t dac_target = 0;
+static volatile uint16_t dac_now = 0;
+static volatile uint16_t led_blink_cnt = 0;
+
+static volatile uint8_t  shoot_en = 0;
+static volatile uint16_t shoot_cnt = 0;
+static volatile uint16_t shoot_req_dac = 0;
+static volatile uint8_t  shoot_on_req = 0;
+static volatile uint8_t  shoot_off_req = 0;
+
+static volatile uint16_t key_cnt = 0;
+static volatile uint8_t  key_down = 0;     // 消抖后确认按下
+static volatile uint8_t  key_req = 0;      // 请求主循环启动
+static volatile uint8_t  key_wait_up = 0;  // 要先松开按键
+
+// ISMON电流采样, 调试时在Watch窗口看
+volatile uint16_t ismon_adc = 0;
+volatile uint16_t ismon_target = 0;
+volatile uint8_t  ismon_ok = 0;
+static volatile uint16_t ismon_age = CUR_TIMEOUT_MS;
+static volatile uint16_t ismon_good_cnt = 0;
+
+static volatile uint32_t tim6_cnt = 0;     // TIM6任务执行次数, 喂狗用
+static uint32_t wdg_last_cnt = 0;
+
+#if BENCH_MODE != 0
+static volatile uint8_t  bench_run = 0;
+static volatile uint16_t bench_time = 0;
 #endif
 
 /* USER CODE END PV */
@@ -105,488 +116,58 @@ static volatile uint16_t g_bench_phase_ms = 0U;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-static void Laser_Disable_Stop_EXTI(void);
-static uint8_t Laser_Enable_Stop_EXTI(void);
-static void Laser_Disable_Shoot_EXTI(void);
-static void Laser_Enable_Shoot_EXTI(void);
-static void Laser_Process_Shoot_Debounce(void);
-static void Laser_Process_Shoot_Requests(void);
-static void Laser_Process_Fault_LED(void);
-static void Laser_Process_Key1_Debounce(void);
-static void Laser_Process_Key1_Requests(void);
-static uint16_t Laser_Calc_Start_Mask_Ms(uint16_t dac_val);
-static void Laser_Process_Dac_Ramp(void);
-static void Laser_Set_Dac_12bit(uint16_t dac_val);
-static void Laser_TIM6_Start_1ms(void);
-static void Laser_Process_Current_Sample(void);
-static void Laser_Process_Current_LED(void);
-static void Laser_Process_Watchdog(void);
-static void Laser_Process_Stop_Fault(void);
-#if LASER_BENCH_MODE != 0U
-static void Laser_Process_Bench(void);
+static void DAC_SetValue(uint16_t val);
+static void TIM6_Start_1ms(void);
+static void Stop_IT_Off(void);
+static uint8_t Stop_IT_On(void);
+static void Shoot_IT_Off(void);
+static void Shoot_IT_On(void);
+static uint16_t Calc_Mask_Time(uint16_t dac);
+static void DAC_Ramp(void);
+static void Stop_Check(void);
+static void Shoot_Debounce(void);
+static void Shoot_Task(void);
+static void Key_Scan(void);
+static void Key_Task(void);
+static void Current_Sample(void);
+static void Current_LED_Update(void);
+static void Fault_LED_Blink(void);
+static void IWDG_Feed(void);
+#if BENCH_MODE != 0
+static void Bench_Task(void);
 #endif
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-/* Main-loop only: each refresh consumes a NEW completed TIM6 task. */
-static void Laser_Process_Watchdog(void)
+// 写DAC1通道1, 12位右对齐
+static void DAC_SetValue(uint16_t val)
 {
-  uint32_t completed = g_tim6_completed;
+  if (val > 4095) val = 4095;
 
-  if (completed != g_watchdog_last_completed)
-  {
-    g_watchdog_last_completed = completed;
-    HAL_IWDG_Refresh(&hiwdg);
-  }
-}
-
-/* Main-loop only: ADC polling must not delay the TIM6 safety task. */
-static void Laser_Process_Current_Sample(void)
-{
-  static uint32_t last_sample_ms = UINT32_MAX;
-  uint32_t now = HAL_GetTick();
-  uint32_t primask;
-  uint16_t raw = 0U;
-  uint8_t valid = 0U;
-
-  if (now == last_sample_ms)
-  {
-    return;
-  }
-  last_sample_ms = now;
-
-  if (HAL_ADC_Start(&hadc1) == HAL_OK)
-  {
-    if (HAL_ADC_PollForConversion(&hadc1, 1U) == HAL_OK)
-    {
-      raw = (uint16_t)HAL_ADC_GetValue(&hadc1);
-      valid = 1U;
-    }
-  }
-  if (HAL_ADC_Stop(&hadc1) != HAL_OK)
-  {
-    valid = 0U;
-  }
-
-  primask = __get_PRIMASK();
-  __disable_irq();
-  g_laser_current_adc = raw;
-  g_laser_current_valid = valid;
-  g_laser_current_age_ms = 0U;
-  if (valid == 0U)
-  {
-    g_laser_current_good_ms = 0U;
-  }
-  if (primask == 0U)
-  {
-    __enable_irq();
-  }
-}
-
-static void Laser_Process_Current_LED(void)
-{
-  uint32_t measured;
-  uint32_t target;
-
-  if (g_laser_current_age_ms < LASER_CURRENT_STALE_MS)
-  {
-    g_laser_current_age_ms++;
-  }
-
-  /* R2/R19 = 10k/8.2k, CTRL = 30*Rs*I, ISMON = 20*Rs*I.
-     ADC and DAC share VREF+: target ADC = DAC * (41/91) * (20/30).
-     This nominal ratio is NOT an ISMON accuracy calibration. */
-  target = (uint32_t)g_laser_dac_target_val * 82U;
-  g_laser_target_adc = (uint16_t)((target + 136U) / 273U);
-  measured = (uint32_t)g_laser_current_adc * 273U * 100U;
-
-  if ((g_laser_state == LASER_STATE_RUNNING) && (target > 0U) &&
-      (g_laser_fault_debounce_ms == 0U) &&
-      (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_SET) &&
-      (g_laser_current_valid != 0U) &&
-      (g_laser_current_age_ms < LASER_CURRENT_STALE_MS) &&
-      (measured >= target * (100U - LASER_CURRENT_TOLERANCE_PERCENT)) &&
-      (measured <= target * (100U + LASER_CURRENT_TOLERANCE_PERCENT)))
-  {
-    if (g_laser_current_good_ms < LASER_CURRENT_GOOD_MS)
-    {
-      g_laser_current_good_ms++;
-    }
-  }
-  else
-  {
-    g_laser_current_good_ms = 0U;
-  }
-
-  /* Fault blinking owns the LED while FAULT is latched. */
-  if (g_laser_state != LASER_STATE_FAULT)
-  {
-    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin,
-                     (g_laser_current_good_ms >= LASER_CURRENT_GOOD_MS) ? GPIO_PIN_SET : GPIO_PIN_RESET);
-  }
-}
-
-static void Laser_Disable_Stop_EXTI(void)
-{
-  EXTI->IMR1 &= ~(uint32_t)STOP_Pin;
-  __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
-  HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
-}
-
-static uint8_t Laser_Enable_Stop_EXTI(void)
-{
-  __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
-  HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
-
-  if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-  {
-    return 0U;
-  }
-
-  EXTI->IMR1 |= (uint32_t)STOP_Pin;
-  return 1U;
-}
-
-static void Laser_Process_Stop_Fault(void)
-{
-  if (g_laser_state != LASER_STATE_RUNNING)
-  {
-    return;
-  }
-
-  if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-  {
-    if (g_laser_fault_debounce_ms == 0U)
-    {
-      Laser_Disable_Stop_EXTI();
-      g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
-    }
-
-    /* EXTI and polling share five consecutive 1 ms low samples. */
-    g_laser_fault_debounce_ms--;
-    if (g_laser_fault_debounce_ms == 0U)
-    {
-      Laser_Emergency_Kill();
-    }
-  }
-  else if (g_laser_fault_debounce_ms != 0U)
-  {
-    g_laser_fault_debounce_ms = 0U;
-    if (Laser_Enable_Stop_EXTI() == 0U)
-    {
-      /* A new falling edge during re-arm needs its own debounce. */
-      g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
-    }
-  }
-}
-
-static void Laser_Disable_Shoot_EXTI(void)
-{
-  EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
-  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
-  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
-}
-
-static void Laser_Enable_Shoot_EXTI(void)
-{
-  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
-  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
-  EXTI->IMR1 |= (uint32_t)SHOOT_Pin;
-}
-
-static void Laser_Process_Shoot_Debounce(void)
-{
-  GPIO_PinState shoot_level;
-
-  if (g_laser_shoot_debounce_ms == 0U)
-  {
-    return;
-  }
-
-  g_laser_shoot_debounce_ms--;
-  if (g_laser_shoot_debounce_ms > 0U)
-  {
-    return;
-  }
-
-  shoot_level = HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin);
-  if (g_laser_shoot_enabled != 0U)
-  {
-    if (shoot_level == GPIO_PIN_RESET)
-    {
-      if (g_laser_shoot_dac_val > 0U)
-      {
-        g_laser_shoot_req_dac_val = g_laser_shoot_dac_val;
-        g_laser_shoot_start_req = 1U;
-        g_laser_shoot_stop_req = 0U;
-      }
-      else
-      {
-        g_laser_shoot_start_req = 0U;
-        g_laser_shoot_stop_req = 1U;
-      }
-    }
-    else
-    {
-      g_laser_shoot_start_req = 0U;
-      g_laser_shoot_stop_req = 1U;
-    }
-  }
-
-  if (g_laser_shoot_enabled != 0U)
-  {
-    Laser_Enable_Shoot_EXTI();
-  }
-}
-
-static void Laser_Process_Shoot_Requests(void)
-{
-  uint8_t start_req;
-  uint8_t stop_req;
-  uint16_t start_dac_val;
-  uint32_t primask;
-
-  primask = __get_PRIMASK();
-  __disable_irq();
-  start_req = g_laser_shoot_start_req;
-  stop_req = g_laser_shoot_stop_req;
-  start_dac_val = g_laser_shoot_req_dac_val;
-  g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
-  if (primask == 0U)
-  {
-    __enable_irq();
-  }
-
-  if (stop_req != 0U)
-  {
-    Laser_Stop();
-  }
-  else if (start_req != 0U)
-  {
-    Laser_Start(start_dac_val);
-  }
-}
-
-static void Laser_Process_Fault_LED(void)
-{
-  if (g_laser_state != LASER_STATE_FAULT)
-  {
-    return;
-  }
-
-  if (g_laser_fault_led_blink_ms > 0U)
-  {
-    g_laser_fault_led_blink_ms--;
-  }
-
-  if (g_laser_fault_led_blink_ms == 0U)
-  {
-    HAL_GPIO_TogglePin(R_EN_GPIO_Port, R_EN_Pin);
-    g_laser_fault_led_blink_ms = LASER_FAULT_LED_BLINK_MS;
-  }
-}
-
-static void Laser_Process_Key1_Debounce(void)
-{
-  GPIO_PinState key_level = HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin);
-
-  if (key_level == GPIO_PIN_RESET)
-  {
-    if (g_key1_release_required != 0U)
-    {
-      g_key1_press_debounce_ms = 0U;
-      return;
-    }
-
-    if (g_key1_latched_pressed == 0U)
-    {
-      if (g_key1_press_debounce_ms < KEY1_PRESS_DEBOUNCE_MS)
-      {
-        g_key1_press_debounce_ms++;
-      }
-
-      if (g_key1_press_debounce_ms >= KEY1_PRESS_DEBOUNCE_MS)
-      {
-        g_key1_latched_pressed = 1U;
-#if LASER_BENCH_MODE != 0U
-        if (g_bench_active != 0U)
-        {
-          /* TIM6 stops output even when the main loop is stalled. */
-          Laser_Stop();
-        }
-        else if (g_laser_state == LASER_STATE_IDLE)
-        {
-          g_bench_active = 1U;
-          g_bench_phase_ms = 0U;
-          g_key1_start_req = 1U;
-        }
-#else
-        g_key1_start_req = 1U;
-#endif
-      }
-    }
-  }
-  else
-  {
-    g_key1_press_debounce_ms = 0U;
-    g_key1_release_required = 0U;
-
-    if (g_key1_latched_pressed != 0U)
-    {
-      g_key1_latched_pressed = 0U;
-#if LASER_BENCH_MODE == 0U
-      g_key1_start_req = 0U;
-      /* Stop in TIM6 even if the main loop is not making progress. */
-      Laser_Stop();
-#endif
-    }
-  }
-}
-
-static void Laser_Process_Key1_Requests(void)
-{
-  uint32_t primask;
-
-  primask = __get_PRIMASK();
-  __disable_irq();
-
-  if (g_key1_start_req != 0U)
-  {
-    g_key1_start_req = 0U;
-    /* Recheck and commit together: no stale start after a stop request. */
-#if LASER_BENCH_MODE != 0U
-    if (g_bench_active != 0U)
-#else
-    if ((g_key1_latched_pressed != 0U) && (g_key1_release_required == 0U) &&
-        (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET))
-#endif
-    {
-      Laser_Start(TEST_DAC_VALUE);
-#if LASER_BENCH_MODE != 0U
-      /* Count the ON interval from the actual output enable. */
-      g_bench_phase_ms = 0U;
-#endif
-    }
-  }
-
-  if (primask == 0U)
-  {
-    __enable_irq();
-  }
-}
-
-#if LASER_BENCH_MODE != 0U
-static void Laser_Process_Bench(void)
-{
-  if (g_bench_active == 0U)
-  {
-    return;
-  }
-
-#if LASER_BENCH_MODE == 2U
-  /* A delayed main loop must not consume the next ON interval. */
-  if (g_key1_start_req != 0U)
-  {
-    return;
-  }
-
-  if (g_bench_phase_ms < UINT16_MAX)
-  {
-    g_bench_phase_ms++;
-  }
-
-  if (g_laser_state == LASER_STATE_IDLE)
-  {
-    if (g_bench_phase_ms >= BENCH_CYCLE_OFF_MS)
-    {
-      g_key1_start_req = 1U;
-    }
-  }
-  else if (g_bench_phase_ms >= BENCH_CYCLE_ON_MS)
-  {
-    /* Finish a pending fault check before a cycle stop could clear it. */
-    if (g_laser_fault_debounce_ms != 0U)
-    {
-      return;
-    }
-    Laser_Stop();
-    if (g_laser_state == LASER_STATE_IDLE)
-    {
-      /* Only this planned stop may re-arm the cycle, within TIM6. */
-      g_bench_active = 1U;
-    }
-  }
-#endif
-}
-#endif
-
-static uint16_t Laser_Calc_Start_Mask_Ms(uint16_t dac_val)
-{
-  uint32_t ramp_ms = ((uint32_t)dac_val + LASER_DAC_RAMP_STEP_PER_MS - 1U) / LASER_DAC_RAMP_STEP_PER_MS;
-  uint32_t mask_ms = ramp_ms + LASER_START_MASK_EXTRA_MS;
-
-  if (mask_ms > LASER_START_MASK_MAX_MS)
-  {
-    mask_ms = LASER_START_MASK_MAX_MS;
-  }
-
-  return (uint16_t)mask_ms;
-}
-
-static void Laser_Process_Dac_Ramp(void)
-{
-  uint16_t next_val;
-
-  if ((g_laser_state != LASER_STATE_STARTING) && (g_laser_state != LASER_STATE_RUNNING))
-  {
-    return;
-  }
-
-  if (g_laser_dac_current_val >= g_laser_dac_target_val)
-  {
-    return;
-  }
-
-  next_val = g_laser_dac_current_val + LASER_DAC_RAMP_STEP_PER_MS;
-  if ((next_val < g_laser_dac_current_val) || (next_val > g_laser_dac_target_val))
-  {
-    next_val = g_laser_dac_target_val;
-  }
-
-  g_laser_dac_current_val = next_val;
-  Laser_Set_Dac_12bit(next_val);
-}
-
-static void Laser_Set_Dac_12bit(uint16_t dac_val)
-{
-  if (dac_val > 4095U)
-  {
-    dac_val = 4095U;
-  }
-
-  if (HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val) != HAL_OK)
+  if (HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, val) != HAL_OK)
   {
     Error_Handler();
   }
 }
 
-static void Laser_TIM6_Start_1ms(void)
+// TIM6配成1ms中断, 分频按实际PCLK1算
+static void TIM6_Start_1ms(void)
 {
-  uint32_t tim6_clk_hz = HAL_RCC_GetPCLK1Freq();
+  uint32_t clk = HAL_RCC_GetPCLK1Freq();
 
-  if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0U)
+  // APB1有分频时定时器时钟x2
+  if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0)
   {
-    tim6_clk_hz *= 2U;
+    clk *= 2;
   }
 
   __HAL_TIM_DISABLE(&htim6);
   __HAL_TIM_DISABLE_IT(&htim6, TIM_IT_UPDATE);
-  __HAL_TIM_SET_PRESCALER(&htim6, (tim6_clk_hz / 1000000U) - 1U);
-  __HAL_TIM_SET_AUTORELOAD(&htim6, 1000U - 1U);
-  __HAL_TIM_SET_COUNTER(&htim6, 0U);
+  __HAL_TIM_SET_PRESCALER(&htim6, clk / 1000000 - 1);   // 1MHz
+  __HAL_TIM_SET_AUTORELOAD(&htim6, 1000 - 1);           // 1ms
+  __HAL_TIM_SET_COUNTER(&htim6, 0);
   HAL_TIM_GenerateEvent(&htim6, TIM_EVENTSOURCE_UPDATE);
   __HAL_TIM_CLEAR_FLAG(&htim6, TIM_FLAG_UPDATE);
 
@@ -596,235 +177,603 @@ static void Laser_TIM6_Start_1ms(void)
   }
 }
 
-void Laser_Hardware_Init(void)
+static void Stop_IT_Off(void)
 {
-  g_laser_current_adc = 0U;
-  g_laser_target_adc = 0U;
-  g_laser_current_valid = 0U;
-  g_laser_current_age_ms = LASER_CURRENT_STALE_MS;
-  g_laser_current_good_ms = 0U;
-  g_laser_state = LASER_STATE_IDLE;
-  g_tim6_completed = 0U;
-  g_watchdog_last_completed = 0U;
-  g_laser_start_mask_ms = 0U;
-  g_laser_fault_debounce_ms = 0U;
-  g_laser_dac_target_val = 0U;
-  g_laser_dac_current_val = 0U;
-  g_laser_shoot_debounce_ms = 0U;
-  g_laser_fault_led_blink_ms = 0U;
-  g_laser_shoot_req_dac_val = 0U;
-  g_laser_shoot_enabled = 0U;
-  g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
-  g_key1_press_debounce_ms = 0U;
-  g_key1_latched_pressed = 0U;
-  g_key1_start_req = 0U;
-  g_key1_release_required = (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET) ? 1U : 0U;
-#if LASER_BENCH_MODE != 0U
-  g_bench_active = 0U;
-  g_bench_phase_ms = 0U;
+  EXTI->IMR1 &= ~(uint32_t)STOP_Pin;
+  __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
+  HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
+}
+
+// 打开STOP中断, 返回0说明STOP现在就是低电平, 没有打开
+static uint8_t Stop_IT_On(void)
+{
+  __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
+  HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
+
+  if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+  {
+    return 0;
+  }
+  EXTI->IMR1 |= (uint32_t)STOP_Pin;
+  return 1;
+}
+
+static void Shoot_IT_Off(void)
+{
+  EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
+  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
+  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
+}
+
+static void Shoot_IT_On(void)
+{
+  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
+  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
+  EXTI->IMR1 |= (uint32_t)SHOOT_Pin;
+}
+
+// 启动屏蔽时间: DAC缓升要的时间再加100ms, 最多200ms
+static uint16_t Calc_Mask_Time(uint16_t dac)
+{
+  uint32_t t = ((uint32_t)dac + DAC_STEP - 1) / DAC_STEP + START_MASK_EXTRA;
+
+  if (t > START_MASK_MAX) t = START_MASK_MAX;
+  return (uint16_t)t;
+}
+
+// 1ms一次, DAC每次加DAC_STEP, 加到目标值为止
+static void DAC_Ramp(void)
+{
+  uint16_t next;
+
+  if (laser_state != LASER_STARTING && laser_state != LASER_RUNNING)
+    return;
+  if (dac_now >= dac_target)
+    return;
+
+  next = dac_now + DAC_STEP;
+  if (next < dac_now || next > dac_target)
+  {
+    next = dac_target;
+  }
+  dac_now = next;
+  DAC_SetValue(next);
+}
+
+// TIM6里轮询STOP脚, 和STOP中断共用fault_cnt
+// 连续5次(5ms)都是低电平才锁故障
+static void Stop_Check(void)
+{
+  if (laser_state != LASER_RUNNING)
+  {
+    return;
+  }
+
+  if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+  {
+    if (fault_cnt == 0)
+    {
+      Stop_IT_Off();
+      fault_cnt = FAULT_FILTER_MS;
+    }
+    fault_cnt--;
+    if (fault_cnt == 0)
+    {
+      Laser_Fault_Lock();
+    }
+  }
+  else if (fault_cnt != 0)
+  {
+    // 低电平没持续够, 当干扰处理, 重新开中断
+    fault_cnt = 0;
+    if (Stop_IT_On() == 0)
+    {
+      // 开中断时又变低了, 重新计数
+      fault_cnt = FAULT_FILTER_MS;
+    }
+  }
+}
+
+static void Shoot_Debounce(void)
+{
+  GPIO_PinState lvl;
+
+  if (shoot_cnt == 0)
+    return;
+
+  shoot_cnt--;
+  if (shoot_cnt > 0)
+    return;
+
+  lvl = HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin);
+  if (shoot_en)
+  {
+    // SHOOT低电平出光, 高电平关
+    if (lvl == GPIO_PIN_RESET && shoot_dac > 0)
+    {
+      shoot_req_dac = shoot_dac;
+      shoot_on_req = 1;
+      shoot_off_req = 0;
+    }
+    else
+    {
+      shoot_on_req = 0;
+      shoot_off_req = 1;
+    }
+    Shoot_IT_On();
+  }
+}
+
+// 主循环里处理SHOOT请求
+static void Shoot_Task(void)
+{
+  uint8_t on, off;
+  uint16_t dac;
+  uint32_t irq = __get_PRIMASK();
+
+  __disable_irq();
+  on = shoot_on_req;
+  off = shoot_off_req;
+  dac = shoot_req_dac;
+  shoot_on_req = 0;
+  shoot_off_req = 0;
+  __set_PRIMASK(irq);
+
+  if (off)
+    Laser_Stop();
+  else if (on)
+    Laser_Start(dac);
+}
+
+// K2按键扫描, TIM6里1ms调用一次
+static void Key_Scan(void)
+{
+  if (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
+  {
+    if (key_wait_up)
+    {
+      key_cnt = 0;
+      return;
+    }
+    if (key_down)
+      return;
+
+    if(key_cnt < KEY_DEBOUNCE_MS)
+      key_cnt++;
+    if (key_cnt >= KEY_DEBOUNCE_MS)
+    {
+      key_down = 1;
+#if BENCH_MODE != 0
+      if (bench_run)
+      {
+        Laser_Stop();   // 在中断里直接关, 不等主循环
+      }
+      else if (laser_state == LASER_IDLE)
+      {
+        bench_run = 1;
+        bench_time = 0;
+        key_req = 1;
+      }
+#else
+      key_req = 1;
+#endif
+    }
+  }
+  else
+  {
+    key_cnt = 0;
+    key_wait_up = 0;
+    if (key_down)
+    {
+      key_down = 0;
+#if BENCH_MODE == 0
+      key_req = 0;
+      Laser_Stop();     // 松手就关, 也放在中断里
+#endif
+    }
+  }
+}
+
+// 主循环里处理按键启动
+static void Key_Task(void)
+{
+  uint32_t irq = __get_PRIMASK();
+
+  __disable_irq();
+  if (key_req)
+  {
+    key_req = 0;
+    // 关中断后再确认一次, 防止中断里已经要停了这里又去启动
+#if BENCH_MODE != 0
+    if (bench_run)
+#else
+    if (key_down && !key_wait_up &&
+        HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
+#endif
+    {
+      Laser_Start(TEST_DAC_VALUE);
+#if BENCH_MODE != 0
+      bench_time = 0;   // 从真正出光开始计时
+#endif
+    }
+  }
+  __set_PRIMASK(irq);
+}
+
+#if BENCH_MODE != 0
+static void Bench_Task(void)
+{
+  if (!bench_run)
+    return;
+
+#if BENCH_MODE == 2
+  // 上次的启动请求主循环还没处理, 先不计时
+  if (key_req)
+    return;
+
+  if(bench_time < 0xFFFF)
+    bench_time++;
+
+  if (laser_state == LASER_IDLE)
+  {
+    if (bench_time >= BENCH_OFF_MS)
+      key_req = 1;
+  }
+  else if (bench_time >= BENCH_ON_MS)
+  {
+    // STOP还在滤波就先不关, 不然Laser_Stop会把fault_cnt清掉
+    if (fault_cnt != 0)
+      return;
+    Laser_Stop();
+    if (laser_state == LASER_IDLE)
+      bench_run = 1;    // Laser_Stop会清bench_run, 正常循环要再置1
+  }
+#endif
+}
 #endif
 
-  Laser_Disable_Stop_EXTI();
-  Laser_Disable_Shoot_EXTI();
+// 主循环里每ms采一次ISMON, 轮询方式, 不放到TIM6中断里
+static void Current_Sample(void)
+{
+  static uint32_t last_tick = 0xFFFFFFFF;
+  uint32_t now = HAL_GetTick();
+  uint32_t irq;
+  uint16_t raw = 0;
+  uint8_t ok = 0;
+
+  if(now == last_tick)
+    return;
+  last_tick = now;
+
+  if (HAL_ADC_Start(&hadc1) == HAL_OK)
+  {
+    if (HAL_ADC_PollForConversion(&hadc1, 1) == HAL_OK)
+    {
+      raw = (uint16_t)HAL_ADC_GetValue(&hadc1);
+      ok = 1;
+    }
+  }
+  if (HAL_ADC_Stop(&hadc1) != HAL_OK)
+    ok = 0;
+
+  // len = sprintf(buf, "adc=%d\r\n", raw);
+  // HAL_UART_Transmit(&huart3, (uint8_t *)buf, len, 10);
+
+  irq = __get_PRIMASK();
+  __disable_irq();
+  ismon_adc = raw;
+  ismon_ok = ok;
+  ismon_age = 0;
+  if (!ok)
+    ismon_good_cnt = 0;
+  __set_PRIMASK(irq);
+}
+
+// 出光时电流在目标值+-20%以内持续100ms, 指示灯亮
+static void Current_LED_Update(void)
+{
+  uint32_t meas, target;
+
+  if (ismon_age < CUR_TIMEOUT_MS)
+    ismon_age++;
+
+  /* 换算: CTRL = 30*Rs*I, ISMON = 20*Rs*I
+   * ISMON经R2/R19(10k/8.2k)分压进ADC, ADC和DAC共用VREF+
+   * 目标ADC = DAC * (8.2/18.2) * (20/30) = DAC * 82 / 273
+   * TODO: 按电阻标称值算的, 没有实际标定过
+   */
+  target = (uint32_t)dac_target * 82;
+  ismon_target = (uint16_t)((target + 136) / 273);
+  meas = (uint32_t)ismon_adc * 273 * 100;
+
+  if (laser_state == LASER_RUNNING && target > 0 && fault_cnt == 0 &&
+      HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_SET &&
+      ismon_ok && ismon_age < CUR_TIMEOUT_MS &&
+      meas >= target * (100 - CUR_TOL_PCT) &&
+      meas <= target * (100 + CUR_TOL_PCT))
+  {
+    if (ismon_good_cnt < CUR_OK_MS)
+      ismon_good_cnt++;
+  }
+  else
+  {
+    ismon_good_cnt = 0;
+  }
+
+  // 故障时灯给Fault_LED_Blink用
+  if (laser_state != LASER_FAULT)
+  {
+    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin,
+                      ismon_good_cnt >= CUR_OK_MS ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  }
+}
+
+// 故障锁存后指示灯250ms翻转一次
+static void Fault_LED_Blink(void)
+{
+  if (laser_state != LASER_FAULT)
+    return;
+
+  if (led_blink_cnt > 0)
+    led_blink_cnt--;
+
+  if (led_blink_cnt == 0)
+  {
+    HAL_GPIO_TogglePin(R_EN_GPIO_Port, R_EN_Pin);
+    led_blink_cnt = FAULT_BLINK_MS;
+  }
+}
+
+// 喂狗: TIM6任务完整跑完一次才喂一次
+// 这样TIM6中断停了, 主循环还在跑也会复位
+static void IWDG_Feed(void)
+{
+  uint32_t cnt = tim6_cnt;
+
+  if (cnt != wdg_last_cnt)
+  {
+    wdg_last_cnt = cnt;
+    HAL_IWDG_Refresh(&hiwdg);
+  }
+}
+
+/**
+  * @brief  激光控制初始化, 放在MX_xxx_Init后面调用
+  */
+void Laser_Init(void)
+{
+  laser_state = LASER_IDLE;
+  start_mask_cnt = 0;
+  fault_cnt = 0;
+  dac_target = 0;
+  dac_now = 0;
+  led_blink_cnt = 0;
+
+  shoot_en = 0;
+  shoot_cnt = 0;
+  shoot_req_dac = 0;
+  shoot_on_req = 0;
+  shoot_off_req = 0;
+
+  key_cnt = 0;
+  key_down = 0;
+  key_req = 0;
+  // 上电时K2就按着的话要先松开, 防止一上电就出光
+  key_wait_up = (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET) ? 1 : 0;
+#if BENCH_MODE != 0
+  bench_run = 0;
+  bench_time = 0;
+#endif
+
+  ismon_adc = 0;
+  ismon_target = 0;
+  ismon_ok = 0;
+  ismon_age = CUR_TIMEOUT_MS;
+  ismon_good_cnt = 0;
+  tim6_cnt = 0;
+  wdg_last_cnt = 0;
+
+  Stop_IT_Off();
+  Shoot_IT_Off();
   HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
 
-  /* PA4 must be forced to 0 before enabling DAC output. */
-  Laser_Set_Dac_12bit(0U);
+  // 先写0再打开DAC输出, 避免PA4输出不确定
+  DAC_SetValue(0);
   if (HAL_DAC_Start(&hdac1, DAC_CHANNEL_1) != HAL_OK)
   {
     Error_Handler();
   }
-  Laser_Set_Dac_12bit(0U);
+  DAC_SetValue(0);
 
-  Laser_TIM6_Start_1ms();
+  TIM6_Start_1ms();
 }
 
-void Laser_Set_Shoot_Enable(uint8_t enable)
+/**
+  * @brief  SHOOT外部触发开关
+  * @param  en: 1打开 0关闭, 故障锁存时打不开
+  */
+void Shoot_Enable(uint8_t en)
 {
-  if ((enable != 0U) && (g_laser_state != LASER_STATE_FAULT))
+  if (en && laser_state != LASER_FAULT)
   {
-    g_laser_shoot_debounce_ms = 0U;
-    g_laser_shoot_start_req = 0U;
-    g_laser_shoot_stop_req = 0U;
-    g_laser_shoot_enabled = 1U;
-    Laser_Enable_Shoot_EXTI();
+    shoot_cnt = 0;
+    shoot_on_req = 0;
+    shoot_off_req = 0;
+    shoot_en = 1;
+    Shoot_IT_On();
   }
   else
   {
-    g_laser_shoot_enabled = 0U;
-    g_laser_shoot_debounce_ms = 0U;
-    g_laser_shoot_start_req = 0U;
-    g_laser_shoot_stop_req = 0U;
-    Laser_Disable_Shoot_EXTI();
+    shoot_en = 0;
+    shoot_cnt = 0;
+    shoot_on_req = 0;
+    shoot_off_req = 0;
+    Shoot_IT_Off();
   }
 }
 
-void Laser_Start(uint16_t dac_val)
+/**
+  * @brief  开始出光, PWM拉高, DAC从0缓升到目标值
+  * @param  dac: 目标DAC值 0~4095
+  * @note   只有空闲状态能启动, 启动后屏蔽一段时间再检测STOP
+  */
+void Laser_Start(uint16_t dac)
 {
-  uint32_t primask;
+  uint32_t irq = __get_PRIMASK();
 
-  primask = __get_PRIMASK();
   __disable_irq();
-
-  if (g_laser_state != LASER_STATE_IDLE)
+  if (laser_state != LASER_IDLE)
   {
-    if (primask == 0U)
-    {
-      __enable_irq();
-    }
+    __set_PRIMASK(irq);
     return;
   }
 
-  if (dac_val > 4095U)
-  {
-    dac_val = 4095U;
-  }
+  if (dac > 4095) dac = 4095;
 
-  Laser_Disable_Stop_EXTI();
-  g_laser_fault_debounce_ms = 0U;
-  g_laser_fault_led_blink_ms = 0U;
-  g_laser_dac_target_val = dac_val;
-  g_laser_dac_current_val = 0U;
-  g_laser_current_valid = 0U;
-  g_laser_current_good_ms = 0U;
+  Stop_IT_Off();
+  fault_cnt = 0;
+  led_blink_cnt = 0;
+  dac_target = dac;
+  dac_now = 0;
+  ismon_ok = 0;
+  ismon_good_cnt = 0;
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
 
-  Laser_Set_Dac_12bit(0U);
+  DAC_SetValue(0);
   HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_SET);
 
-  g_laser_start_mask_ms = Laser_Calc_Start_Mask_Ms(dac_val);
-  g_laser_state = LASER_STATE_STARTING;
+  start_mask_cnt = Calc_Mask_Time(dac);
+  laser_state = LASER_STARTING;
 
-  if (primask == 0U)
-  {
-    __enable_irq();
-  }
+  __set_PRIMASK(irq);
 }
 
+/**
+  * @brief  正常关断, 故障锁存时不处理
+  */
 void Laser_Stop(void)
 {
-  uint32_t primask;
+  uint32_t irq = __get_PRIMASK();
 
-  primask = __get_PRIMASK();
   __disable_irq();
-
-#if LASER_BENCH_MODE != 0U
-  g_bench_active = 0U;
-  g_bench_phase_ms = 0U;
-  g_key1_start_req = 0U;
+#if BENCH_MODE != 0
+  bench_run = 0;
+  bench_time = 0;
+  key_req = 0;
 #endif
 
-  if (g_laser_state == LASER_STATE_FAULT)
+  if (laser_state == LASER_FAULT)
   {
-    if (primask == 0U)
-    {
-      __enable_irq();
-    }
+    __set_PRIMASK(irq);
     return;
   }
 
-  Laser_Disable_Stop_EXTI();
+  Stop_IT_Off();
 
-  g_laser_state = LASER_STATE_IDLE;
-  g_laser_start_mask_ms = 0U;
-  g_laser_fault_debounce_ms = 0U;
-  g_laser_fault_led_blink_ms = 0U;
-  g_laser_dac_target_val = 0U;
-  g_laser_dac_current_val = 0U;
+  laser_state = LASER_IDLE;
+  start_mask_cnt = 0;
+  fault_cnt = 0;
+  led_blink_cnt = 0;
+  dac_target = 0;
+  dac_now = 0;
 
   PWM_GPIO_Port->BRR = PWM_Pin;
-  Laser_Set_Dac_12bit(0U);
+  DAC_SetValue(0);
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
 
-  if (primask == 0U)
-  {
-    __enable_irq();
-  }
+  __set_PRIMASK(irq);
 }
 
-void Laser_Emergency_Kill(void)
+/**
+  * @brief  故障关断并锁存
+  * @note   锁存后按键和SHOOT都不能再启动, 要Laser_Fault_Clear或者复位
+  */
+void Laser_Fault_Lock(void)
 {
-#if LASER_BENCH_MODE != 0U
-  g_bench_active = 0U;
-  g_bench_phase_ms = 0U;
+#if BENCH_MODE != 0
+  bench_run = 0;
+  bench_time = 0;
 #endif
-  Laser_Disable_Stop_EXTI();
-  Laser_Disable_Shoot_EXTI();
+  Stop_IT_Off();
+  Shoot_IT_Off();
 
   PWM_GPIO_Port->BRR = PWM_Pin;
-  Laser_Set_Dac_12bit(0U);
+  DAC_SetValue(0);
 
-  g_laser_start_mask_ms = 0U;
-  g_laser_fault_debounce_ms = 0U;
-  g_laser_dac_target_val = 0U;
-  g_laser_dac_current_val = 0U;
-  g_laser_shoot_debounce_ms = 0U;
-  g_laser_shoot_enabled = 0U;
-  g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
-  g_key1_press_debounce_ms = 0U;
-  g_key1_latched_pressed = 0U;
-  g_key1_start_req = 0U;
-  g_key1_release_required = 1U;
-  g_laser_fault_led_blink_ms = LASER_FAULT_LED_BLINK_MS;
-  g_laser_state = LASER_STATE_FAULT;
+  start_mask_cnt = 0;
+  fault_cnt = 0;
+  dac_target = 0;
+  dac_now = 0;
+  shoot_cnt = 0;
+  shoot_en = 0;
+  shoot_on_req = 0;
+  shoot_off_req = 0;
+  key_cnt = 0;
+  key_down = 0;
+  key_req = 0;
+  key_wait_up = 1;
+  led_blink_cnt = FAULT_BLINK_MS;
+  laser_state = LASER_FAULT;
 
-  /* Fault is indicated by non-blocking blinking in the TIM6 1 ms task. */
+  // 先点亮, 后面TIM6里Fault_LED_Blink负责闪
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_SET);
 }
 
+/**
+  * @brief  清除故障锁存, 回到空闲
+  * @retval 1
+  */
 uint8_t Laser_Fault_Clear(void)
 {
-  if (g_laser_state != LASER_STATE_FAULT)
-  {
-    return 1U;
-  }
+  if (laser_state != LASER_FAULT)
+    return 1;
 
-  Laser_Disable_Stop_EXTI();
-  Laser_Disable_Shoot_EXTI();
+  Stop_IT_Off();
+  Shoot_IT_Off();
 
   PWM_GPIO_Port->BRR = PWM_Pin;
-  Laser_Set_Dac_12bit(0U);
+  DAC_SetValue(0);
 
-  g_laser_start_mask_ms = 0U;
-  g_laser_fault_debounce_ms = 0U;
-  g_laser_dac_target_val = 0U;
-  g_laser_dac_current_val = 0U;
-  g_laser_shoot_debounce_ms = 0U;
-  g_laser_shoot_req_dac_val = 0U;
-  g_laser_shoot_enabled = 0U;
-  g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
-  g_key1_press_debounce_ms = 0U;
-  g_key1_latched_pressed = 0U;
-  g_key1_start_req = 0U;
-  g_key1_release_required = 1U;
+  start_mask_cnt = 0;
+  fault_cnt = 0;
+  dac_target = 0;
+  dac_now = 0;
+  shoot_cnt = 0;
+  shoot_req_dac = 0;
+  shoot_en = 0;
+  shoot_on_req = 0;
+  shoot_off_req = 0;
+  key_cnt = 0;
+  key_down = 0;
+  key_req = 0;
+  key_wait_up = 1;    // 清完故障也要先松开按键
 
-  g_laser_fault_led_blink_ms = 0U;
-  g_laser_state = LASER_STATE_IDLE;
+  led_blink_cnt = 0;
+  laser_state = LASER_IDLE;
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
-  return 1U;
+  return 1;
 }
 
-/* Fatal handlers leave interrupts masked; no HAL, delay or handle is needed. */
-void Laser_Fatal_Shutdown(void)
+/**
+  * @brief  异常处理里用, 直接写寄存器关输出
+  * @note   不调用HAL, 关中断后不再打开
+  */
+void Laser_Force_Off(void)
 {
   __disable_irq();
 
-  /* PA9 is only driven after GPIOA has been clocked and initialized. */
-  if ((RCC->AHB2ENR & RCC_AHB2ENR_GPIOAEN) != 0U)
+  // GPIOA时钟没开说明PA9还没初始化
+  if (RCC->AHB2ENR & RCC_AHB2ENR_GPIOAEN)
   {
     PWM_GPIO_Port->BRR = PWM_Pin;
   }
-
-  /* DAC1 channel 1 uses no trigger, so writing zero updates its output. */
-  if ((RCC->AHB2ENR & RCC_AHB2ENR_DAC1EN) != 0U)
+  // DAC没开触发, 写DHR就直接更新输出
+  if (RCC->AHB2ENR & RCC_AHB2ENR_DAC1EN)
   {
-    DAC1->DHR12R1 = 0U;
+    DAC1->DHR12R1 = 0;
   }
-  if ((RCC->AHB2ENR & RCC_AHB2ENR_GPIOCEN) != 0U)
+  if (RCC->AHB2ENR & RCC_AHB2ENR_GPIOCEN)
   {
     R_EN_GPIO_Port->BRR = R_EN_Pin;
   }
@@ -875,9 +824,9 @@ int main(void)
   {
     Error_Handler();
   }
-  Laser_Hardware_Init();
-  g_laser_shoot_dac_val = 0U;
-  Laser_Set_Shoot_Enable(0U);
+  Laser_Init();
+  shoot_dac = 0;
+  Shoot_Enable(0);    // SHOOT外部触发暂时不用
 
   /* USER CODE END 2 */
 
@@ -888,10 +837,10 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    Laser_Process_Key1_Requests();
-    Laser_Process_Shoot_Requests();
-    Laser_Process_Current_Sample();
-    Laser_Process_Watchdog();
+    Key_Task();
+    Shoot_Task();
+    Current_Sample();
+    IWDG_Feed();
   }
   /* USER CODE END 3 */
 }
@@ -947,84 +896,65 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+// TIM6 1ms中断: 消抖, DAC缓升, 启动屏蔽, STOP检测, 指示灯
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
   if (htim->Instance != TIM6)
-  {
     return;
-  }
 
-  Laser_Process_Shoot_Debounce();
-  Laser_Process_Key1_Debounce();
-  Laser_Process_Dac_Ramp();
+  Shoot_Debounce();
+  Key_Scan();
+  DAC_Ramp();
 
-  if ((g_laser_state == LASER_STATE_STARTING) && (g_laser_start_mask_ms > 0U))
+  // 屏蔽时间到, STOP正常就进入RUNNING并打开STOP中断
+  if (laser_state == LASER_STARTING && start_mask_cnt > 0)
   {
-    g_laser_start_mask_ms--;
-
-    if (g_laser_start_mask_ms == 0U)
+    start_mask_cnt--;
+    if (start_mask_cnt == 0)
     {
       if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-      {
-        Laser_Emergency_Kill();
-      }
+        Laser_Fault_Lock();
+      else if (Stop_IT_On())
+        laser_state = LASER_RUNNING;
       else
-      {
-        if (Laser_Enable_Stop_EXTI() != 0U)
-        {
-          g_laser_state = LASER_STATE_RUNNING;
-        }
-        else
-        {
-          Laser_Emergency_Kill();
-        }
-      }
+        Laser_Fault_Lock();
     }
   }
 
-  Laser_Process_Stop_Fault();
-
-#if LASER_BENCH_MODE != 0U
-  Laser_Process_Bench();
+  Stop_Check();
+#if BENCH_MODE != 0
+  Bench_Task();
 #endif
-  Laser_Process_Current_LED();
-  Laser_Process_Fault_LED();
-  /* Publish progress only after every TIM6 task has returned. */
-  g_tim6_completed++;
+  Current_LED_Update();
+  Fault_LED_Blink();
+
+  tim6_cnt++;   // 放最后, 前面全部执行完才算一次
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == STOP_Pin)
   {
-    uint32_t primask = __get_PRIMASK();
+    // STOP下降沿: 先关中断, 滤波交给TIM6里的Stop_Check
+    uint32_t irq = __get_PRIMASK();
     __disable_irq();
-    Laser_Disable_Stop_EXTI();
-
-    if (g_laser_state == LASER_STATE_RUNNING)
+    Stop_IT_Off();
+    if (laser_state == LASER_RUNNING)
     {
-      if (g_laser_fault_debounce_ms == 0U)
-      {
-        g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
-      }
+      if (fault_cnt == 0)
+        fault_cnt = FAULT_FILTER_MS;
     }
     else
     {
-      g_laser_fault_debounce_ms = 0U;
+      fault_cnt = 0;
     }
-    if (primask == 0U)
-    {
-      __enable_irq();
-    }
+    __set_PRIMASK(irq);
   }
   else if (GPIO_Pin == SHOOT_Pin)
   {
-    Laser_Disable_Shoot_EXTI();
-
-    if (g_laser_shoot_enabled != 0U)
-    {
-      g_laser_shoot_debounce_ms = LASER_SHOOT_DEBOUNCE_MS;
-    }
+    Shoot_IT_Off();
+    if (shoot_en)
+      shoot_cnt = SHOOT_DEBOUNCE_MS;
   }
 }
 
@@ -1038,7 +968,7 @@ void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
-  Laser_Fatal_Shutdown();
+  Laser_Force_Off();
   while (1)
   {
   }

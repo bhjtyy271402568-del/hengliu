@@ -12,8 +12,8 @@ set(CMAKE_C_COMPILER_ABI ELF)
 set(CMAKE_C_SIZEOF_DATA_PTR 4)
 set(CMAKE_C_BYTE_ORDER LITTLE_ENDIAN)
 
-# Keep the whole build on the STM32 VS Code bundle toolchain.
-# Relying on PATH can accidentally pick another Arm GCC installation.
+# 编译器路径写死成 STM32 VS Code 插件自带的那套
+# 不写死的话会先找到 PATH 里别的 arm-gcc
 set(TOOLCHAIN_BIN_DIR               "C:/Users/Administrator/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin")
 set(TOOLCHAIN_PREFIX                "${TOOLCHAIN_BIN_DIR}/arm-none-eabi-")
 

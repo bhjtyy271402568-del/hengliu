@@ -1,7 +1,7 @@
 ﻿源代码审阅顺序（不是正式提交页码；原文件行号保留）
-Core\Src\main.c	1062 行
+Core\Src\main.c	992 行
 Core\Inc\main.h	108 行
-Core\Src\stm32g4xx_it.c	263 行
+Core\Src\stm32g4xx_it.c	264 行
 Core\Inc\stm32g4xx_it.h	70 行
 Core\Src\iwdg.c	56 行
 Core\Inc\iwdg.h	52 行

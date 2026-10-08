@@ -1,29 +1,28 @@
 ﻿恒流板软件著作权代码准备材料
 
 一、材料定位
-本包为现有工程的原样整理与审阅材料，不是已完成的登记申请材料。
+本包为现有工程的整理与审阅材料，不是已完成的登记申请材料。
 软件正式名称、版本、著作权人、开发完成日期、发表状态：均待申请人确认。
 建议名称（未定稿）：LT3763恒流驱动控制软件。
-未修改源代码、版权注释、宏配置或功能逻辑；未为增加行数补写代码。
+Core用户代码区已整理（中文注释、命名调整、换行符统一为CRLF）；功能逻辑、ST版权注释及CubeMX生成框架未改；未为增加行数补写代码。
 
 二、目录
-01_工程源码快照：当前工作区的 Core、Drivers、cmake、tests 及构建配置。
+01_工程源码快照：Core、Drivers、cmake 及构建配置。
 02_代码审阅材料：合订TXT、原文件行号及函数定位索引。
-文件清单_SHA256.csv：快照文件与原文件逐一核对的散列值。
+文件清单_SHA256.csv：快照文件的散列值。
 第三方 Drivers 随工程保留以保全依赖，不进入代码合订审阅稿。
 原工程的构建输出、图纸、图片、PPT、Git历史及临时目录均未收录。
 
 三、可核对的功能定位
 main.c：状态管理、DAC缓升、按键去抖、三种台架模式、电流采样与指示、故障锁定。
-Laser_Process_Watchdog：主循环发现新的TIM6完成进度才刷新IWDG。
-Laser_Process_Stop_Fault：FAULT电平检查及故障处理。
+IWDG_Feed：主循环发现新的TIM6完成进度才刷新IWDG。
+Stop_Check：FAULT电平检查及故障处理。
 SystemClock_Config：启用HSE CSS。
-stm32g4xx_it.c：NMI及主要异常路径调用Laser_Fatal_Shutdown。
+stm32g4xx_it.c：NMI及主要异常路径调用Laser_Force_Off。
 adc/dac/tim/gpio/iwdg等：外设配置，含CubeMX生成框架。
-tests：安全、台架模式、看门狗相关测试脚本；本次只归档，没有重新运行测试或编译。
 
 四、当前配置边界
-TEST_DAC_VALUE=3645U；LASER_BENCH_MODE默认1U。
+TEST_DAC_VALUE=3645；BENCH_MODE默认1。
 当前主程序关闭SHOOT外部触发并将其设定值置零，不应在说明书中写成默认启用。
 代码存在USART初始化不等于已实现串口指令功能。
 本包不证明硬件保护、温升或实际输出指标；软件功能描述须与实际使用版本一致。

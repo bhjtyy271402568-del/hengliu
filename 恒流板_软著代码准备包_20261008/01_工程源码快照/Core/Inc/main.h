@@ -38,11 +38,11 @@ extern "C" {
 /* USER CODE BEGIN ET */
 typedef enum
 {
-  LASER_STATE_IDLE = 0,
-  LASER_STATE_STARTING,
-  LASER_STATE_RUNNING,
-  LASER_STATE_FAULT
-} Laser_State_t;
+  LASER_IDLE = 0,     // 空闲
+  LASER_STARTING,     // 启动中, DAC缓升+屏蔽STOP
+  LASER_RUNNING,      // 正常出光
+  LASER_FAULT         // 故障锁存
+} LaserState_t;
 
 /* USER CODE END ET */
 
@@ -60,18 +60,18 @@ typedef enum
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-void Laser_Hardware_Init(void);
-void Laser_Start(uint16_t dac_val);
+void Laser_Init(void);
+void Laser_Start(uint16_t dac);
 void Laser_Stop(void);
-void Laser_Emergency_Kill(void);
-void Laser_Fatal_Shutdown(void);
+void Laser_Fault_Lock(void);
 uint8_t Laser_Fault_Clear(void);
-void Laser_Set_Shoot_Enable(uint8_t enable);
+void Laser_Force_Off(void);
+void Shoot_Enable(uint8_t en);
 
-extern volatile Laser_State_t g_laser_state;
-extern volatile uint16_t g_laser_start_mask_ms;
-extern volatile uint16_t g_laser_fault_debounce_ms;
-extern volatile uint16_t g_laser_shoot_dac_val;
+extern volatile LaserState_t laser_state;
+extern volatile uint16_t start_mask_cnt;
+extern volatile uint16_t fault_cnt;
+extern volatile uint16_t shoot_dac;
 
 /* USER CODE END EFP */
 

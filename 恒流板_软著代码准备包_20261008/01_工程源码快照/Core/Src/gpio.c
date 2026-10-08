@@ -77,7 +77,7 @@ void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : SHOOT_Pin */
   GPIO_InitStruct.Pin = SHOOT_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(SHOOT_GPIO_Port, &GPIO_InitStruct);
 
@@ -89,9 +89,6 @@ void MX_GPIO_Init(void)
   HAL_GPIO_Init(PWM_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
-  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
-
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 

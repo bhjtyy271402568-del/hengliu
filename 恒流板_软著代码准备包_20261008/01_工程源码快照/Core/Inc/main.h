@@ -93,7 +93,6 @@ extern volatile uint16_t shoot_dac;
 #define KEY1_GPIO_Port GPIOC
 #define SHOOT_Pin GPIO_PIN_8
 #define SHOOT_GPIO_Port GPIOA
-#define SHOOT_EXTI_IRQn EXTI9_5_IRQn
 #define PWM_Pin GPIO_PIN_9
 #define PWM_GPIO_Port GPIOA
 

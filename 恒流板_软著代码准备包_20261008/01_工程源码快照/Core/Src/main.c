@@ -53,6 +53,12 @@
 #define BENCH_ON_MS       1000
 #define BENCH_OFF_MS      100
 
+// SHOOT外部控制 1: 出光跟着SHOOT电平走, K2只能停  0: 不用SHOOT
+#ifndef SHOOT_CTRL
+#define SHOOT_CTRL        0
+#endif
+#define SHOOT_DAC_VALUE   TEST_DAC_VALUE  // 第一次接激光器先改成1215(约6A)
+
 #define KEY_DEBOUNCE_MS   20      // 按键消抖
 #define SHOOT_DEBOUNCE_MS 5       // SHOOT输入消抖
 #define FAULT_FILTER_MS   5       // STOP连续低5ms才算故障
@@ -86,10 +92,9 @@ static volatile uint16_t dac_now = 0;
 static volatile uint16_t led_blink_cnt = 0;
 
 static volatile uint8_t  shoot_en = 0;
+static volatile uint8_t  shoot_active = 1; // 消抖后的SHOOT, 1=有信号
 static volatile uint16_t shoot_cnt = 0;
-static volatile uint16_t shoot_req_dac = 0;
 static volatile uint8_t  shoot_on_req = 0;
-static volatile uint8_t  shoot_off_req = 0;
 
 static volatile uint16_t key_cnt = 0;
 static volatile uint8_t  key_down = 0;     // 消抖后确认按下
@@ -121,7 +126,6 @@ static void TIM6_Start_1ms(void);
 static void Stop_IT_Off(void);
 static uint8_t Stop_IT_On(void);
 static void Shoot_IT_Off(void);
-static void Shoot_IT_On(void);
 static uint16_t Calc_Mask_Time(uint16_t dac);
 static void DAC_Ramp(void);
 static void Stop_Check(void);
@@ -205,13 +209,6 @@ static void Shoot_IT_Off(void)
   HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
 }
 
-static void Shoot_IT_On(void)
-{
-  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
-  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
-  EXTI->IMR1 |= (uint32_t)SHOOT_Pin;
-}
-
 // 启动屏蔽时间: DAC缓升要的时间再加100ms, 最多200ms
 static uint16_t Calc_Mask_Time(uint16_t dac)
 {
@@ -274,55 +271,51 @@ static void Stop_Check(void)
   }
 }
 
+// SHOOT输入, TIM6里1ms读一次, 连续5次一样才认
+// 端子 -> R18 -> TLP2761 -> R55 -> PA8, 光耦是反相的:
+// 外部有信号 -> PA8低, 没信号/断线 -> PA8高(停)
 static void Shoot_Debounce(void)
 {
-  GPIO_PinState lvl;
+  uint8_t now;
 
-  if (shoot_cnt == 0)
+  if (!shoot_en)
     return;
 
-  shoot_cnt--;
-  if (shoot_cnt > 0)
-    return;
-
-  lvl = HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin);
-  if (shoot_en)
+  now = (HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin) == GPIO_PIN_RESET) ? 1 : 0;
+  if (now == shoot_active)
   {
-    // SHOOT低电平出光, 高电平关
-    if (lvl == GPIO_PIN_RESET && shoot_dac > 0)
-    {
-      shoot_req_dac = shoot_dac;
-      shoot_on_req = 1;
-      shoot_off_req = 0;
-    }
-    else
-    {
-      shoot_on_req = 0;
-      shoot_off_req = 1;
-    }
-    Shoot_IT_On();
+    shoot_cnt = 0;
+  }
+  else if (++shoot_cnt >= SHOOT_DEBOUNCE_MS)
+  {
+    shoot_cnt = 0;
+    shoot_active = now;
+    shoot_on_req = now;   // 只有 无->有 才请求启动
+  }
+
+  // 信号没了就在中断里直接关, 不等主循环
+  // STOP正在滤波就等它判完再关, 不然fault_cnt会被Laser_Stop清掉
+  if (!shoot_active && fault_cnt == 0 &&
+      (laser_state == LASER_STARTING || laser_state == LASER_RUNNING))
+  {
+    Laser_Stop();
   }
 }
 
-// 主循环里处理SHOOT请求
+// 主循环里处理SHOOT启动
 static void Shoot_Task(void)
 {
-  uint8_t on, off;
-  uint16_t dac;
   uint32_t irq = __get_PRIMASK();
 
   __disable_irq();
-  on = shoot_on_req;
-  off = shoot_off_req;
-  dac = shoot_req_dac;
-  shoot_on_req = 0;
-  shoot_off_req = 0;
+  if (shoot_on_req)
+  {
+    shoot_on_req = 0;
+    // 关中断后再确认一次信号还在
+    if (shoot_en && shoot_active && shoot_dac > 0)
+      Laser_Start(shoot_dac);
+  }
   __set_PRIMASK(irq);
-
-  if (off)
-    Laser_Stop();
-  else if (on)
-    Laser_Start(dac);
 }
 
 // K2按键扫描, TIM6里1ms调用一次
@@ -343,7 +336,10 @@ static void Key_Scan(void)
     if (key_cnt >= KEY_DEBOUNCE_MS)
     {
       key_down = 1;
-#if BENCH_MODE != 0
+#if SHOOT_CTRL
+      shoot_on_req = 0;
+      Laser_Stop();     // SHOOT控制时K2只当停止键
+#elif BENCH_MODE != 0
       if (bench_run)
       {
         Laser_Stop();   // 在中断里直接关, 不等主循环
@@ -366,7 +362,7 @@ static void Key_Scan(void)
     if (key_down)
     {
       key_down = 0;
-#if BENCH_MODE == 0
+#if BENCH_MODE == 0 && SHOOT_CTRL == 0
       key_req = 0;
       Laser_Stop();     // 松手就关, 也放在中断里
 #endif
@@ -550,10 +546,9 @@ void Laser_Init(void)
   led_blink_cnt = 0;
 
   shoot_en = 0;
+  shoot_active = 1;
   shoot_cnt = 0;
-  shoot_req_dac = 0;
   shoot_on_req = 0;
-  shoot_off_req = 0;
 
   key_cnt = 0;
   key_down = 0;
@@ -590,27 +585,22 @@ void Laser_Init(void)
 }
 
 /**
-  * @brief  SHOOT外部触发开关
+  * @brief  SHOOT外部控制开关
   * @param  en: 1打开 0关闭, 故障锁存时打不开
+  * @note   打开后出光跟着SHOOT电平走. 打开时当作信号已经有了,
+  *         所以上电时信号就在的话不会出光, 要先撤掉再给一次
   */
 void Shoot_Enable(uint8_t en)
 {
-  if (en && laser_state != LASER_FAULT)
-  {
-    shoot_cnt = 0;
-    shoot_on_req = 0;
-    shoot_off_req = 0;
-    shoot_en = 1;
-    Shoot_IT_On();
-  }
-  else
-  {
-    shoot_en = 0;
-    shoot_cnt = 0;
-    shoot_on_req = 0;
-    shoot_off_req = 0;
-    Shoot_IT_Off();
-  }
+  uint32_t irq = __get_PRIMASK();
+
+  __disable_irq();
+  Shoot_IT_Off();       // 现在是轮询, PA8的外部中断一直关着
+  shoot_cnt = 0;
+  shoot_on_req = 0;
+  shoot_active = 1;
+  shoot_en = (en && laser_state != LASER_FAULT) ? 1 : 0;
+  __set_PRIMASK(irq);
 }
 
 /**
@@ -707,8 +697,8 @@ void Laser_Fault_Lock(void)
   dac_now = 0;
   shoot_cnt = 0;
   shoot_en = 0;
+  shoot_active = 1;
   shoot_on_req = 0;
-  shoot_off_req = 0;
   key_cnt = 0;
   key_down = 0;
   key_req = 0;
@@ -740,10 +730,9 @@ uint8_t Laser_Fault_Clear(void)
   dac_target = 0;
   dac_now = 0;
   shoot_cnt = 0;
-  shoot_req_dac = 0;
   shoot_en = 0;
+  shoot_active = 1;
   shoot_on_req = 0;
-  shoot_off_req = 0;
   key_cnt = 0;
   key_down = 0;
   key_req = 0;
@@ -825,8 +814,13 @@ int main(void)
     Error_Handler();
   }
   Laser_Init();
+#if SHOOT_CTRL
+  shoot_dac = SHOOT_DAC_VALUE;
+  Shoot_Enable(1);
+#else
   shoot_dac = 0;
   Shoot_Enable(0);    // SHOOT外部触发暂时不用
+#endif
 
   /* USER CODE END 2 */
 
@@ -949,12 +943,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
       fault_cnt = 0;
     }
     __set_PRIMASK(irq);
-  }
-  else if (GPIO_Pin == SHOOT_Pin)
-  {
-    Shoot_IT_Off();
-    if (shoot_en)
-      shoot_cnt = SHOOT_DEBOUNCE_MS;
   }
 }
 

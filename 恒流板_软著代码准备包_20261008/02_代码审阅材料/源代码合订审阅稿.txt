@@ -1,0 +1,2907 @@
+﻿
+================ Core\Src\main.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file           : main.c
+0005    * @brief          : Main program body
+0006    ******************************************************************************
+0007    * @attention
+0008    *
+0009    * Copyright (c) 2026 STMicroelectronics.
+0010    * All rights reserved.
+0011    *
+0012    * This software is licensed under terms that can be found in the LICENSE file
+0013    * in the root directory of this software component.
+0014    * If no LICENSE file comes with this software, it is provided AS-IS.
+0015    *
+0016    ******************************************************************************
+0017    */
+0018  /* USER CODE END Header */
+0019  /* Includes ------------------------------------------------------------------*/
+0020  #include "main.h"
+0021  #include "adc.h"
+0022  #include "dac.h"
+0023  #include "dma.h"
+0024  #include "iwdg.h"
+0025  #include "tim.h"
+0026  #include "usart.h"
+0027  #include "gpio.h"
+0028  
+0029  /* Private includes ----------------------------------------------------------*/
+0030  /* USER CODE BEGIN Includes */
+0031  
+0032  /* USER CODE END Includes */
+0033  
+0034  /* Private typedef -----------------------------------------------------------*/
+0035  /* USER CODE BEGIN PTD */
+0036  
+0037  /* USER CODE END PTD */
+0038  
+0039  /* Private define ------------------------------------------------------------*/
+0040  /* USER CODE BEGIN PD */
+0041  #define LASER_SHOOT_DEBOUNCE_MS 5U
+0042  #define LASER_FAULT_DEBOUNCE_MS 5U
+0043  #define LASER_FAULT_LED_BLINK_MS 250U
+0044  #define LASER_DAC_RAMP_STEP_PER_MS 50U
+0045  #define LASER_START_MASK_EXTRA_MS 100U
+0046  #define LASER_START_MASK_MAX_MS 200U
+0047  #define KEY1_PRESS_DEBOUNCE_MS 20U
+0048  #define TEST_DAC_VALUE 3645U
+0049  #define LASER_CURRENT_GOOD_MS 100U
+0050  #define LASER_CURRENT_STALE_MS 5U
+0051  #define LASER_CURRENT_TOLERANCE_PERCENT 20U
+0052  
+0053  /* Bench test only: 0 = hold K2; 1 = toggle; 2 = toggle a timed cycle.
+0054     K2 is named KEY1 in the generated GPIO definitions. */
+0055  #ifndef LASER_BENCH_MODE
+0056  #define LASER_BENCH_MODE 1U
+0057  #endif
+0058  #if LASER_BENCH_MODE > 2U
+0059  #error "LASER_BENCH_MODE must be 0, 1 or 2"
+0060  #endif
+0061  #define BENCH_CYCLE_ON_MS 1000U
+0062  #define BENCH_CYCLE_OFF_MS 100U
+0063  
+0064  /* USER CODE END PD */
+0065  
+0066  /* Private macro -------------------------------------------------------------*/
+0067  /* USER CODE BEGIN PM */
+0068  
+0069  /* USER CODE END PM */
+0070  
+0071  /* Private variables ---------------------------------------------------------*/
+0072  
+0073  /* USER CODE BEGIN PV */
+0074  volatile Laser_State_t g_laser_state = LASER_STATE_IDLE;
+0075  volatile uint16_t g_laser_start_mask_ms = 0U;
+0076  volatile uint16_t g_laser_fault_debounce_ms = 0U;
+0077  static volatile uint16_t g_laser_dac_target_val = 0U;
+0078  static volatile uint16_t g_laser_dac_current_val = 0U;
+0079  volatile uint16_t g_laser_shoot_dac_val = 0U;
+0080  static volatile uint16_t g_laser_shoot_debounce_ms = 0U;
+0081  static volatile uint16_t g_laser_fault_led_blink_ms = 0U;
+0082  static volatile uint16_t g_laser_shoot_req_dac_val = 0U;
+0083  static volatile uint8_t g_laser_shoot_enabled = 0U;
+0084  static volatile uint8_t g_laser_shoot_start_req = 0U;
+0085  static volatile uint8_t g_laser_shoot_stop_req = 0U;
+0086  static volatile uint16_t g_key1_press_debounce_ms = 0U;
+0087  static volatile uint8_t g_key1_latched_pressed = 0U;
+0088  static volatile uint8_t g_key1_start_req = 0U;
+0089  static volatile uint8_t g_key1_release_required = 0U;
+0090  /* Nominal, uncalibrated ISMON feedback. Visible in the debugger. */
+0091  volatile uint16_t g_laser_current_adc = 0U;
+0092  volatile uint16_t g_laser_target_adc = 0U;
+0093  volatile uint8_t g_laser_current_valid = 0U;
+0094  static volatile uint16_t g_laser_current_age_ms = LASER_CURRENT_STALE_MS;
+0095  static volatile uint16_t g_laser_current_good_ms = 0U;
+0096  static volatile uint32_t g_tim6_completed = 0U;
+0097  static uint32_t g_watchdog_last_completed = 0U;
+0098  #if LASER_BENCH_MODE != 0U
+0099  static volatile uint8_t g_bench_active = 0U;
+0100  static volatile uint16_t g_bench_phase_ms = 0U;
+0101  #endif
+0102  
+0103  /* USER CODE END PV */
+0104  
+0105  /* Private function prototypes -----------------------------------------------*/
+0106  void SystemClock_Config(void);
+0107  /* USER CODE BEGIN PFP */
+0108  static void Laser_Disable_Stop_EXTI(void);
+0109  static uint8_t Laser_Enable_Stop_EXTI(void);
+0110  static void Laser_Disable_Shoot_EXTI(void);
+0111  static void Laser_Enable_Shoot_EXTI(void);
+0112  static void Laser_Process_Shoot_Debounce(void);
+0113  static void Laser_Process_Shoot_Requests(void);
+0114  static void Laser_Process_Fault_LED(void);
+0115  static void Laser_Process_Key1_Debounce(void);
+0116  static void Laser_Process_Key1_Requests(void);
+0117  static uint16_t Laser_Calc_Start_Mask_Ms(uint16_t dac_val);
+0118  static void Laser_Process_Dac_Ramp(void);
+0119  static void Laser_Set_Dac_12bit(uint16_t dac_val);
+0120  static void Laser_TIM6_Start_1ms(void);
+0121  static void Laser_Process_Current_Sample(void);
+0122  static void Laser_Process_Current_LED(void);
+0123  static void Laser_Process_Watchdog(void);
+0124  static void Laser_Process_Stop_Fault(void);
+0125  #if LASER_BENCH_MODE != 0U
+0126  static void Laser_Process_Bench(void);
+0127  #endif
+0128  
+0129  /* USER CODE END PFP */
+0130  
+0131  /* Private user code ---------------------------------------------------------*/
+0132  /* USER CODE BEGIN 0 */
+0133  /* Main-loop only: each refresh consumes a NEW completed TIM6 task. */
+0134  static void Laser_Process_Watchdog(void)
+0135  {
+0136    uint32_t completed = g_tim6_completed;
+0137  
+0138    if (completed != g_watchdog_last_completed)
+0139    {
+0140      g_watchdog_last_completed = completed;
+0141      HAL_IWDG_Refresh(&hiwdg);
+0142    }
+0143  }
+0144  
+0145  /* Main-loop only: ADC polling must not delay the TIM6 safety task. */
+0146  static void Laser_Process_Current_Sample(void)
+0147  {
+0148    static uint32_t last_sample_ms = UINT32_MAX;
+0149    uint32_t now = HAL_GetTick();
+0150    uint32_t primask;
+0151    uint16_t raw = 0U;
+0152    uint8_t valid = 0U;
+0153  
+0154    if (now == last_sample_ms)
+0155    {
+0156      return;
+0157    }
+0158    last_sample_ms = now;
+0159  
+0160    if (HAL_ADC_Start(&hadc1) == HAL_OK)
+0161    {
+0162      if (HAL_ADC_PollForConversion(&hadc1, 1U) == HAL_OK)
+0163      {
+0164        raw = (uint16_t)HAL_ADC_GetValue(&hadc1);
+0165        valid = 1U;
+0166      }
+0167    }
+0168    if (HAL_ADC_Stop(&hadc1) != HAL_OK)
+0169    {
+0170      valid = 0U;
+0171    }
+0172  
+0173    primask = __get_PRIMASK();
+0174    __disable_irq();
+0175    g_laser_current_adc = raw;
+0176    g_laser_current_valid = valid;
+0177    g_laser_current_age_ms = 0U;
+0178    if (valid == 0U)
+0179    {
+0180      g_laser_current_good_ms = 0U;
+0181    }
+0182    if (primask == 0U)
+0183    {
+0184      __enable_irq();
+0185    }
+0186  }
+0187  
+0188  static void Laser_Process_Current_LED(void)
+0189  {
+0190    uint32_t measured;
+0191    uint32_t target;
+0192  
+0193    if (g_laser_current_age_ms < LASER_CURRENT_STALE_MS)
+0194    {
+0195      g_laser_current_age_ms++;
+0196    }
+0197  
+0198    /* R2/R19 = 10k/8.2k, CTRL = 30*Rs*I, ISMON = 20*Rs*I.
+0199       ADC and DAC share VREF+: target ADC = DAC * (41/91) * (20/30).
+0200       This nominal ratio is NOT an ISMON accuracy calibration. */
+0201    target = (uint32_t)g_laser_dac_target_val * 82U;
+0202    g_laser_target_adc = (uint16_t)((target + 136U) / 273U);
+0203    measured = (uint32_t)g_laser_current_adc * 273U * 100U;
+0204  
+0205    if ((g_laser_state == LASER_STATE_RUNNING) && (target > 0U) &&
+0206        (g_laser_fault_debounce_ms == 0U) &&
+0207        (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_SET) &&
+0208        (g_laser_current_valid != 0U) &&
+0209        (g_laser_current_age_ms < LASER_CURRENT_STALE_MS) &&
+0210        (measured >= target * (100U - LASER_CURRENT_TOLERANCE_PERCENT)) &&
+0211        (measured <= target * (100U + LASER_CURRENT_TOLERANCE_PERCENT)))
+0212    {
+0213      if (g_laser_current_good_ms < LASER_CURRENT_GOOD_MS)
+0214      {
+0215        g_laser_current_good_ms++;
+0216      }
+0217    }
+0218    else
+0219    {
+0220      g_laser_current_good_ms = 0U;
+0221    }
+0222  
+0223    /* Fault blinking owns the LED while FAULT is latched. */
+0224    if (g_laser_state != LASER_STATE_FAULT)
+0225    {
+0226      HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin,
+0227                       (g_laser_current_good_ms >= LASER_CURRENT_GOOD_MS) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+0228    }
+0229  }
+0230  
+0231  static void Laser_Disable_Stop_EXTI(void)
+0232  {
+0233    EXTI->IMR1 &= ~(uint32_t)STOP_Pin;
+0234    __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
+0235    HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
+0236  }
+0237  
+0238  static uint8_t Laser_Enable_Stop_EXTI(void)
+0239  {
+0240    __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
+0241    HAL_NVIC_ClearPendingIRQ(STOP_EXTI_IRQn);
+0242  
+0243    if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+0244    {
+0245      return 0U;
+0246    }
+0247  
+0248    EXTI->IMR1 |= (uint32_t)STOP_Pin;
+0249    return 1U;
+0250  }
+0251  
+0252  static void Laser_Process_Stop_Fault(void)
+0253  {
+0254    if (g_laser_state != LASER_STATE_RUNNING)
+0255    {
+0256      return;
+0257    }
+0258  
+0259    if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+0260    {
+0261      if (g_laser_fault_debounce_ms == 0U)
+0262      {
+0263        Laser_Disable_Stop_EXTI();
+0264        g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+0265      }
+0266  
+0267      /* EXTI and polling share five consecutive 1 ms low samples. */
+0268      g_laser_fault_debounce_ms--;
+0269      if (g_laser_fault_debounce_ms == 0U)
+0270      {
+0271        Laser_Emergency_Kill();
+0272      }
+0273    }
+0274    else if (g_laser_fault_debounce_ms != 0U)
+0275    {
+0276      g_laser_fault_debounce_ms = 0U;
+0277      if (Laser_Enable_Stop_EXTI() == 0U)
+0278      {
+0279        /* A new falling edge during re-arm needs its own debounce. */
+0280        g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+0281      }
+0282    }
+0283  }
+0284  
+0285  static void Laser_Disable_Shoot_EXTI(void)
+0286  {
+0287    EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
+0288    __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
+0289    HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
+0290  }
+0291  
+0292  static void Laser_Enable_Shoot_EXTI(void)
+0293  {
+0294    __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
+0295    HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
+0296    EXTI->IMR1 |= (uint32_t)SHOOT_Pin;
+0297  }
+0298  
+0299  static void Laser_Process_Shoot_Debounce(void)
+0300  {
+0301    GPIO_PinState shoot_level;
+0302  
+0303    if (g_laser_shoot_debounce_ms == 0U)
+0304    {
+0305      return;
+0306    }
+0307  
+0308    g_laser_shoot_debounce_ms--;
+0309    if (g_laser_shoot_debounce_ms > 0U)
+0310    {
+0311      return;
+0312    }
+0313  
+0314    shoot_level = HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin);
+0315    if (g_laser_shoot_enabled != 0U)
+0316    {
+0317      if (shoot_level == GPIO_PIN_RESET)
+0318      {
+0319        if (g_laser_shoot_dac_val > 0U)
+0320        {
+0321          g_laser_shoot_req_dac_val = g_laser_shoot_dac_val;
+0322          g_laser_shoot_start_req = 1U;
+0323          g_laser_shoot_stop_req = 0U;
+0324        }
+0325        else
+0326        {
+0327          g_laser_shoot_start_req = 0U;
+0328          g_laser_shoot_stop_req = 1U;
+0329        }
+0330      }
+0331      else
+0332      {
+0333        g_laser_shoot_start_req = 0U;
+0334        g_laser_shoot_stop_req = 1U;
+0335      }
+0336    }
+0337  
+0338    if (g_laser_shoot_enabled != 0U)
+0339    {
+0340      Laser_Enable_Shoot_EXTI();
+0341    }
+0342  }
+0343  
+0344  static void Laser_Process_Shoot_Requests(void)
+0345  {
+0346    uint8_t start_req;
+0347    uint8_t stop_req;
+0348    uint16_t start_dac_val;
+0349    uint32_t primask;
+0350  
+0351    primask = __get_PRIMASK();
+0352    __disable_irq();
+0353    start_req = g_laser_shoot_start_req;
+0354    stop_req = g_laser_shoot_stop_req;
+0355    start_dac_val = g_laser_shoot_req_dac_val;
+0356    g_laser_shoot_start_req = 0U;
+0357    g_laser_shoot_stop_req = 0U;
+0358    if (primask == 0U)
+0359    {
+0360      __enable_irq();
+0361    }
+0362  
+0363    if (stop_req != 0U)
+0364    {
+0365      Laser_Stop();
+0366    }
+0367    else if (start_req != 0U)
+0368    {
+0369      Laser_Start(start_dac_val);
+0370    }
+0371  }
+0372  
+0373  static void Laser_Process_Fault_LED(void)
+0374  {
+0375    if (g_laser_state != LASER_STATE_FAULT)
+0376    {
+0377      return;
+0378    }
+0379  
+0380    if (g_laser_fault_led_blink_ms > 0U)
+0381    {
+0382      g_laser_fault_led_blink_ms--;
+0383    }
+0384  
+0385    if (g_laser_fault_led_blink_ms == 0U)
+0386    {
+0387      HAL_GPIO_TogglePin(R_EN_GPIO_Port, R_EN_Pin);
+0388      g_laser_fault_led_blink_ms = LASER_FAULT_LED_BLINK_MS;
+0389    }
+0390  }
+0391  
+0392  static void Laser_Process_Key1_Debounce(void)
+0393  {
+0394    GPIO_PinState key_level = HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin);
+0395  
+0396    if (key_level == GPIO_PIN_RESET)
+0397    {
+0398      if (g_key1_release_required != 0U)
+0399      {
+0400        g_key1_press_debounce_ms = 0U;
+0401        return;
+0402      }
+0403  
+0404      if (g_key1_latched_pressed == 0U)
+0405      {
+0406        if (g_key1_press_debounce_ms < KEY1_PRESS_DEBOUNCE_MS)
+0407        {
+0408          g_key1_press_debounce_ms++;
+0409        }
+0410  
+0411        if (g_key1_press_debounce_ms >= KEY1_PRESS_DEBOUNCE_MS)
+0412        {
+0413          g_key1_latched_pressed = 1U;
+0414  #if LASER_BENCH_MODE != 0U
+0415          if (g_bench_active != 0U)
+0416          {
+0417            /* TIM6 stops output even when the main loop is stalled. */
+0418            Laser_Stop();
+0419          }
+0420          else if (g_laser_state == LASER_STATE_IDLE)
+0421          {
+0422            g_bench_active = 1U;
+0423            g_bench_phase_ms = 0U;
+0424            g_key1_start_req = 1U;
+0425          }
+0426  #else
+0427          g_key1_start_req = 1U;
+0428  #endif
+0429        }
+0430      }
+0431    }
+0432    else
+0433    {
+0434      g_key1_press_debounce_ms = 0U;
+0435      g_key1_release_required = 0U;
+0436  
+0437      if (g_key1_latched_pressed != 0U)
+0438      {
+0439        g_key1_latched_pressed = 0U;
+0440  #if LASER_BENCH_MODE == 0U
+0441        g_key1_start_req = 0U;
+0442        /* Stop in TIM6 even if the main loop is not making progress. */
+0443        Laser_Stop();
+0444  #endif
+0445      }
+0446    }
+0447  }
+0448  
+0449  static void Laser_Process_Key1_Requests(void)
+0450  {
+0451    uint32_t primask;
+0452  
+0453    primask = __get_PRIMASK();
+0454    __disable_irq();
+0455  
+0456    if (g_key1_start_req != 0U)
+0457    {
+0458      g_key1_start_req = 0U;
+0459      /* Recheck and commit together: no stale start after a stop request. */
+0460  #if LASER_BENCH_MODE != 0U
+0461      if (g_bench_active != 0U)
+0462  #else
+0463      if ((g_key1_latched_pressed != 0U) && (g_key1_release_required == 0U) &&
+0464          (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET))
+0465  #endif
+0466      {
+0467        Laser_Start(TEST_DAC_VALUE);
+0468  #if LASER_BENCH_MODE != 0U
+0469        /* Count the ON interval from the actual output enable. */
+0470        g_bench_phase_ms = 0U;
+0471  #endif
+0472      }
+0473    }
+0474  
+0475    if (primask == 0U)
+0476    {
+0477      __enable_irq();
+0478    }
+0479  }
+0480  
+0481  #if LASER_BENCH_MODE != 0U
+0482  static void Laser_Process_Bench(void)
+0483  {
+0484    if (g_bench_active == 0U)
+0485    {
+0486      return;
+0487    }
+0488  
+0489  #if LASER_BENCH_MODE == 2U
+0490    /* A delayed main loop must not consume the next ON interval. */
+0491    if (g_key1_start_req != 0U)
+0492    {
+0493      return;
+0494    }
+0495  
+0496    if (g_bench_phase_ms < UINT16_MAX)
+0497    {
+0498      g_bench_phase_ms++;
+0499    }
+0500  
+0501    if (g_laser_state == LASER_STATE_IDLE)
+0502    {
+0503      if (g_bench_phase_ms >= BENCH_CYCLE_OFF_MS)
+0504      {
+0505        g_key1_start_req = 1U;
+0506      }
+0507    }
+0508    else if (g_bench_phase_ms >= BENCH_CYCLE_ON_MS)
+0509    {
+0510      /* Finish a pending fault check before a cycle stop could clear it. */
+0511      if (g_laser_fault_debounce_ms != 0U)
+0512      {
+0513        return;
+0514      }
+0515      Laser_Stop();
+0516      if (g_laser_state == LASER_STATE_IDLE)
+0517      {
+0518        /* Only this planned stop may re-arm the cycle, within TIM6. */
+0519        g_bench_active = 1U;
+0520      }
+0521    }
+0522  #endif
+0523  }
+0524  #endif
+0525  
+0526  static uint16_t Laser_Calc_Start_Mask_Ms(uint16_t dac_val)
+0527  {
+0528    uint32_t ramp_ms = ((uint32_t)dac_val + LASER_DAC_RAMP_STEP_PER_MS - 1U) / LASER_DAC_RAMP_STEP_PER_MS;
+0529    uint32_t mask_ms = ramp_ms + LASER_START_MASK_EXTRA_MS;
+0530  
+0531    if (mask_ms > LASER_START_MASK_MAX_MS)
+0532    {
+0533      mask_ms = LASER_START_MASK_MAX_MS;
+0534    }
+0535  
+0536    return (uint16_t)mask_ms;
+0537  }
+0538  
+0539  static void Laser_Process_Dac_Ramp(void)
+0540  {
+0541    uint16_t next_val;
+0542  
+0543    if ((g_laser_state != LASER_STATE_STARTING) && (g_laser_state != LASER_STATE_RUNNING))
+0544    {
+0545      return;
+0546    }
+0547  
+0548    if (g_laser_dac_current_val >= g_laser_dac_target_val)
+0549    {
+0550      return;
+0551    }
+0552  
+0553    next_val = g_laser_dac_current_val + LASER_DAC_RAMP_STEP_PER_MS;
+0554    if ((next_val < g_laser_dac_current_val) || (next_val > g_laser_dac_target_val))
+0555    {
+0556      next_val = g_laser_dac_target_val;
+0557    }
+0558  
+0559    g_laser_dac_current_val = next_val;
+0560    Laser_Set_Dac_12bit(next_val);
+0561  }
+0562  
+0563  static void Laser_Set_Dac_12bit(uint16_t dac_val)
+0564  {
+0565    if (dac_val > 4095U)
+0566    {
+0567      dac_val = 4095U;
+0568    }
+0569  
+0570    if (HAL_DAC_SetValue(&hdac1, DAC_CHANNEL_1, DAC_ALIGN_12B_R, dac_val) != HAL_OK)
+0571    {
+0572      Error_Handler();
+0573    }
+0574  }
+0575  
+0576  static void Laser_TIM6_Start_1ms(void)
+0577  {
+0578    uint32_t tim6_clk_hz = HAL_RCC_GetPCLK1Freq();
+0579  
+0580    if ((RCC->CFGR & RCC_CFGR_PPRE1) != 0U)
+0581    {
+0582      tim6_clk_hz *= 2U;
+0583    }
+0584  
+0585    __HAL_TIM_DISABLE(&htim6);
+0586    __HAL_TIM_DISABLE_IT(&htim6, TIM_IT_UPDATE);
+0587    __HAL_TIM_SET_PRESCALER(&htim6, (tim6_clk_hz / 1000000U) - 1U);
+0588    __HAL_TIM_SET_AUTORELOAD(&htim6, 1000U - 1U);
+0589    __HAL_TIM_SET_COUNTER(&htim6, 0U);
+0590    HAL_TIM_GenerateEvent(&htim6, TIM_EVENTSOURCE_UPDATE);
+0591    __HAL_TIM_CLEAR_FLAG(&htim6, TIM_FLAG_UPDATE);
+0592  
+0593    if (HAL_TIM_Base_Start_IT(&htim6) != HAL_OK)
+0594    {
+0595      Error_Handler();
+0596    }
+0597  }
+0598  
+0599  void Laser_Hardware_Init(void)
+0600  {
+0601    g_laser_current_adc = 0U;
+0602    g_laser_target_adc = 0U;
+0603    g_laser_current_valid = 0U;
+0604    g_laser_current_age_ms = LASER_CURRENT_STALE_MS;
+0605    g_laser_current_good_ms = 0U;
+0606    g_laser_state = LASER_STATE_IDLE;
+0607    g_tim6_completed = 0U;
+0608    g_watchdog_last_completed = 0U;
+0609    g_laser_start_mask_ms = 0U;
+0610    g_laser_fault_debounce_ms = 0U;
+0611    g_laser_dac_target_val = 0U;
+0612    g_laser_dac_current_val = 0U;
+0613    g_laser_shoot_debounce_ms = 0U;
+0614    g_laser_fault_led_blink_ms = 0U;
+0615    g_laser_shoot_req_dac_val = 0U;
+0616    g_laser_shoot_enabled = 0U;
+0617    g_laser_shoot_start_req = 0U;
+0618    g_laser_shoot_stop_req = 0U;
+0619    g_key1_press_debounce_ms = 0U;
+0620    g_key1_latched_pressed = 0U;
+0621    g_key1_start_req = 0U;
+0622    g_key1_release_required = (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET) ? 1U : 0U;
+0623  #if LASER_BENCH_MODE != 0U
+0624    g_bench_active = 0U;
+0625    g_bench_phase_ms = 0U;
+0626  #endif
+0627  
+0628    Laser_Disable_Stop_EXTI();
+0629    Laser_Disable_Shoot_EXTI();
+0630    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_RESET);
+0631    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0632  
+0633    /* PA4 must be forced to 0 before enabling DAC output. */
+0634    Laser_Set_Dac_12bit(0U);
+0635    if (HAL_DAC_Start(&hdac1, DAC_CHANNEL_1) != HAL_OK)
+0636    {
+0637      Error_Handler();
+0638    }
+0639    Laser_Set_Dac_12bit(0U);
+0640  
+0641    Laser_TIM6_Start_1ms();
+0642  }
+0643  
+0644  void Laser_Set_Shoot_Enable(uint8_t enable)
+0645  {
+0646    if ((enable != 0U) && (g_laser_state != LASER_STATE_FAULT))
+0647    {
+0648      g_laser_shoot_debounce_ms = 0U;
+0649      g_laser_shoot_start_req = 0U;
+0650      g_laser_shoot_stop_req = 0U;
+0651      g_laser_shoot_enabled = 1U;
+0652      Laser_Enable_Shoot_EXTI();
+0653    }
+0654    else
+0655    {
+0656      g_laser_shoot_enabled = 0U;
+0657      g_laser_shoot_debounce_ms = 0U;
+0658      g_laser_shoot_start_req = 0U;
+0659      g_laser_shoot_stop_req = 0U;
+0660      Laser_Disable_Shoot_EXTI();
+0661    }
+0662  }
+0663  
+0664  void Laser_Start(uint16_t dac_val)
+0665  {
+0666    uint32_t primask;
+0667  
+0668    primask = __get_PRIMASK();
+0669    __disable_irq();
+0670  
+0671    if (g_laser_state != LASER_STATE_IDLE)
+0672    {
+0673      if (primask == 0U)
+0674      {
+0675        __enable_irq();
+0676      }
+0677      return;
+0678    }
+0679  
+0680    if (dac_val > 4095U)
+0681    {
+0682      dac_val = 4095U;
+0683    }
+0684  
+0685    Laser_Disable_Stop_EXTI();
+0686    g_laser_fault_debounce_ms = 0U;
+0687    g_laser_fault_led_blink_ms = 0U;
+0688    g_laser_dac_target_val = dac_val;
+0689    g_laser_dac_current_val = 0U;
+0690    g_laser_current_valid = 0U;
+0691    g_laser_current_good_ms = 0U;
+0692    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0693  
+0694    Laser_Set_Dac_12bit(0U);
+0695    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_SET);
+0696  
+0697    g_laser_start_mask_ms = Laser_Calc_Start_Mask_Ms(dac_val);
+0698    g_laser_state = LASER_STATE_STARTING;
+0699  
+0700    if (primask == 0U)
+0701    {
+0702      __enable_irq();
+0703    }
+0704  }
+0705  
+0706  void Laser_Stop(void)
+0707  {
+0708    uint32_t primask;
+0709  
+0710    primask = __get_PRIMASK();
+0711    __disable_irq();
+0712  
+0713  #if LASER_BENCH_MODE != 0U
+0714    g_bench_active = 0U;
+0715    g_bench_phase_ms = 0U;
+0716    g_key1_start_req = 0U;
+0717  #endif
+0718  
+0719    if (g_laser_state == LASER_STATE_FAULT)
+0720    {
+0721      if (primask == 0U)
+0722      {
+0723        __enable_irq();
+0724      }
+0725      return;
+0726    }
+0727  
+0728    Laser_Disable_Stop_EXTI();
+0729  
+0730    g_laser_state = LASER_STATE_IDLE;
+0731    g_laser_start_mask_ms = 0U;
+0732    g_laser_fault_debounce_ms = 0U;
+0733    g_laser_fault_led_blink_ms = 0U;
+0734    g_laser_dac_target_val = 0U;
+0735    g_laser_dac_current_val = 0U;
+0736  
+0737    PWM_GPIO_Port->BRR = PWM_Pin;
+0738    Laser_Set_Dac_12bit(0U);
+0739    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0740  
+0741    if (primask == 0U)
+0742    {
+0743      __enable_irq();
+0744    }
+0745  }
+0746  
+0747  void Laser_Emergency_Kill(void)
+0748  {
+0749  #if LASER_BENCH_MODE != 0U
+0750    g_bench_active = 0U;
+0751    g_bench_phase_ms = 0U;
+0752  #endif
+0753    Laser_Disable_Stop_EXTI();
+0754    Laser_Disable_Shoot_EXTI();
+0755  
+0756    PWM_GPIO_Port->BRR = PWM_Pin;
+0757    Laser_Set_Dac_12bit(0U);
+0758  
+0759    g_laser_start_mask_ms = 0U;
+0760    g_laser_fault_debounce_ms = 0U;
+0761    g_laser_dac_target_val = 0U;
+0762    g_laser_dac_current_val = 0U;
+0763    g_laser_shoot_debounce_ms = 0U;
+0764    g_laser_shoot_enabled = 0U;
+0765    g_laser_shoot_start_req = 0U;
+0766    g_laser_shoot_stop_req = 0U;
+0767    g_key1_press_debounce_ms = 0U;
+0768    g_key1_latched_pressed = 0U;
+0769    g_key1_start_req = 0U;
+0770    g_key1_release_required = 1U;
+0771    g_laser_fault_led_blink_ms = LASER_FAULT_LED_BLINK_MS;
+0772    g_laser_state = LASER_STATE_FAULT;
+0773  
+0774    /* Fault is indicated by non-blocking blinking in the TIM6 1 ms task. */
+0775    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_SET);
+0776  }
+0777  
+0778  uint8_t Laser_Fault_Clear(void)
+0779  {
+0780    if (g_laser_state != LASER_STATE_FAULT)
+0781    {
+0782      return 1U;
+0783    }
+0784  
+0785    Laser_Disable_Stop_EXTI();
+0786    Laser_Disable_Shoot_EXTI();
+0787  
+0788    PWM_GPIO_Port->BRR = PWM_Pin;
+0789    Laser_Set_Dac_12bit(0U);
+0790  
+0791    g_laser_start_mask_ms = 0U;
+0792    g_laser_fault_debounce_ms = 0U;
+0793    g_laser_dac_target_val = 0U;
+0794    g_laser_dac_current_val = 0U;
+0795    g_laser_shoot_debounce_ms = 0U;
+0796    g_laser_shoot_req_dac_val = 0U;
+0797    g_laser_shoot_enabled = 0U;
+0798    g_laser_shoot_start_req = 0U;
+0799    g_laser_shoot_stop_req = 0U;
+0800    g_key1_press_debounce_ms = 0U;
+0801    g_key1_latched_pressed = 0U;
+0802    g_key1_start_req = 0U;
+0803    g_key1_release_required = 1U;
+0804  
+0805    g_laser_fault_led_blink_ms = 0U;
+0806    g_laser_state = LASER_STATE_IDLE;
+0807    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0808    return 1U;
+0809  }
+0810  
+0811  /* Fatal handlers leave interrupts masked; no HAL, delay or handle is needed. */
+0812  void Laser_Fatal_Shutdown(void)
+0813  {
+0814    __disable_irq();
+0815  
+0816    /* PA9 is only driven after GPIOA has been clocked and initialized. */
+0817    if ((RCC->AHB2ENR & RCC_AHB2ENR_GPIOAEN) != 0U)
+0818    {
+0819      PWM_GPIO_Port->BRR = PWM_Pin;
+0820    }
+0821  
+0822    /* DAC1 channel 1 uses no trigger, so writing zero updates its output. */
+0823    if ((RCC->AHB2ENR & RCC_AHB2ENR_DAC1EN) != 0U)
+0824    {
+0825      DAC1->DHR12R1 = 0U;
+0826    }
+0827    if ((RCC->AHB2ENR & RCC_AHB2ENR_GPIOCEN) != 0U)
+0828    {
+0829      R_EN_GPIO_Port->BRR = R_EN_Pin;
+0830    }
+0831    __DSB();
+0832  }
+0833  
+0834  /* USER CODE END 0 */
+0835  
+0836  /**
+0837    * @brief  The application entry point.
+0838    * @retval int
+0839    */
+0840  int main(void)
+0841  {
+0842  
+0843    /* USER CODE BEGIN 1 */
+0844  
+0845    /* USER CODE END 1 */
+0846  
+0847    /* MCU Configuration--------------------------------------------------------*/
+0848  
+0849    /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+0850    HAL_Init();
+0851  
+0852    /* USER CODE BEGIN Init */
+0853  
+0854    /* USER CODE END Init */
+0855  
+0856    /* Configure the system clock */
+0857    SystemClock_Config();
+0858  
+0859    /* USER CODE BEGIN SysInit */
+0860  
+0861    /* USER CODE END SysInit */
+0862  
+0863    /* Initialize all configured peripherals */
+0864    MX_GPIO_Init();
+0865    MX_DMA_Init();
+0866    MX_DAC1_Init();
+0867    MX_TIM2_Init();
+0868    MX_USART3_UART_Init();
+0869    MX_ADC1_Init();
+0870    MX_ADC2_Init();
+0871    MX_TIM6_Init();
+0872    MX_IWDG_Init();
+0873    /* USER CODE BEGIN 2 */
+0874    if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK)
+0875    {
+0876      Error_Handler();
+0877    }
+0878    Laser_Hardware_Init();
+0879    g_laser_shoot_dac_val = 0U;
+0880    Laser_Set_Shoot_Enable(0U);
+0881  
+0882    /* USER CODE END 2 */
+0883  
+0884    /* Infinite loop */
+0885    /* USER CODE BEGIN WHILE */
+0886    while (1)
+0887    {
+0888      /* USER CODE END WHILE */
+0889  
+0890      /* USER CODE BEGIN 3 */
+0891      Laser_Process_Key1_Requests();
+0892      Laser_Process_Shoot_Requests();
+0893      Laser_Process_Current_Sample();
+0894      Laser_Process_Watchdog();
+0895    }
+0896    /* USER CODE END 3 */
+0897  }
+0898  
+0899  /**
+0900    * @brief System Clock Configuration
+0901    * @retval None
+0902    */
+0903  void SystemClock_Config(void)
+0904  {
+0905    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+0906    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+0907  
+0908    /** Configure the main internal regulator output voltage
+0909    */
+0910    HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
+0911  
+0912    /** Initializes the RCC Oscillators according to the specified parameters
+0913    * in the RCC_OscInitTypeDef structure.
+0914    */
+0915    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
+0916    RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+0917    RCC_OscInitStruct.LSIState = RCC_LSI_ON;
+0918    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+0919    RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+0920    RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
+0921    RCC_OscInitStruct.PLL.PLLN = 85;
+0922    RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+0923    RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+0924    RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
+0925    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+0926    {
+0927      Error_Handler();
+0928    }
+0929  
+0930    /** Initializes the CPU, AHB and APB buses clocks
+0931    */
+0932    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+0933                                |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+0934    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+0935    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+0936    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+0937    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+0938  
+0939    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
+0940    {
+0941      Error_Handler();
+0942    }
+0943  
+0944    /** Enables the Clock Security System
+0945    */
+0946    HAL_RCC_EnableCSS();
+0947  }
+0948  
+0949  /* USER CODE BEGIN 4 */
+0950  void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+0951  {
+0952    if (htim->Instance != TIM6)
+0953    {
+0954      return;
+0955    }
+0956  
+0957    Laser_Process_Shoot_Debounce();
+0958    Laser_Process_Key1_Debounce();
+0959    Laser_Process_Dac_Ramp();
+0960  
+0961    if ((g_laser_state == LASER_STATE_STARTING) && (g_laser_start_mask_ms > 0U))
+0962    {
+0963      g_laser_start_mask_ms--;
+0964  
+0965      if (g_laser_start_mask_ms == 0U)
+0966      {
+0967        if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+0968        {
+0969          Laser_Emergency_Kill();
+0970        }
+0971        else
+0972        {
+0973          if (Laser_Enable_Stop_EXTI() != 0U)
+0974          {
+0975            g_laser_state = LASER_STATE_RUNNING;
+0976          }
+0977          else
+0978          {
+0979            Laser_Emergency_Kill();
+0980          }
+0981        }
+0982      }
+0983    }
+0984  
+0985    Laser_Process_Stop_Fault();
+0986  
+0987  #if LASER_BENCH_MODE != 0U
+0988    Laser_Process_Bench();
+0989  #endif
+0990    Laser_Process_Current_LED();
+0991    Laser_Process_Fault_LED();
+0992    /* Publish progress only after every TIM6 task has returned. */
+0993    g_tim6_completed++;
+0994  }
+0995  
+0996  void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+0997  {
+0998    if (GPIO_Pin == STOP_Pin)
+0999    {
+1000      uint32_t primask = __get_PRIMASK();
+1001      __disable_irq();
+1002      Laser_Disable_Stop_EXTI();
+1003  
+1004      if (g_laser_state == LASER_STATE_RUNNING)
+1005      {
+1006        if (g_laser_fault_debounce_ms == 0U)
+1007        {
+1008          g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+1009        }
+1010      }
+1011      else
+1012      {
+1013        g_laser_fault_debounce_ms = 0U;
+1014      }
+1015      if (primask == 0U)
+1016      {
+1017        __enable_irq();
+1018      }
+1019    }
+1020    else if (GPIO_Pin == SHOOT_Pin)
+1021    {
+1022      Laser_Disable_Shoot_EXTI();
+1023  
+1024      if (g_laser_shoot_enabled != 0U)
+1025      {
+1026        g_laser_shoot_debounce_ms = LASER_SHOOT_DEBOUNCE_MS;
+1027      }
+1028    }
+1029  }
+1030  
+1031  /* USER CODE END 4 */
+1032  
+1033  /**
+1034    * @brief  This function is executed in case of error occurrence.
+1035    * @retval None
+1036    */
+1037  void Error_Handler(void)
+1038  {
+1039    /* USER CODE BEGIN Error_Handler_Debug */
+1040    /* User can add his own implementation to report the HAL error return state */
+1041    Laser_Fatal_Shutdown();
+1042    while (1)
+1043    {
+1044    }
+1045    /* USER CODE END Error_Handler_Debug */
+1046  }
+1047  #ifdef USE_FULL_ASSERT
+1048  /**
+1049    * @brief  Reports the name of the source file and the source line number
+1050    *         where the assert_param error has occurred.
+1051    * @param  file: pointer to the source file name
+1052    * @param  line: assert_param error line source number
+1053    * @retval None
+1054    */
+1055  void assert_failed(uint8_t *file, uint32_t line)
+1056  {
+1057    /* USER CODE BEGIN 6 */
+1058    /* User can add his own implementation to report the file name and line number,
+1059       ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+1060    /* USER CODE END 6 */
+1061  }
+1062  #endif /* USE_FULL_ASSERT */
+
+================ Core\Inc\main.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file           : main.h
+0005    * @brief          : Header for main.c file.
+0006    *                   This file contains the common defines of the application.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  
+0021  /* Define to prevent recursive inclusion -------------------------------------*/
+0022  #ifndef __MAIN_H
+0023  #define __MAIN_H
+0024  
+0025  #ifdef __cplusplus
+0026  extern "C" {
+0027  #endif
+0028  
+0029  /* Includes ------------------------------------------------------------------*/
+0030  #include "stm32g4xx_hal.h"
+0031  
+0032  /* Private includes ----------------------------------------------------------*/
+0033  /* USER CODE BEGIN Includes */
+0034  
+0035  /* USER CODE END Includes */
+0036  
+0037  /* Exported types ------------------------------------------------------------*/
+0038  /* USER CODE BEGIN ET */
+0039  typedef enum
+0040  {
+0041    LASER_STATE_IDLE = 0,
+0042    LASER_STATE_STARTING,
+0043    LASER_STATE_RUNNING,
+0044    LASER_STATE_FAULT
+0045  } Laser_State_t;
+0046  
+0047  /* USER CODE END ET */
+0048  
+0049  /* Exported constants --------------------------------------------------------*/
+0050  /* USER CODE BEGIN EC */
+0051  
+0052  /* USER CODE END EC */
+0053  
+0054  /* Exported macro ------------------------------------------------------------*/
+0055  /* USER CODE BEGIN EM */
+0056  
+0057  /* USER CODE END EM */
+0058  
+0059  /* Exported functions prototypes ---------------------------------------------*/
+0060  void Error_Handler(void);
+0061  
+0062  /* USER CODE BEGIN EFP */
+0063  void Laser_Hardware_Init(void);
+0064  void Laser_Start(uint16_t dac_val);
+0065  void Laser_Stop(void);
+0066  void Laser_Emergency_Kill(void);
+0067  void Laser_Fatal_Shutdown(void);
+0068  uint8_t Laser_Fault_Clear(void);
+0069  void Laser_Set_Shoot_Enable(uint8_t enable);
+0070  
+0071  extern volatile Laser_State_t g_laser_state;
+0072  extern volatile uint16_t g_laser_start_mask_ms;
+0073  extern volatile uint16_t g_laser_fault_debounce_ms;
+0074  extern volatile uint16_t g_laser_shoot_dac_val;
+0075  
+0076  /* USER CODE END EFP */
+0077  
+0078  /* Private defines -----------------------------------------------------------*/
+0079  #define R_EN_Pin GPIO_PIN_13
+0080  #define R_EN_GPIO_Port GPIOC
+0081  #define CTRL1_Pin GPIO_PIN_4
+0082  #define CTRL1_GPIO_Port GPIOA
+0083  #define RGB_LED_Pin GPIO_PIN_5
+0084  #define RGB_LED_GPIO_Port GPIOA
+0085  #define STOP_Pin GPIO_PIN_12
+0086  #define STOP_GPIO_Port GPIOB
+0087  #define STOP_EXTI_IRQn EXTI15_10_IRQn
+0088  #define ISMON_Pin GPIO_PIN_14
+0089  #define ISMON_GPIO_Port GPIOB
+0090  #define IVINMON_Pin GPIO_PIN_15
+0091  #define IVINMON_GPIO_Port GPIOB
+0092  #define KEY1_Pin GPIO_PIN_9
+0093  #define KEY1_GPIO_Port GPIOC
+0094  #define SHOOT_Pin GPIO_PIN_8
+0095  #define SHOOT_GPIO_Port GPIOA
+0096  #define SHOOT_EXTI_IRQn EXTI9_5_IRQn
+0097  #define PWM_Pin GPIO_PIN_9
+0098  #define PWM_GPIO_Port GPIOA
+0099  
+0100  /* USER CODE BEGIN Private defines */
+0101  
+0102  /* USER CODE END Private defines */
+0103  
+0104  #ifdef __cplusplus
+0105  }
+0106  #endif
+0107  
+0108  #endif /* __MAIN_H */
+
+================ Core\Src\stm32g4xx_it.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    stm32g4xx_it.c
+0005    * @brief   Interrupt Service Routines.
+0006    ******************************************************************************
+0007    * @attention
+0008    *
+0009    * Copyright (c) 2026 STMicroelectronics.
+0010    * All rights reserved.
+0011    *
+0012    * This software is licensed under terms that can be found in the LICENSE file
+0013    * in the root directory of this software component.
+0014    * If no LICENSE file comes with this software, it is provided AS-IS.
+0015    *
+0016    ******************************************************************************
+0017    */
+0018  /* USER CODE END Header */
+0019  
+0020  /* Includes ------------------------------------------------------------------*/
+0021  #include "main.h"
+0022  #include "stm32g4xx_it.h"
+0023  /* Private includes ----------------------------------------------------------*/
+0024  /* USER CODE BEGIN Includes */
+0025  /* USER CODE END Includes */
+0026  
+0027  /* Private typedef -----------------------------------------------------------*/
+0028  /* USER CODE BEGIN TD */
+0029  
+0030  /* USER CODE END TD */
+0031  
+0032  /* Private define ------------------------------------------------------------*/
+0033  /* USER CODE BEGIN PD */
+0034  
+0035  /* USER CODE END PD */
+0036  
+0037  /* Private macro -------------------------------------------------------------*/
+0038  /* USER CODE BEGIN PM */
+0039  
+0040  /* USER CODE END PM */
+0041  
+0042  /* Private variables ---------------------------------------------------------*/
+0043  /* USER CODE BEGIN PV */
+0044  
+0045  /* USER CODE END PV */
+0046  
+0047  /* Private function prototypes -----------------------------------------------*/
+0048  /* USER CODE BEGIN PFP */
+0049  
+0050  /* USER CODE END PFP */
+0051  
+0052  /* Private user code ---------------------------------------------------------*/
+0053  /* USER CODE BEGIN 0 */
+0054  
+0055  /* USER CODE END 0 */
+0056  
+0057  /* External variables --------------------------------------------------------*/
+0058  extern DAC_HandleTypeDef hdac1;
+0059  extern DMA_HandleTypeDef hdma_tim2_ch1;
+0060  extern TIM_HandleTypeDef htim6;
+0061  /* USER CODE BEGIN EV */
+0062  
+0063  /* USER CODE END EV */
+0064  
+0065  /******************************************************************************/
+0066  /*           Cortex-M4 Processor Interruption and Exception Handlers          */
+0067  /******************************************************************************/
+0068  /**
+0069    * @brief This function handles Non maskable interrupt.
+0070    */
+0071  void NMI_Handler(void)
+0072  {
+0073    /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+0074    Laser_Fatal_Shutdown();
+0075    /* USER CODE END NonMaskableInt_IRQn 0 */
+0076    HAL_RCC_NMI_IRQHandler();
+0077    /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+0078     while (1)
+0079    {
+0080    }
+0081    /* USER CODE END NonMaskableInt_IRQn 1 */
+0082  }
+0083  
+0084  /**
+0085    * @brief This function handles Hard fault interrupt.
+0086    */
+0087  void HardFault_Handler(void)
+0088  {
+0089    /* USER CODE BEGIN HardFault_IRQn 0 */
+0090    Laser_Fatal_Shutdown();
+0091    /* USER CODE END HardFault_IRQn 0 */
+0092    while (1)
+0093    {
+0094      /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+0095      /* USER CODE END W1_HardFault_IRQn 0 */
+0096    }
+0097  }
+0098  
+0099  /**
+0100    * @brief This function handles Memory management fault.
+0101    */
+0102  void MemManage_Handler(void)
+0103  {
+0104    /* USER CODE BEGIN MemoryManagement_IRQn 0 */
+0105    Laser_Fatal_Shutdown();
+0106    /* USER CODE END MemoryManagement_IRQn 0 */
+0107    while (1)
+0108    {
+0109      /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
+0110      /* USER CODE END W1_MemoryManagement_IRQn 0 */
+0111    }
+0112  }
+0113  
+0114  /**
+0115    * @brief This function handles Prefetch fault, memory access fault.
+0116    */
+0117  void BusFault_Handler(void)
+0118  {
+0119    /* USER CODE BEGIN BusFault_IRQn 0 */
+0120    Laser_Fatal_Shutdown();
+0121    /* USER CODE END BusFault_IRQn 0 */
+0122    while (1)
+0123    {
+0124      /* USER CODE BEGIN W1_BusFault_IRQn 0 */
+0125      /* USER CODE END W1_BusFault_IRQn 0 */
+0126    }
+0127  }
+0128  
+0129  /**
+0130    * @brief This function handles Undefined instruction or illegal state.
+0131    */
+0132  void UsageFault_Handler(void)
+0133  {
+0134    /* USER CODE BEGIN UsageFault_IRQn 0 */
+0135    Laser_Fatal_Shutdown();
+0136    /* USER CODE END UsageFault_IRQn 0 */
+0137    while (1)
+0138    {
+0139      /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
+0140      /* USER CODE END W1_UsageFault_IRQn 0 */
+0141    }
+0142  }
+0143  
+0144  /**
+0145    * @brief This function handles System service call via SWI instruction.
+0146    */
+0147  void SVC_Handler(void)
+0148  {
+0149    /* USER CODE BEGIN SVCall_IRQn 0 */
+0150  
+0151    /* USER CODE END SVCall_IRQn 0 */
+0152    /* USER CODE BEGIN SVCall_IRQn 1 */
+0153  
+0154    /* USER CODE END SVCall_IRQn 1 */
+0155  }
+0156  
+0157  /**
+0158    * @brief This function handles Debug monitor.
+0159    */
+0160  void DebugMon_Handler(void)
+0161  {
+0162    /* USER CODE BEGIN DebugMonitor_IRQn 0 */
+0163  
+0164    /* USER CODE END DebugMonitor_IRQn 0 */
+0165    /* USER CODE BEGIN DebugMonitor_IRQn 1 */
+0166  
+0167    /* USER CODE END DebugMonitor_IRQn 1 */
+0168  }
+0169  
+0170  /**
+0171    * @brief This function handles Pendable request for system service.
+0172    */
+0173  void PendSV_Handler(void)
+0174  {
+0175    /* USER CODE BEGIN PendSV_IRQn 0 */
+0176  
+0177    /* USER CODE END PendSV_IRQn 0 */
+0178    /* USER CODE BEGIN PendSV_IRQn 1 */
+0179  
+0180    /* USER CODE END PendSV_IRQn 1 */
+0181  }
+0182  
+0183  /**
+0184    * @brief This function handles System tick timer.
+0185    */
+0186  void SysTick_Handler(void)
+0187  {
+0188    /* USER CODE BEGIN SysTick_IRQn 0 */
+0189  
+0190    /* USER CODE END SysTick_IRQn 0 */
+0191    HAL_IncTick();
+0192    /* USER CODE BEGIN SysTick_IRQn 1 */
+0193  
+0194    /* USER CODE END SysTick_IRQn 1 */
+0195  }
+0196  
+0197  /******************************************************************************/
+0198  /* STM32G4xx Peripheral Interrupt Handlers                                    */
+0199  /* Add here the Interrupt Handlers for the used peripherals.                  */
+0200  /* For the available peripheral interrupt handler names,                      */
+0201  /* please refer to the startup file (startup_stm32g4xx.s).                    */
+0202  /******************************************************************************/
+0203  
+0204  /**
+0205    * @brief This function handles DMA1 channel1 global interrupt.
+0206    */
+0207  void DMA1_Channel1_IRQHandler(void)
+0208  {
+0209    /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
+0210  
+0211    /* USER CODE END DMA1_Channel1_IRQn 0 */
+0212    HAL_DMA_IRQHandler(&hdma_tim2_ch1);
+0213    /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
+0214  
+0215    /* USER CODE END DMA1_Channel1_IRQn 1 */
+0216  }
+0217  
+0218  /**
+0219    * @brief This function handles EXTI line[9:5] interrupts.
+0220    */
+0221  void EXTI9_5_IRQHandler(void)
+0222  {
+0223    /* USER CODE BEGIN EXTI9_5_IRQn 0 */
+0224  
+0225    /* USER CODE END EXTI9_5_IRQn 0 */
+0226    HAL_GPIO_EXTI_IRQHandler(SHOOT_Pin);
+0227    /* USER CODE BEGIN EXTI9_5_IRQn 1 */
+0228  
+0229    /* USER CODE END EXTI9_5_IRQn 1 */
+0230  }
+0231  
+0232  /**
+0233    * @brief This function handles EXTI line[15:10] interrupts.
+0234    */
+0235  void EXTI15_10_IRQHandler(void)
+0236  {
+0237    /* USER CODE BEGIN EXTI15_10_IRQn 0 */
+0238  
+0239    /* USER CODE END EXTI15_10_IRQn 0 */
+0240    HAL_GPIO_EXTI_IRQHandler(STOP_Pin);
+0241    /* USER CODE BEGIN EXTI15_10_IRQn 1 */
+0242  
+0243    /* USER CODE END EXTI15_10_IRQn 1 */
+0244  }
+0245  
+0246  /**
+0247    * @brief This function handles TIM6 global interrupt, DAC1 and DAC3 channel underrun error interrupts.
+0248    */
+0249  void TIM6_DAC_IRQHandler(void)
+0250  {
+0251    /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
+0252  
+0253    /* USER CODE END TIM6_DAC_IRQn 0 */
+0254    HAL_TIM_IRQHandler(&htim6);
+0255    HAL_DAC_IRQHandler(&hdac1);
+0256    /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
+0257  
+0258    /* USER CODE END TIM6_DAC_IRQn 1 */
+0259  }
+0260  
+0261  /* USER CODE BEGIN 1 */
+0262  
+0263  /* USER CODE END 1 */
+
+================ Core\Inc\stm32g4xx_it.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    stm32g4xx_it.h
+0005    * @brief   This file contains the headers of the interrupt handlers.
+0006    ******************************************************************************
+0007    * @attention
+0008    *
+0009    * Copyright (c) 2026 STMicroelectronics.
+0010    * All rights reserved.
+0011    *
+0012    * This software is licensed under terms that can be found in the LICENSE file
+0013    * in the root directory of this software component.
+0014    * If no LICENSE file comes with this software, it is provided AS-IS.
+0015    *
+0016    ******************************************************************************
+0017    */
+0018  /* USER CODE END Header */
+0019  
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __STM32G4xx_IT_H
+0022  #define __STM32G4xx_IT_H
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Private includes ----------------------------------------------------------*/
+0029  /* USER CODE BEGIN Includes */
+0030  
+0031  /* USER CODE END Includes */
+0032  
+0033  /* Exported types ------------------------------------------------------------*/
+0034  /* USER CODE BEGIN ET */
+0035  
+0036  /* USER CODE END ET */
+0037  
+0038  /* Exported constants --------------------------------------------------------*/
+0039  /* USER CODE BEGIN EC */
+0040  
+0041  /* USER CODE END EC */
+0042  
+0043  /* Exported macro ------------------------------------------------------------*/
+0044  /* USER CODE BEGIN EM */
+0045  
+0046  /* USER CODE END EM */
+0047  
+0048  /* Exported functions prototypes ---------------------------------------------*/
+0049  void NMI_Handler(void);
+0050  void HardFault_Handler(void);
+0051  void MemManage_Handler(void);
+0052  void BusFault_Handler(void);
+0053  void UsageFault_Handler(void);
+0054  void SVC_Handler(void);
+0055  void DebugMon_Handler(void);
+0056  void PendSV_Handler(void);
+0057  void SysTick_Handler(void);
+0058  void DMA1_Channel1_IRQHandler(void);
+0059  void EXTI9_5_IRQHandler(void);
+0060  void EXTI15_10_IRQHandler(void);
+0061  void TIM6_DAC_IRQHandler(void);
+0062  /* USER CODE BEGIN EFP */
+0063  
+0064  /* USER CODE END EFP */
+0065  
+0066  #ifdef __cplusplus
+0067  }
+0068  #endif
+0069  
+0070  #endif /* __STM32G4xx_IT_H */
+
+================ Core\Src\iwdg.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    iwdg.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of the IWDG instances.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Includes ------------------------------------------------------------------*/
+0021  #include "iwdg.h"
+0022  
+0023  /* USER CODE BEGIN 0 */
+0024  
+0025  /* USER CODE END 0 */
+0026  
+0027  IWDG_HandleTypeDef hiwdg;
+0028  
+0029  /* IWDG init function */
+0030  void MX_IWDG_Init(void)
+0031  {
+0032  
+0033    /* USER CODE BEGIN IWDG_Init 0 */
+0034  
+0035    /* USER CODE END IWDG_Init 0 */
+0036  
+0037    /* USER CODE BEGIN IWDG_Init 1 */
+0038  
+0039    /* USER CODE END IWDG_Init 1 */
+0040    hiwdg.Instance = IWDG;
+0041    hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
+0042    hiwdg.Init.Window = 4095;
+0043    hiwdg.Init.Reload = 199;
+0044    if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+0045    {
+0046      Error_Handler();
+0047    }
+0048    /* USER CODE BEGIN IWDG_Init 2 */
+0049  
+0050    /* USER CODE END IWDG_Init 2 */
+0051  
+0052  }
+0053  
+0054  /* USER CODE BEGIN 1 */
+0055  
+0056  /* USER CODE END 1 */
+
+================ Core\Inc\iwdg.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    iwdg.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the iwdg.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __IWDG_H__
+0022  #define __IWDG_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* USER CODE BEGIN Includes */
+0032  
+0033  /* USER CODE END Includes */
+0034  
+0035  extern IWDG_HandleTypeDef hiwdg;
+0036  
+0037  /* USER CODE BEGIN Private defines */
+0038  
+0039  /* USER CODE END Private defines */
+0040  
+0041  void MX_IWDG_Init(void);
+0042  
+0043  /* USER CODE BEGIN Prototypes */
+0044  
+0045  /* USER CODE END Prototypes */
+0046  
+0047  #ifdef __cplusplus
+0048  }
+0049  #endif
+0050  
+0051  #endif /* __IWDG_H__ */
+0052  
+
+================ Core\Src\gpio.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    gpio.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of all used GPIO pins.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  
+0021  /* Includes ------------------------------------------------------------------*/
+0022  #include "gpio.h"
+0023  
+0024  /* USER CODE BEGIN 0 */
+0025  
+0026  /* USER CODE END 0 */
+0027  
+0028  /*----------------------------------------------------------------------------*/
+0029  /* Configure GPIO                                                             */
+0030  /*----------------------------------------------------------------------------*/
+0031  /* USER CODE BEGIN 1 */
+0032  
+0033  /* USER CODE END 1 */
+0034  
+0035  /** Configure pins as
+0036          * Analog
+0037          * Input
+0038          * Output
+0039          * EVENT_OUT
+0040          * EXTI
+0041  */
+0042  void MX_GPIO_Init(void)
+0043  {
+0044  
+0045    GPIO_InitTypeDef GPIO_InitStruct = {0};
+0046  
+0047    /* GPIO Ports Clock Enable */
+0048    __HAL_RCC_GPIOC_CLK_ENABLE();
+0049    __HAL_RCC_GPIOF_CLK_ENABLE();
+0050    __HAL_RCC_GPIOA_CLK_ENABLE();
+0051    __HAL_RCC_GPIOB_CLK_ENABLE();
+0052  
+0053    /*Configure GPIO pin Output Level */
+0054    HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
+0055  
+0056    /*Configure GPIO pin Output Level */
+0057    HAL_GPIO_WritePin(PWM_GPIO_Port, PWM_Pin, GPIO_PIN_RESET);
+0058  
+0059    /*Configure GPIO pin : R_EN_Pin */
+0060    GPIO_InitStruct.Pin = R_EN_Pin;
+0061    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+0062    GPIO_InitStruct.Pull = GPIO_NOPULL;
+0063    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+0064    HAL_GPIO_Init(R_EN_GPIO_Port, &GPIO_InitStruct);
+0065  
+0066    /*Configure GPIO pin : STOP_Pin */
+0067    GPIO_InitStruct.Pin = STOP_Pin;
+0068    GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+0069    GPIO_InitStruct.Pull = GPIO_NOPULL;
+0070    HAL_GPIO_Init(STOP_GPIO_Port, &GPIO_InitStruct);
+0071  
+0072    /*Configure GPIO pin : KEY1_Pin */
+0073    GPIO_InitStruct.Pin = KEY1_Pin;
+0074    GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+0075    GPIO_InitStruct.Pull = GPIO_PULLUP;
+0076    HAL_GPIO_Init(KEY1_GPIO_Port, &GPIO_InitStruct);
+0077  
+0078    /*Configure GPIO pin : SHOOT_Pin */
+0079    GPIO_InitStruct.Pin = SHOOT_Pin;
+0080    GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+0081    GPIO_InitStruct.Pull = GPIO_PULLUP;
+0082    HAL_GPIO_Init(SHOOT_GPIO_Port, &GPIO_InitStruct);
+0083  
+0084    /*Configure GPIO pin : PWM_Pin */
+0085    GPIO_InitStruct.Pin = PWM_Pin;
+0086    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+0087    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+0088    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+0089    HAL_GPIO_Init(PWM_GPIO_Port, &GPIO_InitStruct);
+0090  
+0091    /* EXTI interrupt init*/
+0092    HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
+0093    HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+0094  
+0095    HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
+0096    HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
+0097  
+0098  }
+0099  
+0100  /* USER CODE BEGIN 2 */
+0101  
+0102  /* USER CODE END 2 */
+
+================ Core\Inc\gpio.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    gpio.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the gpio.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __GPIO_H__
+0022  #define __GPIO_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* USER CODE BEGIN Includes */
+0032  
+0033  /* USER CODE END Includes */
+0034  
+0035  /* USER CODE BEGIN Private defines */
+0036  
+0037  /* USER CODE END Private defines */
+0038  
+0039  void MX_GPIO_Init(void);
+0040  
+0041  /* USER CODE BEGIN Prototypes */
+0042  
+0043  /* USER CODE END Prototypes */
+0044  
+0045  #ifdef __cplusplus
+0046  }
+0047  #endif
+0048  #endif /*__ GPIO_H__ */
+0049  
+
+================ Core\Src\dac.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    dac.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of the DAC instances.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Includes ------------------------------------------------------------------*/
+0021  #include "dac.h"
+0022  
+0023  /* USER CODE BEGIN 0 */
+0024  
+0025  /* USER CODE END 0 */
+0026  
+0027  DAC_HandleTypeDef hdac1;
+0028  
+0029  /* DAC1 init function */
+0030  void MX_DAC1_Init(void)
+0031  {
+0032  
+0033    /* USER CODE BEGIN DAC1_Init 0 */
+0034  
+0035    /* USER CODE END DAC1_Init 0 */
+0036  
+0037    DAC_ChannelConfTypeDef sConfig = {0};
+0038  
+0039    /* USER CODE BEGIN DAC1_Init 1 */
+0040  
+0041    /* USER CODE END DAC1_Init 1 */
+0042  
+0043    /** DAC Initialization
+0044    */
+0045    hdac1.Instance = DAC1;
+0046    if (HAL_DAC_Init(&hdac1) != HAL_OK)
+0047    {
+0048      Error_Handler();
+0049    }
+0050  
+0051    /** DAC channel OUT1 config
+0052    */
+0053    sConfig.DAC_HighFrequency = DAC_HIGH_FREQUENCY_INTERFACE_MODE_AUTOMATIC;
+0054    sConfig.DAC_DMADoubleDataMode = DISABLE;
+0055    sConfig.DAC_SignedFormat = DISABLE;
+0056    sConfig.DAC_SampleAndHold = DAC_SAMPLEANDHOLD_DISABLE;
+0057    sConfig.DAC_Trigger = DAC_TRIGGER_NONE;
+0058    sConfig.DAC_Trigger2 = DAC_TRIGGER_NONE;
+0059    sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+0060    sConfig.DAC_ConnectOnChipPeripheral = DAC_CHIPCONNECT_EXTERNAL;
+0061    sConfig.DAC_UserTrimming = DAC_TRIMMING_FACTORY;
+0062    if (HAL_DAC_ConfigChannel(&hdac1, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+0063    {
+0064      Error_Handler();
+0065    }
+0066    /* USER CODE BEGIN DAC1_Init 2 */
+0067  
+0068    /* USER CODE END DAC1_Init 2 */
+0069  
+0070  }
+0071  
+0072  void HAL_DAC_MspInit(DAC_HandleTypeDef* dacHandle)
+0073  {
+0074  
+0075    GPIO_InitTypeDef GPIO_InitStruct = {0};
+0076    if(dacHandle->Instance==DAC1)
+0077    {
+0078    /* USER CODE BEGIN DAC1_MspInit 0 */
+0079  
+0080    /* USER CODE END DAC1_MspInit 0 */
+0081      /* DAC1 clock enable */
+0082      __HAL_RCC_DAC1_CLK_ENABLE();
+0083  
+0084      __HAL_RCC_GPIOA_CLK_ENABLE();
+0085      /**DAC1 GPIO Configuration
+0086      PA4     ------> DAC1_OUT1
+0087      */
+0088      GPIO_InitStruct.Pin = CTRL1_Pin;
+0089      GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+0090      GPIO_InitStruct.Pull = GPIO_NOPULL;
+0091      HAL_GPIO_Init(CTRL1_GPIO_Port, &GPIO_InitStruct);
+0092  
+0093      /* DAC1 interrupt Init */
+0094      HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 0, 0);
+0095      HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
+0096    /* USER CODE BEGIN DAC1_MspInit 1 */
+0097  
+0098    /* USER CODE END DAC1_MspInit 1 */
+0099    }
+0100  }
+0101  
+0102  void HAL_DAC_MspDeInit(DAC_HandleTypeDef* dacHandle)
+0103  {
+0104  
+0105    if(dacHandle->Instance==DAC1)
+0106    {
+0107    /* USER CODE BEGIN DAC1_MspDeInit 0 */
+0108  
+0109    /* USER CODE END DAC1_MspDeInit 0 */
+0110      /* Peripheral clock disable */
+0111      __HAL_RCC_DAC1_CLK_DISABLE();
+0112  
+0113      /**DAC1 GPIO Configuration
+0114      PA4     ------> DAC1_OUT1
+0115      */
+0116      HAL_GPIO_DeInit(CTRL1_GPIO_Port, CTRL1_Pin);
+0117  
+0118      /* DAC1 interrupt Deinit */
+0119    /* USER CODE BEGIN DAC1:TIM6_DAC_IRQn disable */
+0120      /**
+0121      * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
+0122      * Be aware, disabling shared interrupt may affect other IPs
+0123      */
+0124      /* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
+0125    /* USER CODE END DAC1:TIM6_DAC_IRQn disable */
+0126  
+0127    /* USER CODE BEGIN DAC1_MspDeInit 1 */
+0128  
+0129    /* USER CODE END DAC1_MspDeInit 1 */
+0130    }
+0131  }
+0132  
+0133  /* USER CODE BEGIN 1 */
+0134  
+0135  /* USER CODE END 1 */
+
+================ Core\Inc\dac.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    dac.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the dac.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __DAC_H__
+0022  #define __DAC_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* USER CODE BEGIN Includes */
+0032  
+0033  /* USER CODE END Includes */
+0034  
+0035  extern DAC_HandleTypeDef hdac1;
+0036  
+0037  /* USER CODE BEGIN Private defines */
+0038  
+0039  /* USER CODE END Private defines */
+0040  
+0041  void MX_DAC1_Init(void);
+0042  
+0043  /* USER CODE BEGIN Prototypes */
+0044  
+0045  /* USER CODE END Prototypes */
+0046  
+0047  #ifdef __cplusplus
+0048  }
+0049  #endif
+0050  
+0051  #endif /* __DAC_H__ */
+0052  
+
+================ Core\Src\adc.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    adc.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of the ADC instances.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Includes ------------------------------------------------------------------*/
+0021  #include "adc.h"
+0022  
+0023  /* USER CODE BEGIN 0 */
+0024  
+0025  /* USER CODE END 0 */
+0026  
+0027  ADC_HandleTypeDef hadc1;
+0028  ADC_HandleTypeDef hadc2;
+0029  
+0030  /* ADC1 init function */
+0031  void MX_ADC1_Init(void)
+0032  {
+0033  
+0034    /* USER CODE BEGIN ADC1_Init 0 */
+0035  
+0036    /* USER CODE END ADC1_Init 0 */
+0037  
+0038    ADC_MultiModeTypeDef multimode = {0};
+0039    ADC_ChannelConfTypeDef sConfig = {0};
+0040  
+0041    /* USER CODE BEGIN ADC1_Init 1 */
+0042  
+0043    /* USER CODE END ADC1_Init 1 */
+0044  
+0045    /** Common config
+0046    */
+0047    hadc1.Instance = ADC1;
+0048    hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+0049    hadc1.Init.Resolution = ADC_RESOLUTION_12B;
+0050    hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+0051    hadc1.Init.GainCompensation = 0;
+0052    hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+0053    hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+0054    hadc1.Init.LowPowerAutoWait = DISABLE;
+0055    hadc1.Init.ContinuousConvMode = DISABLE;
+0056    hadc1.Init.NbrOfConversion = 1;
+0057    hadc1.Init.DiscontinuousConvMode = DISABLE;
+0058    hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+0059    hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+0060    hadc1.Init.DMAContinuousRequests = DISABLE;
+0061    hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+0062    hadc1.Init.OversamplingMode = DISABLE;
+0063    if (HAL_ADC_Init(&hadc1) != HAL_OK)
+0064    {
+0065      Error_Handler();
+0066    }
+0067  
+0068    /** Configure the ADC multi-mode
+0069    */
+0070    multimode.Mode = ADC_MODE_INDEPENDENT;
+0071    if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
+0072    {
+0073      Error_Handler();
+0074    }
+0075  
+0076    /** Configure Regular Channel
+0077    */
+0078    sConfig.Channel = ADC_CHANNEL_5;
+0079    sConfig.Rank = ADC_REGULAR_RANK_1;
+0080    sConfig.SamplingTime = ADC_SAMPLETIME_247CYCLES_5;
+0081    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+0082    sConfig.OffsetNumber = ADC_OFFSET_NONE;
+0083    sConfig.Offset = 0;
+0084    if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+0085    {
+0086      Error_Handler();
+0087    }
+0088    /* USER CODE BEGIN ADC1_Init 2 */
+0089  
+0090    /* USER CODE END ADC1_Init 2 */
+0091  
+0092  }
+0093  /* ADC2 init function */
+0094  void MX_ADC2_Init(void)
+0095  {
+0096  
+0097    /* USER CODE BEGIN ADC2_Init 0 */
+0098  
+0099    /* USER CODE END ADC2_Init 0 */
+0100  
+0101    ADC_ChannelConfTypeDef sConfig = {0};
+0102  
+0103    /* USER CODE BEGIN ADC2_Init 1 */
+0104  
+0105    /* USER CODE END ADC2_Init 1 */
+0106  
+0107    /** Common config
+0108    */
+0109    hadc2.Instance = ADC2;
+0110    hadc2.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV4;
+0111    hadc2.Init.Resolution = ADC_RESOLUTION_12B;
+0112    hadc2.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+0113    hadc2.Init.GainCompensation = 0;
+0114    hadc2.Init.ScanConvMode = ADC_SCAN_DISABLE;
+0115    hadc2.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+0116    hadc2.Init.LowPowerAutoWait = DISABLE;
+0117    hadc2.Init.ContinuousConvMode = DISABLE;
+0118    hadc2.Init.NbrOfConversion = 1;
+0119    hadc2.Init.DiscontinuousConvMode = DISABLE;
+0120    hadc2.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+0121    hadc2.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+0122    hadc2.Init.DMAContinuousRequests = DISABLE;
+0123    hadc2.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+0124    hadc2.Init.OversamplingMode = DISABLE;
+0125    if (HAL_ADC_Init(&hadc2) != HAL_OK)
+0126    {
+0127      Error_Handler();
+0128    }
+0129  
+0130    /** Configure Regular Channel
+0131    */
+0132    sConfig.Channel = ADC_CHANNEL_15;
+0133    sConfig.Rank = ADC_REGULAR_RANK_1;
+0134    sConfig.SamplingTime = ADC_SAMPLETIME_247CYCLES_5;
+0135    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+0136    sConfig.OffsetNumber = ADC_OFFSET_NONE;
+0137    sConfig.Offset = 0;
+0138    if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
+0139    {
+0140      Error_Handler();
+0141    }
+0142    /* USER CODE BEGIN ADC2_Init 2 */
+0143  
+0144    /* USER CODE END ADC2_Init 2 */
+0145  
+0146  }
+0147  
+0148  static uint32_t HAL_RCC_ADC12_CLK_ENABLED=0;
+0149  
+0150  void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
+0151  {
+0152  
+0153    GPIO_InitTypeDef GPIO_InitStruct = {0};
+0154    RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+0155    if(adcHandle->Instance==ADC1)
+0156    {
+0157    /* USER CODE BEGIN ADC1_MspInit 0 */
+0158  
+0159    /* USER CODE END ADC1_MspInit 0 */
+0160  
+0161    /** Initializes the peripherals clocks
+0162    */
+0163      PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
+0164      PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
+0165      if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+0166      {
+0167        Error_Handler();
+0168      }
+0169  
+0170      /* ADC1 clock enable */
+0171      HAL_RCC_ADC12_CLK_ENABLED++;
+0172      if(HAL_RCC_ADC12_CLK_ENABLED==1){
+0173        __HAL_RCC_ADC12_CLK_ENABLE();
+0174      }
+0175  
+0176      __HAL_RCC_GPIOB_CLK_ENABLE();
+0177      /**ADC1 GPIO Configuration
+0178      PB14     ------> ADC1_IN5
+0179      */
+0180      GPIO_InitStruct.Pin = ISMON_Pin;
+0181      GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+0182      GPIO_InitStruct.Pull = GPIO_NOPULL;
+0183      HAL_GPIO_Init(ISMON_GPIO_Port, &GPIO_InitStruct);
+0184  
+0185    /* USER CODE BEGIN ADC1_MspInit 1 */
+0186  
+0187    /* USER CODE END ADC1_MspInit 1 */
+0188    }
+0189    else if(adcHandle->Instance==ADC2)
+0190    {
+0191    /* USER CODE BEGIN ADC2_MspInit 0 */
+0192  
+0193    /* USER CODE END ADC2_MspInit 0 */
+0194  
+0195    /** Initializes the peripherals clocks
+0196    */
+0197      PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
+0198      PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
+0199      if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+0200      {
+0201        Error_Handler();
+0202      }
+0203  
+0204      /* ADC2 clock enable */
+0205      HAL_RCC_ADC12_CLK_ENABLED++;
+0206      if(HAL_RCC_ADC12_CLK_ENABLED==1){
+0207        __HAL_RCC_ADC12_CLK_ENABLE();
+0208      }
+0209  
+0210      __HAL_RCC_GPIOB_CLK_ENABLE();
+0211      /**ADC2 GPIO Configuration
+0212      PB15     ------> ADC2_IN15
+0213      */
+0214      GPIO_InitStruct.Pin = IVINMON_Pin;
+0215      GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+0216      GPIO_InitStruct.Pull = GPIO_NOPULL;
+0217      HAL_GPIO_Init(IVINMON_GPIO_Port, &GPIO_InitStruct);
+0218  
+0219    /* USER CODE BEGIN ADC2_MspInit 1 */
+0220  
+0221    /* USER CODE END ADC2_MspInit 1 */
+0222    }
+0223  }
+0224  
+0225  void HAL_ADC_MspDeInit(ADC_HandleTypeDef* adcHandle)
+0226  {
+0227  
+0228    if(adcHandle->Instance==ADC1)
+0229    {
+0230    /* USER CODE BEGIN ADC1_MspDeInit 0 */
+0231  
+0232    /* USER CODE END ADC1_MspDeInit 0 */
+0233      /* Peripheral clock disable */
+0234      HAL_RCC_ADC12_CLK_ENABLED--;
+0235      if(HAL_RCC_ADC12_CLK_ENABLED==0){
+0236        __HAL_RCC_ADC12_CLK_DISABLE();
+0237      }
+0238  
+0239      /**ADC1 GPIO Configuration
+0240      PB14     ------> ADC1_IN5
+0241      */
+0242      HAL_GPIO_DeInit(ISMON_GPIO_Port, ISMON_Pin);
+0243  
+0244    /* USER CODE BEGIN ADC1_MspDeInit 1 */
+0245  
+0246    /* USER CODE END ADC1_MspDeInit 1 */
+0247    }
+0248    else if(adcHandle->Instance==ADC2)
+0249    {
+0250    /* USER CODE BEGIN ADC2_MspDeInit 0 */
+0251  
+0252    /* USER CODE END ADC2_MspDeInit 0 */
+0253      /* Peripheral clock disable */
+0254      HAL_RCC_ADC12_CLK_ENABLED--;
+0255      if(HAL_RCC_ADC12_CLK_ENABLED==0){
+0256        __HAL_RCC_ADC12_CLK_DISABLE();
+0257      }
+0258  
+0259      /**ADC2 GPIO Configuration
+0260      PB15     ------> ADC2_IN15
+0261      */
+0262      HAL_GPIO_DeInit(IVINMON_GPIO_Port, IVINMON_Pin);
+0263  
+0264    /* USER CODE BEGIN ADC2_MspDeInit 1 */
+0265  
+0266    /* USER CODE END ADC2_MspDeInit 1 */
+0267    }
+0268  }
+0269  
+0270  /* USER CODE BEGIN 1 */
+0271  
+0272  /* USER CODE END 1 */
+
+================ Core\Inc\adc.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    adc.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the adc.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __ADC_H__
+0022  #define __ADC_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* USER CODE BEGIN Includes */
+0032  
+0033  /* USER CODE END Includes */
+0034  
+0035  extern ADC_HandleTypeDef hadc1;
+0036  
+0037  extern ADC_HandleTypeDef hadc2;
+0038  
+0039  /* USER CODE BEGIN Private defines */
+0040  
+0041  /* USER CODE END Private defines */
+0042  
+0043  void MX_ADC1_Init(void);
+0044  void MX_ADC2_Init(void);
+0045  
+0046  /* USER CODE BEGIN Prototypes */
+0047  
+0048  /* USER CODE END Prototypes */
+0049  
+0050  #ifdef __cplusplus
+0051  }
+0052  #endif
+0053  
+0054  #endif /* __ADC_H__ */
+0055  
+
+================ Core\Src\tim.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    tim.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of the TIM instances.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Includes ------------------------------------------------------------------*/
+0021  #include "tim.h"
+0022  
+0023  /* USER CODE BEGIN 0 */
+0024  
+0025  /* USER CODE END 0 */
+0026  
+0027  TIM_HandleTypeDef htim2;
+0028  TIM_HandleTypeDef htim6;
+0029  DMA_HandleTypeDef hdma_tim2_ch1;
+0030  
+0031  /* TIM2 init function */
+0032  void MX_TIM2_Init(void)
+0033  {
+0034  
+0035    /* USER CODE BEGIN TIM2_Init 0 */
+0036  
+0037    /* USER CODE END TIM2_Init 0 */
+0038  
+0039    TIM_MasterConfigTypeDef sMasterConfig = {0};
+0040    TIM_OC_InitTypeDef sConfigOC = {0};
+0041  
+0042    /* USER CODE BEGIN TIM2_Init 1 */
+0043  
+0044    /* USER CODE END TIM2_Init 1 */
+0045    htim2.Instance = TIM2;
+0046    htim2.Init.Prescaler = 0;
+0047    htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+0048    htim2.Init.Period = 4294967295;
+0049    htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+0050    htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+0051    if (HAL_TIM_PWM_Init(&htim2) != HAL_OK)
+0052    {
+0053      Error_Handler();
+0054    }
+0055    sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+0056    sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+0057    if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+0058    {
+0059      Error_Handler();
+0060    }
+0061    sConfigOC.OCMode = TIM_OCMODE_PWM1;
+0062    sConfigOC.Pulse = 0;
+0063    sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+0064    sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+0065    if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+0066    {
+0067      Error_Handler();
+0068    }
+0069    /* USER CODE BEGIN TIM2_Init 2 */
+0070  
+0071    /* USER CODE END TIM2_Init 2 */
+0072    HAL_TIM_MspPostInit(&htim2);
+0073  
+0074  }
+0075  /* TIM6 init function */
+0076  void MX_TIM6_Init(void)
+0077  {
+0078  
+0079    /* USER CODE BEGIN TIM6_Init 0 */
+0080  
+0081    /* USER CODE END TIM6_Init 0 */
+0082  
+0083    TIM_MasterConfigTypeDef sMasterConfig = {0};
+0084  
+0085    /* USER CODE BEGIN TIM6_Init 1 */
+0086  
+0087    /* USER CODE END TIM6_Init 1 */
+0088    htim6.Instance = TIM6;
+0089    htim6.Init.Prescaler = 0;
+0090    htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+0091    htim6.Init.Period = 65535;
+0092    htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+0093    if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+0094    {
+0095      Error_Handler();
+0096    }
+0097    sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+0098    sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+0099    if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+0100    {
+0101      Error_Handler();
+0102    }
+0103    /* USER CODE BEGIN TIM6_Init 2 */
+0104  
+0105    /* USER CODE END TIM6_Init 2 */
+0106  
+0107  }
+0108  
+0109  void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* tim_pwmHandle)
+0110  {
+0111  
+0112    if(tim_pwmHandle->Instance==TIM2)
+0113    {
+0114    /* USER CODE BEGIN TIM2_MspInit 0 */
+0115  
+0116    /* USER CODE END TIM2_MspInit 0 */
+0117      /* TIM2 clock enable */
+0118      __HAL_RCC_TIM2_CLK_ENABLE();
+0119  
+0120      /* TIM2 DMA Init */
+0121      /* TIM2_CH1 Init */
+0122      hdma_tim2_ch1.Instance = DMA1_Channel1;
+0123      hdma_tim2_ch1.Init.Request = DMA_REQUEST_TIM2_CH1;
+0124      hdma_tim2_ch1.Init.Direction = DMA_MEMORY_TO_PERIPH;
+0125      hdma_tim2_ch1.Init.PeriphInc = DMA_PINC_DISABLE;
+0126      hdma_tim2_ch1.Init.MemInc = DMA_MINC_ENABLE;
+0127      hdma_tim2_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+0128      hdma_tim2_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+0129      hdma_tim2_ch1.Init.Mode = DMA_NORMAL;
+0130      hdma_tim2_ch1.Init.Priority = DMA_PRIORITY_LOW;
+0131      if (HAL_DMA_Init(&hdma_tim2_ch1) != HAL_OK)
+0132      {
+0133        Error_Handler();
+0134      }
+0135  
+0136      __HAL_LINKDMA(tim_pwmHandle,hdma[TIM_DMA_ID_CC1],hdma_tim2_ch1);
+0137  
+0138    /* USER CODE BEGIN TIM2_MspInit 1 */
+0139  
+0140    /* USER CODE END TIM2_MspInit 1 */
+0141    }
+0142  }
+0143  
+0144  void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
+0145  {
+0146  
+0147    if(tim_baseHandle->Instance==TIM6)
+0148    {
+0149    /* USER CODE BEGIN TIM6_MspInit 0 */
+0150  
+0151    /* USER CODE END TIM6_MspInit 0 */
+0152      /* TIM6 clock enable */
+0153      __HAL_RCC_TIM6_CLK_ENABLE();
+0154  
+0155      /* TIM6 interrupt Init */
+0156      HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 0, 0);
+0157      HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
+0158    /* USER CODE BEGIN TIM6_MspInit 1 */
+0159  
+0160    /* USER CODE END TIM6_MspInit 1 */
+0161    }
+0162  }
+0163  void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
+0164  {
+0165  
+0166    GPIO_InitTypeDef GPIO_InitStruct = {0};
+0167    if(timHandle->Instance==TIM2)
+0168    {
+0169    /* USER CODE BEGIN TIM2_MspPostInit 0 */
+0170  
+0171    /* USER CODE END TIM2_MspPostInit 0 */
+0172  
+0173      __HAL_RCC_GPIOA_CLK_ENABLE();
+0174      /**TIM2 GPIO Configuration
+0175      PA5     ------> TIM2_CH1
+0176      */
+0177      GPIO_InitStruct.Pin = RGB_LED_Pin;
+0178      GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+0179      GPIO_InitStruct.Pull = GPIO_NOPULL;
+0180      GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+0181      GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
+0182      HAL_GPIO_Init(RGB_LED_GPIO_Port, &GPIO_InitStruct);
+0183  
+0184    /* USER CODE BEGIN TIM2_MspPostInit 1 */
+0185  
+0186    /* USER CODE END TIM2_MspPostInit 1 */
+0187    }
+0188  
+0189  }
+0190  
+0191  void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle)
+0192  {
+0193  
+0194    if(tim_pwmHandle->Instance==TIM2)
+0195    {
+0196    /* USER CODE BEGIN TIM2_MspDeInit 0 */
+0197  
+0198    /* USER CODE END TIM2_MspDeInit 0 */
+0199      /* Peripheral clock disable */
+0200      __HAL_RCC_TIM2_CLK_DISABLE();
+0201  
+0202      /* TIM2 DMA DeInit */
+0203      HAL_DMA_DeInit(tim_pwmHandle->hdma[TIM_DMA_ID_CC1]);
+0204    /* USER CODE BEGIN TIM2_MspDeInit 1 */
+0205  
+0206    /* USER CODE END TIM2_MspDeInit 1 */
+0207    }
+0208  }
+0209  
+0210  void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
+0211  {
+0212  
+0213    if(tim_baseHandle->Instance==TIM6)
+0214    {
+0215    /* USER CODE BEGIN TIM6_MspDeInit 0 */
+0216  
+0217    /* USER CODE END TIM6_MspDeInit 0 */
+0218      /* Peripheral clock disable */
+0219      __HAL_RCC_TIM6_CLK_DISABLE();
+0220  
+0221      /* TIM6 interrupt Deinit */
+0222    /* USER CODE BEGIN TIM6:TIM6_DAC_IRQn disable */
+0223      /**
+0224      * Uncomment the line below to disable the "TIM6_DAC_IRQn" interrupt
+0225      * Be aware, disabling shared interrupt may affect other IPs
+0226      */
+0227      /* HAL_NVIC_DisableIRQ(TIM6_DAC_IRQn); */
+0228    /* USER CODE END TIM6:TIM6_DAC_IRQn disable */
+0229  
+0230    /* USER CODE BEGIN TIM6_MspDeInit 1 */
+0231  
+0232    /* USER CODE END TIM6_MspDeInit 1 */
+0233    }
+0234  }
+0235  
+0236  /* USER CODE BEGIN 1 */
+0237  
+0238  /* USER CODE END 1 */
+
+================ Core\Inc\tim.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    tim.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the tim.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __TIM_H__
+0022  #define __TIM_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* USER CODE BEGIN Includes */
+0032  
+0033  /* USER CODE END Includes */
+0034  
+0035  extern TIM_HandleTypeDef htim2;
+0036  
+0037  extern TIM_HandleTypeDef htim6;
+0038  
+0039  /* USER CODE BEGIN Private defines */
+0040  
+0041  /* USER CODE END Private defines */
+0042  
+0043  void MX_TIM2_Init(void);
+0044  void MX_TIM6_Init(void);
+0045  
+0046  void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+0047  
+0048  /* USER CODE BEGIN Prototypes */
+0049  
+0050  /* USER CODE END Prototypes */
+0051  
+0052  #ifdef __cplusplus
+0053  }
+0054  #endif
+0055  
+0056  #endif /* __TIM_H__ */
+0057  
+
+================ Core\Src\usart.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    usart.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of the USART instances.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Includes ------------------------------------------------------------------*/
+0021  #include "usart.h"
+0022  
+0023  /* USER CODE BEGIN 0 */
+0024  
+0025  /* USER CODE END 0 */
+0026  
+0027  UART_HandleTypeDef huart3;
+0028  
+0029  /* USART3 init function */
+0030  
+0031  void MX_USART3_UART_Init(void)
+0032  {
+0033  
+0034    /* USER CODE BEGIN USART3_Init 0 */
+0035  
+0036    /* USER CODE END USART3_Init 0 */
+0037  
+0038    /* USER CODE BEGIN USART3_Init 1 */
+0039  
+0040    /* USER CODE END USART3_Init 1 */
+0041    huart3.Instance = USART3;
+0042    huart3.Init.BaudRate = 115200;
+0043    huart3.Init.WordLength = UART_WORDLENGTH_8B;
+0044    huart3.Init.StopBits = UART_STOPBITS_1;
+0045    huart3.Init.Parity = UART_PARITY_NONE;
+0046    huart3.Init.Mode = UART_MODE_TX_RX;
+0047    huart3.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+0048    huart3.Init.OverSampling = UART_OVERSAMPLING_16;
+0049    huart3.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+0050    huart3.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+0051    huart3.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+0052    if (HAL_UART_Init(&huart3) != HAL_OK)
+0053    {
+0054      Error_Handler();
+0055    }
+0056    if (HAL_UARTEx_SetTxFifoThreshold(&huart3, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+0057    {
+0058      Error_Handler();
+0059    }
+0060    if (HAL_UARTEx_SetRxFifoThreshold(&huart3, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+0061    {
+0062      Error_Handler();
+0063    }
+0064    if (HAL_UARTEx_DisableFifoMode(&huart3) != HAL_OK)
+0065    {
+0066      Error_Handler();
+0067    }
+0068    /* USER CODE BEGIN USART3_Init 2 */
+0069  
+0070    /* USER CODE END USART3_Init 2 */
+0071  
+0072  }
+0073  
+0074  void HAL_UART_MspInit(UART_HandleTypeDef* uartHandle)
+0075  {
+0076  
+0077    GPIO_InitTypeDef GPIO_InitStruct = {0};
+0078    RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+0079    if(uartHandle->Instance==USART3)
+0080    {
+0081    /* USER CODE BEGIN USART3_MspInit 0 */
+0082  
+0083    /* USER CODE END USART3_MspInit 0 */
+0084  
+0085    /** Initializes the peripherals clocks
+0086    */
+0087      PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART3;
+0088      PeriphClkInit.Usart3ClockSelection = RCC_USART3CLKSOURCE_PCLK1;
+0089      if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+0090      {
+0091        Error_Handler();
+0092      }
+0093  
+0094      /* USART3 clock enable */
+0095      __HAL_RCC_USART3_CLK_ENABLE();
+0096  
+0097      __HAL_RCC_GPIOB_CLK_ENABLE();
+0098      /**USART3 GPIO Configuration
+0099      PB10     ------> USART3_TX
+0100      PB11     ------> USART3_RX
+0101      */
+0102      GPIO_InitStruct.Pin = GPIO_PIN_10|GPIO_PIN_11;
+0103      GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+0104      GPIO_InitStruct.Pull = GPIO_NOPULL;
+0105      GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+0106      GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
+0107      HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+0108  
+0109    /* USER CODE BEGIN USART3_MspInit 1 */
+0110  
+0111    /* USER CODE END USART3_MspInit 1 */
+0112    }
+0113  }
+0114  
+0115  void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
+0116  {
+0117  
+0118    if(uartHandle->Instance==USART3)
+0119    {
+0120    /* USER CODE BEGIN USART3_MspDeInit 0 */
+0121  
+0122    /* USER CODE END USART3_MspDeInit 0 */
+0123      /* Peripheral clock disable */
+0124      __HAL_RCC_USART3_CLK_DISABLE();
+0125  
+0126      /**USART3 GPIO Configuration
+0127      PB10     ------> USART3_TX
+0128      PB11     ------> USART3_RX
+0129      */
+0130      HAL_GPIO_DeInit(GPIOB, GPIO_PIN_10|GPIO_PIN_11);
+0131  
+0132    /* USER CODE BEGIN USART3_MspDeInit 1 */
+0133  
+0134    /* USER CODE END USART3_MspDeInit 1 */
+0135    }
+0136  }
+0137  
+0138  /* USER CODE BEGIN 1 */
+0139  
+0140  /* USER CODE END 1 */
+
+================ Core\Inc\usart.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    usart.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the usart.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __USART_H__
+0022  #define __USART_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* USER CODE BEGIN Includes */
+0032  
+0033  /* USER CODE END Includes */
+0034  
+0035  extern UART_HandleTypeDef huart3;
+0036  
+0037  /* USER CODE BEGIN Private defines */
+0038  
+0039  /* USER CODE END Private defines */
+0040  
+0041  void MX_USART3_UART_Init(void);
+0042  
+0043  /* USER CODE BEGIN Prototypes */
+0044  
+0045  /* USER CODE END Prototypes */
+0046  
+0047  #ifdef __cplusplus
+0048  }
+0049  #endif
+0050  
+0051  #endif /* __USART_H__ */
+0052  
+
+================ Core\Src\dma.c ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    dma.c
+0005    * @brief   This file provides code for the configuration
+0006    *          of all the requested memory to memory DMA transfers.
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  
+0021  /* Includes ------------------------------------------------------------------*/
+0022  #include "dma.h"
+0023  
+0024  /* USER CODE BEGIN 0 */
+0025  
+0026  /* USER CODE END 0 */
+0027  
+0028  /*----------------------------------------------------------------------------*/
+0029  /* Configure DMA                                                              */
+0030  /*----------------------------------------------------------------------------*/
+0031  
+0032  /* USER CODE BEGIN 1 */
+0033  
+0034  /* USER CODE END 1 */
+0035  
+0036  /**
+0037    * Enable DMA controller clock
+0038    */
+0039  void MX_DMA_Init(void)
+0040  {
+0041  
+0042    /* DMA controller clock enable */
+0043    __HAL_RCC_DMAMUX1_CLK_ENABLE();
+0044    __HAL_RCC_DMA1_CLK_ENABLE();
+0045  
+0046    /* DMA interrupt init */
+0047    /* DMA1_Channel1_IRQn interrupt configuration */
+0048    HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 7, 0);
+0049    HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+0050  
+0051  }
+0052  
+0053  /* USER CODE BEGIN 2 */
+0054  
+0055  /* USER CODE END 2 */
+0056  
+
+================ Core\Inc\dma.h ================
+0001  /* USER CODE BEGIN Header */
+0002  /**
+0003    ******************************************************************************
+0004    * @file    dma.h
+0005    * @brief   This file contains all the function prototypes for
+0006    *          the dma.c file
+0007    ******************************************************************************
+0008    * @attention
+0009    *
+0010    * Copyright (c) 2026 STMicroelectronics.
+0011    * All rights reserved.
+0012    *
+0013    * This software is licensed under terms that can be found in the LICENSE file
+0014    * in the root directory of this software component.
+0015    * If no LICENSE file comes with this software, it is provided AS-IS.
+0016    *
+0017    ******************************************************************************
+0018    */
+0019  /* USER CODE END Header */
+0020  /* Define to prevent recursive inclusion -------------------------------------*/
+0021  #ifndef __DMA_H__
+0022  #define __DMA_H__
+0023  
+0024  #ifdef __cplusplus
+0025  extern "C" {
+0026  #endif
+0027  
+0028  /* Includes ------------------------------------------------------------------*/
+0029  #include "main.h"
+0030  
+0031  /* DMA memory to memory transfer handles -------------------------------------*/
+0032  
+0033  /* USER CODE BEGIN Includes */
+0034  
+0035  /* USER CODE END Includes */
+0036  
+0037  /* USER CODE BEGIN Private defines */
+0038  
+0039  /* USER CODE END Private defines */
+0040  
+0041  void MX_DMA_Init(void);
+0042  
+0043  /* USER CODE BEGIN Prototypes */
+0044  
+0045  /* USER CODE END Prototypes */
+0046  
+0047  #ifdef __cplusplus
+0048  }
+0049  #endif
+0050  
+0051  #endif /* __DMA_H__ */
+0052  

@@ -1,0 +1,16 @@
+set(_CMAKE_TOOLCHAIN_PREFIX arm-none-eabi-)
+set(_CMAKE_TOOLCHAIN_SUFFIX "")
+set(_CMAKE_TOOLCHAIN_LOCATION "C:/Users/Administrator/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin")
+set(CMAKE_AR "C:/Users/Administrator/AppData/Local/stm32cube/bundles/gnu-tools-for-stm32/14.3.1+st.2/bin/arm-none-eabi-ar.exe")
+set(_CMAKE_AR_NAMES ar)
+foreach(_CMAKE_TOOL_NAME IN LISTS _CMAKE_AR_NAMES)
+  list(APPEND _CMAKE_AR_FIND_NAMES
+    ${_CMAKE_TOOLCHAIN_PREFIX}${_CMAKE_TOOL_NAME}${_CMAKE_TOOLCHAIN_SUFFIX}
+    ${_CMAKE_TOOLCHAIN_PREFIX}${_CMAKE_TOOL_NAME}
+    ${_CMAKE_TOOL_NAME}${_CMAKE_TOOLCHAIN_SUFFIX}
+    ${_CMAKE_TOOL_NAME}
+  )
+endforeach()
+list(REMOVE_DUPLICATES _CMAKE_AR_FIND_NAMES)
+find_program(CMAKE_AR NAMES ${_CMAKE_AR_FIND_NAMES} HINTS ${_CMAKE_TOOLCHAIN_LOCATION} NO_CMAKE_PATH NO_CMAKE_ENVIRONMENT_PATH)
+message("CMAKE_AR=${CMAKE_AR}")

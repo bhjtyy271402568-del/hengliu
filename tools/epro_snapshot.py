@@ -1,8 +1,8 @@
 """嘉立创 EDA 专业版工程（.epro2）解析：列出板子、导出器件表、对比两个版本、检查未登记的原理图文件。
 
 用法：
-  python3 -I tools/epro_snapshot.py 工程.epro2            # 器件表（默认取最近修改的那块板）
-  python3 -I tools/epro_snapshot.py --diff 旧.epro2 新.epro2
+  python3 -I tools/epro_snapshot.py 工程.epro2 [--board 板名]          # 器件表（默认取最近修改的那块板）
+  python3 -I tools/epro_snapshot.py --diff 旧.epro2 新.epro2 [--old-board 板名] [--board 板名]
   python3 -I tools/epro_snapshot.py --status              # 会话开始时由钩子调用
 """
 import argparse
@@ -10,6 +10,7 @@ import collections
 import datetime
 import hashlib
 import json
+import math
 import pathlib
 import re
 import subprocess
@@ -51,7 +52,7 @@ def load(path):
         elif cur is not None:
             if head.get("type") == "META":
                 cur["meta"] = rec
-            elif cur["type"] in ("SCH_PAGE", "PCB", "DEVICE"):
+            elif cur["type"] in ("SCH_PAGE", "PCB", "DEVICE", "SYMBOL"):
                 cur["recs"].append((head, rec))
     return docs
 
@@ -121,6 +122,101 @@ def pad_nets(docs, pcb):
     return pads
 
 
+TOL = 0.6  # 原理图坐标有零点几的偏差（器件没严格对齐网格），按这个距离判断相连
+
+
+class _Union:
+    def __init__(self):
+        self.up = {}
+
+    def find(self, x):
+        self.up.setdefault(x, x)
+        while self.up[x] != x:
+            self.up[x] = self.up[self.up[x]]
+            x = self.up[x]
+        return x
+
+    def join(self, a, b):
+        self.up[self.find(a)] = self.find(b)
+
+
+def _near_segment(pt, seg):
+    (x, y), (x1, y1, x2, y2) = pt, seg
+    dx, dy = x2 - x1, y2 - y1
+    span = dx * dx + dy * dy
+    t = 0 if span == 0 else max(0, min(1, ((x - x1) * dx + (y - y1) * dy) / span))
+    return math.hypot(x - (x1 + t * dx), y - (y1 + t * dy)) <= TOL
+
+
+def sch_nets(docs, pages):
+    """按原理图本身算连线：导线线段 + 符号引脚坐标 + 网络名（导线 NET 属性、电源 / 网络标识）。
+    返回 {"R2.1": 网络名}，自动网络记作 "$S序号"，未连接为 ""，格式和 pad_nets 相同。
+    PCB 没从原理图更新时，用它对比才准。"""
+    symbols = {}
+    for u, d in docs.items():
+        if d["type"] == "SYMBOL":
+            pa = attrs_by_parent(d["recs"])
+            parts = [h["id"] for h, r in d["recs"] if h.get("type") == "PART"]
+            pins = [(r.get("partId"), r["x"], r["y"], pa.get(h["id"], {}).get("Pin Number"))
+                    for h, r in d["recs"] if h.get("type") == "PIN" and r]
+            symbols[u] = (parts, pins)
+    uf, points, segments, owners = _Union(), [], [], {}
+    for page in pages:
+        recs = docs[page]["recs"]
+        pa = attrs_by_parent(recs)
+        wires = {h["id"] for h, r in recs if h.get("type") == "WIRE"}
+        for h, r in recs:
+            if h.get("type") == "LINE" and r and r.get("lineGroup") in wires:
+                wire, seg = ("W", page, r["lineGroup"]), (r["startX"], r["startY"], r["endX"], r["endY"])
+                segments.append((wire, seg))
+                points += [(wire, seg[:2]), (wire, seg[2:])]
+        for wid in wires:
+            if pa.get(wid, {}).get("NET"):
+                uf.join(("W", page, wid), ("N", pa[wid]["NET"]))
+        for h, r in recs:
+            if h.get("type") != "COMPONENT" or not r:
+                continue
+            a = pa.get(h["id"], {})
+            parts, pins = symbols.get(a.get("Symbol"), ([], []))
+            chosen = [p for p in pins if len(parts) <= 1 or p[0] == r.get("partId")] or pins
+            turn = math.radians(-(r.get("rotation") or 0))
+            c, s_ = round(math.cos(turn)), round(math.sin(turn))
+            for _, px, py, num in chosen:
+                px = -px if r.get("isMirror") else px
+                node = ("PIN", page, h["id"], num)
+                points.append((node, (r["x"] + c * px - s_ * py, r["y"] + s_ * px + c * py)))
+                if a.get("Designator"):
+                    owners[node] = f"{a['Designator']}.{num}"
+                elif a.get("Global Net Name") or a.get("Name"):
+                    uf.join(node, ("N", a.get("Global Net Name") or a.get("Name")))
+    buckets = collections.defaultdict(list)
+    for node, (x, y) in points:
+        uf.find(node)
+        buckets[(round(x / TOL), round(y / TOL))].append((node, x, y))
+    for node, (x, y) in points:
+        bx, by = round(x / TOL), round(y / TOL)
+        for i in (-1, 0, 1):
+            for j in (-1, 0, 1):
+                for other, ox, oy in buckets.get((bx + i, by + j), ()):
+                    if abs(ox - x) <= TOL and abs(oy - y) <= TOL:
+                        uf.join(node, other)
+        for wire, seg in segments:
+            if wire != node and _near_segment((x, y), seg):
+                uf.join(node, wire)
+    names = collections.defaultdict(set)
+    for key in list(uf.up):
+        if key[0] == "N":
+            names[uf.find(key)].add(key[1])
+    pins_of = collections.defaultdict(list)
+    for node, pin in owners.items():
+        pins_of[uf.find(node)].append(pin)
+    nets = {}
+    for i, (root, pins) in enumerate(sorted(pins_of.items(), key=lambda kv: min(kv[1], key=natural))):
+        net = "/".join(sorted(names[root])) if names.get(root) else (f"$S{i}" if len(pins) > 1 else "")
+        nets.update({pin: net for pin in pins})
+    return nets
+
+
 def net_groups(pads, keep):
     """把 keep 里的焊盘按网络分组；未连接的焊盘各自一组。"""
     groups = collections.defaultdict(set)
@@ -140,11 +236,17 @@ def natural(des):
     return (m.group(1), int(m.group(2) or 0), m.group(3))
 
 
-def pick(path):
+def pick(path, board=None):
+    """返回 (docs, 板列表)，选中的板放在第一个：指定了板名就用它，否则用最近修改的。"""
     docs = load(path)
     bs = boards(docs)
     if not bs:
         sys.exit(f"{path}：没有找到板子")
+    if board:
+        chosen = [b for b in bs if b["title"] == board]
+        if not chosen:
+            sys.exit(f"{path}：没有名为 {board} 的板，现有：{'、'.join(b['title'] for b in bs)}")
+        bs = chosen + [b for b in bs if b["title"] != board]
     return docs, bs
 
 
@@ -153,11 +255,13 @@ def describe(path, bs):
     print("| 板 | 原理图页 | PCB | 最后修改（UTC+8） |\n|---|---|---|---|")
     for b in bs:
         print(f"| {b['title']} | {' '.join(p[:8] for p in b['pages'])} | {' '.join(p[:8] for p in b['pcbs'])} | {stamp(b['time'])} |")
-    print(f"\n下面取最近修改的板：**{bs[0]['title']}**\n")
+    tied = [b["title"] for b in bs[1:] if b["time"] == bs[0]["time"]]
+    note = f"（{'、'.join(tied)} 修改时间相同，必要时用板名指定）" if tied else ""
+    print(f"\n下面取的板：**{bs[0]['title']}**{note}\n")
 
 
-def show(path):
-    docs, bs = pick(path)
+def show(path, board=None):
+    docs, bs = pick(path, board)
     describe(path, bs)
     rows = components(docs, bs[0]["pages"])
     print("| 位号 | 值 | 型号 | 备注 |\n|---|---|---|---|")
@@ -171,8 +275,8 @@ def short(pads, limit=6):
     return "、".join(pads[:limit]) + (f" 等 {len(pads)} 个" if len(pads) > limit else "") if pads else "无"
 
 
-def diff(old, new):
-    (od, ob), (nd, nb) = pick(old), pick(new)
+def diff(old, new, old_board=None, board=None):
+    (od, ob), (nd, nb) = pick(old, old_board), pick(new, board)
     describe(old, ob)
     describe(new, nb)
     oc, nc = components(od, ob[0]["pages"]), components(nd, nb[0]["pages"])
@@ -185,14 +289,19 @@ def diff(old, new):
             print(f"- 新增 {des}：{fmt(nc[des])}")
         elif oc[des] != nc[des]:
             print(f"- 改值 {des}：{fmt(oc[des])} → {fmt(nc[des])}")
-    if not (ob[0]["pcbs"] and nb[0]["pcbs"]):
-        print("\n（有一边没有 PCB，跳过连接关系对比）")
-        return
-    op, np_ = pad_nets(od, ob[0]["pcbs"][0]), pad_nets(nd, nb[0]["pcbs"][0])
+    op, np_ = sch_nets(od, ob[0]["pages"]), sch_nets(nd, nb[0]["pages"])
+    for label, docs_, b, parts in (("旧版", od, ob[0], oc), ("新版", nd, nb[0], nc)):
+        if not b["pcbs"]:
+            continue
+        on_pcb = {a["Designator"] for a in attrs_by_parent(docs_[b["pcbs"][0]]["recs"]).values() if a.get("Designator")}
+        extra, missing = on_pcb - set(parts), set(parts) - on_pcb
+        if extra or missing:
+            print(f"\n注意：{label}的 PCB 还没从原理图更新（PCB 多 {len(extra)} 个器件、少 {short(missing, 4)}）。"
+                  "下面的连接对比只用原理图。")
     common = set(op) & set(np_)
     og, ng = net_groups(op, common), net_groups(np_, common)
     old_of = {pad: net for net, pads in og.items() for pad in pads}
-    print("\n## 连接变化（按 PCB 焊盘网络，只看两版都有的焊盘；自动网络名每版会重编号，只比连接关系）\n")
+    print("\n## 连接变化（按原理图导线和引脚，只看两版都有的引脚；自动网络名每版会重编号，只比连接关系）\n")
     for net, pads in sorted(ng.items(), key=lambda kv: natural(min(kv[1], key=natural))):
         sources = collections.defaultdict(set)
         for pad in pads:
@@ -234,13 +343,15 @@ def main():
     ap.add_argument("files", nargs="*")
     ap.add_argument("--diff", action="store_true", help="对比两个文件：旧 新")
     ap.add_argument("--status", action="store_true", help="列出没有登记的原理图文件")
+    ap.add_argument("--board", help="指定板名（单文件或 --diff 的新文件）")
+    ap.add_argument("--old-board", help="指定 --diff 旧文件的板名")
     args = ap.parse_args()
     if args.status:
         status()
     elif args.diff and len(args.files) == 2:
-        diff(*args.files)
+        diff(*args.files, args.old_board, args.board)
     elif len(args.files) == 1 and not args.diff:
-        show(args.files[0])
+        show(args.files[0], args.board)
     else:
         ap.print_help()
 

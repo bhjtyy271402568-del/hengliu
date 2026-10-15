@@ -68,8 +68,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(STOP_GPIO_Port, &GPIO_InitStruct);
-  EXTI->IMR1 &= ~(uint32_t)STOP_Pin;
-  __HAL_GPIO_EXTI_CLEAR_IT(STOP_Pin);
 
   /*Configure GPIO pin : KEY1_Pin */
   GPIO_InitStruct.Pin = KEY1_Pin;
@@ -82,8 +80,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(SHOOT_GPIO_Port, &GPIO_InitStruct);
-  EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
-  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
 
   /*Configure GPIO pin : PWM_Pin */
   GPIO_InitStruct.Pin = PWM_Pin;
@@ -94,11 +90,9 @@ void MX_GPIO_Init(void)
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn, 2, 0);
-  HAL_NVIC_ClearPendingIRQ(EXTI9_5_IRQn);
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 
   HAL_NVIC_SetPriority(EXTI15_10_IRQn, 1, 0);
-  HAL_NVIC_ClearPendingIRQ(EXTI15_10_IRQn);
   HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }

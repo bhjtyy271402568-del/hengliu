@@ -1,0 +1,59 @@
+{
+  "pdf_pages": 2,
+  "page_size_pt": [
+    1190.5511811023623,
+    841.8897637795277
+  ],
+  "png_scale": 3,
+  "text_elements_checked_for_page_bounds": 265,
+  "original_sources_sha256": {
+    "C:\\Users\\Administrator\\Desktop\\hengliu\\LT3763_V2_控制部分原理图.png": "2086e22601eb8c63482dc0c48fcd4c5fba5a4b85638066981bc026e38c76ad0a",
+    "C:\\Users\\Administrator\\Desktop\\hengliu\\LT3763_V2_控制部分原理图.pdf": "9383852a924bba58eae3dec16b01c0c1bcd1d351aec8b1aea64a97b960b05123"
+  },
+  "net_contract": {
+    "U8.1_A": [
+      "R18.output",
+      "D13.K"
+    ],
+    "WGND": [
+      "U9.2",
+      "U8.3_K",
+      "D13.A"
+    ],
+    "Q13.G": [
+      "R55.output",
+      "R72.bottom"
+    ],
+    "Q13.D": [
+      "R73.bottom",
+      "R40.input"
+    ],
+    "PWM": [
+      "U1.22",
+      "R40.output",
+      "C60.top",
+      "Q14.G_optional"
+    ],
+    "GND": [
+      "U8.4",
+      "Q13.S",
+      "Q14.S_optional"
+    ],
+    "INTVCC": [
+      "U1.2",
+      "U8.6",
+      "R72.top",
+      "R73.top",
+      "C107.top",
+      "R3.top",
+      "R74.top_optional",
+      "R75.top"
+    ],
+    "CN20": "External normally-closed contact in series between U9.1 and R18.input",
+    "CN19": "Existing PGND test point, not the new interlock",
+    "R41": "DNP"
+  },
+  "native_eda_modified": false,
+  "erc_performed": false,
+  "hardware_tested": false
+}

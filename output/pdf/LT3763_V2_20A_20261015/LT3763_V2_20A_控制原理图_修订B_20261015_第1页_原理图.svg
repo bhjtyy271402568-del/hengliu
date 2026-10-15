@@ -1,0 +1,434 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1697" viewBox="0 0 2400 1697">
+<rect width="100%" height="100%" fill="white"/>
+<text x="50" y="64" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="36" fill="#24313E" text-anchor="start">LT3763 V2 · 20 A 纯硬件恒流控制原理图</text>
+<text x="50" y="108" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="22" fill="#627282" text-anchor="start">外部 5 V 持续有效即运行，撤销即停止开关；功率级沿用 V1。红色：新增、改值或改接。</text>
+<text x="2350" y="64" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="26" fill="#C34234" text-anchor="end">修订 B</text>
+<line x1="50" y1="135" x2="2350" y2="135" stroke="#205C85" stroke-width="2"/>
+<text x="60" y="190" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">01  电流设定 CTRL1</text>
+<line x1="60" y1="203" x2="390" y2="203" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="120" y1="255" x2="140" y2="255" stroke="#24313E" stroke-width="2.2"/>
+<text x="130" y="243" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">VREF</text>
+<line x1="130" y1="255" x2="130" y2="280" stroke="#24313E" stroke-width="2.2"/>
+<polyline points="130,280 130.0,296.5 123.0,299.125 137.0,304.375 123.0,309.625 137.0,314.875 123.0,320.125 137.0,325.375 123.0,330.625 137.0,335.875 130.0,338.5 130,355" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="155" y="302" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R2  2.94 kΩ</text>
+<text x="155" y="327" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">0.1%，改接 VREF</text>
+<line x1="130" y1="355" x2="130" y2="375" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="130" cy="375" r="4" fill="#24313E"/>
+<text x="83" y="369" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">CTRL1</text>
+<polyline points="130,375 130.0,393.0 123.0,397.3125 137.0,405.9375 123.0,414.5625 137.0,423.1875 123.0,431.8125 137.0,440.4375 123.0,449.0625 137.0,457.6875 130.0,462.0 130,480" fill="none" stroke="#24313E" stroke-width="2.2"/>
+<text x="155" y="431" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">R19  8.2 kΩ</text>
+<text x="155" y="456" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">0.1%</text>
+<line x1="130" y1="480" x2="130" y2="505" stroke="#24313E" stroke-width="2.2"/>
+<line x1="130" y1="505" x2="130" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="117" y1="517" x2="143" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="121" y1="523" x2="139" y2="523" stroke="#24313E" stroke-width="2.2"/>
+<line x1="126" y1="529" x2="134" y2="529" stroke="#24313E" stroke-width="2.2"/>
+<text x="150" y="528" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">AGND</text>
+<line x1="130" y1="375" x2="325" y2="375" stroke="#24313E" stroke-width="2.2"/>
+<line x1="325" y1="375" x2="325" y2="435.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="325" y1="505" x2="325" y2="445.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="313" y1="435.0" x2="337" y2="435.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="313" y1="445.0" x2="337" y2="445.0" stroke="#24313E" stroke-width="2.2"/>
+<text x="345" y="436.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">C41</text>
+<text x="345" y="461.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">100 nF</text>
+<line x1="325" y1="505" x2="325" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="312" y1="517" x2="338" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="316" y1="523" x2="334" y2="523" stroke="#24313E" stroke-width="2.2"/>
+<line x1="321" y1="529" x2="329" y2="529" stroke="#24313E" stroke-width="2.2"/>
+<text x="60" y="574" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">CTRL1 ≈ 1.472 V；典型约 20 A</text>
+<text x="60" y="601" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">R1 保持 2.5 mΩ，20 A 时约 50 mV</text>
+<text x="60" y="628" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">固定阻值不等于精确 20 A，装板校准</text>
+<text x="435" y="190" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">02  温度降额 CTRL2</text>
+<line x1="435" y1="203" x2="765" y2="203" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="495" y1="255" x2="515" y2="255" stroke="#24313E" stroke-width="2.2"/>
+<text x="505" y="243" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">VREF</text>
+<line x1="505" y1="255" x2="505" y2="280" stroke="#24313E" stroke-width="2.2"/>
+<polyline points="505,280 505.0,296.5 498.0,299.125 512.0,304.375 498.0,309.625 512.0,314.875 498.0,320.125 512.0,325.375 498.0,330.625 512.0,335.875 505.0,338.5 505,355" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="530" y="302" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R57  8.2 kΩ</text>
+<text x="530" y="327" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">V1 实装 12 kΩ → 8.2 kΩ</text>
+<line x1="505" y1="355" x2="505" y2="375" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="505" cy="375" r="4" fill="#24313E"/>
+<text x="458" y="369" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">CTRL2</text>
+<polyline points="505,375 505.0,393.0 498.0,397.3125 512.0,405.9375 498.0,414.5625 512.0,423.1875 498.0,431.8125 512.0,440.4375 498.0,449.0625 512.0,457.6875 505.0,462.0 505,480" fill="none" stroke="#24313E" stroke-width="2.2"/>
+<line x1="490" y1="458" x2="520" y2="400" stroke="#24313E" stroke-width="1.6"/>
+<text x="530" y="431" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">R56  NTC</text>
+<text x="530" y="456" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">100 kΩ / B3950</text>
+<line x1="505" y1="480" x2="505" y2="505" stroke="#24313E" stroke-width="2.2"/>
+<line x1="505" y1="505" x2="505" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="492" y1="517" x2="518" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="496" y1="523" x2="514" y2="523" stroke="#24313E" stroke-width="2.2"/>
+<line x1="501" y1="529" x2="509" y2="529" stroke="#24313E" stroke-width="2.2"/>
+<text x="525" y="528" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">AGND</text>
+<line x1="505" y1="375" x2="710" y2="375" stroke="#24313E" stroke-width="2.2"/>
+<line x1="710" y1="375" x2="710" y2="435.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="710" y1="505" x2="710" y2="445.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="698" y1="435.0" x2="722" y2="435.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="698" y1="445.0" x2="722" y2="445.0" stroke="#24313E" stroke-width="2.2"/>
+<text x="730" y="436.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">C54</text>
+<text x="730" y="461.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">100 nF</text>
+<line x1="710" y1="505" x2="710" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="697" y1="517" x2="723" y2="517" stroke="#24313E" stroke-width="2.2"/>
+<line x1="701" y1="523" x2="719" y2="523" stroke="#24313E" stroke-width="2.2"/>
+<line x1="706" y1="529" x2="714" y2="529" stroke="#24313E" stroke-width="2.2"/>
+<text x="435" y="574" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">CTRL2 &lt; CTRL1 时降额</text>
+<text x="435" y="601" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">约 62 ℃ 起降，指 NTC 自身温度</text>
+<text x="435" y="628" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">R58 保持不装；不是 MOS 结温阈值</text>
+<text x="60" y="719" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">03  软启动 / 基准去耦</text>
+<line x1="60" y1="732" x2="390" y2="732" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="120" y1="795" x2="140" y2="795" stroke="#24313E" stroke-width="2.2"/>
+<text x="130" y="783" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">SS</text>
+<line x1="130" y1="795" x2="130" y2="895.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="130" y1="1005" x2="130" y2="905.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="118" y1="895.0" x2="142" y2="895.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="118" y1="905.0" x2="142" y2="905.0" stroke="#C34234" stroke-width="2.2"/>
+<text x="150" y="896.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">C72</text>
+<text x="150" y="921.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">100 nF</text>
+<line x1="130" y1="1005" x2="130" y2="1017" stroke="#24313E" stroke-width="2.2"/>
+<line x1="117" y1="1017" x2="143" y2="1017" stroke="#24313E" stroke-width="2.2"/>
+<line x1="121" y1="1023" x2="139" y2="1023" stroke="#24313E" stroke-width="2.2"/>
+<line x1="126" y1="1029" x2="134" y2="1029" stroke="#24313E" stroke-width="2.2"/>
+<text x="150" y="1028" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">AGND</text>
+<line x1="310" y1="795" x2="330" y2="795" stroke="#24313E" stroke-width="2.2"/>
+<text x="320" y="783" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">VREF</text>
+<line x1="320" y1="795" x2="320" y2="895.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="320" y1="1005" x2="320" y2="905.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="308" y1="895.0" x2="332" y2="895.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="308" y1="905.0" x2="332" y2="905.0" stroke="#24313E" stroke-width="2.2"/>
+<text x="340" y="896.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">C2</text>
+<text x="340" y="921.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">2.2 μF</text>
+<line x1="320" y1="1005" x2="320" y2="1017" stroke="#24313E" stroke-width="2.2"/>
+<line x1="307" y1="1017" x2="333" y2="1017" stroke="#24313E" stroke-width="2.2"/>
+<line x1="311" y1="1023" x2="329" y2="1023" stroke="#24313E" stroke-width="2.2"/>
+<line x1="316" y1="1029" x2="324" y2="1029" stroke="#24313E" stroke-width="2.2"/>
+<text x="60" y="1090" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">C72：330 nF → 100 nF</text>
+<text x="60" y="1118" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">SS 清零后首次启动约 13 ms</text>
+<text x="60" y="1146" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">普通 PWM 关断不重置 SS</text>
+<text x="60" y="1174" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">后续触发不保证再次慢升</text>
+<text x="435" y="719" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">04  欠压门限 / 使能</text>
+<line x1="435" y1="732" x2="765" y2="732" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="495" y1="795" x2="515" y2="795" stroke="#24313E" stroke-width="2.2"/>
+<text x="505" y="783" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">DCBUS</text>
+<line x1="505" y1="795" x2="505" y2="815" stroke="#24313E" stroke-width="2.2"/>
+<polyline points="505,815 505.0,831.5 498.0,834.125 512.0,839.375 498.0,844.625 512.0,849.875 498.0,855.125 512.0,860.375 498.0,865.625 512.0,870.875 505.0,873.5 505,890" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="530" y="859" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R52  150 kΩ</text>
+<line x1="505" y1="890" x2="505" y2="915" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="505" cy="915" r="4" fill="#24313E"/>
+<text x="530" y="907" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">EN_UVLO</text>
+<polyline points="505,915 505.0,933.0 498.0,936.0625 512.0,942.1875 498.0,948.3125 512.0,954.4375 498.0,960.5625 512.0,966.6875 498.0,972.8125 512.0,978.9375 505.0,982.0 505,1000" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="530" y="968" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R53  10 kΩ</text>
+<line x1="505" y1="1000" x2="505" y2="1025" stroke="#24313E" stroke-width="2.2"/>
+<line x1="505" y1="1025" x2="505" y2="1037" stroke="#24313E" stroke-width="2.2"/>
+<line x1="492" y1="1037" x2="518" y2="1037" stroke="#24313E" stroke-width="2.2"/>
+<line x1="496" y1="1043" x2="514" y2="1043" stroke="#24313E" stroke-width="2.2"/>
+<line x1="501" y1="1049" x2="509" y2="1049" stroke="#24313E" stroke-width="2.2"/>
+<text x="525" y="1048" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">GND</text>
+<line x1="505" y1="915" x2="710" y2="915" stroke="#24313E" stroke-width="2.2"/>
+<line x1="710" y1="915" x2="710" y2="965.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="710" y1="1025" x2="710" y2="975.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="698" y1="965.0" x2="722" y2="965.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="698" y1="975.0" x2="722" y2="975.0" stroke="#24313E" stroke-width="2.2"/>
+<text x="730" y="966.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">C52</text>
+<text x="730" y="991.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">100 nF</text>
+<line x1="710" y1="1025" x2="710" y2="1037" stroke="#24313E" stroke-width="2.2"/>
+<line x1="697" y1="1037" x2="723" y2="1037" stroke="#24313E" stroke-width="2.2"/>
+<line x1="701" y1="1043" x2="719" y2="1043" stroke="#24313E" stroke-width="2.2"/>
+<line x1="706" y1="1049" x2="714" y2="1049" stroke="#24313E" stroke-width="2.2"/>
+<text x="435" y="1090" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">典型开启：28.0 V；关闭：24.3 V</text>
+<text x="435" y="1118" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">开启计算包含 EN 的 5 μA 下拉</text>
+<text x="435" y="1146" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">R52/R53 是改值，不再标“不变”</text>
+<text x="1000" y="267" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="29" fill="#24313E" text-anchor="middle">U1  LT3763EFE</text>
+<polygon points="875,300 1125,300 1125,1030 875,1030" fill="none" stroke="#24313E" stroke-width="2.4"/>
+<line x1="815" y1="355" x2="875" y2="355" stroke="#24313E" stroke-width="2.2"/>
+<text x="856" y="345" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="end">5</text>
+<text x="888" y="362" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">VREF</text>
+<line x1="815" y1="410" x2="875" y2="410" stroke="#24313E" stroke-width="2.2"/>
+<text x="856" y="400" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="end">10</text>
+<text x="888" y="417" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">FBIN</text>
+<line x1="815" y1="500" x2="875" y2="500" stroke="#24313E" stroke-width="2.2"/>
+<text x="856" y="490" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="end">14</text>
+<text x="888" y="507" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">CTRL1</text>
+<line x1="815" y1="580" x2="875" y2="580" stroke="#24313E" stroke-width="2.2"/>
+<text x="856" y="570" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="end">13</text>
+<text x="888" y="587" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">CTRL2</text>
+<line x1="815" y1="660" x2="875" y2="660" stroke="#24313E" stroke-width="2.2"/>
+<text x="856" y="650" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="end">15</text>
+<text x="888" y="667" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">SS</text>
+<line x1="815" y1="740" x2="875" y2="740" stroke="#24313E" stroke-width="2.2"/>
+<text x="856" y="730" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="end">4</text>
+<text x="888" y="747" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">EN/UVLO</text>
+<line x1="1125" y1="355" x2="1170" y2="355" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="345" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">2</text>
+<text x="1112" y="362" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">INTVCC</text>
+<text x="1180" y="362" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">INTVCC</text>
+<line x1="1125" y1="465" x2="1170" y2="465" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="455" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">22</text>
+<text x="1112" y="472" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">PWM</text>
+<text x="1180" y="472" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">PWM</text>
+<line x1="1125" y1="555" x2="1170" y2="555" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="545" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">24</text>
+<text x="1112" y="562" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">PWM_OUT</text>
+<text x="1180" y="562" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">NC</text>
+<line x1="1165" y1="550" x2="1175" y2="560" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1165" y1="560" x2="1175" y2="550" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1125" y1="645" x2="1170" y2="645" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="635" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">9</text>
+<text x="1112" y="652" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">FAULT</text>
+<text x="1180" y="652" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">FAULT</text>
+<line x1="1125" y1="735" x2="1170" y2="735" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="725" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">19</text>
+<text x="1112" y="742" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">ISMON</text>
+<text x="1180" y="742" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">CN12</text>
+<line x1="1125" y1="825" x2="1170" y2="825" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="815" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">8</text>
+<text x="1112" y="832" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">IVINMON</text>
+<text x="1180" y="832" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">CN17</text>
+<line x1="1125" y1="915" x2="1170" y2="915" stroke="#24313E" stroke-width="2.2"/>
+<text x="1140" y="905" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">11</text>
+<text x="1112" y="922" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">FB</text>
+<text x="1180" y="922" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">FB</text>
+<line x1="815" y1="355" x2="815" y2="410" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="815" cy="355" r="4" fill="#24313E"/>
+<text x="805" y="345" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">VREF</text>
+<text x="805" y="507" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#24313E" text-anchor="end">CTRL1</text>
+<text x="805" y="587" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#24313E" text-anchor="end">CTRL2</text>
+<text x="805" y="667" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#24313E" text-anchor="end">SS</text>
+<text x="805" y="747" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#24313E" text-anchor="end">EN_UVLO</text>
+<line x1="1000" y1="1030" x2="1000" y2="1060" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1000" y1="1060" x2="1000" y2="1072" stroke="#24313E" stroke-width="2.2"/>
+<line x1="987" y1="1072" x2="1013" y2="1072" stroke="#24313E" stroke-width="2.2"/>
+<line x1="991" y1="1078" x2="1009" y2="1078" stroke="#24313E" stroke-width="2.2"/>
+<line x1="996" y1="1084" x2="1004" y2="1084" stroke="#24313E" stroke-width="2.2"/>
+<text x="815" y="1120" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">12 脚 AGND；23/28 脚 GND</text>
+<text x="815" y="1147" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">29 脚 EP 按原设计接地</text>
+<text x="815" y="1174" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">21 脚 SYNC 不用时接地</text>
+<text x="815" y="1201" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">VIN、TG、BG、SW、BOOST、</text>
+<text x="815" y="1228" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">SENSE±、IVINP/N、VC、RT</text>
+<text x="815" y="1255" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">及其外围均保留 V1 连接</text>
+<text x="1300" y="190" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">05  隔离输入 → PWM 硬件启停</text>
+<line x1="1300" y1="203" x2="2340" y2="203" stroke="#D6DFE7" stroke-width="1.5"/>
+<text x="1300" y="238" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#627282" text-anchor="start">5 V 输入；光耦反相 + Q13 反相。WGND 与板内 GND 不直接连接。</text>
+<polygon points="1310,345 1385,345 1385,580 1310,580" fill="none" stroke="#24313E" stroke-width="2"/>
+<text x="1326" y="442" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">U9</text>
+<text x="1326" y="470" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">输入</text>
+<text x="1300" y="320" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">外部 +5 V</text>
+<text x="1300" y="618" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">外部 WGND</text>
+<text x="1393" y="378" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="start">1</text>
+<text x="1393" y="563" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="start">2</text>
+<line x1="1385" y1="385" x2="1440" y2="385" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="1440" cy="385" r="4" fill="#C34234"/>
+<circle cx="1490" cy="385" r="4" fill="#C34234"/>
+<line x1="1440" y1="385" x2="1490" y2="385" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1460" y1="376" x2="1460" y2="361" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1490" y1="385" x2="1530" y2="385" stroke="#24313E" stroke-width="2.2"/>
+<text x="1410" y="294" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">CN20 外部联锁（常闭）</text>
+<text x="1410" y="321" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">断开撤销使能；闭合可自动重启</text>
+<polyline points="1530,385 1548.0,385.0 1551.0625,392.0 1557.1875,378.0 1563.3125,392.0 1569.4375,378.0 1575.5625,392.0 1581.6875,378.0 1587.8125,392.0 1593.9375,378.0 1597.0,385.0 1615,385" fill="none" stroke="#24313E" stroke-width="2.2"/>
+<text x="1570" y="357" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="middle">R18  1 kΩ</text>
+<line x1="1615" y1="385" x2="1740" y2="385" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="1650" cy="385" r="4" fill="#24313E"/>
+<line x1="1385" y1="565" x2="1740" y2="565" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="1650" cy="565" r="4" fill="#24313E"/>
+<line x1="1650" y1="385" x2="1650" y2="464.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1650" y1="486.0" x2="1650" y2="565" stroke="#C34234" stroke-width="2.2"/>
+<polygon points="1639,486.0 1661,486.0 1650,464.0" fill="none" stroke="#C34234" stroke-width="2"/>
+<line x1="1637" y1="464.0" x2="1663" y2="464.0" stroke="#C34234" stroke-width="2.2"/>
+<text x="1515" y="467" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">D13  1N4148</text>
+<text x="1515" y="492" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">K → U8-1</text>
+<text x="1515" y="517" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">A → U8-3</text>
+<text x="1669" y="420" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#C34234" text-anchor="start">K</text>
+<text x="1669" y="548" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#C34234" text-anchor="start">A</text>
+<polygon points="1740,345 1920,345 1920,595 1740,595" fill="none" stroke="#24313E" stroke-width="2"/>
+<text x="1830" y="437" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="23" fill="#24313E" text-anchor="middle">U8</text>
+<text x="1830" y="475" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="21" fill="#24313E" text-anchor="middle">TLP2761</text>
+<text x="1830" y="535" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="middle">LED 亮 → VO 低</text>
+<text x="1752" y="391" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">A</text>
+<text x="1731" y="375" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="end">1</text>
+<text x="1752" y="571" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">K</text>
+<text x="1731" y="555" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="end">3</text>
+<text x="1908" y="391" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">VDD</text>
+<text x="1929" y="375" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="start">6</text>
+<text x="1908" y="486" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">VO</text>
+<text x="1929" y="470" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="start">5</text>
+<text x="1908" y="571" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">GND</text>
+<text x="1929" y="555" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#627282" text-anchor="start">4</text>
+<line x1="1920" y1="385" x2="1955" y2="385" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1955" y1="385" x2="1955" y2="285" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1955" y1="285" x2="2300" y2="285" stroke="#C34234" stroke-width="2.2"/>
+<text x="2300" y="267" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="end">INTVCC ≈ 5 V</text>
+<circle cx="1955" cy="285" r="4" fill="#C34234"/>
+<circle cx="2115" cy="285" r="4" fill="#C34234"/>
+<circle cx="2220" cy="285" r="4" fill="#C34234"/>
+<line x1="1920" y1="565" x2="1955" y2="565" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1955" y1="565" x2="1955" y2="577" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1942" y1="577" x2="1968" y2="577" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1946" y1="583" x2="1964" y2="583" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1951" y1="589" x2="1959" y2="589" stroke="#24313E" stroke-width="2.2"/>
+<text x="1975" y="588" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">GND</text>
+<line x1="1920" y1="480" x2="1975" y2="480" stroke="#24313E" stroke-width="2.2"/>
+<polyline points="1975,480 1992.6,480.0 1995.4,487.0 2001.0,473.0 2006.6,487.0 2012.2,473.0 2017.8,487.0 2023.4,473.0 2029.0,487.0 2034.6,473.0 2037.4,480.0 2055,480" fill="none" stroke="#24313E" stroke-width="2.2"/>
+<text x="2015" y="455" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="middle">R55 220 Ω</text>
+<line x1="2055" y1="480" x2="2115" y2="480" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="2115" cy="480" r="4" fill="#24313E"/>
+<polyline points="2115,285 2115.0,303.0 2108.0,308.5625 2122.0,319.6875 2108.0,330.8125 2122.0,341.9375 2108.0,353.0625 2122.0,364.1875 2108.0,375.3125 2122.0,386.4375 2115.0,392.0 2115,410" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2115" y1="410" x2="2115" y2="480" stroke="#C34234" stroke-width="2.2"/>
+<text x="1995" y="330" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R72 100 kΩ</text>
+<text x="1995" y="355" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">默认关断</text>
+<line x1="2115" y1="480" x2="2193" y2="480" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2193" y1="457" x2="2193" y2="503" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2204" y1="456" x2="2204" y2="466" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2204" y1="475" x2="2204" y2="485" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2204" y1="494" x2="2204" y2="504" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2220" y1="415" x2="2220" y2="460" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2220" y1="460" x2="2204" y2="460" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2204" y1="500" x2="2220" y2="500" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2220" y1="500" x2="2220" y2="565" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2211" y1="480" x2="2220" y2="480" stroke="#C34234" stroke-width="2.2"/>
+<line x1="2220" y1="480" x2="2220" y2="500" stroke="#C34234" stroke-width="2.2"/>
+<polyline points="2216,475 2209,480 2216,485" fill="none" stroke="#C34234" stroke-width="1.6"/>
+<line x1="2220" y1="565" x2="2220" y2="577" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2207" y1="577" x2="2233" y2="577" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2211" y1="583" x2="2229" y2="583" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2216" y1="589" x2="2224" y2="589" stroke="#24313E" stroke-width="2.2"/>
+<text x="2240" y="588" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">GND</text>
+<text x="2130" y="615" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">Q13  2N7002</text>
+<text x="2160" y="467" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="15" fill="#C34234" text-anchor="start">G</text>
+<text x="2237" y="431" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="15" fill="#C34234" text-anchor="start">D</text>
+<text x="2237" y="552" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="15" fill="#C34234" text-anchor="start">S</text>
+<polyline points="2220,285 2220.0,303.0 2213.0,306.6875 2227.0,314.0625 2213.0,321.4375 2227.0,328.8125 2213.0,336.1875 2227.0,343.5625 2213.0,350.9375 2227.0,358.3125 2220.0,362.0 2220,380" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="2240" y="328" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R73</text>
+<text x="2240" y="353" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">22 kΩ</text>
+<line x1="2220" y1="380" x2="2220" y2="415" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="2220" cy="405" r="4" fill="#24313E"/>
+<line x1="2220" y1="405" x2="2250" y2="405" stroke="#24313E" stroke-width="2.2"/>
+<polyline points="2250,405 2266.5,405.0 2269.125,412.0 2274.375,398.0 2279.625,412.0 2284.875,398.0 2290.125,412.0 2295.375,398.0 2300.625,412.0 2305.875,398.0 2308.5,405.0 2325,405" fill="none" stroke="#24313E" stroke-width="2.2"/>
+<text x="2285" y="390" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="16" fill="#24313E" text-anchor="middle">R40 1 kΩ</text>
+<line x1="2325" y1="405" x2="2340" y2="405" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="2340" cy="405" r="4" fill="#24313E"/>
+<text x="2340" y="375" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="end">PWM</text>
+<line x1="2340" y1="405" x2="2340" y2="480.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2340" y1="565" x2="2340" y2="490.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2328" y1="480.0" x2="2352" y2="480.0" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2328" y1="490.0" x2="2352" y2="490.0" stroke="#24313E" stroke-width="2.2"/>
+<text x="2235" y="481.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">C60</text>
+<text x="2235" y="506.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">1 nF</text>
+<line x1="2340" y1="565" x2="2340" y2="577" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2327" y1="577" x2="2353" y2="577" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2331" y1="583" x2="2349" y2="583" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2336" y1="589" x2="2344" y2="589" stroke="#24313E" stroke-width="2.2"/>
+<text x="2340" y="648" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="end">R41  10 kΩ：不装</text>
+<line x1="1350" y1="695" x2="1370" y2="695" stroke="#24313E" stroke-width="2.2"/>
+<text x="1360" y="683" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">INTVCC</text>
+<line x1="1360" y1="695" x2="1360" y2="730.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1360" y1="775" x2="1360" y2="740.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1348" y1="730.0" x2="1372" y2="730.0" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1348" y1="740.0" x2="1372" y2="740.0" stroke="#C34234" stroke-width="2.2"/>
+<text x="1380" y="731.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">C107</text>
+<text x="1380" y="756.0" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">100 nF</text>
+<line x1="1360" y1="775" x2="1360" y2="787" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1347" y1="787" x2="1373" y2="787" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1351" y1="793" x2="1369" y2="793" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1356" y1="799" x2="1364" y2="799" stroke="#24313E" stroke-width="2.2"/>
+<text x="1380" y="798" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">GND</text>
+<text x="1530" y="689" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">C107 靠近 U8 的 6、4 脚；R72 使 Q13 默认倾向导通关断。</text>
+<text x="1530" y="718" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">无信号 / 断线：VO 高 → Q13 导通 → PWM 低。</text>
+<text x="1530" y="747" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">信号有效：VO 低 → Q13 截止 → R73 上拉 PWM。</text>
+<text x="1530" y="776" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">上下电瞬态是否误使能仍须实测，不能只由静态逻辑保证。</text>
+<text x="1300" y="865" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">06  使能指示（可选）</text>
+<line x1="1300" y1="878" x2="1600" y2="878" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="1360" y1="940" x2="1380" y2="940" stroke="#24313E" stroke-width="2.2"/>
+<text x="1370" y="928" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">INTVCC</text>
+<polyline points="1370,940 1370.0,954.3 1363.0,956.575 1377.0,961.125 1363.0,965.675 1377.0,970.225 1363.0,974.775 1377.0,979.325 1363.0,983.875 1377.0,988.425 1370.0,990.7 1370,1005" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="1395" y="979" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R74 3.3 kΩ</text>
+<line x1="1370" y1="1005" x2="1370" y2="1036.5" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1370" y1="1058.5" x2="1370" y2="1090" stroke="#C34234" stroke-width="2.2"/>
+<polygon points="1359,1036.5 1381,1036.5 1370,1058.5" fill="none" stroke="#C34234" stroke-width="2"/>
+<line x1="1357" y1="1058.5" x2="1383" y2="1058.5" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1387" y1="1042.5" x2="1402" y2="1031.5" stroke="#C34234" stroke-width="1.6"/>
+<polyline points="1394,1030.5 1402,1031.5 1399,1039.5" fill="none" stroke="#C34234" stroke-width="1.6"/>
+<line x1="1387" y1="1055.5" x2="1402" y2="1044.5" stroke="#C34234" stroke-width="1.6"/>
+<polyline points="1394,1043.5 1402,1044.5 1399,1052.5" fill="none" stroke="#C34234" stroke-width="1.6"/>
+<text x="1410" y="1053" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">LED3 绿</text>
+<line x1="1370" y1="1090" x2="1370" y2="1105" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1275" y1="1170" x2="1343" y2="1170" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1343" y1="1147" x2="1343" y2="1193" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1354" y1="1146" x2="1354" y2="1156" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1354" y1="1165" x2="1354" y2="1175" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1354" y1="1184" x2="1354" y2="1194" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1370" y1="1105" x2="1370" y2="1150" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1370" y1="1150" x2="1354" y2="1150" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1354" y1="1190" x2="1370" y2="1190" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1370" y1="1190" x2="1370" y2="1230" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1361" y1="1170" x2="1370" y2="1170" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1370" y1="1170" x2="1370" y2="1190" stroke="#C34234" stroke-width="2.2"/>
+<polyline points="1366,1165 1359,1170 1366,1175" fill="none" stroke="#C34234" stroke-width="1.6"/>
+<text x="1388" y="1163" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">Q14</text>
+<text x="1388" y="1187" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">2N7002</text>
+<line x1="1370" y1="1230" x2="1370" y2="1242" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1357" y1="1242" x2="1383" y2="1242" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1361" y1="1248" x2="1379" y2="1248" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1366" y1="1254" x2="1374" y2="1254" stroke="#24313E" stroke-width="2.2"/>
+<text x="1390" y="1253" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">GND</text>
+<text x="1294" y="1137" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">PWM</text>
+<line x1="1275" y1="1137" x2="1275" y2="1170" stroke="#24313E" stroke-width="2.2"/>
+<text x="1300" y="1290" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">只表示 PWM 允许，不代表出光。</text>
+<text x="1650" y="865" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">07  FAULT 指示</text>
+<line x1="1650" y1="878" x2="1970" y2="878" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="1700" y1="940" x2="1720" y2="940" stroke="#24313E" stroke-width="2.2"/>
+<text x="1710" y="928" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">INTVCC</text>
+<line x1="1710" y1="940" x2="1710" y2="965" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="1710" cy="965" r="4" fill="#24313E"/>
+<line x1="1710" y1="965" x2="1875" y2="965" stroke="#24313E" stroke-width="2.2"/>
+<polyline points="1710,965 1710.0,983.0 1703.0,987.3125 1717.0,995.9375 1703.0,1004.5625 1717.0,1013.1875 1703.0,1021.8125 1717.0,1030.4375 1703.0,1039.0625 1717.0,1047.6875 1710.0,1052.0 1710,1070" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="1735" y="1011" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">R3 10 kΩ</text>
+<text x="1735" y="1036" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">上拉改 INTVCC</text>
+<polyline points="1875,965 1875.0,980.4 1868.0,982.85 1882.0,987.75 1868.0,992.65 1882.0,997.55 1868.0,1002.45 1882.0,1007.35 1868.0,1012.25 1882.0,1017.15 1875.0,1019.6 1875,1035" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="1900" y="1000" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">R75</text>
+<text x="1900" y="1025" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#C34234" text-anchor="start">3.3 kΩ</text>
+<line x1="1875" y1="1035" x2="1875" y2="1081.5" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1875" y1="1103.5" x2="1875" y2="1150" stroke="#C34234" stroke-width="2.2"/>
+<polygon points="1864,1081.5 1886,1081.5 1875,1103.5" fill="none" stroke="#C34234" stroke-width="2"/>
+<line x1="1862" y1="1103.5" x2="1888" y2="1103.5" stroke="#C34234" stroke-width="2.2"/>
+<line x1="1892" y1="1087.5" x2="1907" y2="1076.5" stroke="#C34234" stroke-width="1.6"/>
+<polyline points="1899,1075.5 1907,1076.5 1904,1084.5" fill="none" stroke="#C34234" stroke-width="1.6"/>
+<line x1="1892" y1="1100.5" x2="1907" y2="1089.5" stroke="#C34234" stroke-width="1.6"/>
+<polyline points="1899,1088.5 1907,1089.5 1904,1097.5" fill="none" stroke="#C34234" stroke-width="1.6"/>
+<text x="1900" y="1120" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">LED2 红</text>
+<line x1="1710" y1="1070" x2="1710" y2="1195" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1710" y1="1195" x2="1875" y2="1195" stroke="#24313E" stroke-width="2.2"/>
+<line x1="1875" y1="1150" x2="1875" y2="1195" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="1790" cy="1195" r="4" fill="#24313E"/>
+<line x1="1790" y1="1195" x2="1790" y2="1230" stroke="#24313E" stroke-width="2.2"/>
+<text x="1810" y="1237" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">FAULT</text>
+<text x="1650" y="1290" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">只指示，不锁停；待机/启动低输出</text>
+<text x="1650" y="1316" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">时也可亮，不等于板子已损坏。</text>
+<text x="2040" y="865" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">08  输出限压</text>
+<line x1="2040" y1="878" x2="2340" y2="878" stroke="#D6DFE7" stroke-width="1.5"/>
+<line x1="2100" y1="940" x2="2120" y2="940" stroke="#24313E" stroke-width="2.2"/>
+<text x="2110" y="928" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="middle">VCC_OUT</text>
+<polyline points="2110,940 2110.0,958.0 2103.0,962.0 2117.0,970.0 2103.0,978.0 2117.0,986.0 2103.0,994.0 2117.0,1002.0 2103.0,1010.0 2117.0,1018.0 2110.0,1022.0 2110,1040" fill="none" stroke="#C34234" stroke-width="2.2"/>
+<text x="2135" y="984" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">R30 240 kΩ</text>
+<text x="2135" y="1010" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#C34234" text-anchor="start">232 kΩ → 240 kΩ</text>
+<line x1="2110" y1="1040" x2="2110" y2="1070" stroke="#24313E" stroke-width="2.2"/>
+<circle cx="2110" cy="1070" r="4" fill="#24313E"/>
+<line x1="2110" y1="1070" x2="2240" y2="1070" stroke="#24313E" stroke-width="2.2"/>
+<text x="2255" y="1077" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">FB</text>
+<polyline points="2110,1070 2110.0,1088.0 2103.0,1092.3125 2117.0,1100.9375 2103.0,1109.5625 2117.0,1118.1875 2103.0,1126.8125 2117.0,1135.4375 2103.0,1144.0625 2117.0,1152.6875 2110.0,1157.0 2110,1175" fill="none" stroke="#24313E" stroke-width="2.2"/>
+<text x="2135" y="1129" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">R49 10 kΩ</text>
+<line x1="2110" y1="1175" x2="2110" y2="1220" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2110" y1="1220" x2="2110" y2="1232" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2097" y1="1232" x2="2123" y2="1232" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2101" y1="1238" x2="2119" y2="1238" stroke="#24313E" stroke-width="2.2"/>
+<line x1="2106" y1="1244" x2="2114" y2="1244" stroke="#24313E" stroke-width="2.2"/>
+<text x="2130" y="1243" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="17" fill="#627282" text-anchor="start">AGND</text>
+<text x="2040" y="1290" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">典型限压约 30.15 V</text>
+<text x="2040" y="1316" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">本版不改 180 kΩ。</text>
+<polygon points="50,1370 2350,1370 2350,1610 50,1610" fill="#F3F6F9" stroke="#D6DFE7" stroke-width="1.5"/>
+<text x="75" y="1410" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="23" fill="#205C85" text-anchor="start">供电预算与使用边界</text>
+<text x="75" y="1451" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">功率 MOS 沿用最新 V1：Q1/Q6 = BSC096N10LS5；Q2/Q5 = BSC070N10LS5（不是两颗 BSC028）。</text>
+<text x="75" y="1482" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">200 kHz、4.5 V 手册 Qg 条件：栅极平均电流约 11.2 mA（典型）/ 13.8 mA（表列最大 Qg）；实际 5 V 需另留余量。</text>
+<text x="75" y="1513" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">控制/指示负载按约 3～4 mA 预算（含两灯同时亮），另计 U1 内部负载；60 mA 是短路条件典型限流，不是可用 5 V 额度。</text>
+<text x="75" y="1544" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">C75 47 μF 及 V1 其余原有去耦保留；按有效容值/温升验证。上电带有效信号或联锁重新闭合可自启；本图无故障锁存。</text>
+<text x="75" y="1575" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">CN19 继续保留为原 PGND 测点；新增联锁改用 CN20，避免位号冲突。控制图未画出的功率/输入保护电路不删。</text>
+<text x="50" y="1660" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">LT3763 V2  |  固定 20 A  |  修订 B  |  2026-10-15</text>
+<text x="2350" y="1660" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="end">1 / 2  ·  工程修改参考，非原生 EDA 文件</text>
+</svg>

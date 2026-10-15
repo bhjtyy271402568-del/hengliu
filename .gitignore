@@ -4,3 +4,4 @@ mx.scratch
 tmp/
 .pdfdeps/
 .codex-pdf-preview/
+__pycache__/

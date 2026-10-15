@@ -21,6 +21,7 @@
 #include "adc.h"
 #include "dac.h"
 #include "dma.h"
+#include "iwdg.h"
 #include "tim.h"
 #include "usart.h"
 #include "gpio.h"
@@ -38,15 +39,37 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 #define LASER_SHOOT_DEBOUNCE_MS 5U
+#define LASER_FAULT_DEBOUNCE_MS 5U
 #define LASER_FAULT_LED_BLINK_MS 250U
 #define LASER_DAC_RAMP_STEP_PER_MS 50U
 #define LASER_START_MASK_EXTRA_MS 100U
 #define LASER_START_MASK_MAX_MS 200U
 #define KEY1_PRESS_DEBOUNCE_MS 20U
-#define TEST_DAC_VALUE 1200U
+#define TEST_DAC_VALUE 4034U
 #define LASER_CURRENT_GOOD_MS 100U
 #define LASER_CURRENT_STALE_MS 5U
 #define LASER_CURRENT_TOLERANCE_PERCENT 20U
+
+/* External maintained 5 V, inverted by TLP2761: PA8 LOW = run request.
+   K2 also starts/toggles in bench mode 1; either source can stop output.
+   After a stop, SHOOT must go inactive before a new active request. */
+#ifndef LASER_SHOOT_CONTROL
+#define LASER_SHOOT_CONTROL 1U
+#endif
+#if LASER_SHOOT_CONTROL > 1U
+#error "LASER_SHOOT_CONTROL must be 0 or 1"
+#endif
+
+/* Bench test only: 0 = hold K2; 1 = toggle; 2 = toggle a timed cycle.
+   K2 is named KEY1 in the generated GPIO definitions. */
+#ifndef LASER_BENCH_MODE
+#define LASER_BENCH_MODE 1U
+#endif
+#if LASER_BENCH_MODE > 2U
+#error "LASER_BENCH_MODE must be 0, 1 or 2"
+#endif
+#define BENCH_CYCLE_ON_MS 1000U
+#define BENCH_CYCLE_OFF_MS 100U
 
 /* USER CODE END PD */
 
@@ -61,15 +84,16 @@
 volatile Laser_State_t g_laser_state = LASER_STATE_IDLE;
 volatile uint16_t g_laser_start_mask_ms = 0U;
 volatile uint16_t g_laser_fault_debounce_ms = 0U;
+static volatile uint8_t g_laser_stop_fault_pending = 0U;
 static volatile uint16_t g_laser_dac_target_val = 0U;
 static volatile uint16_t g_laser_dac_current_val = 0U;
 volatile uint16_t g_laser_shoot_dac_val = 0U;
 static volatile uint16_t g_laser_shoot_debounce_ms = 0U;
 static volatile uint16_t g_laser_fault_led_blink_ms = 0U;
-static volatile uint16_t g_laser_shoot_req_dac_val = 0U;
 static volatile uint8_t g_laser_shoot_enabled = 0U;
 static volatile uint8_t g_laser_shoot_start_req = 0U;
-static volatile uint8_t g_laser_shoot_stop_req = 0U;
+/* Start disarmed: first observe stable inactive, then a new active level. */
+static volatile uint8_t g_laser_shoot_active = 1U;
 static volatile uint16_t g_key1_press_debounce_ms = 0U;
 static volatile uint8_t g_key1_latched_pressed = 0U;
 static volatile uint8_t g_key1_start_req = 0U;
@@ -80,6 +104,12 @@ volatile uint16_t g_laser_target_adc = 0U;
 volatile uint8_t g_laser_current_valid = 0U;
 static volatile uint16_t g_laser_current_age_ms = LASER_CURRENT_STALE_MS;
 static volatile uint16_t g_laser_current_good_ms = 0U;
+static volatile uint32_t g_tim6_completed = 0U;
+static uint32_t g_watchdog_last_completed = 0U;
+#if LASER_BENCH_MODE != 0U
+static volatile uint8_t g_bench_active = 0U;
+static volatile uint16_t g_bench_phase_ms = 0U;
+#endif
 
 /* USER CODE END PV */
 
@@ -89,7 +119,6 @@ void SystemClock_Config(void);
 static void Laser_Disable_Stop_EXTI(void);
 static uint8_t Laser_Enable_Stop_EXTI(void);
 static void Laser_Disable_Shoot_EXTI(void);
-static void Laser_Enable_Shoot_EXTI(void);
 static void Laser_Process_Shoot_Debounce(void);
 static void Laser_Process_Shoot_Requests(void);
 static void Laser_Process_Fault_LED(void);
@@ -101,11 +130,28 @@ static void Laser_Set_Dac_12bit(uint16_t dac_val);
 static void Laser_TIM6_Start_1ms(void);
 static void Laser_Process_Current_Sample(void);
 static void Laser_Process_Current_LED(void);
+static void Laser_Process_Watchdog(void);
+static void Laser_Process_Stop_Fault(void);
+#if LASER_BENCH_MODE != 0U
+static void Laser_Process_Bench(void);
+#endif
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+/* Main-loop only: each refresh consumes a NEW completed TIM6 task. */
+static void Laser_Process_Watchdog(void)
+{
+  uint32_t completed = g_tim6_completed;
+
+  if (completed != g_watchdog_last_completed)
+  {
+    g_watchdog_last_completed = completed;
+    HAL_IWDG_Refresh(&hiwdg);
+  }
+}
+
 /* Main-loop only: ADC polling must not delay the TIM6 safety task. */
 static void Laser_Process_Current_Sample(void)
 {
@@ -213,6 +259,41 @@ static uint8_t Laser_Enable_Stop_EXTI(void)
   return 1U;
 }
 
+static void Laser_Process_Stop_Fault(void)
+{
+  if ((g_laser_state != LASER_STATE_RUNNING) &&
+      !((g_laser_state == LASER_STATE_IDLE) && (g_laser_stop_fault_pending != 0U)))
+  {
+    return;
+  }
+
+  if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
+  {
+    if (g_laser_fault_debounce_ms == 0U)
+    {
+      Laser_Disable_Stop_EXTI();
+      g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+    }
+
+    /* EXTI and polling share five consecutive 1 ms low samples. */
+    g_laser_fault_debounce_ms--;
+    if (g_laser_fault_debounce_ms == 0U)
+    {
+      Laser_Emergency_Kill();
+    }
+  }
+  else if (g_laser_fault_debounce_ms != 0U)
+  {
+    g_laser_fault_debounce_ms = 0U;
+    g_laser_stop_fault_pending = 0U;
+    if ((g_laser_state == LASER_STATE_RUNNING) && (Laser_Enable_Stop_EXTI() == 0U))
+    {
+      /* A new falling edge during re-arm needs its own debounce. */
+      g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+    }
+  }
+}
+
 static void Laser_Disable_Shoot_EXTI(void)
 {
   EXTI->IMR1 &= ~(uint32_t)SHOOT_Pin;
@@ -220,84 +301,78 @@ static void Laser_Disable_Shoot_EXTI(void)
   HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
 }
 
-static void Laser_Enable_Shoot_EXTI(void)
-{
-  __HAL_GPIO_EXTI_CLEAR_IT(SHOOT_Pin);
-  HAL_NVIC_ClearPendingIRQ(SHOOT_EXTI_IRQn);
-  EXTI->IMR1 |= (uint32_t)SHOOT_Pin;
-}
-
 static void Laser_Process_Shoot_Debounce(void)
 {
-  GPIO_PinState shoot_level;
+  uint8_t active;
 
-  if (g_laser_shoot_debounce_ms == 0U)
+  if (g_laser_shoot_enabled == 0U)
   {
     return;
   }
 
-  g_laser_shoot_debounce_ms--;
-  if (g_laser_shoot_debounce_ms > 0U)
+  active = (HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin) == GPIO_PIN_RESET) ? 1U : 0U;
+  if (active == 0U)
+  {
+    /* Even a brief withdrawal invalidates a not-yet-committed start. */
+    g_laser_shoot_start_req = 0U;
+  }
+  if (active == g_laser_shoot_active)
+  {
+    g_laser_shoot_debounce_ms = 0U;
+    return;
+  }
+  g_laser_shoot_debounce_ms++;
+  if (g_laser_shoot_debounce_ms < LASER_SHOOT_DEBOUNCE_MS)
   {
     return;
   }
 
-  shoot_level = HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin);
-  if (g_laser_shoot_enabled != 0U)
+  g_laser_shoot_debounce_ms = 0U;
+  g_laser_shoot_active = active;
+  if (active == 0U)
   {
-    if (shoot_level == GPIO_PIN_RESET)
+    if ((g_laser_state == LASER_STATE_STARTING) || (g_laser_state == LASER_STATE_RUNNING) ||
+        (g_key1_start_req != 0U))
     {
-      if (g_laser_shoot_dac_val > 0U)
+      /* Stop in TIM6: no main-loop participation is required. */
+      Laser_Stop();
+      /* A simultaneous button press must not undo this stop. */
+      if (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET)
       {
-        g_laser_shoot_req_dac_val = g_laser_shoot_dac_val;
-        g_laser_shoot_start_req = 1U;
-        g_laser_shoot_stop_req = 0U;
+        g_key1_release_required = 1U;
       }
-      else
-      {
-        g_laser_shoot_start_req = 0U;
-        g_laser_shoot_stop_req = 1U;
-      }
-    }
-    else
-    {
-      g_laser_shoot_start_req = 0U;
-      g_laser_shoot_stop_req = 1U;
+      g_laser_shoot_active = 0U; /* This withdrawal is already qualified. */
     }
   }
-
-  if (g_laser_shoot_enabled != 0U)
+  else if ((g_laser_state == LASER_STATE_IDLE) && (g_laser_stop_fault_pending == 0U) &&
+           (g_laser_shoot_dac_val > 0U) && (g_key1_release_required == 0U) &&
+           (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_SET))
   {
-    Laser_Enable_Shoot_EXTI();
+    g_laser_shoot_start_req = 1U;
   }
 }
 
 static void Laser_Process_Shoot_Requests(void)
 {
-  uint8_t start_req;
-  uint8_t stop_req;
-  uint16_t start_dac_val;
   uint32_t primask;
 
   primask = __get_PRIMASK();
   __disable_irq();
-  start_req = g_laser_shoot_start_req;
-  stop_req = g_laser_shoot_stop_req;
-  start_dac_val = g_laser_shoot_req_dac_val;
-  g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
+  if (g_laser_shoot_start_req != 0U)
+  {
+    g_laser_shoot_start_req = 0U;
+    /* Recheck raw input and commit under one interrupt mask. */
+    if ((g_laser_shoot_enabled != 0U) && (g_laser_shoot_active != 0U) &&
+        (g_laser_shoot_dac_val > 0U) && (g_key1_release_required == 0U) &&
+        (HAL_GPIO_ReadPin(SHOOT_GPIO_Port, SHOOT_Pin) == GPIO_PIN_RESET) &&
+        (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_SET))
+    {
+      Laser_Start(g_laser_shoot_dac_val);
+    }
+  }
   if (primask == 0U)
   {
     __enable_irq();
-  }
-
-  if (stop_req != 0U)
-  {
-    Laser_Stop();
-  }
-  else if (start_req != 0U)
-  {
-    Laser_Start(start_dac_val);
   }
 }
 
@@ -342,7 +417,22 @@ static void Laser_Process_Key1_Debounce(void)
       if (g_key1_press_debounce_ms >= KEY1_PRESS_DEBOUNCE_MS)
       {
         g_key1_latched_pressed = 1U;
+#if LASER_BENCH_MODE != 0U
+        if ((g_bench_active != 0U) || (g_laser_state == LASER_STATE_STARTING) ||
+            (g_laser_state == LASER_STATE_RUNNING))
+        {
+          /* TIM6 stops output even when the main loop is stalled. */
+          Laser_Stop();
+        }
+        else if (g_laser_state == LASER_STATE_IDLE)
+        {
+          g_bench_active = 1U;
+          g_bench_phase_ms = 0U;
+          g_key1_start_req = 1U;
+        }
+#else
         g_key1_start_req = 1U;
+#endif
       }
     }
   }
@@ -354,9 +444,11 @@ static void Laser_Process_Key1_Debounce(void)
     if (g_key1_latched_pressed != 0U)
     {
       g_key1_latched_pressed = 0U;
+#if LASER_BENCH_MODE == 0U
       g_key1_start_req = 0U;
       /* Stop in TIM6 even if the main loop is not making progress. */
       Laser_Stop();
+#endif
     }
   }
 }
@@ -371,11 +463,19 @@ static void Laser_Process_Key1_Requests(void)
   if (g_key1_start_req != 0U)
   {
     g_key1_start_req = 0U;
-    /* Recheck and commit together: no stale start after a sampled release. */
+    /* Recheck and commit together: no stale start after a stop request. */
+#if LASER_BENCH_MODE != 0U
+    if (g_bench_active != 0U)
+#else
     if ((g_key1_latched_pressed != 0U) && (g_key1_release_required == 0U) &&
         (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET))
+#endif
     {
       Laser_Start(TEST_DAC_VALUE);
+#if LASER_BENCH_MODE != 0U
+      /* Count the ON interval from the actual output enable. */
+      g_bench_phase_ms = 0U;
+#endif
     }
   }
 
@@ -384,6 +484,54 @@ static void Laser_Process_Key1_Requests(void)
     __enable_irq();
   }
 }
+
+#if LASER_BENCH_MODE != 0U
+static void Laser_Process_Bench(void)
+{
+#if LASER_SHOOT_CONTROL != 0U
+  return;
+#endif
+  if (g_bench_active == 0U)
+  {
+    return;
+  }
+
+#if LASER_BENCH_MODE == 2U
+  /* A delayed main loop must not consume the next ON interval. */
+  if (g_key1_start_req != 0U)
+  {
+    return;
+  }
+
+  if (g_bench_phase_ms < UINT16_MAX)
+  {
+    g_bench_phase_ms++;
+  }
+
+  if (g_laser_state == LASER_STATE_IDLE)
+  {
+    if (g_bench_phase_ms >= BENCH_CYCLE_OFF_MS)
+    {
+      g_key1_start_req = 1U;
+    }
+  }
+  else if (g_bench_phase_ms >= BENCH_CYCLE_ON_MS)
+  {
+    /* Finish a pending fault check before a cycle stop could clear it. */
+    if (g_laser_fault_debounce_ms != 0U)
+    {
+      return;
+    }
+    Laser_Stop();
+    if (g_laser_state == LASER_STATE_IDLE)
+    {
+      /* Only this planned stop may re-arm the cycle, within TIM6. */
+      g_bench_active = 1U;
+    }
+  }
+#endif
+}
+#endif
 
 static uint16_t Laser_Calc_Start_Mask_Ms(uint16_t dac_val)
 {
@@ -466,20 +614,26 @@ void Laser_Hardware_Init(void)
   g_laser_current_age_ms = LASER_CURRENT_STALE_MS;
   g_laser_current_good_ms = 0U;
   g_laser_state = LASER_STATE_IDLE;
+  g_tim6_completed = 0U;
+  g_watchdog_last_completed = 0U;
   g_laser_start_mask_ms = 0U;
   g_laser_fault_debounce_ms = 0U;
+  g_laser_stop_fault_pending = 0U;
   g_laser_dac_target_val = 0U;
   g_laser_dac_current_val = 0U;
   g_laser_shoot_debounce_ms = 0U;
   g_laser_fault_led_blink_ms = 0U;
-  g_laser_shoot_req_dac_val = 0U;
   g_laser_shoot_enabled = 0U;
   g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
+  g_laser_shoot_active = 1U;
   g_key1_press_debounce_ms = 0U;
   g_key1_latched_pressed = 0U;
   g_key1_start_req = 0U;
   g_key1_release_required = (HAL_GPIO_ReadPin(KEY1_GPIO_Port, KEY1_Pin) == GPIO_PIN_RESET) ? 1U : 0U;
+#if LASER_BENCH_MODE != 0U
+  g_bench_active = 0U;
+  g_bench_phase_ms = 0U;
+#endif
 
   Laser_Disable_Stop_EXTI();
   Laser_Disable_Shoot_EXTI();
@@ -499,21 +653,14 @@ void Laser_Hardware_Init(void)
 
 void Laser_Set_Shoot_Enable(uint8_t enable)
 {
-  if ((enable != 0U) && (g_laser_state != LASER_STATE_FAULT))
+  uint32_t primask = __get_PRIMASK();
+  __disable_irq();
+  Laser_Disable_Shoot_EXTI(); /* Level polling owns SHOOT; no edge re-arm window. */
+  Laser_Stop();
+  g_laser_shoot_enabled = ((enable != 0U) && (g_laser_state != LASER_STATE_FAULT)) ? 1U : 0U;
+  if (primask == 0U)
   {
-    g_laser_shoot_debounce_ms = 0U;
-    g_laser_shoot_start_req = 0U;
-    g_laser_shoot_stop_req = 0U;
-    g_laser_shoot_enabled = 1U;
-    Laser_Enable_Shoot_EXTI();
-  }
-  else
-  {
-    g_laser_shoot_enabled = 0U;
-    g_laser_shoot_debounce_ms = 0U;
-    g_laser_shoot_start_req = 0U;
-    g_laser_shoot_stop_req = 0U;
-    Laser_Disable_Shoot_EXTI();
+    __enable_irq();
   }
 }
 
@@ -524,7 +671,7 @@ void Laser_Start(uint16_t dac_val)
   primask = __get_PRIMASK();
   __disable_irq();
 
-  if (g_laser_state != LASER_STATE_IDLE)
+  if ((g_laser_state != LASER_STATE_IDLE) || (g_laser_stop_fault_pending != 0U))
   {
     if (primask == 0U)
     {
@@ -566,6 +713,16 @@ void Laser_Stop(void)
   primask = __get_PRIMASK();
   __disable_irq();
 
+  g_laser_shoot_start_req = 0U;
+  g_laser_shoot_debounce_ms = 0U;
+  g_laser_shoot_active = 1U;
+
+#if LASER_BENCH_MODE != 0U
+  g_bench_active = 0U;
+  g_bench_phase_ms = 0U;
+  g_key1_start_req = 0U;
+#endif
+
   if (g_laser_state == LASER_STATE_FAULT)
   {
     if (primask == 0U)
@@ -575,17 +732,32 @@ void Laser_Stop(void)
     return;
   }
 
+  /* Preserve a fault already observed while running, but turn output off now.
+     Do not start new fault checks from indications caused by normal shutdown. */
+  if ((g_laser_state == LASER_STATE_RUNNING) &&
+      ((g_laser_fault_debounce_ms != 0U) ||
+       (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)))
+  {
+    g_laser_stop_fault_pending = 1U;
+    if (g_laser_fault_debounce_ms == 0U)
+    {
+      g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+    }
+  }
+  PWM_GPIO_Port->BRR = PWM_Pin;
+  Laser_Set_Dac_12bit(0U);
   Laser_Disable_Stop_EXTI();
 
   g_laser_state = LASER_STATE_IDLE;
   g_laser_start_mask_ms = 0U;
-  g_laser_fault_debounce_ms = 0U;
+  if (g_laser_stop_fault_pending == 0U)
+  {
+    g_laser_fault_debounce_ms = 0U;
+  }
   g_laser_fault_led_blink_ms = 0U;
   g_laser_dac_target_val = 0U;
   g_laser_dac_current_val = 0U;
 
-  PWM_GPIO_Port->BRR = PWM_Pin;
-  Laser_Set_Dac_12bit(0U);
   HAL_GPIO_WritePin(R_EN_GPIO_Port, R_EN_Pin, GPIO_PIN_RESET);
 
   if (primask == 0U)
@@ -596,6 +768,10 @@ void Laser_Stop(void)
 
 void Laser_Emergency_Kill(void)
 {
+#if LASER_BENCH_MODE != 0U
+  g_bench_active = 0U;
+  g_bench_phase_ms = 0U;
+#endif
   Laser_Disable_Stop_EXTI();
   Laser_Disable_Shoot_EXTI();
 
@@ -604,12 +780,13 @@ void Laser_Emergency_Kill(void)
 
   g_laser_start_mask_ms = 0U;
   g_laser_fault_debounce_ms = 0U;
+  g_laser_stop_fault_pending = 0U;
   g_laser_dac_target_val = 0U;
   g_laser_dac_current_val = 0U;
   g_laser_shoot_debounce_ms = 0U;
   g_laser_shoot_enabled = 0U;
   g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
+  g_laser_shoot_active = 1U;
   g_key1_press_debounce_ms = 0U;
   g_key1_latched_pressed = 0U;
   g_key1_start_req = 0U;
@@ -636,13 +813,13 @@ uint8_t Laser_Fault_Clear(void)
 
   g_laser_start_mask_ms = 0U;
   g_laser_fault_debounce_ms = 0U;
+  g_laser_stop_fault_pending = 0U;
   g_laser_dac_target_val = 0U;
   g_laser_dac_current_val = 0U;
   g_laser_shoot_debounce_ms = 0U;
-  g_laser_shoot_req_dac_val = 0U;
   g_laser_shoot_enabled = 0U;
   g_laser_shoot_start_req = 0U;
-  g_laser_shoot_stop_req = 0U;
+  g_laser_shoot_active = 1U;
   g_key1_press_debounce_ms = 0U;
   g_key1_latched_pressed = 0U;
   g_key1_start_req = 0U;
@@ -715,14 +892,20 @@ int main(void)
   MX_ADC1_Init();
   MX_ADC2_Init();
   MX_TIM6_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
   if (HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED) != HAL_OK)
   {
     Error_Handler();
   }
   Laser_Hardware_Init();
+#if LASER_SHOOT_CONTROL != 0U
+  g_laser_shoot_dac_val = TEST_DAC_VALUE;
+  Laser_Set_Shoot_Enable(1U);
+#else
   g_laser_shoot_dac_val = 0U;
   Laser_Set_Shoot_Enable(0U);
+#endif
 
   /* USER CODE END 2 */
 
@@ -736,6 +919,7 @@ int main(void)
     Laser_Process_Key1_Requests();
     Laser_Process_Shoot_Requests();
     Laser_Process_Current_Sample();
+    Laser_Process_Watchdog();
   }
   /* USER CODE END 3 */
 }
@@ -756,8 +940,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
@@ -783,6 +968,10 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
+  /** Enables the Clock Security System
+  */
+  HAL_RCC_EnableCSS();
 }
 
 /* USER CODE BEGIN 4 */
@@ -821,52 +1010,39 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
     }
   }
 
-  if ((g_laser_state == LASER_STATE_RUNNING) && (g_laser_fault_debounce_ms > 0U))
-  {
-    g_laser_fault_debounce_ms--;
+  Laser_Process_Stop_Fault();
 
-    if (g_laser_fault_debounce_ms == 0U)
-    {
-      if (HAL_GPIO_ReadPin(STOP_GPIO_Port, STOP_Pin) == GPIO_PIN_RESET)
-      {
-        Laser_Emergency_Kill();
-      }
-      else
-      {
-        if (Laser_Enable_Stop_EXTI() == 0U)
-        {
-          Laser_Emergency_Kill();
-        }
-      }
-    }
-  }
-
+#if LASER_BENCH_MODE != 0U
+  Laser_Process_Bench();
+#endif
   Laser_Process_Current_LED();
   Laser_Process_Fault_LED();
+  /* Publish progress only after every TIM6 task has returned. */
+  g_tim6_completed++;
 }
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
   if (GPIO_Pin == STOP_Pin)
   {
+    uint32_t primask = __get_PRIMASK();
+    __disable_irq();
     Laser_Disable_Stop_EXTI();
 
     if (g_laser_state == LASER_STATE_RUNNING)
     {
-      g_laser_fault_debounce_ms = 5U;
+      if (g_laser_fault_debounce_ms == 0U)
+      {
+        g_laser_fault_debounce_ms = LASER_FAULT_DEBOUNCE_MS;
+      }
     }
-    else
+    else if (g_laser_stop_fault_pending == 0U)
     {
       g_laser_fault_debounce_ms = 0U;
     }
-  }
-  else if (GPIO_Pin == SHOOT_Pin)
-  {
-    Laser_Disable_Shoot_EXTI();
-
-    if (g_laser_shoot_enabled != 0U)
+    if (primask == 0U)
     {
-      g_laser_shoot_debounce_ms = LASER_SHOOT_DEBOUNCE_MS;
+      __enable_irq();
     }
   }
 }

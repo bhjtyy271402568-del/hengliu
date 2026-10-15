@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1697" viewBox="0 0 2400 1697">
+<rect width="100%" height="100%" fill="white"/>
+<text x="50" y="64" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="36" fill="#24313E" text-anchor="start">嘉立创修改清单与复核要点</text>
+<text x="50" y="109" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="21" fill="#627282" text-anchor="start">按第 1 页修改；以 2026-10-14 单板 BOM / 2026-09-29 工程为 V1 对照。实物后改值与文件值分别核对。</text>
+<line x1="50" y1="135" x2="2350" y2="135" stroke="#205C85" stroke-width="2"/>
+<polygon points="50,180 2350,180 2350,244 50,244" fill="#F3F6F9" stroke="#D6DFE7" stroke-width="1.5"/>
+<text x="65" y="220" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="23" fill="#205C85" text-anchor="start">位号 / 功能</text>
+<text x="300" y="220" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="23" fill="#205C85" text-anchor="start">V1 对照</text>
+<text x="805" y="220" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="23" fill="#205C85" text-anchor="start">V2 修订 B</text>
+<text x="1305" y="220" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="23" fill="#205C85" text-anchor="start">具体操作 / 注意事项</text>
+<polygon points="50,244 2350,244 2350,308 50,308" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="283" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R2 / R19</text>
+<text x="300" y="283" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">10 kΩ / 8.2 kΩ</text>
+<text x="805" y="283" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">2.94 kΩ 0.1% / 8.2 kΩ 0.1%</text>
+<text x="1305" y="283" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">R2 上端由 DAC 改接 VREF；下端仍接 CTRL1；C41 保留。</text>
+<line x1="50" y1="372" x2="2350" y2="372" stroke="#D6DFE7" stroke-width="1"/>
+<text x="65" y="347" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R57 / R58</text>
+<text x="300" y="347" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R57 实装 12 kΩ；R58 不装</text>
+<text x="805" y="347" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">R57 8.2 kΩ；R58 仍不装</text>
+<text x="1305" y="347" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">保留 R56 100 kΩ/B3950 与 C54；约 62 ℃为 NTC 温度。</text>
+<polygon points="50,372 2350,372 2350,436 50,436" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="411" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R52 / R53</text>
+<text x="300" y="411" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">120 kΩ / 6.34 kΩ</text>
+<text x="805" y="411" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">150 kΩ / 10 kΩ</text>
+<text x="1305" y="411" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">C52 100 nF 保留；典型开启 28.0 V、关闭 24.3 V。</text>
+<line x1="50" y1="500" x2="2350" y2="500" stroke="#D6DFE7" stroke-width="1"/>
+<text x="65" y="475" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">C72</text>
+<text x="300" y="475" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">330 nF</text>
+<text x="805" y="475" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">100 nF</text>
+<text x="1305" y="475" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">这是改值；SS 清零后约 13 ms；普通 PWM 启停不清零 SS。</text>
+<polygon points="50,500 2350,500 2350,564 50,564" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="539" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R30 / R49</text>
+<text x="300" y="539" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">232 kΩ / 10 kΩ</text>
+<text x="805" y="539" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">240 kΩ / 10 kΩ</text>
+<text x="1305" y="539" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">固定采用本次 V2 的约 30.15 V 限压；不改 180 kΩ。</text>
+<line x1="50" y1="628" x2="2350" y2="628" stroke="#D6DFE7" stroke-width="1"/>
+<text x="65" y="603" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R3</text>
+<text x="300" y="603" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">22 kΩ，上拉 3.3 V</text>
+<text x="805" y="603" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">10 kΩ，上拉 INTVCC</text>
+<text x="1305" y="603" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">也是改值、改接；FAULT 只驱动指示灯，不连接自动锁停。</text>
+<polygon points="50,628 2350,628 2350,692 50,692" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="667" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">U8 / R55</text>
+<text x="300" y="667" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">U8 供电 3.3 V；VO 接 MCU</text>
+<text x="805" y="667" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">U8 供电 INTVCC；VO 经 R55 接 Q13 G</text>
+<text x="1305" y="667" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">R55 保持 220 Ω；C107 100 nF 就近接 U8-6 与 U8-4。</text>
+<line x1="50" y1="756" x2="2350" y2="756" stroke="#D6DFE7" stroke-width="1"/>
+<text x="65" y="731" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">D13 / R18</text>
+<text x="300" y="731" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">D13 在 R18 输入侧</text>
+<text x="805" y="731" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">D13 改到 R18 后，反并联 U8 输入 LED</text>
+<text x="1305" y="731" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">D13 K → U8-1(A)；D13 A → U8-3(K/WGND)；R18 保持 1 kΩ。</text>
+<polygon points="50,756 2350,756 2350,820 50,820" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="795" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">Q13 / R72 / R73</text>
+<text x="300" y="795" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">无</text>
+<text x="805" y="795" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">2N7002 / 100 kΩ / 22 kΩ</text>
+<text x="1305" y="795" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">R72：G-INTVCC；Q13 S-GND；R73：D-INTVCC；D 经 R40 接 PWM。</text>
+<line x1="50" y1="884" x2="2350" y2="884" stroke="#D6DFE7" stroke-width="1"/>
+<text x="65" y="859" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R40 / C60 / R41</text>
+<text x="300" y="859" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">1 kΩ / 1 nF / 10 kΩ</text>
+<text x="805" y="859" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">R40、C60 保留；R41 不装</text>
+<text x="1305" y="859" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">断开原 MCU 对 PWM 的驱动；不要遗漏原 10 kΩ 下拉。</text>
+<polygon points="50,884 2350,884 2350,948 50,948" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="923" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">CN20 / U9</text>
+<text x="300" y="923" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">CN19 已作 PGND 测点</text>
+<text x="805" y="923" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">新增 CN20 常闭联锁串在 U9+ 与 R18 前</text>
+<text x="1305" y="923" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">CN19 不占用；WGND 保持输入侧隔离，不直连板内 GND。</text>
+<line x1="50" y1="1012" x2="2350" y2="1012" stroke="#D6DFE7" stroke-width="1"/>
+<text x="65" y="987" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R75 / LED2</text>
+<text x="300" y="987" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">无本支路</text>
+<text x="805" y="987" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">3.3 kΩ + 红色 LED</text>
+<text x="1305" y="987" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">INTVCC → R75 → LED2 → FAULT；R3 上拉支路并联保留。</text>
+<polygon points="50,1012 2350,1012 2350,1076 50,1076" fill="#FAFBFC" stroke="#D6DFE7" stroke-width="0.6"/>
+<text x="65" y="1051" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">R74 / LED3 / Q14</text>
+<text x="300" y="1051" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#24313E" text-anchor="start">无本支路</text>
+<text x="805" y="1051" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="19" fill="#C34234" text-anchor="start">3.3 kΩ / 绿色 LED / 2N7002（可选）</text>
+<text x="1305" y="1051" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#24313E" text-anchor="start">INTVCC → R74 → LED3 → Q14 D；G-PWM，S-GND。</text>
+<line x1="50" y1="180" x2="50" y2="1076" stroke="#D6DFE7" stroke-width="1"/>
+<line x1="285" y1="180" x2="285" y2="1076" stroke="#D6DFE7" stroke-width="1"/>
+<line x1="790" y1="180" x2="790" y2="1076" stroke="#D6DFE7" stroke-width="1"/>
+<line x1="1290" y1="180" x2="1290" y2="1076" stroke="#D6DFE7" stroke-width="1"/>
+<line x1="2350" y1="180" x2="2350" y2="1076" stroke="#D6DFE7" stroke-width="1"/>
+<text x="50" y="1130" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">09  删除 / 保留边界</text>
+<line x1="50" y1="1143" x2="1140" y2="1143" stroke="#D6DFE7" stroke-width="1.5"/>
+<text x="50" y="1174" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">删除：MCU、晶振、按键、下载/串口及仅服务 MCU 的外围。</text>
+<text x="50" y="1206" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">辅助 12 V / 5 V / 3.3 V 电源：确认无其他负载后，再删除整支路。</text>
+<text x="50" y="1238" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">保留：功率级、输入保护、采样/滤波、补偿、RT 与原有去耦。</text>
+<text x="50" y="1270" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">保留 Q1/Q6 = BSC096，Q2/Q5 = BSC070；不要照旧版 BSC028 替换。</text>
+<text x="50" y="1302" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">保留 R1 = 2.5 mΩ；本版不改输入保护 MOS、功率电感或 RC 吸收。</text>
+<text x="1230" y="1130" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="25" fill="#205C85" text-anchor="start">10  焊接后验证（先电阻负载）</text>
+<line x1="1230" y1="1143" x2="2350" y2="1143" stroke="#D6DFE7" stroke-width="1.5"/>
+<text x="1230" y="1174" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">1. 不接激光器：检查短路、D13 极性、Q13 引脚和 WGND 隔离。</text>
+<text x="1230" y="1206" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">2. 无外部信号上下电：用 VIN 的上/下降沿触发，记录 PWM / ISMON。</text>
+<text x="1230" y="1238" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">3. 保持供电、反复给/撤 5 V：另测重复启动，不假定每次软启动。</text>
+<text x="1230" y="1270" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">4. 测 INTVCC 的直流值、跌落/纹波及 U1 温升；核对输出限压。</text>
+<text x="1230" y="1302" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">5. 用 R1 实际阻值校准 20 A；ISMON 约 1 V，仅作辅助监测。</text>
+<polygon points="50,1370 2350,1370 2350,1487 50,1487" fill="#F3F6F9" stroke="#D6DFE7" stroke-width="1.5"/>
+<text x="75" y="1409" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">行为边界：上电已有有效信号、联锁恢复闭合，都可能启动；FAULT 不锁停。联锁输入不等同于安全等级急停回路。</text>
+<text x="75" y="1439" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">尚未完成：嘉立创原生器件引脚映射、网表/ERC、PCB 布局及实板瞬态验收。图面核对不能替代这些步骤。</text>
+<text x="75" y="1469" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="20" fill="#24313E" text-anchor="start">校准边界：0.1% 分压电阻不能消除 VREF、U1、R1 的误差；ISMON 不能代替快速电流测量来排除窄尖峰。</text>
+<text x="50" y="1530" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">依据：ADI LT3763 Rev. C；Infineon BSC070N10LS5 Rev. 2.2 / BSC096N10LS5 Rev. 2.1；本地 V1 工程与单板 BOM。</text>
+<text x="50" y="1560" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">手册：https://www.analog.com/media/en/technical-documentation/data-sheets/lt3763.pdf</text>
+<text x="50" y="1590" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">说明：旧 PNG 为本次重绘依据；旧 PDF 与 PNG 的 R73/R74/R75 数值不同，本版已统一为 22 kΩ / 3.3 kΩ / 3.3 kΩ。</text>
+<text x="50" y="1660" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="start">LT3763 V2  |  固定 20 A  |  修订 B  |  2026-10-15</text>
+<text x="2350" y="1660" font-family="SimHei,Microsoft YaHei,sans-serif" font-size="18" fill="#627282" text-anchor="end">2 / 2  ·  工程修改参考，非原生 EDA 文件</text>
+</svg>

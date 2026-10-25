@@ -1,0 +1,229 @@
+﻿原理图复核数据手册包
+整理日期：2026-10-25
+
+共 29 个型号条目、29 份 PDF，按用户给出的三档分组。
+包含精确型号手册和对应系列手册；“有 PDF”不等于全部待查参数都有原厂保证值。
+页码均指 PDF 阅读器页码。原理图和 PCB 未改动。
+使用原理图快照 outputs/constant_current_finish_20261025/after-parts.json 核对厂家与立创编号。
+
+需要特别留意：
+1. X1 的两个型号字符串不同；目前只取得 YSX321SL 系列资料。
+2. 三种 MLCC 均缺可用于确认指定偏压下容量的本型号专用曲线。
+3. HoLRS3920 仍需确认所购 1.2 mΩ 型号的 TCR/材料后缀和 Kelvin 取样要求。
+4. CPCF3535 的电流—电感量/温升曲线不能代替不同环境温度下的饱和曲线。
+5. PTVS1 的典型钳位值、RVT 的损耗角，不能充当所需的最大钳位/ESR 保证值。
+
+============================================================
+01_优先核查
+============================================================
+INA310A2IDGKR  |  U201
+文件：01_优先核查\INA310A2IDGKR.pdf（34 页）
+厂家：TI(德州仪器)；立创编号：C20345457
+待查：RESET 高低门限；上电锁存状态；CMPOUT 吸电流
+资料说明：INA310A/B 原厂全文，包含 A2 增益选项、RESET 和 CMPOUT 电气规格及比较器工作说明。手册已收集，不代表上电锁存行为已完成电路级复核。
+来源：本地已有副本；数据手册/INA310A_SBOSA86.pdf
+原厂/原资料参考链接：https://www.ti.com/lit/ds/symlink/ina310a.pdf
+
+SUM110P08-11L-E3  |  Q1、Q2
+文件：01_优先核查\SUM110P08-11L-E3.pdf（9 页）
+厂家：VISHAY(威世)；立创编号：C2838509
+待查：SOA；导通电阻随温度；热阻
+资料说明：原厂全文，订购信息明确列出 -E3；含 SOA、温度特性和热阻。
+来源：网络下载；https://www.vishay.com/docs/73471/sum110p0.pdf
+
+BSC014N06NS  |  Q4
+文件：01_优先核查\BSC014N06NS.pdf（14 页）
+厂家：Infineon(英飞凌)；立创编号：C113391
+待查：导通电阻随温度；热阻
+资料说明：原厂全文，含导通电阻温度特性和热阻。
+来源：网络下载；https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc014n06ns-datasheet-en.pdf
+
+BSC070N10LS5ATMA1  |  Q5–Q7
+文件：01_优先核查\BSC070N10LS5ATMA1.pdf（12 页）
+厂家：Infineon(英飞凌)；立创编号：C3278731
+待查：4.5 V 栅极电荷和导通电阻；平台电压；热阻
+资料说明：BSC070N10LS5 原厂全文；ATMA1 是订购后缀。含栅极电荷、导通电阻及热特性。
+来源：本地已有副本；tmp/teacher_review_deck_v2/bsc070n10ls5.pdf
+原厂/原资料参考链接：https://www.infineon.com/part/BSC070N10LS5
+
+BSC096N10LS5ATMA1  |  Q8–Q10
+文件：01_优先核查\BSC096N10LS5ATMA1.pdf（12 页）
+厂家：Infineon(英飞凌)；立创编号：C3278721
+待查：4.5 V 栅极电荷和导通电阻；平台电压；热阻；Crss
+资料说明：BSC096N10LS5 原厂全文；ATMA1 是订购后缀。含栅极电荷、导通电阻、Crss 及热特性。
+来源：网络下载；https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc096n10ls5-datasheet-en.pdf
+
+JW5026  |  U6
+文件：01_优先核查\JW5026.pdf（12 页）
+厂家：Joulwatt(杰华特)；立创编号：C185109
+待查：反馈基准；推荐电感电容；EN 耐压
+资料说明：原厂 JW5026 Rev.1.02 全文，由立创镜像提供；包括反馈、EN 及应用设计。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/f83872ed2237628ee0705043f9e45a8d.pdf?productCode=C185109
+
+LCB50PW-M  |  CN3、CN14
+文件：01_优先核查\LCB50PW-M.pdf（2 页）
+厂家：AMASS(艾迈斯)；立创编号：C7437314
+待查：额定电流及对应线径
+资料说明：AMASS 图纸及产品规格书（2023V2），PDF 第 2 页列出电流、线径和温升条件。按选定线径对应的条件核对。
+来源：网络下载；https://datasheet.lcsc.com/datasheet/pdf/c38e08ea551e86f477d107cbb958d4f6.pdf?productCode=C7437314
+
+============================================================
+02_关键数值
+============================================================
+PTVS1-043C-H  |  D2
+文件：02_关键数值\PTVS1-043C-H.pdf（6 页）
+厂家：BOURNS；立创编号：C6364959
+待查：击穿电压最小/最大；不同电流下钳位上限
+资料说明：原厂 PTVS1-xxxC-H 系列全文，明确列有 043 型号。钳位栏标的是 Typical，不可当作钳位电压最大保证值；各电流下最大值尚缺明确保证数据。
+来源：网络下载；https://www.bourns.com/docs/Product-Datasheets/PTVS1-xxxC-H.pdf
+
+BZT52-B47X  |  U1
+文件：02_关键数值\BZT52-B47X.pdf（11 页）
+厂家：Nexperia(安世)；立创编号：C550217
+待查：小电流稳压值
+资料说明：Nexperia BZT52-B 系列全文，含 B47。PDF 第 5 页有规定测试电流下的稳压范围；不能直接外推为任意小电流下的稳压保证值。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/b2a2b9cb3147d8911e6e0973cdd10721.pdf?productCode=C550217
+
+MMBT5401LT1G  |  Q3
+文件：02_关键数值\MMBT5401LT1G.pdf（6 页）
+厂家：onsemi(安森美)；立创编号：C21488
+待查：放大倍数；发射结反向耐压
+资料说明：onsemi 原厂全文，含该订购型号、增益和发射极—基极额定值。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/56021adc70d0423ba77cd4c2b593fd73.pdf?productCode=C21488
+
+STPS30100ST  |  D12
+文件：02_关键数值\STPS30100ST.pdf（7 页）
+厂家：ST(意法半导体)；立创编号：C172485
+待查：浪涌；引脚及散热片极性
+资料说明：ST 原厂全文，含浪涌额定值和封装引脚图。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/cbbe7b24bd2ea4b2ab719b3640bf714c.pdf?productCode=C172485
+
+HoLRS3920-5W-1.2mR-1%  |  R42、R56
+文件：02_关键数值\HoLRS3920_系列手册_对应1.2mR选型.pdf（8 页）
+厂家：Milliohm(毫欧)；立创编号：未记录
+待查：温漂；焊盘；Kelvin 检测点
+资料说明：HoLRS3920 系列全文，PDF 第 2 页为选型和 TCR 范围，第 4 页为推荐焊盘。所列采购型号未带材料/TCR 后缀，不能据系列范围确定这一颗的具体 TCR；未找到专门标出的 Kelvin 取样点图。
+来源：本地已有副本；outputs/output_stage_20261023/HoLRS3920.pdf
+原厂/原资料参考链接：https://mm.digikey.com/Volume0/opasdata/d220001/medias/docus/7663/HoLRS3920_1050.pdf
+
+CPCF3535-6R8M  |  L8
+文件：02_关键数值\CPCF3535-6R8M.pdf（6 页）
+厂家：CODACA；立创编号：未记录
+待查：饱和电流随温度；直流电阻
+资料说明：CODACA 原厂系列全文。PDF 第 1 页列 6R8M 的 DCR、Isat；第 2 页是电感量/温升随直流电流曲线，不能当作 Isat 随环境温度曲线。后者未取得。
+来源：网络下载；https://www.codaca.com/Private/pdf/CPCF3535.pdf
+
+EEHZS1H221P  |  C84、C97–C101
+文件：02_关键数值\EEHZS1H221P.pdf（12 页）
+厂家：PANASONIC(松下)；立创编号：C385885
+待查：纹波；ESR；寿命
+资料说明：Panasonic ZS 系列技术数据，包含 EEHZS1H221P 专页、纹波、ESR、寿命及典型曲线。
+来源：网络下载；https://mediap.industry.panasonic.eu/assets/imported/industrial.panasonic.com/cdbs/www-data/pdf/RDD0000/RDD0000COS64.pdf
+
+TLP2761  |  U4
+文件：02_关键数值\TLP2761.pdf（21 页）
+厂家：TOSHIBA(东芝)；立创编号：C24267845
+待查：输入电流最大值；导通门限
+资料说明：Toshiba 原厂全文，由原理图对应 C24267845 的立创页面取得；包含绝对最大输入电流和门限规格。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/d08efde9e9a7e2e05adcc78c5e64fa52.pdf?productCode=C24267845
+
+============================================================
+03_补充复核
+============================================================
+HGC1210R5476M250NSVK  |  C91–C93
+文件：03_补充复核\HGC1210R5476M250NSVK_通用系列手册.pdf（22 页）
+厂家：Chinocera(华瓷)；立创编号：C7432791
+待查：5 V 直流偏压有效容量
+资料说明：立创该料号关联的华瓷通用系列承认书。PDF 第 22 页虽有 DC Bias 图，但仅按介质分类、未标明本型号，不能据此确认该 47 µF/25 V 电容在 5 V 下的容量。缺本型号专用偏压曲线。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/3025399970486160f9625970e5fd5973.pdf?productCode=C7432791
+
+FS32X106K101EGG  |  输入和母线 10 µF
+文件：03_补充复核\FS32X106K101EGG_FS系列手册.pdf（19 页）
+厂家：PSA(信昌电陶)；立创编号：C5156756
+待查：36–42 V 直流偏压有效容量
+资料说明：立创该料号关联的 PSA FS 系列承认书；未找到本型号在 36–42 V 下的 DC Bias 曲线。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/18a0c9f8bf4d73d021cc722eccd020e0.pdf?productCode=C5156756
+
+FS32X475K101EGG  |  C64、C85、C86、C102、C103
+文件：03_补充复核\FS32X475K101EGG_FS系列手册.pdf（18 页）
+厂家：PSA(信昌电陶)；立创编号：C381466
+待查：20–30 V 直流偏压有效容量
+资料说明：立创该料号关联的 PSA FS 系列承认书；未找到本型号在 20–30 V 下的 DC Bias 曲线。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/a99e0252a05e00d2f66d6d299a8ef975.pdf?productCode=C381466
+
+X322508MSB4SI  |  X1
+文件：03_补充复核\X1_YSX321SL_系列手册_晶振型号待核对.pdf（1 页）
+厂家：YXC(扬兴晶振)；立创编号：C2682774
+待查：负载电容
+资料说明：型号待核对：用户清单为 X322508MSB4SI，现有原理图为 X32258MSB4SI（C2682774）。取得的是 YXC YSX321SL 系列一页手册，负载电容列 10 pF、20 pF 或定制，不能单凭这份系列手册锁定该采购型号的 CL。原理图/商城属性标 20 pF，仅作为核对线索。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/a84bd8d530dd46e4b0f6d0ee59d8a89c.pdf?productCode=C2682774
+
+XC6210B332MR  |  U7
+文件：03_补充复核\XC6210B332MR.pdf（27 页）
+厂家：TOREX(特瑞仕)；立创编号：C424705
+待查：输入耐压；输出精度
+资料说明：TOREX XC6210 系列全文，含型号编码、额定值和各输出电压规格；按 B 型、3.3 V、MR 封装阅读。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/a1115f6e8a0c4f10657be7a976aed6df.pdf?productCode=C424705
+
+LP5907QMFX-3.3Q1  |  U8
+文件：03_补充复核\LP5907QMFX-3.3Q1.pdf（34 页）
+厂家：TI(德州仪器)；立创编号：C130005
+待查：输入耐压；输出精度
+资料说明：TI LP5907-Q1 原厂全文，含该订购型号、输入范围和精度。
+来源：网络下载；https://www.ti.com/lit/ds/symlink/lp5907-q1.pdf
+
+DSS110  |  D10
+文件：03_补充复核\DSS110.pdf（4 页）
+厂家：BORN(伯恩半导体)；立创编号：C511869
+待查：额定值
+资料说明：按现有原理图厂家 BORN（伯恩）收集 DSS12–DSS120 系列手册，包含 DSS110。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/bd680124729862b9fa3faf33d67d25f3.pdf?productCode=C511869
+
+SS510  |  D11
+文件：03_补充复核\SS510.pdf（3 页）
+厂家：R+O(宏嘉诚)；立创编号：C18199171
+待查：额定值
+资料说明：按现有原理图厂家 R+O（宏嘉诚）收集 SS52–SS520 系列手册，包含 SS510。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/580de54c9683931319dc11de845a06d4.pdf?productCode=C18199171
+
+BZT52C12  |  D1、D3
+文件：03_补充复核\BZT52C12.pdf（4 页）
+厂家：R+O(宏嘉诚)；立创编号：C19077410
+待查：额定值
+资料说明：按现有原理图厂家 R+O（宏嘉诚）收集 BZT52C 系列手册，包含 BZT52C12。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/02a7f2c734d5d8407bcaa05ee2a504ab.pdf?productCode=C19077410
+
+PA63V220M10x15  |  C7、C8
+文件：03_补充复核\PA63V220M10x15.pdf（9 页）
+厂家：JIERR(捷而瑞)；立创编号：C46550454
+待查：纹波；ESR
+资料说明：JIERR PA 系列全文，PDF 第 8 页列 PA63V220M10X15 的纹波和 ESR。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/8685f4e01f0a8e82f7069acefad17517.pdf?productCode=C46550454
+
+RVT63V100M10X10  |  C6、C20
+文件：03_补充复核\RVT63V100M10X10.pdf（6 页）
+厂家：JIERR(捷而瑞)；立创编号：C51953411
+待查：纹波；ESR
+资料说明：JIERR RVT 系列全文，PDF 第 6 页列本型号的纹波和损耗角；未给出本型号 ESR 保证值，不能把损耗角直接当作 100 kHz ESR。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/20ab3822a1f767c68c27206aef1254e9.pdf?productCode=C51953411
+
+HNTC0603-104F3950FB  |  R67
+文件：03_补充复核\HNTC0603-104F3950FB.pdf（8 页）
+厂家：R+O(宏嘉诚)；立创编号：C49247668
+待查：B 值；阻温表
+资料说明：R+O 本型号完整手册，含 B 值；PDF 第 5–8 页为阻值—温度表。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/b817eedae4ba33de8facc0224137c8b9.pdf?productCode=C49247668
+
+CYA0650-68UH  |  L3
+文件：03_补充复核\CYA0650-68UH.pdf（5 页）
+厂家：SHOU HAN(首韩)；立创编号：C5189964
+待查：饱和电流；直流电阻
+资料说明：首韩对应 SKU 的承认书，含 CYA0650 系列参数及 68 µH 档，包含 DCR、温升电流和饱和电流定义。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/a4743c903671aa428bdb29c1ac9cf2b2.pdf?productCode=C5189964
+
+MPIH252010-4R7M-LF  |  L6
+文件：03_补充复核\MPIH252010-4R7M-LF.pdf（13 页）
+厂家：microgate(麦捷科技)；立创编号：C490449
+待查：饱和电流；直流电阻
+资料说明：麦捷 MPIH252010 系列承认书，PDF 第 5 页有 4R7M 档，第 6 页说明饱和电流及温升测试条件。
+来源：厂家手册，立创镜像；https://datasheet.lcsc.com/datasheet/pdf/dfefaf94316bae947872439cabcd1356.pdf?productCode=C490449

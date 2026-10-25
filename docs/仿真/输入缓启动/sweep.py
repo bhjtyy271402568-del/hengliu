@@ -16,10 +16,12 @@ def tj_rise(trace):                      # trace: [(t 秒, 功率 W)]，返回�
     return mx
 
 def base(c1, c5, r7, vth):
-    """10.25 版参数。假设：Q3 β 100；P 管平方律 K 40 A/V²（两只并联）；Cgs 2 × 10.85 nF、Cgd 2 × 0.7 nF
-    （手册 Ciss / Crss 典型值折算）；U1 稳压 47 V（BZT52-B47 标称）；母线 1.013 mF；负载 2 kΩ（激光未开）。"""
+    """10.25 版参数。假设：Q3 β 100；P 管平方律 K 40 A/V²（两只并联）；U1 稳压 47 V（BZT52-B47 标称）；
+    母线 1.013 mF；负载 2 kΩ（激光未开）。
+    电容（2026-10-25 第 2 版更正）：Ciss 已包含 Cgd，Cgs = Ciss − Crss = 10.85 − 0.7 = 10.15 nF / 只（Codex 指出）；
+    插电时 VDS 从 0 摆到 42 V，Crss 在低压时大得多（手册曲线 0 V 约 4.8 nF），按电荷等效取 Qgd 42 nC / 40 V ≈ 1.05 nF / 只。"""
     p = dict(model.P)
-    p.update(C1=c1, C5=c5, R7=r7, Vth=vth, Cload=1013e-6, Vz1=47.0, Cgs=2 * 10.85e-9, Cgd=2 * 0.7e-9, K=40.0)
+    p.update(C1=c1, C5=c5, R7=r7, Vth=vth, Cload=1013e-6, Vz1=47.0, Cgs=2 * 10.15e-9, Cgd=2 * 1.05e-9, K=40.0)
     return p
 
 def plug(p, vin=42.0, tr=1e-6, T=0.12):
@@ -39,15 +41,16 @@ def ov_ramp(p, v0, rate, vfrom=42.0, dv=14.0):
     return cut[1] if cut else None
 
 if __name__ == '__main__':
-    print('== 1. 插电误导通：Vth 取手册最小 1.0 V，C5 330 nF ==')
+    print('== 1. 插电误导通：C5 680 nF；C1 计公差下限；Vth 取手册最小 1.0 V 和 85 °C 时约 0.67 V（−5.5 mV/°C）==')
     for r7 in (1e3, 2.2e3):
-        for c1 in (1e-9, 4.7e-9, 10e-9, 22e-9, 47e-9):
-            e = plug(base(c1, 330e-9, r7, 1.0), T=0.002)[0]
-            print(f'R7 {r7/1e3:.1f}k C1 {c1*1e9:4.1f} nF：插电后 0.5 ms 内 P 管峰值 {e:5.1f} A')
-    print('== 2. 缓启动和过压切断：C1 22 nF、R7 1k ==')
+        for name, c1 in (('1 nF', 0.9e-9), ('10 nF −10%', 9e-9), ('22 nF −10%', 19.8e-9), ('47 nF −5%', 44.65e-9), ('68 nF −5%', 64.6e-9)):
+            e1 = plug(base(c1, 680e-9, r7, 1.0), T=0.002)[0]
+            e2 = plug(base(c1, 680e-9, r7, 0.67), T=0.002)[0]
+            print(f'R7 {r7/1e3:.1f}k C1 {name:10s}：插电后 0.5 ms 内 P 管峰值 {e1:5.1f} A（Vth 1.0）/ {e2:5.1f} A（Vth 0.67）')
+    print('== 2. 缓启动和过压切断：C1 47 nF、R7 1k ==')
     for c5 in (330e-9, 470e-9, 680e-9, 1e-6):
         for vth in (2.5, 1.0):
-            p = base(22e-9, c5, 1e3, vth)
+            p = base(47e-9, c5, 1e3, vth)
             e, im, pk, E, t90, tj, v = plug(p)
             line = (f'C5 {c5*1e9:4.0f} nF Vth {vth}：峰值 {im:4.1f} A / {pk:3.0f} W，能量 {E:.2f} J，90% {t90:4.1f} ms，'
                     f'结温升（一只承担全部）{tj:3.0f} °C')
@@ -55,9 +58,9 @@ if __name__ == '__main__':
                 _, _, _, _, _, _, v = plug(p, T=0.3)   # 等 C5 充到稳态再做过压
                 line += f'；慢升压切断点 {ov_ramp(p, v, 1e2):.1f} V（100 V/s）/ {ov_ramp(p, v, 1e3):.1f} V（1 V/ms）'
             print(line, flush=True)
-    print('== 3. 直接插到过高电压（C1 22 nF、C5 680 nF） ==')
+    print('== 3. 直接插到过高电压（C1 47 nF、C5 680 nF） ==')
     for vth in (2.5, 1.0):
         for vin in (50.0, 55.0):
-            p = base(22e-9, 680e-9, 1e3, vth)
+            p = base(47e-9, 680e-9, 1e3, vth)
             o, _ = model.run(lambda t: vin * min(t / 1e-6, 1), 0.1, p, dtmax=5e-6, rec=1e-4)
             print(f'Vth {vth} 插 {vin:.0f} V：母线最高 {max(r[4] for r in o):.2f} V，P 管最大 {max(r[5] for r in o):.2f} A')

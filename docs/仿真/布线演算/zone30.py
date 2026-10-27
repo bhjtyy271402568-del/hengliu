@@ -1,0 +1,35 @@
+import json, matplotlib, logging; matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle, Circle, Polygon
+logging.getLogger('matplotlib.font_manager').setLevel(logging.ERROR)
+plt.rcParams['font.sans-serif']=['WenQuanYi Zen Hei','DejaVu Sans']
+C=json.load(open('lay30.json'))
+fig,ax=plt.subplots(figsize=(16,12.5))
+ax.add_patch(Rectangle((0,0),128,95,fill=False,ec='k',lw=1.8))
+for c in C:
+    bx,by,bw,bh=c['bb']
+    ax.add_patch(Rectangle((bx,by),bw,bh,fill=False,ec='#bbbbbb' if c['b'] else '#777777',lw=0.4,zorder=3))
+    if bw*bh>20 and not c['b']: ax.text(c['x'],c['y'],c['r'],fontsize=6,ha='center',va='center',color='#555',zorder=4)
+for h in [[3.5,3.5],[93,3.5],[3.5,60.5],[124.5,91.5],[34.5,91.5],[64,52.5],[100,88]]: ax.add_patch(Circle(h,1.6,fc='w',ec='k',zorder=5))
+bb=dict(fc='white',ec='none',alpha=0.9)
+# L2 GND: control + corridor + U9 island
+gnd=Polygon([(0.8,0.8),(40,0.8),(40,20.5),(53.7,20.5),(53.7,44.5),(64,44.5),(64,41.5),(92.5,41.5),(92.5,63.6),(66.5,63.6),(66.5,58),(61,51.8),(48,51.8),(48,45.2),(0.8,45.2)],closed=True,fc='#2ca02c',alpha=0.18,ec='green',lw=2,zorder=1)
+ax.add_patch(gnd)
+pg=Polygon([(0.8,45.2),(48,45.2),(48,51.8),(61,51.8),(66.5,58),(66.5,63.6),(92.5,63.6),(92.5,41.5),(97,41.5),(97,33),(127.2,33),(127.2,94.2),(0.8,94.2)],closed=True,fc='#1f77b4',alpha=0.16,ec='#1f77b4',lw=2,zorder=1)
+ax.add_patch(pg)
+pg2=Polygon([(56,0.8),(127.2,0.8),(127.2,33),(97,33),(97,41.5),(56,41.5)],closed=True,fc='#1f77b4',alpha=0.10,ec='#1f77b4',lw=1.2,ls='--',zorder=1)
+ax.add_patch(pg2)
+ax.add_patch(Rectangle((40,0.8),13.7,19.7,fc='none',ec='red',ls=':',lw=1.5,zorder=2))
+ax.text(41,9,'光耦输入侧\n不铺地（已留）',fontsize=8.5,color='red',bbox=bb,zorder=6)
+ax.plot([79],[55],marker='*',ms=22,color='gold',mec='k',zorder=7)
+ax.annotate('GND / PGND 唯一桥接点\n（U9 裸焊盘下）',(79,55),(96,60.5),fontsize=10,bbox=bb,arrowprops=dict(arrowstyle='->'),zorder=8)
+ax.text(6,30,'L2 = GND（控制区）',fontsize=13,color='green',bbox=bb,zorder=6)
+ax.text(57,47.2,'GND 通道（y 约 44.5–51.8，从 C7/C8 焊盘之间穿过）：\nMCU → U9 的信号线走 L3，正上方要有 GND',fontsize=9,color='green',bbox=bb,zorder=6)
+ax.text(8,72,'L2 = PGND（输入、功率级、L8 下）',fontsize=13,color='#1f4f8f',bbox=bb,zorder=6)
+ax.text(59,20,'L2 = PGND（输出区）',fontsize=11,color='#1f4f8f',bbox=bb,zorder=6)
+ax.annotate('',(89,60),(118,36),arrowprops=dict(arrowstyle='->',lw=3,color='#1f4f8f'),zorder=6)
+ax.text(104,44.5,'40 A 回流：\nCN14.1 → R56/L8 下 → 下管源极',fontsize=9,color='#1f4f8f',bbox=bb,zorder=6)
+ax.set_xlim(-1,129); ax.set_ylim(-1,96); ax.set_aspect('equal'); ax.grid(True,lw=0.2)
+ax.annotate('C8 的 PGND 焊盘在通道边上：\n顶层直接连到上面的 PGND，别打孔进 L2',(55.6,43.1),(10,38),fontsize=9,color='#1f4f8f',bbox=bb,arrowprops=dict(arrowstyle='->',color='#1f4f8f'),zorder=8)
+ax.set_title('建议的 L2 分区（示意，边界按实际器件微调）',fontsize=14)
+plt.tight_layout(); plt.savefig('/home/user/hengliu/docs/仿真/布线演算/L2分区建议_20261028.png',dpi=100)

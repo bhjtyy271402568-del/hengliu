@@ -14,3 +14,9 @@
   其他线不能穿过别人的铺铜区；大电流网络上的小焊盘按尾巴走线，开尔文线强制接到 R56 / R42 焊盘；最后给地小焊盘找过孔位置。
   `python3 -I router4.py main_cur.json out.json geom.json`（单轮约 3–4 分钟）
 - `place_main.py`：在现状上挪动器件（带重叠 / 间距 / 凸台 / 安装孔检查），生成 `main_new.json`。
+
+## 10-30 终审（指纹 `46a44fa67e30`，复核文件第 27 节）
+- `review60_gerber.py`：渲染 Gerber 四层铜、阻焊、丝印、钢网（支持宏孔径、圆弧、区域），输出 lay.pkl。`python3 -I review60_gerber.py Gerber目录 lay.pkl`
+- `review60_gerber_nets.py`：按网络核对 Gerber 每块铜（短路 / 漏导出）；`review60_gap.py`：异网最小间距；`review60_refvoid.py`：信号线参考面；`review60_drl.py`：钻孔读取。
+- `review60_fig.py`：终审标注图 `终审标注_20261030.png`。
+- 注意：`review50_geo.py` 要传第 4 个参数（Codex 快照 JSON），否则 U2（MCU）封装属性为空会被漏掉，VCC 会被误报为断开。

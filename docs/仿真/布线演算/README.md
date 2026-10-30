@@ -20,3 +20,5 @@
 - `review60_gerber_nets.py`：按网络核对 Gerber 每块铜（短路 / 漏导出）；`review60_gap.py`：异网最小间距；`review60_refvoid.py`：信号线参考面；`review60_drl.py`：钻孔读取。
 - `review60_fig.py`：终审标注图 `终审标注_20261030.png`。
 - 注意：`review50_geo.py` 要传第 4 个参数（Codex 快照 JSON），否则 U2（MCU）封装属性为空会被漏掉，VCC 会被误报为断开。
+- 10-30 四层补铜版（`3f423d36ddb0`，复核文件 27.7 节）：`review70_robust.py geo.pkl lay.pkl 0.05`（Gerber 收缩连通测试：颈部 < 2e 视为断开）、
+  `review70_viacontact.py`、`review70_neck.py`、`review70_necks.py`（窄接头放大图 `窄接头_20261030.png`）。

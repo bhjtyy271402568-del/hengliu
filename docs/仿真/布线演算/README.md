@@ -22,3 +22,6 @@
 - 注意：`review50_geo.py` 要传第 4 个参数（Codex 快照 JSON），否则 U2（MCU）封装属性为空会被漏掉，VCC 会被误报为断开。
 - 10-30 四层补铜版（`3f423d36ddb0`，复核文件 27.7 节）：`review70_robust.py geo.pkl lay.pkl 0.05`（Gerber 收缩连通测试：颈部 < 2e 视为断开）、
   `review70_viacontact.py`、`review70_neck.py`、`review70_necks.py`（窄接头放大图 `窄接头_20261030.png`）。
+
+## 辅助板前端布局规划（2026-10-31）
+- `aux_front_plan.py aux_cur.json 输出.png`：10-27 版辅助板防反接 + LM5069 + 放行的现状与建议摆放（y 向上），图 `辅助板前端布局规划_20261031.png`。说明见 `docs/辅助板前端布局规划_2026-10-31.md`。

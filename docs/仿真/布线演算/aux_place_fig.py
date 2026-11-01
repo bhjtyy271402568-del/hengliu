@@ -95,3 +95,45 @@ txt = ['图例', '实心焊盘 = 顶层；斜线焊盘 / 虚线框 = 底层', '�
        '     CTRL_N 在左、先拐；CTRL_P 在右、后拐，不交叉', '', '坐标 y 向上（和嘉立创一致），单位 mm', '图上的线只是通道示意，线宽、间距以 DRC 为准']
 for i, t in enumerate(txt): axl.text(0, 1 - i * 0.027, t, fontsize=10.5 if t in ('图例', '颜色（网络）', '要点') else 9.5, weight='bold' if t in ('图例', '颜色（网络）', '要点') else 'normal', transform=axl.transAxes, va='top')
 fig.savefig(sys.argv[3], dpi=72); print('saved')
+
+# ---- 第 4 个参数：标全位号的放大图 ----
+if len(sys.argv) > 4:
+    fig = plt.figure(figsize=(25, 19))
+    ax = fig.add_axes([0.03, 0.04, 0.95, 0.9])
+    scene(ax, (0, 0, 62, 47), '辅助板前端 + 放行电路：全部位号（y 向上，单位 mm；蓝框 = 要挪的件，斜线 / 虚框 = 背面件，灰 = 不动的件）', labels=False, lw=2.2)
+    B = dict(boxstyle='round,pad=0.2', fc='white', ec='#0f6d8f', lw=1, alpha=.92)
+    G = dict(boxstyle='round,pad=0.2', fc='white', ec='#888888', lw=1, alpha=.92)
+    A = dict(arrowstyle='-', color='#0f6d8f', lw=1.2)
+    AG = dict(arrowstyle='-', color='#888888', lw=1.2)
+    LAB = [  # 文字, 文字位置, 指向点, 是否挪动的件
+     ('J1 电池接口', (2.0, 45.5), (8.0, 42.0), 0), ('D1 TVS', (23.5, 43.5), (18.6, 41.0), 1),
+     ('Q1 防反接 P 管', (3.0, 33.0), (7.5, 27.0), 0),
+     ('D2', (18.2, 25.6), (20.6, 23.0), 1), ('C1', (24.4, 25.6), (22.55, 23.0), 1),
+     ('C2', (31.4, 25.8), (29.6, 24.75), 1), ('R2  8 mΩ', (27.0, 18.2), (28.0, 20.5), 1),
+     ('R1（底）', (11.4, 17.0), (17.2, 18.0), 1),
+     ('R5（顶）/ R6（底）  OVLO', (6.0, 15.0), (20.7, 17.6), 1), ('R3（顶）/ R4（底）  UVLO', (6.0, 13.2), (22.5, 17.2), 1),
+     ('U1  LM5069', (16.6, 11.6), (24.0, 12.5), 1),
+     ('C4  TIMER', (14.6, 7.4), (21.4, 7.6), 1), ('R7  PWR', (18.5, 2.0), (23.8, 6.4), 1),
+     ('Q2 热插拔 N 管', (30.3, 15.2), (33.7, 13.5), 0),
+     ('C3（底）', (42.6, 20.8), (46.0, 14.8), 0), ('C9', (24.6, 41.0), (28.0, 36.0), 0), ('C10（底）', (31.5, 30.6), (38.3, 28.9), 0),
+     ('R8', (45.2, 17.4), (49.4, 14.6), 1), ('R9', (45.0, 11.2), (49.4, 10.0), 1), ('Q3', (51.2, 17.4), (52.0, 13.6), 1),
+     ('R10', (53.4, 15.6), (53.0, 10.4), 1), ('R11', (49.6, 1.0), (51.4, 6.0), 1), ('Q4', (56.0, 3.0), (54.2, 5.8), 1),
+     ('D3', (58.6, 14.0), (56.6, 11.0), 1),
+     ('U3 第 3 脚 +Vin', (41.6, 25.4), (39.6, 26.4), 0), ('U3 第 2 脚 -Vin', (41.6, 31.2), (39.6, 31.5), 0), ('U3 第 1 脚 CTRL', (41.6, 43.6), (39.6, 41.6), 0),
+    ]
+    for t, xy, p, mv in LAB:
+        ax.annotate(t, p, xytext=xy, fontsize=13, weight='bold', color='#0f6d8f' if mv else '#555555', bbox=B if mv else G,
+                    arrowprops=A if mv else AG, zorder=8)
+    PIN = [('D', (7.5, 24.0)), ('G', (18.0, 20.2)), ('S', (18.0, 28.0)),                     # Q1
+           ('D（漏极，散热焊盘）', (33.7, 11.0)), ('G', (45.6, 7.6)), ('S', (45.4, 15.9))]       # Q2
+    for t, (x, y) in PIN: ax.text(x, y, t, fontsize=11, ha='center', va='center', color='#333333', weight='bold', zorder=8)
+    U = NEW['U1']['p']
+    for p in U:
+        cx, cy = p[0] + p[2] / 2, p[1] + p[3] / 2
+        ax.text(cx, cy + (0.95 if cy > 12.5 else -0.95), p[5], fontsize=8.5, ha='center', va='center', color='#0f6d8f', zorder=9)
+    ax.text(26.6, 16.4, '1 SENSE  2 VIN  3 UVLO  4 OVLO  5 GND（从右往左）', fontsize=9, color='#0f6d8f', zorder=9)
+    ax.text(7.0, 10.3, '6 TIMER  7 PWR  8 PGD  9 OUT  10 GATE（从左往右）', fontsize=9, color='#0f6d8f', zorder=9)
+    for t, (x, y) in [('BAT_PROT', (20.0, 27.8)), ('AUX_IN', (35.0, 40.0)), ('PGD', (36.0, 2.7)), ('OUT', (36.0, 4.45)), ('GATE', (36.0, 5.9)),
+                      ('CTRL_N', (57.7, 30.0)), ('CTRL_P', (58.9, 22.0))]:
+        ax.text(x, y, t, fontsize=10, color='#444444', style='italic', zorder=9, rotation=90 if t.startswith('CTRL') else 0)
+    fig.savefig(sys.argv[4], dpi=70); print('saved', sys.argv[4])

@@ -27,3 +27,8 @@
 - `aux_front_plan.py aux_cur.json 输出.png`：10-27 版辅助板防反接 + LM5069 + 放行的现状与建议摆放（y 向上），图 `辅助板前端布局规划_20261031.png`。说明见 `docs/辅助板前端布局规划_2026-10-31.md`。
 - `aux_place_plan.py aux_cur.json 输出.json`：辅助板前端 + 放行电路建议坐标，查重叠 / 间距 / 禁布；`aux_place_fig.py aux_cur.json new.json 输出.png [位号图.png]` 出图 `辅助板前端摆放_20261101.png`，第 4 个参数另出全位号放大图 `辅助板前端摆放_位号_20261101.png`（2026-11-01）。
 - `aux_out_plan.py aux_cur.json 输出.json`：辅助板二次侧（±15 V 输出、控制卡支路、J2–J4）建议坐标和顶层铜皮示意，查焊盘 / 铜皮 / 过孔间距、本体、禁布、连接；`aux_out_fig.py aux_cur.json 输出.json 输出.png` 出图 `辅助板二次侧摆放_20261101.png`（画图要用装了 matplotlib 的 `/usr/bin/python3`，2026-11-01）。
+
+## 辅助板终审（2026-11-01，指纹 `5a4c1c977e82`，`docs/辅助板终审_2026-11-01.md`）
+- `aux_gerber.py Gerber目录 lay.pkl`：两层 Gerber 渲染（板框原点 0, 0）。`aux_snap.py audit-before.json snap.pkl`：从 Codex 审核快照取焊盘 / 过孔 / 导线（mil → mm，y 向上；只有通孔焊盘算孔）。
+- `aux_conn.py snap.pkl lay.pkl`：连通、短路、异网间距 < 0.3 mm、收缩 0.075 / 0.1 mm 连通。`aux_neck.py snap.pkl lay.pkl 网络:焊盘1,焊盘2 ...`：主电流路径最窄颈。
+- `aux_view.py snap.pkl lay.pkl 输出.png x0 y0 x1 y1 [1|2|both]`：分区查看；`aux_final_fig.py` 出 `辅助板终审_20261101.png`。都用 `/usr/bin/python3`（有 shapely / matplotlib）。

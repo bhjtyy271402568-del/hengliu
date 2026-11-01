@@ -1,6 +1,6 @@
 import sys,collections
 sys.path.insert(0,'/home/user/hengliu/tools'); import epro_snapshot as E
-docs=E.load(sys.argv[1]); b=[x for x in E.boards(docs) if '布局草案' in x['title']][0]
+docs=E.load(sys.argv[1]); b=[x for x in E.boards(docs) ][0]
 S=E.sch_nets(docs,b['pages']); P=E.pad_nets(docs,b['pcbs'][0])
 print('sch pins',len(S),'pcb pads',len(P))
 onlyS=sorted(set(S)-set(P),key=E.natural); onlyP=sorted(set(P)-set(S),key=E.natural)

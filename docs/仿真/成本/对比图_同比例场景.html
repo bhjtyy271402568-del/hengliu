@@ -1,48 +1,66 @@
-<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#EEF0F2}canvas{display:block}</style>
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:transparent}canvas{display:block}</style>
 <script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script></head><body>
 <script type="module">
 import * as THREE from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 const W=2400,H=1000;
-const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setSize(W,H);r.toneMapping=THREE.ACESFilmicToneMapping;r.outputColorSpace=THREE.SRGBColorSpace;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;document.body.appendChild(r.domElement);
-const s=new THREE.Scene();s.background=new THREE.Color('#EEF0F2');
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true,alpha:true});r.setSize(W,H);r.setClearColor(0x000000,0);
+r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;r.outputColorSpace=THREE.SRGBColorSpace;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;document.body.appendChild(r.domElement);
+const s=new THREE.Scene();
 s.environment=new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(),0.04).texture;
-const key=new THREE.DirectionalLight(0xffffff,1.5);key.position.set(-400,-700,900);key.castShadow=true;key.shadow.mapSize.set(4096,4096);key.shadow.bias=-0.0004;key.shadow.normalBias=0.6;
-Object.assign(key.shadow.camera,{left:-700,right:700,top:700,bottom:-700,near:10,far:3000});key.target.position.set(330,40,0);s.add(key,key.target);
-const gnd=new THREE.Mesh(new THREE.PlaneGeometry(6000,6000),new THREE.ShadowMaterial({opacity:0.16}));gnd.position.z=-53;gnd.receiveShadow=true;s.add(gnd);
+const key=new THREE.DirectionalLight(0xffffff,1.3);key.position.set(-500,-600,1100);key.castShadow=true;key.shadow.mapSize.set(4096,4096);key.shadow.radius=6;key.shadow.bias=-0.0004;key.shadow.normalBias=0.6;
+Object.assign(key.shadow.camera,{left:-800,right:800,top:800,bottom:-800,near:10,far:3000});key.target.position.set(350,30,0);s.add(key,key.target);
+const gnd=new THREE.Mesh(new THREE.PlaneGeometry(8000,8000),new THREE.ShadowMaterial({opacity:0.13}));gnd.position.z=-53;gnd.receiveShadow=true;s.add(gnd);
 const Z0=-53;
-function box(x,y,w,d,h,col,met=0.5,rough=0.45){const m=new THREE.Mesh(new THREE.BoxGeometry(w,d,h),new THREE.MeshStandardMaterial({color:col,metalness:met,roughness:rough}));m.position.set(x+w/2,y+d/2,Z0+h/2);m.castShadow=m.receiveShadow=true;s.add(m);return m;}
-function part(x,y,z,w,d,h,col,met=0.3,rough=0.5){const m=new THREE.Mesh(new THREE.BoxGeometry(w,d,h),new THREE.MeshStandardMaterial({color:col,metalness:met,roughness:rough}));m.position.set(x+w/2,y+d/2,z+h/2);m.castShadow=true;s.add(m);return m;}
-function knob(x,y,z,rad,col){const g=new THREE.CylinderGeometry(rad,rad,8,32);const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:col,metalness:0.4,roughness:0.4}));m.position.set(x,y-4,z);m.castShadow=true;s.add(m);}
-// 1) 台式激光恒流源（示意，按常见 300 × 250 × 120 mm）
-const X1=330,Y1=40;
-box(X1,Y1,300,250,120,'#3a3f46',0.4,0.5);
-part(X1+6,Y1-2,Z0+8,288,2,104,'#d9dcdf',0.6,0.4);           // 前面板
-part(X1+24,Y1-4,Z0+62,110,2,34,'#1d2b22',0.1,0.3);          // 显示屏
-part(X1+30,Y1-5,Z0+70,98,1,18,'#48d27a',0.0,0.6);
-knob(X1+190,Y1-2,Z0+79,14,'#2b2f35');knob(X1+240,Y1-2,Z0+79,14,'#2b2f35');
-part(X1+24,Y1-4,Z0+22,40,2,20,'#c0392b',0.2,0.4);            // 开关
-part(X1+200,Y1-6,Z0+20,70,4,26,'#202327',0.3,0.5);          // 输出端子
-// 2) 振镜 ±15 V 开关电源（199 × 98 × 38 mm，金升阳 LM150 类外形）
-const X2=X1+20;
-box(X2,-150,199,98,38,'#b9bec4',0.7,0.35);
-part(X2+199,-138,Z0+6,14,74,22,'#2a2d31');                   // 端子排
-// 3) 控制卡 15 V 开关电源（99 × 82 × 30 mm，LRS-50 类外形）
-const X3=X2+250;
-box(X3,-142,99,82,30,'#b9bec4',0.7,0.35);
-part(X3+99,-134,Z0+5,12,66,18,'#2a2d31');
+const CLAY=new THREE.MeshStandardMaterial({color:'#C3C7CC',metalness:0,roughness:0.75});
+const CLAY2=new THREE.MeshStandardMaterial({color:'#A7ADB4',metalness:0,roughness:0.8});
+const CLAY3=new THREE.MeshStandardMaterial({color:'#8C9299',metalness:0,roughness:0.85});
+const add=(g,m,x,y,z)=>{const o=new THREE.Mesh(g,m);o.position.set(x,y,z);o.castShadow=true;o.receiveShadow=true;s.add(o);return o;};
+const rbox=(w,d,h,rad,m,x,y,z)=>add(new RoundedBoxGeometry(w,d,h,4,rad),m,x+w/2,y+d/2,z+h/2);
+const cyl=(rad,len,m,x,y,z,axis='y')=>{const o=add(new THREE.CylinderGeometry(rad,rad,len,40),m,x,y,z);if(axis==='z')o.rotation.x=Math.PI/2;return o;};
+// 1) 台式激光恒流源（示意 300 × 250 × 120）
+const X1=330,Y1=60;
+rbox(300,250,120,7,CLAY,X1,Y1,Z0+6);
+for(const [fx,fy] of [[20,20],[280,20],[20,230],[280,230]])cyl(9,6,CLAY3,X1+fx,Y1+fy,Z0+3,'z');
+rbox(286,4,106,3,CLAY2,X1+7,Y1-2,Z0+13);                       // 前面板
+rbox(118,4,40,3,CLAY3,X1+26,Y1-4,Z0+68);                       // 显示窗
+for(const kx of [196,250]){cyl(15,10,CLAY3,X1+kx,Y1-6,Z0+86);cyl(11,6,CLAY,X1+kx,Y1-13,Z0+86);}
+rbox(30,6,18,2,CLAY3,X1+26,Y1-5,Z0+26);                        // 电源开关
+for(const bx of [206,244]){cyl(8,10,CLAY3,X1+bx,Y1-7,Z0+36);cyl(4,8,CLAY,X1+bx,Y1-14,Z0+36);}  // 输出接线柱
+for(let i=0;i<14;i++)rbox(4,90,2,1,CLAY3,X1+60+i*13,Y1+120,Z0+125.2);   // 顶部散热缝
+// 开关电源：网孔外壳 + 端子排
+function psu(x,y,w,d,h,termSide){
+  rbox(w,d,h,2.5,CLAY,x,y,Z0);
+  const n=Math.floor((w-24)/6),m=Math.floor((d-16)/6);
+  const g=new THREE.CylinderGeometry(1.6,1.6,1,16);g.rotateX(Math.PI/2);
+  const im=new THREE.InstancedMesh(g,CLAY3,n*m);let k=0;const M=new THREE.Matrix4();
+  for(let i=0;i<n;i++)for(let j=0;j<m;j++){M.makeTranslation(x+14+i*6+(j%2)*3,y+8+j*6+3,Z0+h+0.2);im.setMatrixAt(k++,M);} s.add(im);
+  const tw=14;rbox(tw,d-16,h*0.62,1.5,CLAY3,x+w,y+8,Z0+2);
+  const nt=Math.floor((d-20)/9);for(let i=0;i<nt;i++)cyl(2.6,3,CLAY,x+w+tw/2,y+12+i*9+4,Z0+2+h*0.62+1,'z');
+}
+const X2=X1+10,Y2=-150; psu(X2,Y2,199,98,38);
+const X3=X2+245,Y3=-140; psu(X3,Y3,99,82,30);
+// 电源线
+const CORD=new THREE.MeshStandardMaterial({color:'#3B4048',metalness:0.1,roughness:0.6});
+function cord(pts){const c=new THREE.CatmullRomCurve3(pts.map(p=>new THREE.Vector3(...p)));const o=new THREE.Mesh(new THREE.TubeGeometry(c,80,3.2,12,false),CORD);o.castShadow=true;s.add(o);}
+cord([[X1+280,Y1+250,Z0+30],[X1+300,Y1+330,Z0+4],[X1+420,Y1+420,Z0+3.2],[X1+560,Y1+460,Z0+3.2]]);
+cord([[X2,Y2+50,Z0+15],[X2-40,Y2+70,Z0+3.2],[X2-60,Y2+170,Z0+3.2],[X2-30,Y2+300,Z0+3.2]]);
+cord([[X3+50,Y3+82,Z0+12],[X3+70,Y3+150,Z0+3.2],[X3+150,Y3+230,Z0+3.2],[X3+300,Y3+300,Z0+3.2]]);
+// 我们的电池线（从左侧电池口出来）
+const BAT=new THREE.MeshStandardMaterial({color:'#2B2F35',metalness:0.1,roughness:0.55});
+{const c=new THREE.CatmullRomCurve3([[-12,77,7],[-60,90,-20],[-110,140,Z0+3.2],[-150,260,Z0+3.2]].map(p=>new THREE.Vector3(...p)));const o=new THREE.Mesh(new THREE.TubeGeometry(c,80,4,12,false),BAT);o.castShadow=true;s.add(o);}
 new GLTFLoader().parse(await (await fetch('B1_model.wasm')).arrayBuffer(),'',g=>{
   const m=g.scene;m.scale.setScalar(1000);s.add(m);
   m.traverse(o=>{if(!o.isMesh)return;o.castShadow=o.receiveShadow=true;let p=o,nm='';while(p){if(/^(B1_|INK_)/.test(p.name)){nm=p.name;break;}p=p.parent;}
-    const mt=o.material=o.material.clone();if(/B1_(TRAY|LID)/.test(nm)){mt.metalness=0.7;mt.roughness=0.35;}else if(/^INK_/.test(nm)){mt.color.set('#e6e8ea');o.castShadow=false;}});
-  const cam=new THREE.OrthographicCamera(-W/2,W/2,H/2,-H/2,1,5000);cam.up.set(0,0,1);
-  const tgt=new THREE.Vector3(340,40,25);cam.position.copy(tgt).add(new THREE.Vector3(-0.55,-1,0.55).normalize().multiplyScalar(2000));cam.lookAt(tgt);
-  cam.zoom=W/1200;cam.updateProjectionMatrix();
+    const mt=o.material=o.material.clone();if(/B1_(TRAY|LID)/.test(nm)){mt.metalness=0.75;mt.roughness=0.32;}else if(/B1_(FRONT|REAR)/.test(nm)){mt.metalness=0.5;mt.roughness=0.45;}else if(/^INK_/.test(nm)){mt.color.set('#e6e8ea');o.castShadow=false;}});
+  const cam=new THREE.OrthographicCamera(-W/2,W/2,H/2,-H/2,1,6000);cam.up.set(0,0,1);
+  const tgt=new THREE.Vector3(320,40,30);cam.position.copy(tgt).add(new THREE.Vector3(-0.42,-1,0.5).normalize().multiplyScalar(2500));cam.lookAt(tgt);
+  cam.zoom=W/1250;cam.updateProjectionMatrix();
   r.render(s,cam);
-  // 把关键点投影成像素坐标，给幻灯片放标签用
   const P=v=>{const q=new THREE.Vector3(...v).project(cam);return [Math.round((q.x+1)/2*W),Math.round((1-q.y)/2*H)];};
-  window.__pts={ours:P([64,-15,84]),cc:P([X1+150,Y1+125,Z0+120]),galvo:P([X2+100,-150,Z0]),card:P([X3+50,-142,Z0]),oursB:P([64,-15,-53]),ccB:P([X1+150,Y1,Z0])};
+  window.__pts={oursL:P([-8,-15,-53]),oursR:P([136,-15,-53]),oursF:P([64,-15,-53]),ccF:P([X1+150,Y1,Z0]),ccL:P([X1,Y1,Z0]),galvoF:P([X2+100,Y2,Z0]),cardF:P([X3+50,Y3,Z0]),cardR:P([X3+113,Y3,Z0])};
   window.__done=1;
 });
 </script></body></html>

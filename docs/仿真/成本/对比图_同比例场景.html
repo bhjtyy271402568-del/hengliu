@@ -1,0 +1,48 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#EEF0F2}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./three/build/three.module.js","three/addons/":"./three/examples/jsm/"}}</script></head><body>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+const W=2400,H=1000;
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});r.setSize(W,H);r.toneMapping=THREE.ACESFilmicToneMapping;r.outputColorSpace=THREE.SRGBColorSpace;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;document.body.appendChild(r.domElement);
+const s=new THREE.Scene();s.background=new THREE.Color('#EEF0F2');
+s.environment=new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(),0.04).texture;
+const key=new THREE.DirectionalLight(0xffffff,1.5);key.position.set(-400,-700,900);key.castShadow=true;key.shadow.mapSize.set(4096,4096);key.shadow.bias=-0.0004;key.shadow.normalBias=0.6;
+Object.assign(key.shadow.camera,{left:-700,right:700,top:700,bottom:-700,near:10,far:3000});key.target.position.set(330,40,0);s.add(key,key.target);
+const gnd=new THREE.Mesh(new THREE.PlaneGeometry(6000,6000),new THREE.ShadowMaterial({opacity:0.16}));gnd.position.z=-53;gnd.receiveShadow=true;s.add(gnd);
+const Z0=-53;
+function box(x,y,w,d,h,col,met=0.5,rough=0.45){const m=new THREE.Mesh(new THREE.BoxGeometry(w,d,h),new THREE.MeshStandardMaterial({color:col,metalness:met,roughness:rough}));m.position.set(x+w/2,y+d/2,Z0+h/2);m.castShadow=m.receiveShadow=true;s.add(m);return m;}
+function part(x,y,z,w,d,h,col,met=0.3,rough=0.5){const m=new THREE.Mesh(new THREE.BoxGeometry(w,d,h),new THREE.MeshStandardMaterial({color:col,metalness:met,roughness:rough}));m.position.set(x+w/2,y+d/2,z+h/2);m.castShadow=true;s.add(m);return m;}
+function knob(x,y,z,rad,col){const g=new THREE.CylinderGeometry(rad,rad,8,32);const m=new THREE.Mesh(g,new THREE.MeshStandardMaterial({color:col,metalness:0.4,roughness:0.4}));m.position.set(x,y-4,z);m.castShadow=true;s.add(m);}
+// 1) 台式激光恒流源（示意，按常见 300 × 250 × 120 mm）
+const X1=330,Y1=40;
+box(X1,Y1,300,250,120,'#3a3f46',0.4,0.5);
+part(X1+6,Y1-2,Z0+8,288,2,104,'#d9dcdf',0.6,0.4);           // 前面板
+part(X1+24,Y1-4,Z0+62,110,2,34,'#1d2b22',0.1,0.3);          // 显示屏
+part(X1+30,Y1-5,Z0+70,98,1,18,'#48d27a',0.0,0.6);
+knob(X1+190,Y1-2,Z0+79,14,'#2b2f35');knob(X1+240,Y1-2,Z0+79,14,'#2b2f35');
+part(X1+24,Y1-4,Z0+22,40,2,20,'#c0392b',0.2,0.4);            // 开关
+part(X1+200,Y1-6,Z0+20,70,4,26,'#202327',0.3,0.5);          // 输出端子
+// 2) 振镜 ±15 V 开关电源（199 × 98 × 38 mm，金升阳 LM150 类外形）
+const X2=X1+20;
+box(X2,-150,199,98,38,'#b9bec4',0.7,0.35);
+part(X2+199,-138,Z0+6,14,74,22,'#2a2d31');                   // 端子排
+// 3) 控制卡 15 V 开关电源（99 × 82 × 30 mm，LRS-50 类外形）
+const X3=X2+250;
+box(X3,-142,99,82,30,'#b9bec4',0.7,0.35);
+part(X3+99,-134,Z0+5,12,66,18,'#2a2d31');
+new GLTFLoader().parse(await (await fetch('B1_model.wasm')).arrayBuffer(),'',g=>{
+  const m=g.scene;m.scale.setScalar(1000);s.add(m);
+  m.traverse(o=>{if(!o.isMesh)return;o.castShadow=o.receiveShadow=true;let p=o,nm='';while(p){if(/^(B1_|INK_)/.test(p.name)){nm=p.name;break;}p=p.parent;}
+    const mt=o.material=o.material.clone();if(/B1_(TRAY|LID)/.test(nm)){mt.metalness=0.7;mt.roughness=0.35;}else if(/^INK_/.test(nm)){mt.color.set('#e6e8ea');o.castShadow=false;}});
+  const cam=new THREE.OrthographicCamera(-W/2,W/2,H/2,-H/2,1,5000);cam.up.set(0,0,1);
+  const tgt=new THREE.Vector3(340,40,25);cam.position.copy(tgt).add(new THREE.Vector3(-0.55,-1,0.55).normalize().multiplyScalar(2000));cam.lookAt(tgt);
+  cam.zoom=W/1200;cam.updateProjectionMatrix();
+  r.render(s,cam);
+  // 把关键点投影成像素坐标，给幻灯片放标签用
+  const P=v=>{const q=new THREE.Vector3(...v).project(cam);return [Math.round((q.x+1)/2*W),Math.round((1-q.y)/2*H)];};
+  window.__pts={ours:P([64,-15,84]),cc:P([X1+150,Y1+125,Z0+120]),galvo:P([X2+100,-150,Z0]),card:P([X3+50,-142,Z0]),oursB:P([64,-15,-53]),ccB:P([X1+150,Y1,Z0])};
+  window.__done=1;
+});
+</script></body></html>

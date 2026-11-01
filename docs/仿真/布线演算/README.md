@@ -25,3 +25,4 @@
 
 ## 辅助板前端布局规划（2026-10-31）
 - `aux_front_plan.py aux_cur.json 输出.png`：10-27 版辅助板防反接 + LM5069 + 放行的现状与建议摆放（y 向上），图 `辅助板前端布局规划_20261031.png`。说明见 `docs/辅助板前端布局规划_2026-10-31.md`。
+- `aux_place_plan.py aux_cur.json 输出.json`：辅助板前端 + 放行电路建议坐标，查重叠 / 间距 / 禁布；`aux_place_fig.py aux_cur.json new.json 输出.png` 出图 `辅助板前端摆放_20261101.png`（2026-11-01）。

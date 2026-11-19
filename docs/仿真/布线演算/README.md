@@ -32,3 +32,11 @@
 - `aux_gerber.py Gerber目录 lay.pkl`：两层 Gerber 渲染（板框原点 0, 0）。`aux_snap.py audit-before.json snap.pkl`：从 Codex 审核快照取焊盘 / 过孔 / 导线（mil → mm，y 向上；只有通孔焊盘算孔）。
 - `aux_conn.py snap.pkl lay.pkl`：连通、短路、异网间距 < 0.3 mm、收缩 0.075 / 0.1 mm 连通。`aux_neck.py snap.pkl lay.pkl 网络:焊盘1,焊盘2 ...`：主电流路径最窄颈。
 - `aux_view.py snap.pkl lay.pkl 输出.png x0 y0 x1 y1 [1|2|both]`：分区查看；`aux_final_fig.py` 出 `辅助板终审_20261101.png`。都用 `/usr/bin/python3`（有 shapely / matplotlib）。
+
+## 辅助板 1 oz 复核（2026-11-19，指纹 `426ce3d71f55`，`docs/辅助板复核_2026-11-19.md`）
+- 先 `aux_gerber.py Gerber目录 lay.pkl`（PYTHONPATH 指向本目录）。都用 `/usr/bin/python3.13`（有 shapely / matplotlib）。
+- `aux1119_fpcheck.py Gerber目录 lay.pkl 输出.pkl`：按飞针文件（焊盘中心 + 网络）+ 钻孔 + Gerber 铜查连通、短路。
+- `aux1119_neck.py Gerber目录 lay.pkl 网络:引脚A,引脚B ...`：两点之间沿网络铜的最窄颈（二分收缩）。
+- `aux1119_bridge.py Gerber目录 lay.pkl 网络...`：每个网络的铜块和换层孔数（查“只靠一个孔换层”）。
+- `aux1119_iso.py Gerber目录 lay.pkl`：一次侧 / 二次侧铜最小间距。`aux1119_padvia.py Gerber目录`：钢网开口里的过孔（盘中孔）。
+- `aux1119_view.py lay.pkl 飞针.json 输出.png [x0 y0 x1 y1]`：两层分区查看。

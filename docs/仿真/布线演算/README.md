@@ -40,3 +40,4 @@
 - `aux1119_bridge.py Gerber目录 lay.pkl 网络...`：每个网络的铜块和换层孔数（查“只靠一个孔换层”）。
 - `aux1119_iso.py Gerber目录 lay.pkl`：一次侧 / 二次侧铜最小间距。`aux1119_padvia.py Gerber目录`：钢网开口里的过孔（盘中孔）。
 - `aux1119_view.py lay.pkl 飞针.json 输出.png [x0 y0 x1 y1]`：两层分区查看。
+- `aux1121_diff.py 旧lay.pkl 新lay.pkl 新飞针.json 输出.png`：两版辅助板铜对比（灰 = 新版，绿 = 新增，红框 = 删掉），2026-11-21 用于 R2 复核。
